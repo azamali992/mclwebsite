@@ -8,7 +8,10 @@ import Footer from './components/Footer';
 import About from './pages/About';
 import InfrastructurePage from './pages/Infrastructure';
 import MgpsSolutionsPage from './pages/MgpsSolutionsPage';
+import Products from './pages/Products';
 import Contact from './pages/Contact';
+import Careers from './pages/Careers';
+import NotFound from './pages/NotFound';
 import AboutSection1 from './components/AboutSection1';
 import AboutSection2 from './components/AboutSection2';
 import AboutSection3 from './components/AboutSection3';
@@ -36,7 +39,10 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/infrastructure" element={<InfrastructurePage />} />
         <Route path="/mgps-solutions" element={<MgpsSolutionsPage />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/careers" element={<Careers />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>

@@ -1,10 +1,12 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import hero01 from '../assets/hero01.JPG';
 import hero02 from '../assets/hero02.JPG';
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const navigate = useNavigate();
 
   const slides = [
     {
@@ -77,13 +79,15 @@ export default function Hero() {
 
       <button 
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black/20 hover:bg-black/60 text-white p-3 rounded-full transition-all hover:scale-110 hidden sm:block backdrop-blur-sm"
+        aria-label="Previous slide"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black/20 hover:bg-black/60 text-white p-3 rounded-full transition-all hover:scale-110 hidden sm:block backdrop-blur-sm focus:ring-2 focus:ring-white focus:outline-none"
       >
         <FaChevronLeft size={20} />
       </button>
       <button 
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black/20 hover:bg-black/60 text-white p-3 rounded-full transition-all hover:scale-110 hidden sm:block backdrop-blur-sm"
+        aria-label="Next slide"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black/20 hover:bg-black/60 text-white p-3 rounded-full transition-all hover:scale-110 hidden sm:block backdrop-blur-sm focus:ring-2 focus:ring-white focus:outline-none"
       >
         <FaChevronRight size={20} />
       </button>
@@ -93,7 +97,8 @@ export default function Hero() {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`transition-all duration-300 rounded-full ${
+            aria-label={`Go to slide ${index + 1}`}
+            className={`transition-all duration-300 rounded-full focus:ring-2 focus:ring-mclRed focus:outline-none ${
               index === currentSlide ? 'w-10 bg-mclRed shadow-lg shadow-red-900/40' : 'w-3 bg-white/40 hover:bg-white/80'
             } h-3`}
           />

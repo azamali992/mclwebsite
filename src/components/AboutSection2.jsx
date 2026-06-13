@@ -70,6 +70,7 @@ const features = [
 export default function AboutSection2() {
   const [locations, setLocations] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch(xlsxUrl)
@@ -101,9 +102,12 @@ export default function AboutSection2() {
           }
         }
         setLocations(parsed);
+        setError(null);
       })
       .catch(err => {
         console.error('Excel parse error:', err);
+        setError('Unable to load map data. Please try again later or contact us.');
+        setLocations([]);
       })
       .finally(() => setLoading(false));
   }, []);
@@ -143,11 +147,17 @@ export default function AboutSection2() {
         {/* Right Column – Map */}
         <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 z-10">
           {loading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-[#0B1A28] z-[1001]">
-              <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#0B1A28] z-[1001]">
+              <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin mb-3" />
+              <p className="text-white text-sm">Loading map data...</p>
             </div>
           )}
-          {!loading && (
+          {error && (
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#0B1A28] z-[1001]">
+              <p className="text-red-400 text-sm text-center px-4">{error}</p>
+            </div>
+          )}
+          {!loading && !error && (
             <MapContainer
               center={[30.3753, 69.3451]}
               zoom={5}

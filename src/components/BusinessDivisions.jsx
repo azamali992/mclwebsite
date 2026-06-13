@@ -8,7 +8,7 @@ function DivisionCard({ div, index }) {
   return (
     <div 
       ref={ref}
-      className={`flex flex-col bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden group hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 ${
+      className={`flex flex-col bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden group hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-mclRed ${
         inView ? 'animate-fade-in-up' : 'opacity-0'
       }`}
       style={{ animationDelay: `${index * 0.1}s` }}
@@ -39,7 +39,7 @@ function DivisionCard({ div, index }) {
           {div.desc}
         </p>
         
-        <button className="text-xs font-bold text-mclRed uppercase tracking-wider flex items-center gap-1 group-hover:gap-3 transition-all">
+        <button aria-label={`Explore ${div.title}`} className="text-xs font-bold text-mclRed uppercase tracking-wider flex items-center gap-1 group-hover:gap-3 transition-all focus:ring-2 focus:ring-mclRed focus:outline-none rounded px-2 py-1">
           Explore <FaArrowRight className="group-hover:translate-x-0.5 transition-transform" />
         </button>
       </div>

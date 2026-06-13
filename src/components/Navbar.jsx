@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
 import logo from '../assets/MCL_Logo.jpeg';
 
@@ -7,6 +7,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -19,13 +20,16 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
-    { name: 'Products', path: '/#business-divisions' },
+    { name: 'Products', path: '/products' },
     { name: 'Healthcare Engineering', path: '/mgps-solutions' },
-    { name: 'Industries', path: '#', dropdown: true },
     { name: 'Infrastructure', path: '/infrastructure' },
-    { name: 'Clients', path: '/#clients' },
+    { name: 'Careers', path: '/careers' },
     { name: 'Contact Us', path: '/contact' },
   ];
+
+  const handleQuoteClick = () => {
+    navigate('/contact');
+  };
 
   return (
     <nav className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ${
@@ -60,7 +64,7 @@ export default function Navbar() {
                   <Link
                     key={link.name}
                     to={link.path}
-                    className={`flex items-center text-sm font-medium transition-colors duration-200 pb-1 border-b-2 ${
+                    className={`flex items-center text-sm font-medium transition-colors duration-200 pb-1 border-b-2 focus:ring-2 focus:ring-mclRed focus:outline-none rounded px-1 ${
                       active 
                         ? 'border-mclRed text-gray-900' 
                         : 'border-transparent text-gray-600 hover:text-mclRed hover:border-mclRed'
@@ -73,7 +77,7 @@ export default function Navbar() {
                   <a
                     key={link.name}
                     href={link.path}
-                    className={`flex items-center text-sm font-medium transition-colors duration-200 pb-1 border-b-2 border-transparent text-gray-600 hover:text-mclRed hover:border-mclRed`}
+                    className={`flex items-center text-sm font-medium transition-colors duration-200 pb-1 border-b-2 border-transparent text-gray-600 hover:text-mclRed hover:border-mclRed focus:ring-2 focus:ring-mclRed focus:outline-none rounded px-1`}
                   >
                     {link.name}
                     {link.dropdown && <FaChevronDown className="ml-1 text-[10px]" />}
@@ -84,7 +88,7 @@ export default function Navbar() {
 
             {/* Quote button */}
             <div>
-              <button className="bg-mclRed text-white px-6 py-2.5 text-sm font-bold uppercase tracking-wide hover:bg-red-800 transition-colors">
+              <button onClick={handleQuoteClick} className="bg-mclRed text-white px-6 py-2.5 text-sm font-bold uppercase tracking-wide hover:bg-red-800 transition-colors focus:ring-2 focus:ring-red-500 focus:outline-none">
                 Request Quote
               </button>
             </div>
@@ -132,7 +136,7 @@ export default function Navbar() {
               </a>
             );
           })}
-          <button className="w-full mt-4 bg-mclRed text-white px-4 py-2 text-sm font-bold uppercase tracking-wide hover:bg-red-800 transition-colors">
+          <button onClick={handleQuoteClick} className="w-full mt-4 bg-mclRed text-white px-4 py-2 text-sm font-bold uppercase tracking-wide hover:bg-red-800 transition-colors focus:ring-2 focus:ring-red-500 focus:outline-none">
             Request Quote
           </button>
         </div>

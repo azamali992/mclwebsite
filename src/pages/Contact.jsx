@@ -1,15 +1,62 @@
 import { useState } from 'react';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaPaperPlane, FaCheckCircle } from 'react-icons/fa';
 
+// Simple email service - in production, use EmailJS or a backend API
+const sendEmail = async (formData) => {
+  try {
+    // This is a placeholder. In production, integrate with:
+    // - EmailJS (https://www.emailjs.com/)
+    // - SendGrid API
+    // - Your own backend endpoint
+    
+    // Example with EmailJS:
+    // import emailjs from '@emailjs/browser';
+    // await emailjs.send(SERVICE_ID, TEMPLATE_ID, formData);
+    
+    // For now, simulate success
+    console.log('Form data:', formData);
+    return { success: true };
+  } catch (error) {
+    console.error('Email send error:', error);
+    return { success: false, error };
+  }
+};
+
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', subject: 'General Inquiry', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+    
+    try {
+      // Validate form
+      if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+        setError('Please fill in all required fields');
+        setLoading(false);
+        return;
+      }
+
+      // Send email
+      const result = await sendEmail(form);
+      
+      if (result.success) {
+        setSubmitted(true);
+        setForm({ name: '', email: '', phone: '', subject: 'General Inquiry', message: '' });
+      } else {
+        setError('Failed to send message. Please try again or contact us directly.');
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -42,80 +89,90 @@ export default function Contact() {
                   <h3 className="text-green-800 font-bold text-lg mb-1">Message Sent!</h3>
                   <p className="text-green-600 text-sm">Thank you for reaching out. We'll contact you shortly.</p>
                   <button
-                    onClick={() => { setSubmitted(false); setForm({ name: '', email: '', phone: '', message: '' }); }}
-                    className="mt-6 text-sm text-mclRed font-semibold underline hover:no-underline"
+                    onClick={() => { setSubmitted(false); setForm({ name: '', email: '', phone: '', subject: 'General Inquiry', message: '' }); }}
+                    className="mt-6 text-sm text-mclRed font-semibold underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-mclRed rounded px-2 py-1"
                   >
                     Send another message
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  {error && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                      <p className="text-red-700 text-sm">{error}</p>
+                    </div>
+                  )}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">Full Name *</label>
+                      <label htmlFor="name" className="block text-xs font-semibold text-gray-700 mb-1.5"><span className="text-mclRed">*</span> Full Name</label>
                       <input
+                        id="name"
                         type="text"
                         name="name"
                         value={form.name}
                         onChange={handleChange}
                         required
                         placeholder="Your name"
-                        className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed transition-colors bg-white"
+                        className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">Email Address *</label>
+                      <label htmlFor="email" className="block text-xs font-semibold text-gray-700 mb-1.5"><span className="text-mclRed">*</span> Email Address</label>
                       <input
+                        id="email"
                         type="email"
                         name="email"
                         value={form.email}
                         onChange={handleChange}
                         required
                         placeholder="your@email.com"
-                        className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed transition-colors bg-white"
+                        className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white"
                       />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">Phone Number</label>
+                      <label htmlFor="phone" className="block text-xs font-semibold text-gray-700 mb-1.5">Phone Number</label>
                       <input
+                        id="phone"
                         type="tel"
                         name="phone"
                         value={form.phone}
                         onChange={handleChange}
                         placeholder="+92 300 1234567"
-                        className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed transition-colors bg-white"
+                        className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">Subject</label>
-                      <select className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed transition-colors bg-white text-gray-500">
-                        <option>General Inquiry</option>
-                        <option>Product Quote</option>
-                        <option>Technical Support</option>
-                        <option>Partnership</option>
-                        <option>Other</option>
+                      <label htmlFor="subject" className="block text-xs font-semibold text-gray-700 mb-1.5">Subject</label>
+                      <select id="subject" name="subject" value={form.subject} onChange={handleChange} className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white text-gray-700">
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Product Quote">Product Quote</option>
+                        <option value="Technical Support">Technical Support</option>
+                        <option value="Partnership">Partnership</option>
+                        <option value="Other">Other</option>
                       </select>
                     </div>
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-gray-700 mb-1.5">Message *</label>
+                    <label htmlFor="message" className="block text-xs font-semibold text-gray-700 mb-1.5"><span className="text-mclRed">*</span> Message</label>
                     <textarea
+                      id="message"
                       name="message"
                       value={form.message}
                       onChange={handleChange}
                       required
                       rows={5}
                       placeholder="Tell us about your requirement..."
-                      className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed transition-colors bg-white resize-none"
+                      className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white resize-none"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="bg-mclRed hover:bg-red-800 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all hover:shadow-lg active:scale-95 inline-flex items-center gap-2 shadow-md"
+                    disabled={loading}
+                    className="bg-mclRed hover:bg-red-800 disabled:bg-gray-400 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all hover:shadow-lg active:scale-95 inline-flex items-center gap-2 shadow-md focus:ring-2 focus:ring-red-500 focus:outline-none rounded"
                   >
-                    <FaPaperPlane /> Send Message
+                    <FaPaperPlane /> {loading ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               )}

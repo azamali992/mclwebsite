@@ -1,10 +1,54 @@
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGlobe, FaFacebook, FaLinkedinIn, FaYoutube, FaWhatsapp } from 'react-icons/fa';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import MclLogo from '../assets/MCL_Logo.jpeg';
 
 export default function Footer() {
-  const quickLinks1 = ['Home', 'About Us', 'Products', 'Healthcare Engineering', 'Industries'];
-  const quickLinks2 = ['Infrastructure', 'Clients', 'Certifications', 'Careers', 'Contact Us'];
-  const products = ['Industrial Gases', 'Medical Gases', 'Specialty Gases', 'LPG', 'Mixture Gases'];
+  const navigate = useNavigate();
+  const [newsletter, setNewsletter] = useState('');
+
+  const handleQuickLinkClick = (link) => {
+    switch(link) {
+      case 'Home':
+        navigate('/');
+        break;
+      case 'About Us':
+        navigate('/about');
+        break;
+      case 'Products':
+        navigate('/#business-divisions');
+        break;
+      case 'Healthcare Engineering':
+        navigate('/mgps-solutions');
+        break;
+      case 'Infrastructure':
+        navigate('/infrastructure');
+        break;
+      case 'Contact Us':
+        navigate('/contact');
+        break;
+      case 'Certifications':
+      case 'Careers':
+        // These pages don't exist yet, could navigate to about or contact
+        navigate('/contact');
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleProductClick = () => {
+    navigate('/#business-divisions');
+  };
+
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    if (newsletter.trim()) {
+      console.log('Newsletter signup:', newsletter);
+      setNewsletter('');
+      alert('Thank you for subscribing!');
+    }
+  };
 
   return (
     <>
@@ -23,13 +67,13 @@ export default function Footer() {
             <h4 className="font-bold uppercase tracking-wide text-sm mb-4">Quick Links</h4>
             <div className="grid grid-cols-2 gap-2 text-xs opacity-90">
               <div className="flex flex-col space-y-2">
-                {quickLinks1.map((link) => (
-                  <a key={link} href="#" className="hover:opacity-100 transition-all opacity-80 hover:translate-x-0.5">{link}</a>
+                {['Home', 'About Us', 'Products', 'Healthcare Engineering'].map((link) => (
+                  <button key={link} onClick={() => handleQuickLinkClick(link)} className="hover:opacity-100 transition-all opacity-80 hover:translate-x-0.5 text-left focus:outline-none focus:ring-2 focus:ring-white rounded px-1">{link}</button>
                 ))}
               </div>
               <div className="flex flex-col space-y-2">
-                {quickLinks2.map((link) => (
-                  <a key={link} href="#" className="hover:opacity-100 transition-all opacity-80 hover:translate-x-0.5">{link}</a>
+                {['Infrastructure', 'Certifications', 'Careers', 'Contact Us'].map((link) => (
+                  <button key={link} onClick={() => handleQuickLinkClick(link)} className="hover:opacity-100 transition-all opacity-80 hover:translate-x-0.5 text-left focus:outline-none focus:ring-2 focus:ring-white rounded px-1">{link}</button>
                 ))}
               </div>
             </div>
@@ -39,8 +83,8 @@ export default function Footer() {
           <div className="border-r-0 lg:border-r border-white/20 pr-0 lg:pr-4">
             <h4 className="font-bold uppercase tracking-wide text-sm mb-4">Products</h4>
             <div className="flex flex-col space-y-2.5 text-xs opacity-90">
-              {products.map((product) => (
-                <a key={product} href="#" className="hover:opacity-100 transition-all opacity-80 hover:translate-x-0.5">{product}</a>
+              {['Industrial Gases', 'Medical Gases', 'Specialty Gases', 'LPG', 'Mixture Gases'].map((product) => (
+                <button key={product} onClick={handleProductClick} className="hover:opacity-100 transition-all opacity-80 hover:translate-x-0.5 text-left focus:outline-none focus:ring-2 focus:ring-white rounded px-1">{product}</button>
               ))}
             </div>
           </div>
@@ -80,16 +124,19 @@ export default function Footer() {
           <div>
             <h4 className="font-bold uppercase tracking-wide text-sm mb-4">Newsletter</h4>
             <p className="text-xs opacity-90 mb-4">Stay updated with our latest news and updates.</p>
-            <div className="flex max-w-sm rounded-lg overflow-hidden">
+            <form onSubmit={handleNewsletterSubmit} className="flex max-w-sm rounded-lg overflow-hidden">
               <input
                 type="email"
                 placeholder="Your email address"
+                value={newsletter}
+                onChange={(e) => setNewsletter(e.target.value)}
+                required
                 className="bg-white text-gray-800 placeholder-gray-400 px-4 py-2.5 text-xs flex-1 outline-none"
               />
-              <button className="bg-red-900/40 hover:bg-black/20 p-2.5 px-4 transition-colors flex items-center justify-center">
+              <button type="submit" className="bg-red-900/40 hover:bg-black/20 p-2.5 px-4 transition-colors flex items-center justify-center focus:ring-2 focus:ring-white focus:outline-none">
                 <span className="text-white text-sm">&rarr;</span>
               </button>
-            </div>
+            </form>
           </div>
         </div>
 
@@ -103,24 +150,24 @@ export default function Footer() {
               <span>Terms &amp; Conditions</span>
             </div>
             <div className="flex space-x-3">
-              <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center cursor-pointer hover:bg-white/30 transition-colors">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors focus:ring-2 focus:ring-white focus:outline-none">
                 <FaFacebook size={12} />
-              </div>
-              <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center cursor-pointer hover:bg-white/30 transition-colors">
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors focus:ring-2 focus:ring-white focus:outline-none">
                 <FaLinkedinIn size={12} />
-              </div>
-              <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center cursor-pointer hover:bg-white/30 transition-colors">
+              </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors focus:ring-2 focus:ring-white focus:outline-none">
                 <FaYoutube size={12} />
-              </div>
+              </a>
             </div>
           </div>
         </div>
       </footer>
 
       {/* WhatsApp Widget */}
-      <div className="fixed bottom-6 right-6 z-50 bg-[#25D366] p-3.5 rounded-full shadow-xl hover:scale-110 transition-transform cursor-pointer">
+      <a href="https://wa.me/923016510200" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp" className="fixed bottom-6 right-6 z-50 bg-[#25D366] p-3.5 rounded-full shadow-xl hover:scale-110 transition-transform focus:ring-2 focus:ring-white focus:outline-none block">
         <FaWhatsapp size={24} className="text-white" />
-      </div>
+      </a>
     </>
   );
 }
