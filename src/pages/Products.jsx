@@ -271,7 +271,7 @@ const modulotProducts = [
     ]
   },
   {
-    icon: FaShield,
+    icon: FaLock,
     title: 'Medical Grade Power System',
     description: 'IT power supply for critical environments',
     features: [
