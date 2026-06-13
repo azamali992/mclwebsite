@@ -569,7 +569,7 @@ export default function Products() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { icon: FaAward, title: 'International Standards', desc: 'HTM, NFPA, ISO compliant systems' },
-              { icon: FaShield, title: 'Safety First', desc: 'Maximum protection for patients and staff' },
+              { icon: FaLock, title: 'Safety First', desc: 'Maximum protection for patients and staff' },
               { icon: FaUsers, title: 'Expert Support', desc: '24/7 technical support and maintenance' },
               { icon: FaFileAlt, title: 'Quality Assured', desc: 'Certified materials and rigorous testing' }
             ].map((item, i) => {
