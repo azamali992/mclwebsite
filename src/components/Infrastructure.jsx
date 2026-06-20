@@ -4,7 +4,7 @@ import useInView from '../hooks/useInView';
 import { FaIndustry, FaUsers, FaShieldAlt, FaClock, FaCog, FaMapMarkerAlt, FaCheck, FaCheckCircle } from 'react-icons/fa';
 import useContent from '../hooks/useContent';
 import heroBg from '../assets/infra01.JPG';
-import stationImg from '../assets/stationimg.jpg';
+import stationImg from '../assets/stationimg.JPG';
 import plantImg1 from '../assets/hero02.JPG';
 import plantImg2 from '../assets/infra03.JPG';
 import plantImg3 from '../assets/infra04.JPG';
