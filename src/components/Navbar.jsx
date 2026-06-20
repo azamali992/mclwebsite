@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaChevronDown, FaArrowRight } from 'react-icons/fa';
 import logo from '../assets/MCL_Logo.jpeg';
+import { slugify, industrialGases, medicalGases, specialtyGases, lpgGases } from '../data/products';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -59,6 +61,103 @@ export default function Navbar() {
             <div className="flex space-x-6 xl:space-x-8 items-center">
               {navLinks.map((link) => {
                 const active = isActive(link.path);
+
+                if (link.name === 'Products') {
+                  return (
+                    <div
+                      key={link.name}
+                      className="relative"
+                      onMouseEnter={() => setProductsOpen(true)}
+                      onMouseLeave={() => setProductsOpen(false)}
+                    >
+                      <Link
+                        to={link.path}
+                        aria-current={active ? 'page' : undefined}
+                        aria-expanded={productsOpen}
+                        onFocus={() => setProductsOpen(true)}
+                        className={`flex items-center gap-1 text-sm font-medium transition-colors duration-200 pb-1 border-b-2 focus:ring-2 focus:ring-mclRed focus:outline-none rounded px-1 ${
+                          active
+                            ? 'border-mclRed text-gray-900'
+                            : 'border-transparent text-gray-600 hover:text-mclRed hover:border-mclRed'
+                        }`}
+                      >
+                        {link.name}
+                        <FaChevronDown size={10} className={`transition-transform ${productsOpen ? 'rotate-180' : ''}`} />
+                      </Link>
+
+                      {productsOpen && (
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[820px]">
+                          <div className="bg-white rounded-xl shadow-2xl border border-gray-100 p-8 grid grid-cols-4 gap-8">
+                            <div>
+                              <p className="text-mclRed font-bold uppercase tracking-widest text-xs mb-3">Medical Gases</p>
+                              <ul className="space-y-2.5">
+                                {medicalGases.map((p) => (
+                                  <li key={p.title}>
+                                    <Link to={`/products#${slugify(p.title)}`} onClick={() => setProductsOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
+                                      {p.title}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                            <div>
+                              <p className="text-mclRed font-bold uppercase tracking-widest text-xs mb-3">Industrial Gases</p>
+                              <ul className="space-y-2.5">
+                                {[...industrialGases, ...lpgGases].map((p) => (
+                                  <li key={p.title}>
+                                    <Link to={`/products#${slugify(p.title)}`} onClick={() => setProductsOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
+                                      {p.title}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                            <div>
+                              <p className="text-mclRed font-bold uppercase tracking-widest text-xs mb-3">Specialty Gases</p>
+                              <ul className="space-y-2.5">
+                                {specialtyGases.map((p) => (
+                                  <li key={p.title}>
+                                    <Link to={`/products#${slugify(p.title)}`} onClick={() => setProductsOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
+                                      {p.title}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                            <div className="space-y-6">
+                              <div>
+                                <p className="text-gray-400 font-bold uppercase tracking-widest text-xs mb-3">Quick Links</p>
+                                <ul className="space-y-2.5">
+                                  {[
+                                    { label: 'All Industrial Gases', hash: 'industrial' },
+                                    { label: 'All Medical Gases', hash: 'medical' },
+                                    { label: 'Specialty Gases', hash: 'specialty' },
+                                    { label: 'Healthcare Engineering', hash: 'healthcare-engineering' },
+                                  ].map((q) => (
+                                    <li key={q.hash}>
+                                      <Link to={`/products#${q.hash}`} onClick={() => setProductsOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
+                                        {q.label}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                              <div className="bg-mclRed rounded-lg p-4 text-white">
+                                <p className="text-white/80 font-bold uppercase tracking-widest text-[10px] mb-1">Our Capacity</p>
+                                <p className="text-2xl font-extrabold leading-none mb-1">125 TPD</p>
+                                <p className="text-white/80 text-xs mb-3">Largest single liquid oxygen plant in Pakistan.</p>
+                                <Link to="/infrastructure" onClick={() => setProductsOpen(false)} className="text-xs font-bold uppercase inline-flex items-center gap-1 hover:gap-2 transition-all">
+                                  View Production <FaArrowRight size={10} />
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
                 return (
                   <Link
                     key={link.name}

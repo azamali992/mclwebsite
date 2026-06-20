@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import {
   FaCheck, FaArrowRight, FaBoxOpen, FaWrench, FaHeartbeat, FaMicrochip,
   FaLungs, FaVial, FaFlask, FaLock, FaStethoscope, FaCircle,
-  FaLightbulb, FaHospital, FaUsers, FaAward, FaFileAlt, FaPhone,
-  FaTint, FaWind, FaRadiation, FaWindowMaximize, FaBed, FaPlug,
+  FaLightbulb, FaUsers, FaAward, FaFileAlt, FaPhone,
+  FaTint, FaWind, FaRadiation, FaBed, FaPlug,
   FaSyringe, FaDoorOpen, FaBoxes, FaDesktop, FaToggleOn, FaPills,
   FaFire, FaSnowflake, FaLeaf, FaBurn
 } from 'react-icons/fa';
@@ -12,11 +12,14 @@ import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { fetchProducts } from '../services/api';
 import useContent from '../hooks/useContent';
 import heroBg from '../assets/infra01.JPG';
+import {
+  slugify, industrialGases, medicalGases, specialtyGases, lpgGases, categoryGroups,
+} from '../data/products';
 
-function SectionWrap({ children, className = '' }) {
+function SectionWrap({ children, className = '', id }) {
   const [ref, inView] = useInView();
   return (
-    <section ref={ref} className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}>
+    <section id={id} ref={ref} className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}>
       {children}
     </section>
   );
@@ -28,11 +31,12 @@ function ProductCard({ icon: Icon, title, description, features, index = 0 }) {
 
   return (
     <div
+      id={slugify(title)}
       ref={ref}
       onClick={() => setExpanded(!expanded)}
       aria-expanded={expanded}
       style={{ transitionDelay: inView ? `${(index % 6) * 60}ms` : '0ms' }}
-      className={`relative bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl hover:shadow-red-900/10 transition-all duration-500 cursor-pointer group hover:-translate-y-1.5 ${
+      className={`relative bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl hover:shadow-red-900/10 transition-all duration-500 cursor-pointer group hover:-translate-y-1.5 scroll-mt-28 ${
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
       }`}
     >
@@ -76,40 +80,6 @@ function ProductCard({ icon: Icon, title, description, features, index = 0 }) {
     </div>
   );
 }
-
-const industrialGases = [
-  { icon: FaFire, title: 'Oxygen (O₂)', description: 'High-purity oxygen for industrial combustion, cutting, welding, and chemical processes', features: ['99.5% minimum purity', 'Supplied in compressed gas cylinders and bulk liquid', 'Used in steelmaking, glass manufacturing, and wastewater treatment', 'Enhances combustion efficiency in furnaces', 'Critical for chemical oxidation processes'] },
-  { icon: FaWind, title: 'Nitrogen (N₂)', description: 'Inert gas for blanketing, purging, and inerting applications', features: ['99.9% minimum purity', 'Available as compressed gas and bulk liquid nitrogen', 'Used for inert atmosphere in chemical processing', 'Food packaging and preservation applications', 'Blanketing for flammable liquid storage'] },
-  { icon: FaFlask, title: 'Argon (Ar)', description: 'Premium shielding gas for welding and metal fabrication', features: ['99.99% high-purity argon', 'Primary shielding gas for TIG and MIG welding', 'Used in metal production and fabrication', 'Blanketing gas for reactive metal processing', 'Specialty applications in electronics manufacturing'] },
-  { icon: FaFire, title: 'Acetylene (C₂H₂)', description: 'High-temperature fuel gas for cutting and welding (via sister concern TM Gases)', features: ['Extremely high flame temperature (3,300°C)', 'Efficient oxy-acetylene cutting and welding', 'Supplied in specialized dissolved gas cylinders', 'Quick preheat for metalworking operations', 'Widely used in construction and repair'] },
-  { icon: FaLeaf, title: 'Ammonia (NH₃)', description: 'Industrial-grade anhydrous ammonia for refrigeration and chemical processes', features: ['99.5% minimum purity', 'Used in industrial refrigeration systems', 'Feedstock for fertilizer and chemical production', 'Water treatment applications', 'Supplied in bulk and cylinder quantities'] },
-  { icon: FaSnowflake, title: 'Carbon Dioxide (CO₂)', description: 'High-purity CO₂ for food, beverage, and industrial use', features: ['99.9% food-grade CO₂', 'Used in carbonated beverage production', 'pH control in water treatment', 'Shielding gas for MIG welding', 'Fire suppression systems'] },
-];
-
-const medicalGases = [
-  { icon: FaLungs, title: 'Medical Oxygen (O₂)', description: 'USP-grade oxygen for respiratory therapy and life support', features: ['USP/BP grade — 99.5% minimum purity', 'Critical for respiratory therapy and ICU support', 'Supplied in medical-grade cylinders of various sizes', 'Central pipeline supply for hospital networks', 'Emergency backup for healthcare facilities'] },
-  { icon: FaWind, title: 'Nitrous Oxide (N₂O)', description: 'Medical-grade anaesthetic and analgesic gas', features: ['Pharmaceutical grade purity', 'Used as anaesthetic agent in operating theatres', 'Analgesic for pain management in dentistry and obstetrics', 'Combined with oxygen for Entonox delivery', 'Supplied in blue medical cylinders'] },
-  { icon: FaFlask, title: 'Medical Carbon Dioxide (CO₂)', description: 'High-purity CO₂ for insufflation and respiratory applications', features: ['Medical-grade purity certification', 'Used for laparoscopic insufflation in surgery', 'Respiratory stimulant in specific clinical settings', 'Supplied in medical cylinders with safety valves', 'Color-coded cylinders per international standards'] },
-  { icon: FaTint, title: 'Medical Air', description: 'Breathing-quality compressed air for healthcare environments', features: ['Purified, oil-free medical air', 'Used for respiratory therapy and incubators', 'Supplied via central pipeline or cylinder', 'Compliant with pharmacopoeia standards', 'Available 24/7 to healthcare facilities'] },
-  { icon: FaSnowflake, title: 'Medical Nitrogen (N₂)', description: 'High-purity nitrogen for surgical instruments and medical devices', features: ['High-purity medical-grade nitrogen', 'Powers pneumatic surgical instruments', 'Cryopreservation and freezer applications', 'MRI system cooling support', 'Supplied with medical gas outlet fittings'] },
-];
-
-const specialtyGases = [
-  { icon: FaFlask, title: 'Calibration Gas Mixtures', description: 'Custom-formulated gas blends for instrument calibration', features: ['Precision-mixed to customer specifications', 'NIST-traceable certification available', 'Used for environmental monitoring equipment', 'Industrial safety instrument calibration', 'Laboratory analyzer verification'] },
-  { icon: FaMicrochip, title: 'Electronic Grade Gases', description: 'Ultra-high-purity gases for semiconductor and electronics manufacturing', features: ['99.999%+ purity levels', 'Custom cylinder preparation', 'Low particulate and moisture content', 'Cleanroom-ready packaging', 'Applications in deposition and etching'] },
-  { icon: FaFlask, title: 'Zero Gases', description: 'Hydrocarbon-free zero-grade air and nitrogen for analytical instruments', features: ['Total hydrocarbon content < 0.1 ppm', 'Used as carrier gas in GC analyzers', 'Zero-air for flame ionization detectors', 'Ultra-zero options for trace analysis', 'Supplied with full certificate of analysis'] },
-  { icon: FaLeaf, title: 'Mixture Gases', description: 'Custom gas blends for specialized industrial applications', features: ['Custom ratios mixed to order', 'Wide range of component gases available', 'Used in food packaging, welding, and research', 'Full certificate of analysis provided', 'Packaged in various cylinder sizes'] },
-];
-
-const lpgGases = [
-  { icon: FaBurn, title: 'LPG (Liquefied Petroleum Gas)', description: 'Clean-burning fuel gas for industrial and commercial applications', features: ['Consistent calorific value', 'Low sulfur content', 'Available in bulk and cylinder supply', 'Used for industrial heating applications', 'Cleaner alternative to traditional fuels'] },
-];
-
-const categoryIcons = {
-  industrial: FaFire, medical: FaHeartbeat, specialty: FaFlask,
-  mgps: FaTint, terminals: FaCircle, delivery: FaWind,
-  modular: FaHospital, diagnostic: FaMicrochip, critical: FaHeartbeat, therapeutic: FaPills,
-};
 
 const defaultProducts = {
   mgps: [
@@ -210,8 +180,6 @@ export default function Products() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const categoryParam = searchParams.get('category');
-  const validCategories = ['industrial', 'medical', 'specialty', 'lpg', 'mgps', 'terminals', 'delivery', 'modular', 'diagnostic', 'critical', 'therapeutic'];
-  const [activeCategory, setActiveCategory] = useState(validCategories.includes(categoryParam) ? categoryParam : 'mgps');
   const [apiProducts, setApiProducts] = useState([]);
   const [apiLoaded, setApiLoaded] = useState(false);
   const { contentMap } = useContent('products');
@@ -223,32 +191,12 @@ export default function Products() {
   }, []);
 
   useEffect(() => {
-    if (validCategories.includes(categoryParam)) setActiveCategory(categoryParam);
+    if (!categoryParam) return;
+    const timeout = setTimeout(() => {
+      document.getElementById(categoryParam)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+    return () => clearTimeout(timeout);
   }, [categoryParam]);
-
-  const categoryGroups = [
-    {
-      label: 'Gases',
-      items: [
-        { id: 'industrial', label: 'Industrial Gases', icon: FaFire },
-        { id: 'medical', label: 'Medical Gases', icon: FaHeartbeat },
-        { id: 'specialty', label: 'Specialty Gases', icon: FaFlask },
-        { id: 'lpg', label: 'LPG', icon: FaBurn },
-      ],
-    },
-    {
-      label: 'Healthcare Engineering & Equipment',
-      items: [
-        { id: 'mgps', label: 'Medical Gas Pipelines', icon: FaTint },
-        { id: 'terminals', label: 'Terminal Units', icon: FaCircle },
-        { id: 'delivery', label: 'Gas Delivery', icon: FaWind },
-        { id: 'modular', label: 'Modular OT', icon: FaHospital },
-        { id: 'diagnostic', label: 'Diagnostic Systems', icon: FaMicrochip },
-        { id: 'critical', label: 'Critical Care', icon: FaHeartbeat },
-        { id: 'therapeutic', label: 'Therapeutic', icon: FaPills },
-      ],
-    },
-  ];
 
   const gasDefaults = {
     industrial: industrialGases,
@@ -257,15 +205,15 @@ export default function Products() {
     lpg: lpgGases,
   };
 
-  const getCategoryProducts = () => {
-    const fromGasDefaults = gasDefaults[activeCategory];
+  const getProductsForCategory = (categoryId) => {
+    const fromGasDefaults = gasDefaults[categoryId];
     if (fromGasDefaults) return fromGasDefaults;
 
-    const defaults = defaultProducts[activeCategory] || defaultProducts.mgps;
+    const defaults = defaultProducts[categoryId] || [];
 
     if (!apiLoaded) return defaults;
 
-    const apiCats = apiProducts.filter(p => p.category === activeCategory);
+    const apiCats = apiProducts.filter(p => p.category === categoryId);
     if (apiCats.length === 0) return defaults;
 
     return apiCats.map(p => ({
@@ -294,7 +242,7 @@ export default function Products() {
       <SectionWrap className="py-16 bg-gray-50 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto">
           <h2 className="text-center text-3xl font-bold text-gray-900 mb-3">Product Categories</h2>
-          <p className="text-center text-gray-500 text-sm mb-10">Browse by gas type or by healthcare engineering equipment.</p>
+          <p className="text-center text-gray-500 text-sm mb-10">Jump straight to a category below.</p>
           <div className="space-y-8">
             {categoryGroups.map((group) => (
               <div key={group.label}>
@@ -302,16 +250,11 @@ export default function Products() {
                 <div className="flex flex-wrap gap-3">
                   {group.items.map((cat) => {
                     const Icon = cat.icon;
-                    const active = activeCategory === cat.id;
                     return (
                       <button
                         key={cat.id}
-                        onClick={() => setActiveCategory(cat.id)}
-                        className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-all flex items-center gap-2 focus:ring-2 focus:ring-mclRed focus:outline-none ${
-                          active
-                            ? 'bg-mclRed text-white shadow-lg shadow-red-900/20'
-                            : 'bg-white text-gray-700 border border-gray-200 hover:border-mclRed hover:text-mclRed'
-                        }`}
+                        onClick={() => document.getElementById(cat.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                        className="px-5 py-2.5 rounded-full font-semibold text-sm transition-all flex items-center gap-2 focus:ring-2 focus:ring-mclRed focus:outline-none bg-white text-gray-700 border border-gray-200 hover:border-mclRed hover:text-mclRed"
                       >
                         <Icon size={15} />
                         {cat.label}
@@ -325,22 +268,42 @@ export default function Products() {
         </div>
       </SectionWrap>
 
-      <SectionWrap className="py-20 px-4 sm:px-8 lg:px-12 bg-white">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {getCategoryProducts().map((product, i) => (
-              <ProductCard key={i} index={i} {...product} />
-            ))}
-          </div>
-          {['mgps', 'terminals', 'delivery', 'modular'].includes(activeCategory) && (
-            <div className="mt-10 text-center">
-              <button onClick={() => navigate('/mgps-solutions')} className="border-2 border-mclRed text-mclRed hover:bg-mclRed hover:text-white px-8 py-3 font-bold uppercase tracking-wider text-sm transition-all inline-flex items-center gap-2 rounded">
-                See Full MGPS Details <FaArrowRight size={12} />
-              </button>
+      {categoryGroups.map((group) => (
+        <SectionWrap key={group.label} id={group.id} className="py-20 px-4 sm:px-8 lg:px-12 bg-white scroll-mt-28">
+          <div className="max-w-[1400px] mx-auto">
+            <div className="text-center mb-14">
+              <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">{group.label}</p>
+              <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight">
+                {group.id === 'gases' ? 'Industrial, Medical & Specialty Gases' : 'Healthcare Engineering & Equipment'}
+              </h2>
             </div>
-          )}
-        </div>
-      </SectionWrap>
+            <div className="space-y-16">
+              {group.items.map((cat) => (
+                <div key={cat.id} id={cat.id} className="scroll-mt-28">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 rounded-lg bg-red-50 text-mclRed flex items-center justify-center flex-shrink-0">
+                      <cat.icon size={18} />
+                    </div>
+                    <h3 className="text-gray-900 font-bold text-xl">{cat.label}</h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {getProductsForCategory(cat.id).map((product, i) => (
+                      <ProductCard key={i} index={i} {...product} />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            {group.id === 'healthcare-engineering' && (
+              <div className="mt-16 text-center">
+                <button onClick={() => navigate('/mgps-solutions')} className="border-2 border-mclRed text-mclRed hover:bg-mclRed hover:text-white px-8 py-3 font-bold uppercase tracking-wider text-sm transition-all inline-flex items-center gap-2 rounded">
+                  See Full MGPS Details <FaArrowRight size={12} />
+                </button>
+              </div>
+            )}
+          </div>
+        </SectionWrap>
+      ))}
 
       <SectionWrap className="py-20 bg-gradient-to-r from-mclRed to-red-700 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto">
