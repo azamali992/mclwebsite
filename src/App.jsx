@@ -15,6 +15,7 @@ import Careers from './pages/Careers';
 import Admin from './pages/Admin';
 import QualitySafety from './pages/QualitySafety';
 import Certifications from './pages/Certifications';
+import Production from './pages/Production';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Terms from './pages/Terms';
 import NotFound from './pages/NotFound';
@@ -51,6 +52,7 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/quality-safety" element={<QualitySafety />} />
         <Route path="/certifications" element={<Certifications />} />
+        <Route path="/production" element={<Production />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/admin" element={<Admin />} />

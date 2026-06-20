@@ -24,6 +24,7 @@ export default function Navbar() {
     { name: 'About Us', path: '/about' },
     { name: 'Products', path: '/products' },
     { name: 'Infrastructure', path: '/infrastructure' },
+    { name: 'Production', path: '/production' },
     { name: 'Quality & Safety', path: '/quality-safety' },
     { name: 'Careers', path: '/careers' },
     { name: 'Contact Us', path: '/contact' },
@@ -146,7 +147,7 @@ export default function Navbar() {
                                 <p className="text-white/80 font-bold uppercase tracking-widest text-[10px] mb-1">Our Capacity</p>
                                 <p className="text-2xl font-extrabold leading-none mb-1">125 TPD</p>
                                 <p className="text-white/80 text-xs mb-3">Largest single liquid oxygen plant in Pakistan.</p>
-                                <Link to="/infrastructure" onClick={() => setProductsOpen(false)} className="text-xs font-bold uppercase inline-flex items-center gap-1 hover:gap-2 transition-all">
+                                <Link to="/production" onClick={() => setProductsOpen(false)} className="text-xs font-bold uppercase inline-flex items-center gap-1 hover:gap-2 transition-all">
                                   View Production <FaArrowRight size={10} />
                                 </Link>
                               </div>

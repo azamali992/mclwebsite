@@ -41,10 +41,13 @@ export function normalizeWarehouseName(name) {
 
 function createMarkerIcon(isHeadOffice, isHighlighted) {
   const bgColor = isHighlighted ? '#f59e0b' : isHeadOffice ? '#dc2626' : '#2563eb';
-  const size = isHighlighted ? 18 : 12;
+  const size = isHighlighted ? 16 : 12;
+  const pulse = isHighlighted
+    ? '<span class="absolute inset-0 rounded-full bg-amber-400 opacity-75 animate-ping"></span>'
+    : '';
   return L.divIcon({
     className: '',
-    html: `<div style="width:${size}px;height:${size}px;border-radius:50%;background:${bgColor};border:1.5px solid rgba(255,255,255,0.8);box-shadow:0 0 4px rgba(0,0,0,0.4)"></div>`,
+    html: `<div style="position:relative;width:${size}px;height:${size}px;">${pulse}<span style="position:relative;display:block;width:${size}px;height:${size}px;border-radius:50%;background:${bgColor};border:1.5px solid rgba(255,255,255,0.9);box-shadow:0 0 6px rgba(0,0,0,0.5)"></span></div>`,
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
     tooltipAnchor: [0, -10],
@@ -64,7 +67,17 @@ function MapUpdater({ locations }) {
   return null;
 }
 
-export default function WarehouseMap({ className = 'h-[500px]', onLocationClick, highlightKey, tileTheme = 'dark', showLegend = true }) {
+function FlyToHighlight({ locations, highlightKey }) {
+  const map = useMap();
+  useEffect(() => {
+    if (!highlightKey) return;
+    const loc = locations.find(l => l.key === highlightKey);
+    if (loc) map.flyTo([loc.lat, loc.lng], Math.max(map.getZoom(), 7), { duration: 0.8 });
+  }, [highlightKey, locations, map]);
+  return null;
+}
+
+export default function WarehouseMap({ className = 'h-[500px]', onLocationClick, highlightKey, tileTheme = 'dark', showLegend = true, onLocationsLoaded }) {
   const [locations, setLocations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -100,6 +113,7 @@ export default function WarehouseMap({ className = 'h-[500px]', onLocationClick,
         }
         setLocations(parsed);
         setError(null);
+        onLocationsLoaded?.(parsed);
       })
       .catch(err => {
         console.error('Excel parse error:', err);
@@ -107,6 +121,7 @@ export default function WarehouseMap({ className = 'h-[500px]', onLocationClick,
         setLocations([]);
       })
       .finally(() => setLoading(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const tileUrl = tileTheme === 'dark'
@@ -138,6 +153,7 @@ export default function WarehouseMap({ className = 'h-[500px]', onLocationClick,
             attribution='&copy; <a href="https://carto.com/">CartoDB</a>'
           />
           <MapUpdater locations={locations} />
+          <FlyToHighlight locations={locations} highlightKey={highlightKey} />
           {locations.map(loc => (
             <Marker
               key={loc.id}

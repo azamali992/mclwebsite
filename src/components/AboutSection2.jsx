@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaIndustry, FaTruck, FaWarehouse, FaShieldAlt } from 'react-icons/fa';
+import { FaIndustry, FaTruck, FaWarehouse, FaShieldAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import useContent from '../hooks/useContent';
 import useInView from '../hooks/useInView';
 import WarehouseMap from './WarehouseMap';
@@ -15,6 +16,8 @@ export default function AboutSection2() {
   const { contentMap } = useContent('about');
   const [leftRef, leftInView] = useInView();
   const [mapRef, mapInView] = useInView();
+  const [locations, setLocations] = useState([]);
+  const [highlightKey, setHighlightKey] = useState(null);
 
   const heading = contentMap['section2-heading']?.title || 'Nationwide Network';
   const sectionTitle = contentMap['section2-title']?.title || 'Reaching Every Corner of Pakistan';
@@ -57,6 +60,37 @@ export default function AboutSection2() {
               );
             })}
           </div>
+
+          {locations.length > 0 && (
+            <div
+              className={`mt-8 transition-all duration-700 ${leftInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+              style={{ transitionDelay: leftInView ? '550ms' : '0ms' }}
+            >
+              <p className="text-gray-500 text-xs font-bold uppercase tracking-widest mb-3">
+                Warehouse Locations — click to locate
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {locations.map((loc) => {
+                  const active = highlightKey === loc.key;
+                  return (
+                    <button
+                      key={loc.id}
+                      onClick={() => setHighlightKey(loc.key)}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all focus:outline-none focus:ring-2 focus:ring-mclRed ${
+                        active
+                          ? 'bg-mclRed border-mclRed text-white shadow-md shadow-red-900/30 scale-105'
+                          : 'bg-white/5 border-white/15 text-gray-300 hover:border-mclRed hover:text-white'
+                      }`}
+                    >
+                      <FaMapMarkerAlt size={10} className={active ? 'text-white' : 'text-mclRed'} />
+                      {loc.name}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           <Link to="/infrastructure" className="bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase px-8 py-3 mt-8 inline-block transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95 rounded">
             View Our Network
           </Link>
@@ -65,7 +99,12 @@ export default function AboutSection2() {
           ref={mapRef}
           className={`transition-all duration-700 delay-150 ${mapInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}
         >
-          <WarehouseMap className="h-[500px]" />
+          <WarehouseMap
+            className="h-[500px]"
+            highlightKey={highlightKey}
+            onLocationClick={(loc) => setHighlightKey(loc.key)}
+            onLocationsLoaded={setLocations}
+          />
         </div>
       </div>
     </section>
