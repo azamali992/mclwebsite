@@ -3,34 +3,29 @@ import {
   FaCheck, FaArrowRight, FaDownload,
   FaRegBuilding, FaShieldAlt, FaFileAlt, FaStar, FaGem, FaClock,
   FaProjectDiagram, FaAward, FaHospital, FaHeadset,
-  FaFlask, FaTint, FaWind, FaWater, FaCogs,
-  FaBed, FaPlug, FaCompressArrowsAlt, FaThermometerHalf, FaBell, FaRecycle,
   FaMapMarkerAlt, FaUsers
 } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import useInView from '../hooks/useInView';
+import useContent from '../hooks/useContent';
 import renderImg from '../assets/3drender.png';
 import heroBg from '../assets/hero01.JPG';
 import pagedemo1 from '../assets/pagedemo1.jpeg';
 import pagedemo2 from '../assets/pagedemo2.jpeg';
 import pagedemo3 from '../assets/pagedemo3.jpeg';
 import stationImg from '../assets/stationimg.JPG';
+import infra02 from '../assets/infra02.JPG';
+import infra03 from '../assets/infra03.JPG';
+import infra04 from '../assets/infra04.JPG';
 
-// ─── Section wrapper with scroll animation ───
 function SectionWrap({ children, className = '' }) {
   const [ref, inView] = useInView();
   return (
-    <section
-      ref={ref}
-      className={`transition-all duration-700 ${
-        inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      } ${className}`}
-    >
+    <section ref={ref} className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}>
       {children}
     </section>
   );
 }
-
-// ─── Data ───
 
 const heroStats = [
   { icon: FaFileAlt, title: 'HTM 02-01', subtitle: 'Compliant' },
@@ -50,47 +45,20 @@ const overviewStats = [
 ];
 
 const componentsData = [
-  { category: 'Gas Sources', image: null, title: 'Oxygen Generation Plant', desc: 'PSA based on-site oxygen generation systems' },
-  { category: 'Storage Systems', image: null, title: 'Bulk Storage Tanks', desc: 'Cryogenic liquid oxygen / nitrogen storage' },
-  { category: 'Distribution', image: null, title: 'Cylinder Manifold System', desc: 'High pressure cylinder manifolds with auto changeover' },
-  { category: 'Gas Sources', image: null, title: 'Medical Air System', desc: 'Instrument quality compressed medical air' },
-  { category: 'Gas Sources', image: null, title: 'Vacuum Pump System', desc: 'Central medical vacuum suction systems' },
+  { category: 'Gas Sources', image: stationImg, title: 'Oxygen Generation Plant', desc: 'PSA based on-site oxygen generation systems' },
+  { category: 'Storage Systems', image: infra02, title: 'Bulk Storage Tanks', desc: 'Cryogenic liquid oxygen / nitrogen storage' },
+  { category: 'Distribution', image: infra03, title: 'Cylinder Manifold System', desc: 'High pressure cylinder manifolds with auto changeover' },
+  { category: 'Gas Sources', image: infra04, title: 'Medical Air System', desc: 'Instrument quality compressed medical air' },
+  { category: 'Gas Sources', image: pagedemo1, title: 'Vacuum Pump System', desc: 'Central medical vacuum suction systems' },
 ];
-
-const compGradients = [
-  'from-green-400 to-green-600',
-  'from-blue-400 to-blue-600',
-  'from-purple-400 to-purple-600',
-  'from-cyan-400 to-cyan-600',
-  'from-orange-400 to-orange-600',
-];
-const compIcons = [FaFlask, FaTint, FaCogs, FaWind, FaWater];
 
 const equipmentData = [
-  { image: null, title: 'Bed Head Units', desc: 'Modular patient terminals with gas outlets' },
-  { image: null, title: 'Medical Gas Outlets', desc: 'Quick connect colour coded outlets' },
-  { image: null, title: 'Zone Valves', desc: 'Emergency shut-off zone valve boxes' },
-  { image: null, title: 'Pressure Regulators', desc: 'Line pressure regulators & alarms' },
-  { image: null, title: 'Alarm Panels', desc: 'Master & area alarm monitoring panels' },
-  { image: null, title: 'AGSS', desc: 'Anaesthetic gas scavenging systems' },
-];
-
-const equipGradients = [
-  'from-teal-400 to-teal-600',
-  'from-indigo-400 to-indigo-600',
-  'from-rose-400 to-rose-600',
-  'from-amber-400 to-amber-600',
-  'from-lime-400 to-lime-600',
-  'from-sky-400 to-sky-600',
-];
-const equipIcons = [FaBed, FaPlug, FaCompressArrowsAlt, FaThermometerHalf, FaBell, FaRecycle];
-
-const complianceItems = [
-  'HTM 02-01 – Medical Gas Pipeline Systems',
-  'NFPA 99 – Health Care Facilities Code',
-  'ISO 7396-1 – Medical Gas Pipeline Systems',
-  'ISO 9001:2015 – Quality Management',
-  'ISO 13485 – Medical Devices QMS',
+  { image: pagedemo2, title: 'Bed Head Units', desc: 'Modular patient terminals with gas outlets' },
+  { image: pagedemo3, title: 'Medical Gas Outlets', desc: 'Quick connect colour coded outlets' },
+  { image: stationImg, title: 'Zone Valves', desc: 'Emergency shut-off zone valve boxes' },
+  { image: infra02, title: 'Pressure Regulators', desc: 'Line pressure regulators & alarms' },
+  { image: infra03, title: 'Alarm Panels', desc: 'Master & area alarm monitoring panels' },
+  { image: infra04, title: 'AGSS', desc: 'Anaesthetic gas scavenging systems' },
 ];
 
 const projectsData = [
@@ -110,41 +78,23 @@ const overviewChecklist = [
   'Alarm & monitoring systems',
 ];
 
-function PlaceholderImg({ gradient, icon: Icon, className = '' }) {
-  return (
-    <div className={`w-full h-full flex items-center justify-center bg-gradient-to-br ${gradient} ${className}`}>
-      <Icon className="text-white/40" size={48} />
-    </div>
-  );
-}
-
-// ─── Section 1: Hero ───
-function HeroSection() {
+function HeroSection({ c }) {
   return (
     <section className="w-full relative bg-slate-900 min-h-[600px] lg:min-h-[700px] overflow-hidden">
-      {/* Background image covering right 60% */}
       <div className="absolute inset-0 w-full h-full">
-        <img
-          src={heroBg}
-          alt="Hospital ICU"
-          className="absolute right-0 top-0 w-full lg:w-[60%] h-full object-cover"
-        />
+        <img src={heroBg} alt="Hospital ICU" className="absolute right-0 top-0 w-full lg:w-[60%] h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-transparent" />
       </div>
-
-      {/* Content */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 h-full min-h-[600px] lg:min-h-[700px] flex flex-col justify-center">
         <div className="max-w-2xl">
           <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-4">
-            MGPS SOLUTIONS
+            {c['mgps-hero-heading']?.title || 'MGPS SOLUTIONS'}
           </p>
           <h1 className="text-white font-extrabold text-4xl lg:text-5xl leading-tight mb-6">
-            Complete Medical Gas Pipeline Solutions
+            {c['mgps-hero-title']?.title || 'Complete Medical Gas Pipeline Solutions'}
           </h1>
           <p className="text-gray-300 text-base leading-relaxed mb-8 max-w-xl">
-            We design, supply, install, test and commission complete Medical Gas
-            Pipeline Systems in accordance with HTM 02-01, NFPA 99, ISO 7396-1 and
-            other international standards.
+            {c['mgps-hero-desc']?.title || 'We design, supply, install, test and commission complete Medical Gas Pipeline Systems in accordance with HTM 02-01, NFPA 99, ISO 7396-1 and other international standards.'}
           </p>
           <div className="flex flex-wrap gap-4">
             <button className="bg-mclRed hover:bg-red-800 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95 inline-flex items-center gap-2 shadow-md">
@@ -156,8 +106,6 @@ function HeroSection() {
           </div>
         </div>
       </div>
-
-      {/* Floating Stats Bar */}
       <div className="relative z-20 -mt-12 max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
         <div className="bg-white rounded-lg shadow-xl flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-gray-100">
           {heroStats.map((stat, i) => (
@@ -175,34 +123,23 @@ function HeroSection() {
   );
 }
 
-// ─── Section 2: MGPS Overview ───
-function OverviewSection() {
+function OverviewSection({ c }) {
   const [leftRef, leftInView] = useInView();
   const [rightRef, rightInView] = useInView();
   const [statsRef, statsInView] = useInView();
 
   return (
     <section className="py-20 bg-white max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
-      {/* Top 2-column split */}
       <div className="flex flex-col lg:flex-row gap-12 xl:gap-20 items-center">
-        {/* Left */}
-        <div
-          ref={leftRef}
-          className={`w-full lg:w-1/2 transition-all duration-700 ${
-            leftInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-          }`}
-        >
+        <div ref={leftRef} className={`w-full lg:w-1/2 transition-all duration-700 ${leftInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
           <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">
-            MGPS OVERVIEW
+            {c['mgps-overview-heading']?.title || 'MGPS OVERVIEW'}
           </p>
           <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight mb-6">
-            Safe. Reliable. Life-Supporting.
+            {c['mgps-overview-title']?.title || 'Safe. Reliable. Life-Supporting.'}
           </h2>
           <p className="text-gray-600 text-sm leading-relaxed mb-6">
-            Our engineering team delivers end-to-end medical gas pipeline solutions
-            with uncompromising safety. From design and supply through installation,
-            testing and commissioning, every system we build meets the highest
-            international standards for patient safety and operational reliability.
+            {c['mgps-overview-desc']?.title || 'Our engineering team delivers end-to-end medical gas pipeline solutions with uncompromising safety. From design and supply through installation, testing and commissioning, every system we build meets the highest international standards for patient safety and operational reliability.'}
           </p>
           <ul className="space-y-3 mb-8">
             {overviewChecklist.map((item, i) => (
@@ -216,31 +153,13 @@ function OverviewSection() {
             REQUEST A CONSULTATION <FaArrowRight />
           </button>
         </div>
-
-        {/* Right image */}
-        <div
-          ref={rightRef}
-          className={`w-full lg:w-1/2 transition-all duration-700 delay-200 ${
-            rightInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
-          }`}
-        >
+        <div ref={rightRef} className={`w-full lg:w-1/2 transition-all duration-700 delay-200 ${rightInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
           <div className="w-full aspect-video rounded-xl overflow-hidden shadow-lg">
-            <img
-              src={renderImg}
-              alt="3D Hospital Layout"
-              className="w-full h-full object-contain bg-gray-50 p-4"
-            />
+            <img src={renderImg} alt="3D Hospital Layout" className="w-full h-full object-contain bg-gray-50 p-4" />
           </div>
         </div>
       </div>
-
-      {/* Bottom stats row */}
-      <div
-        ref={statsRef}
-        className={`mt-16 pt-8 border-t border-gray-100 transition-all duration-700 delay-300 ${
-          statsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}
-      >
+      <div ref={statsRef} className={`mt-16 pt-8 border-t border-gray-100 transition-all duration-700 delay-300 ${statsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
           {overviewStats.map((stat, i) => (
             <div key={i} className="flex items-center gap-4">
@@ -259,10 +178,8 @@ function OverviewSection() {
   );
 }
 
-// ─── Section 3: MGPS System Components ───
 function ComponentsSection() {
   const [activeTab, setActiveTab] = useState('Gas Sources');
-
   const filtered = activeTab === 'All'
     ? componentsData
     : componentsData.filter((c) => c.category === activeTab);
@@ -272,33 +189,24 @@ function ComponentsSection() {
       <p className="text-mclRed font-bold uppercase tracking-widest text-sm text-center mb-8">
         MGPS SYSTEM COMPONENTS
       </p>
-
-      {/* Tabs */}
       <div className="flex justify-center gap-4 overflow-x-auto text-sm font-semibold pb-4">
         {tabCategories.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={`whitespace-nowrap pb-2 border-b-2 transition-colors ${
-              activeTab === tab
-                ? 'text-mclRed border-mclRed'
-                : 'text-gray-500 border-transparent hover:text-gray-700'
+              activeTab === tab ? 'text-mclRed border-mclRed' : 'text-gray-500 border-transparent hover:text-gray-700'
             }`}
           >
             {tab}
           </button>
         ))}
       </div>
-
-      {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-8">
         {filtered.map((comp, i) => (
           <div key={i} className="bg-white rounded-lg border border-gray-100 shadow-sm overflow-hidden group hover:shadow-lg transition-shadow">
             <div className="aspect-square overflow-hidden">
-              <PlaceholderImg
-                gradient={compGradients[i % compGradients.length]}
-                icon={compIcons[i % compIcons.length]}
-              />
+              <img src={comp.image} alt={comp.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div className="p-4">
               <h3 className="font-bold text-sm text-gray-900 mb-1">{comp.title}</h3>
@@ -307,7 +215,6 @@ function ComponentsSection() {
           </div>
         ))}
       </div>
-
       <div className="mt-10 text-center">
         <button className="border border-mclRed/30 text-mclRed hover:bg-red-50 font-bold text-xs uppercase px-8 py-3 inline-flex items-center gap-2 transition-all">
           VIEW ALL COMPONENTS <FaArrowRight />
@@ -317,34 +224,24 @@ function ComponentsSection() {
   );
 }
 
-// ─── Section 4: MGPS Equipment ───
 function EquipmentSection() {
   return (
     <section className="bg-gray-50 py-20 max-w-full mx-auto px-4 sm:px-8 lg:px-12">
       <div className="max-w-[1400px] mx-auto text-center mb-10">
-        <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">
-          MGPS EQUIPMENT
-        </p>
-        <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight">
-          High Quality Equipment For Maximum Safety
-        </h2>
+        <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">MGPS EQUIPMENT</p>
+        <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight">High Quality Equipment For Maximum Safety</h2>
       </div>
-
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-[1400px] mx-auto mt-10">
         {equipmentData.map((item, i) => (
           <div key={i} className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 group hover:shadow-md transition-shadow">
             <div className="aspect-square rounded-md overflow-hidden mb-3">
-              <PlaceholderImg
-                gradient={equipGradients[i % equipGradients.length]}
-                icon={equipIcons[i % equipIcons.length]}
-              />
+              <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <h3 className="font-bold text-xs text-gray-900 text-center mb-1">{item.title}</h3>
             <p className="text-[10px] text-gray-500 text-center leading-relaxed">{item.desc}</p>
           </div>
         ))}
       </div>
-
       <div className="mt-10 text-center">
         <button className="border border-mclRed/30 text-mclRed hover:bg-red-50 font-bold text-xs uppercase px-8 py-3 inline-flex items-center gap-2 transition-all">
           VIEW ALL EQUIPMENTS <FaArrowRight />
@@ -354,63 +251,42 @@ function EquipmentSection() {
   );
 }
 
-// ─── Section 5: Compliance & Layout Diagram ───
-function ComplianceDiagramSection() {
+function ComplianceDiagramSection({ c }) {
   return (
     <section className="py-20 bg-white max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
-        {/* Left 40% */}
         <div className="w-full lg:w-[40%]">
           <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">
-            COMPLIANCE & STANDARDS
+            {c['mgps-compliance-heading']?.title || 'COMPLIANCE & STANDARDS'}
           </p>
           <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight mb-6">
-            Built To International Standards
+            {c['mgps-compliance-title']?.title || 'Built To International Standards'}
           </h2>
-          <ul className="space-y-3 mb-8">
-            {complianceItems.map((item, i) => (
-              <li key={i} className="flex items-start group">
-                <FaCheck className="text-mclRed mt-1 mr-3 flex-shrink-0 group-hover:scale-110 transition-transform" size={14} />
-                <span className="text-gray-700 text-sm font-medium">{item}</span>
-              </li>
-            ))}
-          </ul>
-          <button className="bg-mclRed hover:bg-red-800 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95 inline-flex items-center gap-2 shadow-md">
-            OUR CERTIFICATIONS <FaArrowRight />
-          </button>
-        </div>
-
-        {/* Right 60% */}
-        <div className="w-full lg:w-[60%]">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-4">
-            SYSTEM LAYOUT DIAGRAM
+          <p className="text-gray-600 text-sm leading-relaxed mb-8">
+            Every system is designed, installed and tested to HTM 02-01, NFPA 99 and ISO 7396-1 — see our full certifications on the About page.
           </p>
+          <Link to="/about#certifications" className="bg-mclRed hover:bg-red-800 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95 inline-flex items-center gap-2 shadow-md">
+            OUR CERTIFICATIONS <FaArrowRight />
+          </Link>
+        </div>
+        <div className="w-full lg:w-[60%]">
+          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-4">SYSTEM LAYOUT DIAGRAM</p>
           <div className="w-full border border-gray-200 rounded-lg overflow-hidden bg-gray-50 p-6">
             <div className="w-full aspect-video relative rounded-md overflow-hidden">
-              <img
-                src={renderImg}
-                alt="MGPS System Layout Diagram"
-                className="w-full h-full object-contain"
-              />
+              <img src={renderImg} alt="MGPS System Layout Diagram" className="w-full h-full object-contain" />
             </div>
-            {/* Color legend */}
             <div className="flex flex-wrap gap-6 mt-4 justify-center">
-              <div className="flex items-center gap-2">
-                <span className="w-4 h-1.5 rounded-full bg-green-500" />
-                <span className="text-[10px] font-bold text-gray-600 uppercase">Oxygen</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-4 h-1.5 rounded-full bg-blue-600" />
-                <span className="text-[10px] font-bold text-gray-600 uppercase">Nitrous Oxide</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-4 h-1.5 rounded-full bg-yellow-400" />
-                <span className="text-[10px] font-bold text-gray-600 uppercase">Medical Air</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-4 h-1.5 rounded-full bg-gray-800" />
-                <span className="text-[10px] font-bold text-gray-600 uppercase">Vacuum</span>
-              </div>
+              {[
+                { color: 'bg-green-500', label: 'Oxygen' },
+                { color: 'bg-blue-600', label: 'Nitrous Oxide' },
+                { color: 'bg-yellow-400', label: 'Medical Air' },
+                { color: 'bg-gray-800', label: 'Vacuum' },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <span className={`w-4 h-1.5 rounded-full ${item.color}`} />
+                  <span className="text-[10px] font-bold text-gray-600 uppercase">{item.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -419,48 +295,32 @@ function ComplianceDiagramSection() {
   );
 }
 
-// ─── Section 6: Our MGPS Projects ───
-function ProjectsSection() {
+function ProjectsSection({ c }) {
   return (
     <section className="bg-[#0B1A28] py-20 max-w-full mx-auto px-4 sm:px-8 lg:px-12">
       <div className="max-w-[1400px] mx-auto text-center mb-10">
         <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">
-          OUR MGPS PROJECTS
+          {c['mgps-projects-heading']?.title || 'OUR MGPS PROJECTS'}
         </p>
         <h2 className="text-white font-extrabold text-3xl lg:text-4xl leading-tight">
-          Delivering Excellence Across Pakistan
+          {c['mgps-projects-title']?.title || 'Delivering Excellence Across Pakistan'}
         </h2>
       </div>
-
       <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-[1400px] mx-auto mt-10">
         {projectsData.map((project, i) => (
-          <div
-            key={i}
-            className="aspect-[3/4] relative rounded-lg overflow-hidden group cursor-pointer"
-          >
-            <img
-              src={project.img}
-              alt={project.name}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-            />
+          <div key={i} className="aspect-[3/4] relative rounded-lg overflow-hidden group cursor-pointer">
+            <img src={project.img} alt={project.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0B1A28] via-[#0B1A28]/20 to-transparent" />
             <div className="absolute bottom-0 left-0 p-4">
               <h3 className="text-white font-bold text-sm leading-tight">{project.name}</h3>
               <div className="flex items-center gap-3 mt-1.5">
-                <span className="flex items-center gap-1 text-gray-400 text-xs">
-                  <FaMapMarkerAlt size={10} />
-                  {project.location}
-                </span>
-                <span className="flex items-center gap-1 text-gray-400 text-xs">
-                  <FaUsers size={10} />
-                  {project.beds}
-                </span>
+                <span className="flex items-center gap-1 text-gray-400 text-xs"><FaMapMarkerAlt size={10} />{project.location}</span>
+                <span className="flex items-center gap-1 text-gray-400 text-xs"><FaUsers size={10} />{project.beds}</span>
               </div>
             </div>
           </div>
         ))}
       </div>
-
       <div className="mt-10 text-center">
         <button className="border border-white/30 text-white hover:bg-white/10 font-bold text-xs uppercase px-8 py-3 inline-flex items-center gap-2 transition-all">
           VIEW ALL PROJECTS <FaArrowRight />
@@ -470,16 +330,17 @@ function ProjectsSection() {
   );
 }
 
-// ─── Main Page ───
 export default function MgpsSolutionsPage() {
+  const { contentMap } = useContent('services');
+
   return (
     <div className="pt-24">
-      <HeroSection />
-      <OverviewSection />
+      <HeroSection c={contentMap} />
+      <OverviewSection c={contentMap} />
       <ComponentsSection />
       <EquipmentSection />
-      <ComplianceDiagramSection />
-      <ProjectsSection />
+      <ComplianceDiagramSection c={contentMap} />
+      <ProjectsSection c={contentMap} />
     </div>
   );
 }

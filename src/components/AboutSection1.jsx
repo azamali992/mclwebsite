@@ -1,18 +1,30 @@
+import { Link } from 'react-router-dom';
 import { FaAward, FaFlask, FaShieldAlt, FaCogs } from 'react-icons/fa';
+import useContent from '../hooks/useContent';
 import useInView from '../hooks/useInView';
 import plantImage from '../assets/hero02.JPG';
+import hero01 from '../assets/hero01.JPG';
+
+const featureIcons = [FaAward, FaFlask, FaShieldAlt, FaCogs];
 
 export default function AboutSection1() {
   const [leftRef, leftInView] = useInView();
   const [rightRef, rightInView] = useInView();
   const [featRef, featInView] = useInView();
+  const { contentMap } = useContent('about');
 
-  const features = [
-    { icon: FaAward, title: 'ISO Certified', subtitle: 'Quality Management Systems' },
-    { icon: FaFlask, title: 'Advanced Technology', subtitle: 'Modern Plants & Equipment' },
-    { icon: FaShieldAlt, title: 'Safety First', subtitle: 'Highest Safety Standards' },
-    { icon: FaCogs, title: 'Nationwide Network', subtitle: 'Extensive Reach Across Pakistan' },
-  ];
+  const heading = contentMap['section1-heading']?.title || 'About MCL';
+  const title = contentMap['section1-title']?.title || 'Leader in Quality.<br />Driven by Innovation.';
+  const description = contentMap['section1-description']?.title || 'Established in 1980, Multan Chemicals Limited (MCL) has grown to become Pakistan\'s most trusted name in industrial and medical gases.';
+
+  const features = [1, 2, 3, 4].map(i => {
+    const c = contentMap[`feature-${i}`];
+    return {
+      icon: featureIcons[i - 1],
+      title: c?.title || ['ISO Certified', 'Advanced Technology', 'Safety First', 'Nationwide Network'][i - 1],
+      subtitle: c?.description || ['Quality Management Systems', 'Modern Plants & Equipment', 'Highest Safety Standards', 'Extensive Reach Across Pakistan'][i - 1],
+    };
+  });
 
   return (
     <section className="bg-white py-20 px-4 sm:px-8 lg:px-12">
@@ -25,33 +37,37 @@ export default function AboutSection1() {
             }`}
           >
             <h3 className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">
-              About MCL
+              {heading}
             </h3>
             <h2 className="text-gray-900 font-extrabold text-4xl lg:text-5xl leading-tight mb-4">
-              Leader in Quality.<br />Driven by Innovation.
+              <span dangerouslySetInnerHTML={{ __html: title }} />
             </h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-8">
-              Established in 1980, Multan Chemicals Limited (MCL) has grown to become Pakistan's most trusted name in industrial and medical gases. With state-of-the-art production facilities, a modern fleet and a strong distribution network, we deliver reliability, safety and excellence to every industry and every life we touch.
+              {description}
             </p>
-            <button className="bg-mclRed hover:bg-red-800 text-white font-bold text-xs uppercase px-6 py-3 transition-all hover:shadow-lg active:scale-95">
+            <Link to="/about" className="bg-mclRed hover:bg-red-800 text-white font-bold text-xs uppercase px-6 py-3 transition-all hover:shadow-lg active:scale-95 inline-block">
               Read More About Us &rarr;
-            </button>
+            </Link>
           </div>
-
           <div
             ref={rightRef}
-            className={`transition-all duration-700 delay-200 ${
+            className={`relative transition-all duration-700 delay-200 ${
               rightInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             }`}
           >
-            <img
-              src={plantImage}
-              alt="Industrial chemical plant at dusk"
-              className="w-full rounded-2xl shadow-lg object-cover"
-            />
+            <div className="overflow-hidden rounded-2xl shadow-lg group">
+              <img
+                src={plantImage}
+                alt="Industrial chemical plant at dusk"
+                className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl px-6 py-4 hidden sm:block">
+              <p className="text-mclRed font-extrabold text-3xl leading-none">1985</p>
+              <p className="text-gray-500 text-xs font-semibold uppercase tracking-wide mt-1">Est. & Trusted</p>
+            </div>
           </div>
         </div>
-
         <div
           ref={featRef}
           className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 border-t border-gray-100 pt-8 transition-all duration-700 delay-300 ${

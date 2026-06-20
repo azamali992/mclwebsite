@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import logo from '../assets/MCL_Logo.jpeg';
 
 export default function Navbar() {
@@ -21,8 +21,8 @@ export default function Navbar() {
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
     { name: 'Products', path: '/products' },
-    { name: 'Healthcare Engineering', path: '/mgps-solutions' },
     { name: 'Infrastructure', path: '/infrastructure' },
+    { name: 'Quality & Safety', path: '/quality-safety' },
     { name: 'Careers', path: '/careers' },
     { name: 'Contact Us', path: '/contact' },
   ];
@@ -59,29 +59,19 @@ export default function Navbar() {
             <div className="flex space-x-6 xl:space-x-8 items-center">
               {navLinks.map((link) => {
                 const active = isActive(link.path);
-                const isRouterLink = link.path.startsWith('/') && !link.path.startsWith('/#');
-                return isRouterLink ? (
+                return (
                   <Link
                     key={link.name}
                     to={link.path}
+                    aria-current={active ? 'page' : undefined}
                     className={`flex items-center text-sm font-medium transition-colors duration-200 pb-1 border-b-2 focus:ring-2 focus:ring-mclRed focus:outline-none rounded px-1 ${
-                      active 
-                        ? 'border-mclRed text-gray-900' 
+                      active
+                        ? 'border-mclRed text-gray-900'
                         : 'border-transparent text-gray-600 hover:text-mclRed hover:border-mclRed'
                     }`}
                   >
                     {link.name}
-                    {link.dropdown && <FaChevronDown className="ml-1 text-[10px]" />}
                   </Link>
-                ) : (
-                  <a
-                    key={link.name}
-                    href={link.path}
-                    className={`flex items-center text-sm font-medium transition-colors duration-200 pb-1 border-b-2 border-transparent text-gray-600 hover:text-mclRed hover:border-mclRed focus:ring-2 focus:ring-mclRed focus:outline-none rounded px-1`}
-                  >
-                    {link.name}
-                    {link.dropdown && <FaChevronDown className="ml-1 text-[10px]" />}
-                  </a>
                 );
               })}
             </div>
@@ -98,6 +88,8 @@ export default function Navbar() {
           <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
               className="text-gray-700 hover:text-mclRed focus:outline-none"
             >
               {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -111,29 +103,18 @@ export default function Navbar() {
         <div className="lg:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-4 space-y-1 shadow-lg">
           {navLinks.map((link) => {
             const active = isActive(link.path);
-            const isRouterLink = link.path.startsWith('/') && !link.path.startsWith('/#');
-            return isRouterLink ? (
+            return (
               <Link
                 key={link.name}
                 to={link.path}
+                aria-current={active ? 'page' : undefined}
                 className={`flex items-center justify-between px-3 py-2 rounded-md text-base font-medium ${
                   active ? 'text-mclRed bg-red-50' : 'text-gray-700 hover:bg-gray-50 hover:text-mclRed'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
-                {link.dropdown && <FaChevronDown className="text-xs" />}
               </Link>
-            ) : (
-              <a
-                key={link.name}
-                href={link.path}
-                className={`flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-mclRed`}
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-                {link.dropdown && <FaChevronDown className="text-xs" />}
-              </a>
             );
           })}
           <button onClick={handleQuoteClick} className="w-full mt-4 bg-mclRed text-white px-4 py-2 text-sm font-bold uppercase tracking-wide hover:bg-red-800 transition-colors focus:ring-2 focus:ring-red-500 focus:outline-none">

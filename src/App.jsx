@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import StatsRow from './components/StatsRow';
@@ -11,6 +12,11 @@ import MgpsSolutionsPage from './pages/MgpsSolutionsPage';
 import Products from './pages/Products';
 import Contact from './pages/Contact';
 import Careers from './pages/Careers';
+import Admin from './pages/Admin';
+import QualitySafety from './pages/QualitySafety';
+import Certifications from './pages/Certifications';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Terms from './pages/Terms';
 import NotFound from './pages/NotFound';
 import AboutSection1 from './components/AboutSection1';
 import AboutSection2 from './components/AboutSection2';
@@ -33,6 +39,7 @@ function Home() {
 export default function App() {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans antialiased">
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -42,6 +49,11 @@ export default function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/quality-safety" element={<QualitySafety />} />
+        <Route path="/certifications" element={<Certifications />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

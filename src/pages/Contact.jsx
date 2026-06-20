@@ -1,32 +1,21 @@
 import { useState } from 'react';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaPaperPlane, FaCheckCircle } from 'react-icons/fa';
-
-// Simple email service - in production, use EmailJS or a backend API
-const sendEmail = async (formData) => {
-  try {
-    // This is a placeholder. In production, integrate with:
-    // - EmailJS (https://www.emailjs.com/)
-    // - SendGrid API
-    // - Your own backend endpoint
-    
-    // Example with EmailJS:
-    // import emailjs from '@emailjs/browser';
-    // await emailjs.send(SERVICE_ID, TEMPLATE_ID, formData);
-    
-    // For now, simulate success
-    console.log('Form data:', formData);
-    return { success: true };
-  } catch (error) {
-    console.error('Email send error:', error);
-    return { success: false, error };
-  }
-};
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaPaperPlane, FaCheckCircle, FaBuilding } from 'react-icons/fa';
+import { submitContact } from '../services/api';
+import useContent from '../hooks/useContent';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: 'General Inquiry', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { contentMap } = useContent('contact');
+
+  const contactInfo = [
+    { icon: FaMapMarkerAlt, title: 'Address', value: contentMap['address']?.title || 'Multan A-C, Industrial Estate, Multan - Pakistan' },
+    { icon: FaPhone, title: 'Phone', value: contentMap['phone']?.title || '061-6510200-6' },
+    { icon: FaEnvelope, title: 'Email', value: contentMap['email']?.title || 'info@mcl-gases.com' },
+    { icon: FaClock, title: 'Working Hours', value: contentMap['hours']?.title || 'Mon – Sat: 8:00 AM – 6:00 PM' },
+  ];
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -34,23 +23,21 @@ export default function Contact() {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    
+
     try {
-      // Validate form
       if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
         setError('Please fill in all required fields');
         setLoading(false);
         return;
       }
 
-      // Send email
-      const result = await sendEmail(form);
-      
-      if (result.success) {
+      const result = await submitContact(form);
+
+      if (result) {
         setSubmitted(true);
         setForm({ name: '', email: '', phone: '', subject: 'General Inquiry', message: '' });
       } else {
-        setError('Failed to send message. Please try again or contact us directly.');
+        setError('Failed to send message. Please try again.');
       }
     } catch (err) {
       setError('An error occurred. Please try again.');
@@ -61,27 +48,20 @@ export default function Contact() {
 
   return (
     <div className="pt-24">
-      {/* Hero strip */}
       <section className="bg-slate-900 py-16">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
           <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">GET IN TOUCH</p>
           <h1 className="text-white font-extrabold text-4xl lg:text-5xl leading-tight">Contact Us</h1>
-          <p className="text-gray-300 mt-4 max-w-xl">
-            Have a question, need a quote, or want to discuss a project? Our team is ready to help.
-          </p>
+          <p className="text-gray-300 mt-4 max-w-xl">Have a question, need a quote, or want to discuss a project? Our team is ready to help.</p>
         </div>
       </section>
 
-      {/* Contact section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20">
-            {/* Left – form */}
             <div className="lg:col-span-3">
               <h2 className="text-gray-900 font-extrabold text-2xl lg:text-3xl mb-2">Send Us a Message</h2>
-              <p className="text-gray-500 text-sm mb-8">
-                Fill out the form below and we'll get back to you within 24 hours.
-              </p>
+              <p className="text-gray-500 text-sm mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
 
               {submitted ? (
                 <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
@@ -105,43 +85,17 @@ export default function Contact() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label htmlFor="name" className="block text-xs font-semibold text-gray-700 mb-1.5"><span className="text-mclRed">*</span> Full Name</label>
-                      <input
-                        id="name"
-                        type="text"
-                        name="name"
-                        value={form.name}
-                        onChange={handleChange}
-                        required
-                        placeholder="Your name"
-                        className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white"
-                      />
+                      <input id="name" type="text" name="name" value={form.name} onChange={handleChange} required placeholder="Your name" className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white" />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-xs font-semibold text-gray-700 mb-1.5"><span className="text-mclRed">*</span> Email Address</label>
-                      <input
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={form.email}
-                        onChange={handleChange}
-                        required
-                        placeholder="your@email.com"
-                        className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white"
-                      />
+                      <input id="email" type="email" name="email" value={form.email} onChange={handleChange} required placeholder="your@email.com" className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white" />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label htmlFor="phone" className="block text-xs font-semibold text-gray-700 mb-1.5">Phone Number</label>
-                      <input
-                        id="phone"
-                        type="tel"
-                        name="phone"
-                        value={form.phone}
-                        onChange={handleChange}
-                        placeholder="+92 300 1234567"
-                        className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white"
-                      />
+                      <input id="phone" type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="+92 300 1234567" className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white" />
                     </div>
                     <div>
                       <label htmlFor="subject" className="block text-xs font-semibold text-gray-700 mb-1.5">Subject</label>
@@ -156,71 +110,79 @@ export default function Contact() {
                   </div>
                   <div>
                     <label htmlFor="message" className="block text-xs font-semibold text-gray-700 mb-1.5"><span className="text-mclRed">*</span> Message</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={form.message}
-                      onChange={handleChange}
-                      required
-                      rows={5}
-                      placeholder="Tell us about your requirement..."
-                      className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white resize-none"
-                    />
+                    <textarea id="message" name="message" value={form.message} onChange={handleChange} required rows={5} placeholder="Tell us about your requirement..." className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white resize-none" />
                   </div>
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="bg-mclRed hover:bg-red-800 disabled:bg-gray-400 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all hover:shadow-lg active:scale-95 inline-flex items-center gap-2 shadow-md focus:ring-2 focus:ring-red-500 focus:outline-none rounded"
-                  >
+                  <button type="submit" disabled={loading} className="bg-mclRed hover:bg-red-800 disabled:bg-gray-400 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all hover:shadow-lg active:scale-95 inline-flex items-center gap-2 shadow-md focus:ring-2 focus:ring-red-500 focus:outline-none rounded">
                     <FaPaperPlane /> {loading ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               )}
             </div>
 
-            {/* Right – contact info */}
             <div className="lg:col-span-2">
               <h2 className="text-gray-900 font-extrabold text-2xl lg:text-3xl mb-2">Contact Information</h2>
               <p className="text-gray-500 text-sm mb-8">Reach us through any of the channels below.</p>
-
               <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-mclRed/10 flex items-center justify-center flex-shrink-0">
-                    <FaMapMarkerAlt className="text-mclRed" size={16} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 text-sm">Address</h4>
-                    <p className="text-gray-500 text-sm mt-0.5">Multan A-C, Industrial Estate, Multan - Pakistan</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-mclRed/10 flex items-center justify-center flex-shrink-0">
-                    <FaPhone className="text-mclRed" size={16} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 text-sm">Phone</h4>
-                    <p className="text-gray-500 text-sm mt-0.5">061-6510200-6</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-mclRed/10 flex items-center justify-center flex-shrink-0">
-                    <FaEnvelope className="text-mclRed" size={16} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 text-sm">Email</h4>
-                    <p className="text-gray-500 text-sm mt-0.5">info@mcl-gases.com</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-mclRed/10 flex items-center justify-center flex-shrink-0">
-                    <FaClock className="text-mclRed" size={16} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 text-sm">Working Hours</h4>
-                    <p className="text-gray-500 text-sm mt-0.5">Mon – Sat: 8:00 AM – 6:00 PM</p>
-                  </div>
-                </div>
+                {contactInfo.map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={i} className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-mclRed/10 flex items-center justify-center flex-shrink-0">
+                        <Icon className="text-mclRed" size={16} />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-900 text-sm">{item.title}</h4>
+                        <p className="text-gray-500 text-sm mt-0.5">{item.value}</p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white px-4 sm:px-8 lg:px-12">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-gray-900 font-extrabold text-2xl lg:text-3xl mb-2">Our Location</h2>
+            <p className="text-gray-500 text-sm">Visit our main facility at the Multan Industrial Estate</p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div className="rounded-xl overflow-hidden shadow-lg border border-gray-200 h-[350px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3445.731768354844!2d71.5246787!3d30.2714995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b6f5e5c5f5c5f%3A0x5c5f5c5f5c5f5c5f!2sMultan%20Industrial%20Estate!5e0!3m2!1sen!2s!4v1"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Multan Chemicals Limited - Main Factory"
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-lg border border-gray-200 h-[350px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3445.731768354844!2d71.5246787!3d30.2714995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b6f5e5c5f5c5f%3A0x5c5f5c5f5c5f5c5f!2sFaisalabad!5e0!3m2!1sen!2s!4v1"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="MCL Faisalabad ASU Plant"
+              />
+            </div>
+          </div>
+          <div className="flex justify-center gap-8 mt-6 text-sm text-gray-500">
+            <div className="flex items-center gap-2">
+              <FaBuilding className="text-mclRed" size={14} />
+              <span>Main Factory: 4 C-II, Industrial Estate, Multan</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaBuilding className="text-mclRed" size={14} />
+              <span>ASU Plant: Faisalabad</span>
             </div>
           </div>
         </div>

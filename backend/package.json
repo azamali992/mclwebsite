@@ -1,0 +1,33 @@
+{
+  "name": "mclwebsite-backend",
+  "version": "1.0.0",
+  "description": "MCL Website Backend API",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "init": "node scripts/initializeDB.js",
+    "reset-admin-password": "node scripts/resetAdminPassword.js"
+  },
+  "keywords": [
+    "backend",
+    "api",
+    "mongodb"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.17.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^7.4.1",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.7.0",
+    "multer": "^2.1.1",
+    "nodemailer": "^9.0.1"
+  }
+}

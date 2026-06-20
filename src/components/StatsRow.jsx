@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { FaRegCalendarAlt, FaIndustry, FaTruck, FaGasPump, FaUsers } from 'react-icons/fa';
+import { FaRegCalendarAlt, FaIndustry, FaTruck, FaUsers } from 'react-icons/fa';
 import { TbCylinder } from 'react-icons/tb';
+import useContent from '../hooks/useContent';
 import useInView from '../hooks/useInView';
 
 function AnimatedStat({ icon, number, title, subtitle, delay }) {
@@ -58,51 +59,32 @@ function AnimatedStat({ icon, number, title, subtitle, delay }) {
   );
 }
 
+const defaultStats = [
+  { id: 1, icon: <FaRegCalendarAlt size={28} className="text-mclRed" />, number: "40+", title: "YEARS OF", subtitle: "EXCELLENCE" },
+  { id: 2, icon: <FaIndustry size={28} className="text-mclRed" />, number: "125 TPD", title: "OXYGEN PLANT", subtitle: "CAPACITY" },
+  { id: 3, icon: <TbCylinder size={32} strokeWidth={1.5} className="text-mclRed" />, number: "87000+", title: "CYLINDERS", subtitle: "CAPACITY" },
+  { id: 4, icon: <FaTruck size={28} className="text-mclRed" />, number: "65+", title: "TRUCKS IN", subtitle: "OUR FLEET" },
+  { id: 5, icon: <FaIndustry size={28} className="text-mclRed" />, number: "20+", title: "FILLING STATIONS", subtitle: "NATIONWIDE" },
+  { id: 6, icon: <FaUsers size={28} className="text-mclRed" />, number: "1000+", title: "SATISFIED", subtitle: "CLIENTS" },
+];
+
+const iconMap = [FaRegCalendarAlt, FaIndustry, TbCylinder, FaTruck, FaIndustry, FaUsers];
+
 export default function StatsRow() {
-  const stats = [
-    {
-      id: 1,
-      icon: <FaRegCalendarAlt size={28} className="text-mclRed" />,
-      number: "40+",
-      title: "YEARS OF",
-      subtitle: "EXCELLENCE"
-    },
-    {
-      id: 2,
-      icon: <FaIndustry size={28} className="text-mclRed" />,
-      number: "125 TPD",
-      title: "OXYGEN PLANT",
-      subtitle: "CAPACITY"
-    },
-    {
-      id: 3,
-      icon: <TbCylinder size={32} strokeWidth={1.5} className="text-mclRed" />, 
-      number: "87000+",
-      title: "CYLINDERS",
-      subtitle: "CAPACITY"
-    },
-    {
-      id: 4,
-      icon: <FaTruck size={28} className="text-mclRed" />,
-      number: "65+",
-      title: "TRUCKS IN",
-      subtitle: "OUR FLEET"
-    },
-    {
-      id: 5,
-      icon: <FaGasPump size={28} className="text-mclRed" />,
-      number: "35+",
-      title: "FILLING STATIONS",
-      subtitle: "NATIONWIDE"
-    },
-    {
-      id: 6,
-      icon: <FaUsers size={28} className="text-mclRed" />,
-      number: "1000+",
-      title: "SATISFIED",
-      subtitle: "CLIENTS"
+  const { contentMap } = useContent('stats');
+
+  const stats = defaultStats.map((s, i) => {
+    const c = contentMap[`stat-${s.id}`];
+    if (c) {
+      return {
+        ...s,
+        number: c.title || s.number,
+        title: c.description || s.title,
+        subtitle: c.text || s.subtitle,
+      };
     }
-  ];
+    return s;
+  });
 
   return (
     <div className="relative z-40 -mt-16 lg:-mt-20 max-w-full mx-auto px-4 sm:px-8 lg:px-12">
