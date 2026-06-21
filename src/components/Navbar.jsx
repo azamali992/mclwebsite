@@ -130,13 +130,15 @@ export default function Navbar() {
                                 <p className="text-gray-400 font-bold uppercase tracking-widest text-xs mb-3">Quick Links</p>
                                 <ul className="space-y-2.5">
                                   {[
-                                    { label: 'All Industrial Gases', hash: 'industrial' },
-                                    { label: 'All Medical Gases', hash: 'medical' },
-                                    { label: 'Specialty Gases', hash: 'specialty' },
-                                    { label: 'Healthcare Engineering', hash: 'healthcare-engineering' },
+                                    { label: 'All Industrial Gases', to: '/products#industrial' },
+                                    { label: 'All Medical Gases', to: '/products#medical' },
+                                    { label: 'Specialty Gases', to: '/products#specialty' },
+                                    { label: 'Medical Gas Pipelines (MGPS)', to: '/mgps-solutions' },
+                                    { label: 'Modular OT', to: '/modular-ot' },
+                                    { label: 'Clinical Systems', to: '/clinical-systems' },
                                   ].map((q) => (
-                                    <li key={q.hash}>
-                                      <Link to={`/products#${q.hash}`} onClick={() => setProductsOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
+                                    <li key={q.to}>
+                                      <Link to={q.to} onClick={() => setProductsOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
                                         {q.label}
                                       </Link>
                                     </li>

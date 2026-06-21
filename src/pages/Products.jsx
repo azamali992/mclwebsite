@@ -176,6 +176,16 @@ const productIconMap = {
 
 const defaultIcon = FaBoxOpen;
 
+const learnMoreLinks = {
+  mgps: { path: '/mgps-solutions', label: 'See Full MGPS Details' },
+  terminals: { path: '/mgps-solutions', label: 'See Full MGPS Details' },
+  delivery: { path: '/mgps-solutions', label: 'See Full MGPS Details' },
+  modular: { path: '/modular-ot', label: 'See Modular OT Details' },
+  diagnostic: { path: '/clinical-systems', label: 'See Clinical Systems' },
+  critical: { path: '/clinical-systems', label: 'See Clinical Systems' },
+  therapeutic: { path: '/clinical-systems', label: 'See Clinical Systems' },
+};
+
 export default function Products() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -278,29 +288,32 @@ export default function Products() {
               </h2>
             </div>
             <div className="space-y-16">
-              {group.items.map((cat) => (
-                <div key={cat.id} id={cat.id} className="scroll-mt-28">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-lg bg-red-50 text-mclRed flex items-center justify-center flex-shrink-0">
-                      <cat.icon size={18} />
+              {group.items.map((cat) => {
+                const learnMore = learnMoreLinks[cat.id];
+                return (
+                  <div key={cat.id} id={cat.id} className="scroll-mt-28">
+                    <div className="flex items-center justify-between gap-3 mb-6">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-red-50 text-mclRed flex items-center justify-center flex-shrink-0">
+                          <cat.icon size={18} />
+                        </div>
+                        <h3 className="text-gray-900 font-bold text-xl">{cat.label}</h3>
+                      </div>
+                      {learnMore && (
+                        <button onClick={() => navigate(learnMore.path)} className="text-mclRed font-semibold text-sm inline-flex items-center gap-1.5 hover:gap-2.5 transition-all flex-shrink-0">
+                          {learnMore.label} <FaArrowRight size={11} />
+                        </button>
+                      )}
                     </div>
-                    <h3 className="text-gray-900 font-bold text-xl">{cat.label}</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {getProductsForCategory(cat.id).map((product, i) => (
+                        <ProductCard key={i} index={i} {...product} />
+                      ))}
+                    </div>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {getProductsForCategory(cat.id).map((product, i) => (
-                      <ProductCard key={i} index={i} {...product} />
-                    ))}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
-            {group.id === 'healthcare-engineering' && (
-              <div className="mt-16 text-center">
-                <button onClick={() => navigate('/mgps-solutions')} className="border-2 border-mclRed text-mclRed hover:bg-mclRed hover:text-white px-8 py-3 font-bold uppercase tracking-wider text-sm transition-all inline-flex items-center gap-2 rounded">
-                  See Full MGPS Details <FaArrowRight size={12} />
-                </button>
-              </div>
-            )}
           </div>
         </SectionWrap>
       ))}

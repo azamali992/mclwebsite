@@ -3,29 +3,25 @@ import {
   FaCheck, FaArrowRight, FaDownload,
   FaRegBuilding, FaShieldAlt, FaFileAlt, FaStar, FaGem, FaClock,
   FaProjectDiagram, FaAward, FaHospital, FaHeadset,
-  FaMapMarkerAlt, FaUsers
+  FaTools, FaHeartbeat, FaLeaf, FaHeadphones
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import useInView from '../hooks/useInView';
 import useContent from '../hooks/useContent';
 import renderImg from '../assets/3drender.png';
 import heroBg from '../assets/hero01.JPG';
-import pagedemo1 from '../assets/pagedemo1.jpeg';
-import pagedemo2 from '../assets/pagedemo2.jpeg';
-import pagedemo3 from '../assets/pagedemo3.jpeg';
-import stationImg from '../assets/stationimg.JPG';
-import infra02 from '../assets/infra02.JPG';
-import infra03 from '../assets/infra03.JPG';
-import infra04 from '../assets/infra04.JPG';
-
-function SectionWrap({ children, className = '' }) {
-  const [ref, inView] = useInView();
-  return (
-    <section ref={ref} className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}>
-      {children}
-    </section>
-  );
-}
+import manifolds from '../assets/products/medical-gas-manifolds.jpeg';
+import compressorPlant from '../assets/products/medical-air-compressor-plant.png';
+import oxygenPlant from '../assets/products/oxygen-generation-plant.png';
+import masterAlarm from '../assets/products/master-alarm-system.png';
+import areaAlarm from '../assets/products/area-alarm-panel.png';
+import zoneValve from '../assets/products/zone-valve-boxes.png';
+import gasOutlets from '../assets/products/gas-outlets.png';
+import bedHeadUnits from '../assets/products/bed-head-units-install.png';
+import vacuumRegulator from '../assets/products/vacuum-regulator.png';
+import airFlowMeter from '../assets/products/air-flow-meter.png';
+import entonoxSuction from '../assets/products/entonox-suction.png';
+import oxygenConcentrator from '../assets/products/oxygen-concentrator.png';
 
 const heroStats = [
   { icon: FaFileAlt, title: 'HTM 02-01', subtitle: 'Compliant' },
@@ -45,31 +41,37 @@ const overviewStats = [
 ];
 
 const componentsData = [
-  { category: 'Gas Sources', image: stationImg, title: 'Oxygen Generation Plant', desc: 'PSA based on-site oxygen generation systems' },
-  { category: 'Storage Systems', image: infra02, title: 'Bulk Storage Tanks', desc: 'Cryogenic liquid oxygen / nitrogen storage' },
-  { category: 'Distribution', image: infra03, title: 'Cylinder Manifold System', desc: 'High pressure cylinder manifolds with auto changeover' },
-  { category: 'Gas Sources', image: infra04, title: 'Medical Air System', desc: 'Instrument quality compressed medical air' },
-  { category: 'Gas Sources', image: pagedemo1, title: 'Vacuum Pump System', desc: 'Central medical vacuum suction systems' },
+  { category: 'Gas Sources', image: oxygenPlant, title: 'Oxygen Generation Plants', desc: 'On-site PSA oxygen generation, reducing dependency on cylinder deliveries' },
+  { category: 'Gas Sources', image: compressorPlant, title: 'Medical Air Compressor Plants', desc: 'Factory-assembled, pre-piped and pre-tested centralized air systems' },
+  { category: 'Distribution', image: manifolds, title: 'Medical Gas Manifolds', desc: 'NFPA, ISO & HTM compliant manifolds with automatic changeover' },
+  { category: 'Storage Systems', image: zoneValve, title: 'Zone Valve Boxes', desc: 'Flexible isolation and control of gas supply to hospital zones' },
+  { category: 'Monitoring', image: masterAlarm, title: 'Master Alarm System', desc: 'Real-time visual and audible alerts for gas pressure abnormalities' },
 ];
 
 const equipmentData = [
-  { image: pagedemo2, title: 'Bed Head Units', desc: 'Modular patient terminals with gas outlets' },
-  { image: pagedemo3, title: 'Medical Gas Outlets', desc: 'Quick connect colour coded outlets' },
-  { image: stationImg, title: 'Zone Valves', desc: 'Emergency shut-off zone valve boxes' },
-  { image: infra02, title: 'Pressure Regulators', desc: 'Line pressure regulators & alarms' },
-  { image: infra03, title: 'Alarm Panels', desc: 'Master & area alarm monitoring panels' },
-  { image: infra04, title: 'AGSS', desc: 'Anaesthetic gas scavenging systems' },
-];
-
-const projectsData = [
-  { name: 'Shifa International', location: 'Islamabad', beds: '450 Beds', img: pagedemo1 },
-  { name: 'PKLI', location: 'Lahore', beds: '500 Beds', img: pagedemo2 },
-  { name: 'Allied Hospital', location: 'Faisalabad', beds: '800 Beds', img: pagedemo3 },
-  { name: 'Indus Hospital', location: 'Karachi', beds: '600 Beds', img: stationImg },
-  { name: 'Private Hospital', location: 'Peshawar', beds: '350 Beds', img: heroBg },
+  { image: bedHeadUnits, title: 'Bed Head Units', desc: 'Integrated bedside gas outlets, power and data ports' },
+  { image: gasOutlets, title: 'Medical Gas Outlets', desc: 'Quick-connect, colour-coded point-of-use outlets' },
+  { image: areaAlarm, title: 'Area Alarm Panels', desc: 'Zone-level monitoring for up to six gas types' },
+  { image: vacuumRegulator, title: 'Vacuum Regulators', desc: 'Controlled, stable suction pressure for clinical use' },
+  { image: airFlowMeter, title: 'Air Flow Meters', desc: 'Precise medical gas flow measurement and dosage' },
+  { image: entonoxSuction, title: 'Entonox & Suction', desc: 'Entonox delivery kits and portable suction units' },
+  { image: oxygenConcentrator, title: 'Oxygen Concentrators', desc: 'Ambient-air oxygen extraction for backup supply' },
 ];
 
 const tabCategories = ['Gas Sources', 'Storage Systems', 'Distribution', 'Monitoring', 'All'];
+
+const keyFeatures = [
+  { icon: FaShieldAlt, title: 'Safety & Compliance', desc: 'Designed to HTM 02-01, HTM 2022 and NFPA 99 for maximum patient and clinician safety.' },
+  { icon: FaTools, title: 'Custom Design & Turnkey Installation', desc: 'Full planning, engineering, installation, testing, commissioning and handover.' },
+  { icon: FaGem, title: 'Quality Assurance', desc: 'Built with high-grade, certified materials for durability and minimal maintenance.' },
+  { icon: FaHeadphones, title: 'Maintenance & Emergency Support', desc: '24/7 technical support and preventive maintenance for uninterrupted supply.' },
+];
+
+const benefits = [
+  { icon: FaHeartbeat, title: 'Improved Patient Care', desc: 'Continuous, safe gas delivery directly to ICUs, theatres and wards.' },
+  { icon: FaProjectDiagram, title: 'Operational Efficiency', desc: 'Centralized supply reduces cylinder logistics costs and improves workflow.' },
+  { icon: FaLeaf, title: 'Environmental Sustainability', desc: 'Minimizes gas leakage and wastage through efficient distribution.' },
+];
 
 const overviewChecklist = [
   'Centralized supply of medical gases',
@@ -231,7 +233,7 @@ function EquipmentSection() {
         <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">MGPS EQUIPMENT</p>
         <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight">High Quality Equipment For Maximum Safety</h2>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-[1400px] mx-auto mt-10">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-[1400px] mx-auto mt-10">
         {equipmentData.map((item, i) => (
           <div key={i} className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 group hover:shadow-md transition-shadow">
             <div className="aspect-square rounded-md overflow-hidden mb-3">
@@ -295,36 +297,50 @@ function ComplianceDiagramSection({ c }) {
   );
 }
 
-function ProjectsSection({ c }) {
+function KeyFeaturesBenefitsSection() {
   return (
     <section className="bg-[#0B1A28] py-20 max-w-full mx-auto px-4 sm:px-8 lg:px-12">
-      <div className="max-w-[1400px] mx-auto text-center mb-10">
-        <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">
-          {c['mgps-projects-heading']?.title || 'OUR MGPS PROJECTS'}
-        </p>
-        <h2 className="text-white font-extrabold text-3xl lg:text-4xl leading-tight">
-          {c['mgps-projects-title']?.title || 'Delivering Excellence Across Pakistan'}
-        </h2>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-[1400px] mx-auto mt-10">
-        {projectsData.map((project, i) => (
-          <div key={i} className="aspect-[3/4] relative rounded-lg overflow-hidden group cursor-pointer">
-            <img src={project.img} alt={project.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1A28] via-[#0B1A28]/20 to-transparent" />
-            <div className="absolute bottom-0 left-0 p-4">
-              <h3 className="text-white font-bold text-sm leading-tight">{project.name}</h3>
-              <div className="flex items-center gap-3 mt-1.5">
-                <span className="flex items-center gap-1 text-gray-400 text-xs"><FaMapMarkerAlt size={10} />{project.location}</span>
-                <span className="flex items-center gap-1 text-gray-400 text-xs"><FaUsers size={10} />{project.beds}</span>
+      <div className="max-w-[1400px] mx-auto">
+        <div className="text-center mb-12">
+          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">Key Features</p>
+          <h2 className="text-white font-extrabold text-3xl lg:text-4xl leading-tight">Engineered For Safety & Reliability</h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {keyFeatures.map((f, i) => (
+            <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors">
+              <div className="w-12 h-12 rounded-lg bg-mclRed/20 text-mclRed flex items-center justify-center mb-4">
+                <f.icon size={20} />
               </div>
+              <h3 className="text-white font-bold text-sm mb-2">{f.title}</h3>
+              <p className="text-gray-400 text-xs leading-relaxed">{f.desc}</p>
             </div>
-          </div>
-        ))}
-      </div>
-      <div className="mt-10 text-center">
-        <button className="border border-white/30 text-white hover:bg-white/10 font-bold text-xs uppercase px-8 py-3 inline-flex items-center gap-2 transition-all">
-          VIEW ALL PROJECTS <FaArrowRight />
-        </button>
+          ))}
+        </div>
+
+        <div className="text-center mb-12">
+          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">Benefits</p>
+          <h2 className="text-white font-extrabold text-3xl lg:text-4xl leading-tight">Why Hospitals Choose MGPS</h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {benefits.map((b, i) => (
+            <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6 text-center hover:bg-white/10 transition-colors">
+              <div className="w-12 h-12 rounded-lg bg-mclRed/20 text-mclRed flex items-center justify-center mb-4 mx-auto">
+                <b.icon size={20} />
+              </div>
+              <h3 className="text-white font-bold text-sm mb-2">{b.title}</h3>
+              <p className="text-gray-400 text-xs leading-relaxed">{b.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-16 pt-10 border-t border-white/10 flex flex-wrap justify-center gap-4">
+          <Link to="/modular-ot" className="border border-white/30 text-white hover:bg-white/10 font-bold text-xs uppercase px-8 py-3 inline-flex items-center gap-2 transition-all">
+            See Modular OT <FaArrowRight />
+          </Link>
+          <Link to="/clinical-systems" className="border border-white/30 text-white hover:bg-white/10 font-bold text-xs uppercase px-8 py-3 inline-flex items-center gap-2 transition-all">
+            See Clinical Systems <FaArrowRight />
+          </Link>
+        </div>
       </div>
     </section>
   );
@@ -340,7 +356,7 @@ export default function MgpsSolutionsPage() {
       <ComponentsSection />
       <EquipmentSection />
       <ComplianceDiagramSection c={contentMap} />
-      <ProjectsSection c={contentMap} />
+      <KeyFeaturesBenefitsSection />
     </div>
   );
 }
