@@ -1,10 +1,12 @@
 import { useRef } from 'react';
-import { FaFlask, FaIndustry, FaTruck, FaHospital, FaAward, FaBuilding, FaShieldAlt, FaChartBar, FaRocket, FaBurn, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { FaFlask, FaIndustry, FaTruck, FaHospital, FaAward, FaBuilding, FaShieldAlt, FaChartBar, FaRocket, FaBurn, FaChevronLeft, FaChevronRight, FaArrowRight } from 'react-icons/fa';
 import AboutSection1 from '../components/AboutSection1';
 import AboutSection2 from '../components/AboutSection2';
 import AboutSection3 from '../components/AboutSection3';
 import useInView from '../hooks/useInView';
 import heroBg from '../assets/hero02.JPG';
+import { leadership } from '../data/team';
 
 function AboutHero() {
   return (
@@ -206,6 +208,40 @@ function MissionVisionSection() {
   );
 }
 
+function TeamPreviewSection() {
+  const [ref, inView] = useInView();
+  return (
+    <section ref={ref} className={`bg-white py-20 px-4 sm:px-8 lg:px-12 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+      <div className="max-w-[1400px] mx-auto">
+        <div className="text-center mb-12">
+          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">Our Team</p>
+          <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight">Meet Our Leadership</h2>
+        </div>
+        <div className="flex flex-wrap justify-center gap-6 sm:gap-8 mb-10">
+          {leadership.map((person, i) => (
+            <div
+              key={person.name}
+              style={{ transitionDelay: inView ? `${i * 60}ms` : '0ms' }}
+              className={`flex flex-col items-center w-28 sm:w-32 transition-all duration-500 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+            >
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-gray-100 shadow-md">
+                <img src={person.image} alt={person.name} className="object-cover w-full h-full" />
+              </div>
+              <p className="text-gray-900 font-bold text-sm text-center mt-3 leading-tight">{person.name}</p>
+              <p className="text-mclRed text-xs font-semibold text-center mt-0.5">{person.title}</p>
+            </div>
+          ))}
+        </div>
+        <div className="text-center">
+          <Link to="/team" className="bg-mclRed hover:bg-red-800 text-white font-bold text-xs uppercase tracking-wider px-8 py-3.5 inline-flex items-center gap-2 transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95 rounded">
+            View All Team <FaArrowRight size={12} />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function About() {
   return (
     <div className="pt-24">
@@ -213,6 +249,7 @@ export default function About() {
       <AboutSection1 />
       <MissionVisionSection />
       <TimelineSection />
+      <TeamPreviewSection />
       <AboutSection2 />
       <AboutSection3 />
     </div>

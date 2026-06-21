@@ -11,6 +11,7 @@ import InfrastructurePage from './pages/Infrastructure';
 import MgpsSolutionsPage from './pages/MgpsSolutionsPage';
 import ModularOT from './pages/ModularOT';
 import ClinicalSystems from './pages/ClinicalSystems';
+import Team from './pages/Team';
 import Products from './pages/Products';
 import Contact from './pages/Contact';
 import Careers from './pages/Careers';
@@ -51,6 +52,7 @@ export default function App() {
         <Route path="/mgps-solutions" element={<MgpsSolutionsPage />} />
         <Route path="/modular-ot" element={<ModularOT />} />
         <Route path="/clinical-systems" element={<ClinicalSystems />} />
+        <Route path="/team" element={<Team />} />
         <Route path="/products" element={<Products />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/contact" element={<Contact />} />
