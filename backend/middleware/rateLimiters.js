@@ -15,3 +15,11 @@ export const formLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
 });
+
+export const chatLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 30,
+  message: { message: 'Too many chat requests. Please try again later.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+});

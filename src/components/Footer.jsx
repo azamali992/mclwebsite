@@ -1,4 +1,4 @@
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGlobe, FaFacebook, FaLinkedinIn, FaYoutube, FaWhatsapp } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGlobe, FaFacebook, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MclLogo from '../assets/MCL_Logo.jpeg';
@@ -54,8 +54,7 @@ export default function Footer() {
   };
 
   return (
-    <>
-      <footer className="bg-mclRed text-white pt-16 pb-8 px-4 sm:px-8 lg:px-12">
+    <footer className="bg-mclRed text-white pt-16 pb-8 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12">
           <div className="border-r-0 lg:border-r border-white/20 pr-0 lg:pr-4">
             <img src={MclLogo} alt="MCL Multan Chemicals Limited" className="h-12 mb-6 brightness-0 invert" />
@@ -138,10 +137,5 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-
-      <a href="https://wa.me/923016510200" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp" className="fixed bottom-6 right-6 z-50 bg-[#25D366] p-3.5 rounded-full shadow-xl hover:scale-110 transition-transform focus:ring-2 focus:ring-white focus:outline-none block">
-        <FaWhatsapp size={24} className="text-white" />
-      </a>
-    </>
   );
 }

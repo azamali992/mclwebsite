@@ -5,6 +5,7 @@ import {
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import useInView from '../hooks/useInView';
+import { slugify } from '../data/products';
 import otHero from '../assets/products/modular-ot-hero.jpeg';
 import wallCeiling from '../assets/products/wall-ceiling-system.png';
 import surgicalLighting from '../assets/products/surgical-lighting-system.jpeg';
@@ -71,10 +72,11 @@ function ComponentCard({ image, icon: Icon, title, features, index }) {
 
   return (
     <div
+      id={slugify(title)}
       ref={ref}
       onClick={() => setExpanded(!expanded)}
       style={{ transitionDelay: inView ? `${(index % 6) * 60}ms` : '0ms' }}
-      className={`bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500 cursor-pointer group ${
+      className={`scroll-mt-28 bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500 cursor-pointer group ${
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
       }`}
     >

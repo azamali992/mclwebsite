@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FaCheck, FaArrowRight, FaXRay, FaHeartbeat, FaSun } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import useInView from '../hooks/useInView';
+import { slugify } from '../data/products';
 import clinicalHero from '../assets/products/anesthesia-workstation.png';
 import ultrasoundTrolley from '../assets/products/ultrasound-trolley.png';
 import xrayFixed from '../assets/products/xray-fixed.png';
@@ -56,10 +57,11 @@ function EquipmentCard({ image, title, features, index }) {
 
   return (
     <div
+      id={slugify(title)}
       ref={ref}
       onClick={() => setExpanded(!expanded)}
       style={{ transitionDelay: inView ? `${(index % 6) * 60}ms` : '0ms' }}
-      className={`bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500 cursor-pointer group ${
+      className={`scroll-mt-28 bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500 cursor-pointer group ${
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
       }`}
     >

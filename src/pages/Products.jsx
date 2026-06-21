@@ -11,6 +11,7 @@ import useInView from '../hooks/useInView';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { fetchProducts } from '../services/api';
 import useContent from '../hooks/useContent';
+import ProductChatbot from '../components/ProductChatbot';
 import heroBg from '../assets/infra01.JPG';
 import {
   slugify, industrialGases, medicalGases, specialtyGases, lpgGases, categoryGroups,
@@ -367,6 +368,8 @@ export default function Products() {
           <Link to="/about#certifications" className="text-mclRed font-semibold hover:underline">see all certifications</Link>
         </p>
       </SectionWrap>
+
+      <ProductChatbot />
     </div>
   );
 }

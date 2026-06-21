@@ -1,0 +1,120 @@
+/**
+ * Static knowledge base for the product assistant chatbot (RAG).
+ * Every chunk below is derived directly from the real, already-curated content
+ * rendered on the live site (src/data/products.js and the product pages) —
+ * nothing here is invented. Keep this file in sync if that content changes.
+ *
+ * `link` lets the chatbot point the user at the exact card on the site that
+ * matches a chunk. It's computed with the same slugify() used by the
+ * frontend (duplicated here, zero deps) applied to the *real* title used as
+ * the element id on that page, so the anchor is always correct.
+ */
+
+const slugify = (str) =>
+  str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+const onProducts = (title) => ({ path: `/products#${slugify(title)}` });
+const onModularOT = (title) => ({ path: `/modular-ot#${slugify(title)}` });
+const onClinical = (title) => ({ path: `/clinical-systems#${slugify(title)}` });
+
+let id = 0;
+const chunk = (source, text, link) => ({ id: ++id, source, text, link });
+
+export const knowledgeBase = [
+  // --- Company overview ---
+  chunk('About MCL', 'Multan Chemicals Limited (MCL) was established in 1980 and began operations as a regional supplier of industrial gases in Multan, Pakistan. MCL expanded into medical gases in 1985, commissioned its first Air Separation Unit (ASU) in 1992, achieved ISO 9001 certification from SGS UK in 2000, launched its Medical Gas Pipeline Systems (MGPS) division in 2015, and commissioned a 125 TPD liquid oxygen plant in Faisalabad in 2020 — the largest single liquid oxygen plant in Pakistan. MCL\'s combined production capacity now exceeds 160 tons per day (TPD) across multiple plants. A new 900-ton LPG plant is planned for late 2026, with a further ~230 TPD capacity expansion planned by December 2027.', { path: '/about' }),
+  chunk('About MCL — Mission', 'MCL\'s mission is to ensure the continuous, safe, and efficient supply of high-purity medical and industrial gases across Pakistan, and to engineer robust turnkey pipeline systems that safeguard human life in healthcare and drive productivity in manufacturing.', { path: '/about' }),
+  chunk('About MCL — Vision', 'MCL\'s vision is to remain Pakistan\'s most trusted partner in gas infrastructure, continuously expanding production capacity, modernizing its distribution fleet, and engineering innovations to set the national benchmark for industrial safety and purity.', { path: '/about' }),
+  chunk('About MCL — Core Values', 'MCL\'s core values: Safety First — strict adherence to Explosive Department of Pakistan (EDP) cylinder protocols and non-destructive structural testing before every filling cycle. Unbroken Supply — a 24/7/365 operational grid driven by a company-owned logistics fleet and regional strategic storage units. Certified Purity — zero-compromise chemical tracking compliant with ISO 9001 and Good Manufacturing Practices (GMP), ensuring 99.9% product purity.', { path: '/about' }),
+
+  // --- Product range overview (answers "what do you sell / what categories do you have") ---
+  chunk('Product Categories Overview', 'MCL\'s products and solutions fall into two main categories. Gases: Industrial Gases (oxygen, nitrogen, argon, acetylene, ammonia, carbon dioxide), Medical Gases (medical oxygen, nitrous oxide, medical carbon dioxide, medical air, medical nitrogen), Specialty Gases (calibration gas mixtures, electronic grade gases, zero gases, mixture gases), and LPG. Healthcare Engineering & Equipment: Medical Gas Pipelines (MGPS), Terminal Units, Gas Delivery equipment, Modular Operation Theatres (Modular OT), Diagnostic Systems, Critical Care equipment, and Therapeutic equipment. Ask about any specific gas or piece of equipment for full details.', { path: '/products' }),
+
+  // --- Production ---
+  chunk('Production', 'MCL operates three Air Separation Unit (ASU) plants in Punjab, Pakistan: a 125 TPD Liquid Generation Plant in Sahianwala, Faisalabad; a 20 TPD Compressed Gas plant in Sahianwala, Faisalabad; and a 15 TPD Compressed Gas plant in Multan. Dissolved Acetylene plants operate in Multan, Faisalabad and Tharparkar.', { path: '/production' }),
+  chunk('Production — Capacity & Reliability', 'MCL\'s largest plant produces 125 tons per day — the single largest plant in Pakistan to date — backed by two 40 ton-per-day backup plants. MCL has the largest cylinder inventory in the country at 185,000 cylinders and the largest cylinder transportation fleet with 65 trucks. MCL operates the largest ISO tanker fleet: 18 tankers of 20-ton capacity and 7 of 5-ton capacity. Its largest liquid medical oxygen backup facility holds 1,150,000 cubic metres, plus a 1,200-ton biweekly backup storage tank, ensuring round-the-clock uninterrupted supply. Technical staff hold HTM 02 trained competent person / authorised person certification.', { path: '/production' }),
+
+  // --- Industrial gases ---
+  chunk('Industrial Gases — Oxygen', 'Oxygen (O2): high-purity oxygen for industrial combustion, cutting, welding, and chemical processes. 99.5% minimum purity. Supplied in compressed gas cylinders and bulk liquid. Used in steelmaking, glass manufacturing, and wastewater treatment. Enhances combustion efficiency in furnaces and is critical for chemical oxidation processes.', onProducts('Oxygen (O₂)')),
+  chunk('Industrial Gases — Nitrogen', 'Nitrogen (N2): inert gas for blanketing, purging, and inerting applications. 99.9% minimum purity. Available as compressed gas and bulk liquid nitrogen. Used for inert atmosphere in chemical processing, food packaging and preservation, and blanketing for flammable liquid storage.', onProducts('Nitrogen (N₂)')),
+  chunk('Industrial Gases — Argon', 'Argon (Ar): premium shielding gas for welding and metal fabrication. 99.99% high-purity. Primary shielding gas for TIG and MIG welding; used in metal production and fabrication, blanketing for reactive metal processing, and specialty electronics manufacturing applications.', onProducts('Argon (Ar)')),
+  chunk('Industrial Gases — Acetylene', 'Acetylene (C2H2), supplied via sister concern TM Gases: a high-temperature fuel gas for cutting and welding with an extremely high flame temperature (3,300°C). Used for efficient oxy-acetylene cutting and welding, supplied in specialized dissolved gas cylinders, ideal for quick preheat in metalworking and widely used in construction and repair.', onProducts('Acetylene (C₂H₂)')),
+  chunk('Industrial Gases — Ammonia', 'Ammonia (NH3): industrial-grade anhydrous ammonia for refrigeration and chemical processes. 99.5% minimum purity. Used in industrial refrigeration systems, as a feedstock for fertilizer and chemical production, and in water treatment applications. Supplied in bulk and cylinder quantities.', onProducts('Ammonia (NH₃)')),
+  chunk('Industrial Gases — Carbon Dioxide', 'Carbon Dioxide (CO2): high-purity, 99.9% food-grade CO2 for food, beverage, and industrial use. Used in carbonated beverage production, pH control in water treatment, as a shielding gas for MIG welding, and in fire suppression systems.', onProducts('Carbon Dioxide (CO₂)')),
+
+  // --- Medical gases ---
+  chunk('Medical Gases — Medical Oxygen', 'Medical Oxygen (O2): USP/BP grade, 99.5% minimum purity, for respiratory therapy and life support. Critical for respiratory therapy and ICU support. Supplied in medical-grade cylinders of various sizes, central pipeline supply for hospital networks, and emergency backup for healthcare facilities.', onProducts('Medical Oxygen (O₂)')),
+  chunk('Medical Gases — Nitrous Oxide', 'Nitrous Oxide (N2O): medical-grade anaesthetic and analgesic gas of pharmaceutical-grade purity. Used as an anaesthetic agent in operating theatres and as an analgesic for pain management in dentistry and obstetrics. Combined with oxygen for Entonox delivery and supplied in blue medical cylinders.', onProducts('Nitrous Oxide (N₂O)')),
+  chunk('Medical Gases — Medical Carbon Dioxide', 'Medical Carbon Dioxide (CO2): high-purity CO2 with medical-grade certification, for insufflation and respiratory applications. Used for laparoscopic insufflation in surgery and as a respiratory stimulant in specific clinical settings. Supplied in medical cylinders with safety valves, color-coded per international standards.', onProducts('Medical Carbon Dioxide (CO₂)')),
+  chunk('Medical Gases — Medical Air', 'Medical Air: purified, oil-free, breathing-quality compressed air for healthcare environments. Used for respiratory therapy and incubators, supplied via central pipeline or cylinder, compliant with pharmacopoeia standards, and available 24/7 to healthcare facilities.', onProducts('Medical Air')),
+  chunk('Medical Gases — Medical Nitrogen', 'Medical Nitrogen (N2): high-purity medical-grade nitrogen for surgical instruments and medical devices. Powers pneumatic surgical instruments, used in cryopreservation and freezer applications, supports MRI system cooling, and is supplied with medical gas outlet fittings.', onProducts('Medical Nitrogen (N₂)')),
+
+  // --- Specialty gases ---
+  chunk('Specialty Gases — Calibration Gas Mixtures', 'Calibration Gas Mixtures: custom-formulated gas blends for instrument calibration, precision-mixed to customer specifications with NIST-traceable certification available. Used for environmental monitoring equipment, industrial safety instrument calibration, and laboratory analyzer verification.', onProducts('Calibration Gas Mixtures')),
+  chunk('Specialty Gases — Electronic Grade Gases', 'Electronic Grade Gases: ultra-high-purity gases (99.999%+ purity) for semiconductor and electronics manufacturing. Custom cylinder preparation, low particulate and moisture content, cleanroom-ready packaging, used in deposition and etching applications.', onProducts('Electronic Grade Gases')),
+  chunk('Specialty Gases — Zero Gases', 'Zero Gases: hydrocarbon-free, zero-grade air and nitrogen for analytical instruments. Total hydrocarbon content under 0.1 ppm. Used as carrier gas in GC analyzers and zero-air for flame ionization detectors, with ultra-zero options for trace analysis and a full certificate of analysis supplied.', onProducts('Zero Gases')),
+  chunk('Specialty Gases — Mixture Gases', 'Mixture Gases: custom gas blends for specialized industrial applications, mixed to order in a wide range of component gases. Used in food packaging, welding, and research, with a full certificate of analysis and packaging in various cylinder sizes.', onProducts('Mixture Gases')),
+
+  // --- LPG ---
+  chunk('LPG', 'LPG (Liquefied Petroleum Gas): a clean-burning fuel gas for industrial and commercial applications, with consistent calorific value and low sulfur content. Available in bulk and cylinder supply, used for industrial heating applications, and is a cleaner alternative to traditional fuels.', onProducts('LPG (Liquefied Petroleum Gas)')),
+
+  // --- MGPS overview & compliance ---
+  chunk('MGPS Solutions — Overview', 'MCL designs, supplies, installs, tests and commissions complete Medical Gas Pipeline Systems (MGPS) in accordance with HTM 02-01, HTM 2022, NFPA 99 and ISO 7396-1 international standards. Services include centralized supply of medical gases, ICU/CCU/Operation Theatre solutions, bed head units & pendants, and alarm & monitoring systems — from design and supply through installation, testing and commissioning.', { path: '/mgps-solutions' }),
+  chunk('MGPS Solutions — Key Features', 'MGPS key features: Safety & Compliance — designed to HTM 02-01, HTM 2022 and NFPA 99 for maximum patient and clinician safety. Custom Design & Turnkey Installation — full planning, engineering, installation, testing, commissioning and handover. Quality Assurance — built with high-grade, certified materials for durability and minimal maintenance. Maintenance & Emergency Support — 24/7 technical support and preventive maintenance for uninterrupted supply.', { path: '/mgps-solutions' }),
+  chunk('MGPS Solutions — Benefits', 'MGPS benefits: Improved Patient Care through continuous, safe gas delivery directly to ICUs, theatres and wards. Operational Efficiency, since centralized supply reduces cylinder logistics costs and improves workflow. Environmental Sustainability, by minimizing gas leakage and wastage through efficient distribution.', { path: '/mgps-solutions' }),
+
+  // --- MGPS gas sources / distribution / monitoring ---
+  chunk('MGPS — Oxygen Generation Plants', 'Oxygen Generation Plants: on-site PSA oxygen generation for hospitals, reducing dependency on cylinder deliveries and providing continuous availability during peak demand.', { path: '/mgps-solutions' }),
+  chunk('MGPS — Medical Air Compressor Plants', 'Medical Air Compressor Plants: factory-assembled, pre-piped and pre-tested centralized medical air systems suitable for high-demand hospital environments.', { path: '/mgps-solutions' }),
+  chunk('MGPS — Medical Gas Manifolds', 'Medical Gas Manifolds: NFPA, ISO & HTM compliant manifold systems for gas distribution with automatic changeover capability, tested for safety and reliability.', { path: '/mgps-solutions' }),
+  chunk('MGPS — Zone Valve Boxes', 'Zone Valve Boxes: flexible isolation and control of gas supply to hospital zones, allowing easy isolation during maintenance and emergency shut-off.', { path: '/mgps-solutions' }),
+  chunk('MGPS — Master Alarm System', 'Master Alarm System: real-time visual and audible alerts for gas pressure abnormalities, with centralized monitoring across up to six different gas types.', { path: '/mgps-solutions' }),
+  chunk('MGPS — Bed Head Units', 'Bed Head Units (BHUs): integrated bedside units combining medical gas outlets, power points, and data/communication ports for patient-bedside installation.', { path: '/mgps-solutions' }),
+  chunk('MGPS — Medical Gas Outlets', 'Medical Gas Outlets: quick-connect, colour-coded point-of-use outlets for safe, leak-free, standardized access to medical gases.', { path: '/mgps-solutions' }),
+  chunk('MGPS — Area Alarm Panels', 'Area Alarm Panels: zone-level touchscreen monitoring panels covering up to six gas types.', { path: '/mgps-solutions' }),
+  chunk('MGPS — Vacuum Regulators', 'Vacuum Regulators: controlled, stable suction pressure regulation for clinical use.', { path: '/mgps-solutions' }),
+  chunk('MGPS — Air Flow Meters', 'Air Flow Meters: precise medical gas flow measurement and dosage control.', { path: '/mgps-solutions' }),
+  chunk('MGPS — Entonox & Suction', 'Entonox & Suction: Entonox (oxygen-nitrous oxide) delivery kits for pain management and obstetric procedures, plus portable suction units.', { path: '/mgps-solutions' }),
+  chunk('MGPS — Oxygen Concentrators', 'Oxygen Concentrators: ambient-air oxygen extraction units providing medical-grade purity output as a continuous backup oxygen supply.', { path: '/mgps-solutions' }),
+
+  // --- Modular OT ---
+  chunk('Modular OT — Overview', 'Modular Operation Theatres (Modular OT) from MCL are pre-fabricated, sterile-by-design surgical environments — a high-performance, steel-structured surgical environment with seamless sterile wall systems and advanced infection control engineering, without compromising structural strength or flexibility. Benefits include rapid installation, infection control, modular expansion, and easy maintenance.', { path: '/modular-ot' }),
+  chunk('Modular OT — Sterility & Infection Control', 'Modular OT sterility & infection control features: non-porous, seamless surfaces; minimized chemical disinfection needs; sterile airflow and contamination control.', { path: '/modular-ot' }),
+  chunk('Modular OT — Workflow Optimization', 'Modular OT workflow optimization features: concealed wiring & gas pipelines; unobstructed surgical workspace; ergonomic layout for staff movement.', { path: '/modular-ot' }),
+  chunk('Modular OT — Aesthetic & Clinical Environment', 'Modular OT aesthetic & clinical environment features: optimized Lux lighting levels; advanced air quality & ventilation; customizable, calming finishes.', { path: '/modular-ot' }),
+  chunk('Modular OT — Wall & Ceiling System', 'Wall & Ceiling System: steel or tempered glass panels with anti-microbial coated surfaces, rounded corners that eliminate contamination points, and integrated air duct provisions.', onModularOT('Wall & Ceiling System')),
+  chunk('Modular OT — Surgical Lighting System', 'Surgical Lighting System: ceiling-mounted high-intensity LED lights with illumination exceeding 1300 Lux, shadow-free precision lighting, and adjustable positioning.', onModularOT('Surgical Lighting System')),
+  chunk('Modular OT — Medical Pendants', 'Medical Pendants: integrated medical gas outlets & power points, data and communication ports, equipment shelves & accessory storage, with adjustable height and positioning.', onModularOT('Medical Pendants')),
+  chunk('Modular OT — OT Control Panel', 'OT Control Panel: centralized monitoring of medical gas supply, HVAC and lighting control, plus equipment and system alarms.', onModularOT('OT Control Panel')),
+  chunk('Modular OT — IT Power Supply System', 'IT Power Supply System: medical-grade isolation transformer, insulation monitoring device, line fault detection system, and dedicated grounding system.', onModularOT('IT Power Supply System')),
+  chunk('Modular OT — Anti-Static Flooring', 'Anti-Static Flooring: prevents electrostatic discharge, protects sensitive surgical equipment, and is durable, seamless and easy to clean.', onModularOT('Anti-Static Flooring')),
+  chunk('Modular OT — Operating Table', 'Operating Table: adjustable for multi-specialty use, with a high-stability, load-bearing design and ergonomic surgical precision.', onModularOT('Operating Table')),
+  chunk('Modular OT — Laminar Air Flow', 'Laminar Air Flow: unidirectional, ultra-clean airflow using HEPA filtration technology, reducing the risk of surgical site infection.', onModularOT('Laminar Air Flow')),
+  chunk('Modular OT — Automatic Sliding Door', 'Automatic Sliding Door: touch-free automatic operation with airtight sealing for infection control, and smooth, silent, reliable performance.', onModularOT('Automatic Sliding Door')),
+  chunk('Modular OT — Medical Cabinets', 'Medical Cabinets: hygienic, easy-to-clean surfaces with optimized instrument storage and corrosion-resistant construction.', onModularOT('Medical Cabinets')),
+  chunk('Modular OT — X-Ray Viewer', 'X-Ray Viewer: high-brightness, uniform illumination in a slim, space-efficient, energy-efficient design.', onModularOT('X-Ray Viewer')),
+  chunk('Modular OT — Sub Structure', 'Sub Structure: high-strength structural framework that supports all OT services & utilities and facilitates future modifications.', onModularOT('Sub Structure')),
+
+  // --- Clinical / diagnostic systems ---
+  chunk('Clinical Systems — Overview', 'MCL supplies, installs and supports integrated clinical and diagnostic equipment — from diagnostic imaging to critical care and specialized therapy equipment — for reliable clinical performance in hospitals.', { path: '/clinical-systems' }),
+  chunk('Clinical Systems — Ultrasound (USG) Systems', 'Ultrasound (USG) Systems: portable & trolley-mounted configurations with high-resolution real-time imaging and Doppler. Used for abdominal, cardiology & obstetric applications, designed for fast clinical workflow.', onClinical('Ultrasound (USG) Systems')),
+  chunk('Clinical Systems — X-Ray Systems', 'X-Ray Systems: fixed & mobile/portable configurations with high-resolution digital imaging output, PACS-ready integration, and reduced radiation exposure.', onClinical('X-Ray Systems')),
+  chunk('Clinical Systems — C-Arm Systems', 'C-Arm Systems: real-time fluoroscopic imaging used in orthopedic & cardiovascular procedures. Compact, mobile design with high-quality imaging at reduced dose.', onClinical('C-Arm Systems')),
+  chunk('Clinical Systems — Anesthesia Workstation', 'Anesthesia Workstation: integrated heated breathing circuit with advanced ventilation modes, supporting neonatal, pediatric & adult patients with precise gas delivery & monitoring.', onClinical('Anesthesia Workstation')),
+  chunk('Clinical Systems — Multi-Parameter Patient Monitor', 'Multi-Parameter Patient Monitor: 12.1" or 15" touchscreen display options for ICU, CCU & NICU monitoring, with 12-lead ECG and arrhythmia mapping, scalable to clinical requirements.', onClinical('Multi-Parameter Patient Monitor')),
+  chunk('Clinical Systems — ICU Medical Ventilator', 'ICU Medical Ventilator: invasive, non-invasive & high-flow modes supporting neonatal to adult patients, with microprocessor-controlled precision and advanced respiratory monitoring & alarms.', onClinical('ICU Medical Ventilator')),
+  chunk('Clinical Systems — 12-Channel ECG System', '12-Channel ECG System: 8" high-resolution touchscreen with 12-channel simultaneous recording, Glasgow interpretation algorithm, and up to 10-hour battery backup.', onClinical('12-Channel ECG System')),
+  chunk('Clinical Systems — Medical UV Phototherapy Cabin', 'Medical UV Phototherapy Cabin: UVA, Narrowband UVB & combined wavelengths for treating vitiligo, psoriasis & eczema, with uniform radiation distribution and a safety-controlled exposure system.', onClinical('Medical UV Phototherapy Cabin')),
+
+  // --- Certifications & quality ---
+  chunk('Certifications — Halal Certification', 'Halal Certification (issued by ACTS Halal Certification & Training Services): certifies that the medical, industrial and specialty gases produced at MCL\'s Industrial Estate, Multan facility comply with national and international Halal standards, covering production, filling and supply.', { path: '/certifications' }),
+  chunk('Certifications — ISO 45001:2018', 'ISO 45001:2018 (issued by Bureau Veritas Certification): Occupational Health & Safety Management System certification covering the production, distribution and supply of medical, industrial and specialty gases, confirming MCL\'s commitment to a safe working environment.', { path: '/certifications' }),
+  chunk('Certifications — FSSC 22000', 'FSSC 22000 (issued by Bureau Veritas Certification): Food Safety System Certification covering the manufacture, filling, compression, adsorption, oxygenation and decarbonation of liquid nitrogen and mixture gases used in food production.', { path: '/certifications' }),
+  chunk('Certifications — ISO 14001:2015', 'ISO 14001:2015 (issued by Bureau Veritas Certification): Environmental Management System certification covering the production, distribution and supply of medical, industrial and specialty gases, reflecting MCL\'s commitment to minimizing environmental impact.', { path: '/certifications' }),
+  chunk('Certifications — Quality Policy', 'MCL\'s Quality Policy commitments: (1) continuously improving processes, embracing innovation and investing in state-of-the-art technologies to exceed customer expectations; (2) uncompromising commitment to the integrity, purity and reliability of its gases; (3) proactive monitoring, strict controls and comprehensive training to consistently deliver superior products and services.', { path: '/certifications' }),
+  chunk('Certifications — Standards Followed', 'Standards MCL follows: GMP (Good Manufacturing Practice), European Pharmacopeia 1999 (Medical Gas Purity Standards), HTM 02-01 and HTM 2022 (Medical Gas Pipeline Systems), and NFPA 99 (Health Care Facilities Code).', { path: '/certifications' }),
+  chunk('Certifications — Medical Oxygen Purity Specification', 'MCL medical oxygen purity vs European Pharmacopeia 1999: Oxygen purity — Euro min 99.5%, MCL min 99.7%. Moisture — Euro under 67 ppm, MCL under 0.1 ppm. Carbon dioxide — Euro under 300 ppm, MCL under 0.85 ppm. Carbon monoxide — Euro under 5 ppm, MCL under 1.0 ppm. Odor — odorless for both.', { path: '/certifications' }),
+
+  // --- Contact / quotes ---
+  chunk('Getting a Quote', 'To request a quote, technical consultation, or product documentation (certificates, MSDS, quality dossiers), customers can use the "Request Quote" button or visit the Contact page on the MCL website.', { path: '/contact' }),
+];

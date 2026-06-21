@@ -14,6 +14,8 @@ import careerRoutes from './routes/careerRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import contactRoutes from './routes/contactRoutes.js';
 import applicationRoutes from './routes/applicationRoutes.js';
+import chatRoutes from './routes/chatRoutes.js';
+import { warmUpIndex } from './utils/rag.js';
 
 dotenv.config();
 
@@ -49,6 +51,7 @@ app.use('/api/products', productRoutes);
 app.use('/api/careers', careerRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/applications', applicationRoutes);
+app.use('/api/chat', chatRoutes);
 app.use('/api', contactRoutes);
 
 app.get('/api/health', (req, res) => {
@@ -61,4 +64,5 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+  warmUpIndex();
 });
