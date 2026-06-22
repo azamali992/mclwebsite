@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -12,7 +12,8 @@ import MgpsSolutionsPage from './pages/MgpsSolutionsPage';
 import ModularOT from './pages/ModularOT';
 import ClinicalSystems from './pages/ClinicalSystems';
 import Team from './pages/Team';
-import Products from './pages/Products';
+import Gases from './pages/Gases';
+import HealthEngineering from './pages/HealthEngineering';
 import Contact from './pages/Contact';
 import Careers from './pages/Careers';
 import Admin from './pages/Admin';
@@ -53,7 +54,9 @@ export default function App() {
         <Route path="/modular-ot" element={<ModularOT />} />
         <Route path="/clinical-systems" element={<ClinicalSystems />} />
         <Route path="/team" element={<Team />} />
-        <Route path="/products" element={<Products />} />
+        <Route path="/gases" element={<Gases />} />
+        <Route path="/health-engineering" element={<HealthEngineering />} />
+        <Route path="/products" element={<Navigate to="/gases" replace />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/quality-safety" element={<QualitySafety />} />

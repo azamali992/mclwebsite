@@ -7,7 +7,8 @@ import { slugify, industrialGases, medicalGases, specialtyGases, lpgGases } from
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
+  const [gasesOpen, setGasesOpen] = useState(false);
+  const [healthEngOpen, setHealthEngOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -22,7 +23,8 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
-    { name: 'Products', path: '/products' },
+    { name: 'Gases', path: '/gases' },
+    { name: 'Health Engineering', path: '/health-engineering' },
     { name: 'Infrastructure', path: '/infrastructure' },
     { name: 'Production', path: '/production' },
     { name: 'Quality & Safety', path: '/quality-safety' },
@@ -40,14 +42,14 @@ export default function Navbar() {
     }`}>
       <div className="max-w-full mx-auto px-4 sm:px-8 lg:px-12">
         <div className="flex justify-between h-24 items-center">
-          
+
           {/* Logo area */}
           <Link to="/" className="flex-shrink-0 flex items-center cursor-pointer">
-            <img 
-              src={logo} 
-              alt="Multan Chemicals Limited Logo" 
-              style={{ height: '50px', width: 'auto' }} 
-              className="h-12 w-auto" 
+            <img
+              src={logo}
+              alt="Multan Chemicals Limited Logo"
+              style={{ height: '50px', width: 'auto' }}
+              className="h-12 w-auto"
             />
             <div className="flex flex-col ml-3 border-l-2 border-gray-200 pl-3">
               <span className="text-2xl font-semibold text-gray-800 leading-none tracking-wide">Multan</span>
@@ -57,25 +59,25 @@ export default function Navbar() {
 
           {/* Right side wrapper */}
           <div className="hidden lg:flex items-center space-x-8">
-            
+
             {/* Desktop links */}
             <div className="flex space-x-6 xl:space-x-8 items-center">
               {navLinks.map((link) => {
                 const active = isActive(link.path);
 
-                if (link.name === 'Products') {
+                if (link.name === 'Gases') {
                   return (
                     <div
                       key={link.name}
                       className="relative"
-                      onMouseEnter={() => setProductsOpen(true)}
-                      onMouseLeave={() => setProductsOpen(false)}
+                      onMouseEnter={() => setGasesOpen(true)}
+                      onMouseLeave={() => setGasesOpen(false)}
                     >
                       <Link
                         to={link.path}
                         aria-current={active ? 'page' : undefined}
-                        aria-expanded={productsOpen}
-                        onFocus={() => setProductsOpen(true)}
+                        aria-expanded={gasesOpen}
+                        onFocus={() => setGasesOpen(true)}
                         className={`flex items-center gap-1 text-sm font-medium transition-colors duration-200 pb-1 border-b-2 focus:ring-2 focus:ring-mclRed focus:outline-none rounded px-1 ${
                           active
                             ? 'border-mclRed text-gray-900'
@@ -83,10 +85,10 @@ export default function Navbar() {
                         }`}
                       >
                         {link.name}
-                        <FaChevronDown size={10} className={`transition-transform ${productsOpen ? 'rotate-180' : ''}`} />
+                        <FaChevronDown size={10} className={`transition-transform ${gasesOpen ? 'rotate-180' : ''}`} />
                       </Link>
 
-                      {productsOpen && (
+                      {gasesOpen && (
                         <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[820px]">
                           <div className="bg-white rounded-xl shadow-2xl border border-gray-100 p-8 grid grid-cols-4 gap-8">
                             <div>
@@ -94,7 +96,7 @@ export default function Navbar() {
                               <ul className="space-y-2.5">
                                 {medicalGases.map((p) => (
                                   <li key={p.title}>
-                                    <Link to={`/products#${slugify(p.title)}`} onClick={() => setProductsOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
+                                    <Link to={`/gases#${slugify(p.title)}`} onClick={() => setGasesOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
                                       {p.title}
                                     </Link>
                                   </li>
@@ -106,7 +108,7 @@ export default function Navbar() {
                               <ul className="space-y-2.5">
                                 {[...industrialGases, ...lpgGases].map((p) => (
                                   <li key={p.title}>
-                                    <Link to={`/products#${slugify(p.title)}`} onClick={() => setProductsOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
+                                    <Link to={`/gases#${slugify(p.title)}`} onClick={() => setGasesOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
                                       {p.title}
                                     </Link>
                                   </li>
@@ -118,7 +120,7 @@ export default function Navbar() {
                               <ul className="space-y-2.5">
                                 {specialtyGases.map((p) => (
                                   <li key={p.title}>
-                                    <Link to={`/products#${slugify(p.title)}`} onClick={() => setProductsOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
+                                    <Link to={`/gases#${slugify(p.title)}`} onClick={() => setGasesOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
                                       {p.title}
                                     </Link>
                                   </li>
@@ -130,15 +132,13 @@ export default function Navbar() {
                                 <p className="text-gray-400 font-bold uppercase tracking-widest text-xs mb-3">Quick Links</p>
                                 <ul className="space-y-2.5">
                                   {[
-                                    { label: 'All Industrial Gases', to: '/products#industrial' },
-                                    { label: 'All Medical Gases', to: '/products#medical' },
-                                    { label: 'Specialty Gases', to: '/products#specialty' },
-                                    { label: 'Medical Gas Pipelines (MGPS)', to: '/mgps-solutions' },
-                                    { label: 'Modular OT', to: '/modular-ot' },
-                                    { label: 'Clinical Systems', to: '/clinical-systems' },
+                                    { label: 'All Industrial Gases', to: '/gases#industrial' },
+                                    { label: 'All Medical Gases', to: '/gases#medical' },
+                                    { label: 'Specialty Gases', to: '/gases#specialty' },
+                                    { label: 'LPG', to: '/gases#lpg' },
                                   ].map((q) => (
                                     <li key={q.to}>
-                                      <Link to={q.to} onClick={() => setProductsOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
+                                      <Link to={q.to} onClick={() => setGasesOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
                                         {q.label}
                                       </Link>
                                     </li>
@@ -149,10 +149,78 @@ export default function Navbar() {
                                 <p className="text-white/80 font-bold uppercase tracking-widest text-[10px] mb-1">Our Capacity</p>
                                 <p className="text-2xl font-extrabold leading-none mb-1">125 TPD</p>
                                 <p className="text-white/80 text-xs mb-3">Largest single liquid oxygen plant in Pakistan.</p>
-                                <Link to="/production" onClick={() => setProductsOpen(false)} className="text-xs font-bold uppercase inline-flex items-center gap-1 hover:gap-2 transition-all">
+                                <Link to="/production" onClick={() => setGasesOpen(false)} className="text-xs font-bold uppercase inline-flex items-center gap-1 hover:gap-2 transition-all">
                                   View Production <FaArrowRight size={10} />
                                 </Link>
                               </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
+                if (link.name === 'Health Engineering') {
+                  return (
+                    <div
+                      key={link.name}
+                      className="relative"
+                      onMouseEnter={() => setHealthEngOpen(true)}
+                      onMouseLeave={() => setHealthEngOpen(false)}
+                    >
+                      <Link
+                        to={link.path}
+                        aria-current={active ? 'page' : undefined}
+                        aria-expanded={healthEngOpen}
+                        onFocus={() => setHealthEngOpen(true)}
+                        className={`flex items-center gap-1 text-sm font-medium transition-colors duration-200 pb-1 border-b-2 focus:ring-2 focus:ring-mclRed focus:outline-none rounded px-1 ${
+                          active
+                            ? 'border-mclRed text-gray-900'
+                            : 'border-transparent text-gray-600 hover:text-mclRed hover:border-mclRed'
+                        }`}
+                      >
+                        {link.name}
+                        <FaChevronDown size={10} className={`transition-transform ${healthEngOpen ? 'rotate-180' : ''}`} />
+                      </Link>
+
+                      {healthEngOpen && (
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[620px]">
+                          <div className="bg-white rounded-xl shadow-2xl border border-gray-100 p-8 grid grid-cols-3 gap-8">
+                            <div>
+                              <p className="text-mclRed font-bold uppercase tracking-widest text-xs mb-3">MGPS Solutions</p>
+                              <ul className="space-y-2.5">
+                                <li>
+                                  <Link to="/mgps-solutions" onClick={() => setHealthEngOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
+                                    Medical Gas Pipeline Systems
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link to="/mgps-solutions" onClick={() => setHealthEngOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
+                                    Terminal Units & Gas Delivery
+                                  </Link>
+                                </li>
+                              </ul>
+                            </div>
+                            <div>
+                              <p className="text-mclRed font-bold uppercase tracking-widest text-xs mb-3">Modular OT</p>
+                              <ul className="space-y-2.5">
+                                <li>
+                                  <Link to="/modular-ot" onClick={() => setHealthEngOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
+                                    Modular Operation Theatres
+                                  </Link>
+                                </li>
+                              </ul>
+                            </div>
+                            <div>
+                              <p className="text-mclRed font-bold uppercase tracking-widest text-xs mb-3">Clinical Systems</p>
+                              <ul className="space-y-2.5">
+                                <li>
+                                  <Link to="/clinical-systems" onClick={() => setHealthEngOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
+                                    Diagnostic & Critical Care Equipment
+                                  </Link>
+                                </li>
+                              </ul>
                             </div>
                           </div>
                         </div>

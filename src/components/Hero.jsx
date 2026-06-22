@@ -67,7 +67,7 @@ export default function Hero() {
                     index === currentSlide ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                   }`}>
                     <button
-                      onClick={() => navigate('/products')}
+                      onClick={() => navigate('/gases')}
                       className="bg-mclRed hover:bg-red-800 text-white px-8 py-3.5 text-sm font-bold uppercase tracking-wider transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95"
                     >
                       Explore Products

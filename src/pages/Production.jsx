@@ -1,4 +1,4 @@
-import { FaIndustry, FaTruck, FaWarehouse, FaShieldAlt, FaClock, FaCertificate, FaFlask, FaBoxes } from 'react-icons/fa';
+import { FaIndustry, FaTruck, FaWarehouse, FaShieldAlt, FaClock, FaCertificate, FaFlask, FaBoxes, FaImage } from 'react-icons/fa';
 import useInView from '../hooks/useInView';
 import mainPlant from '../assets/main125tdplant.png';
 import plant20tpd from '../assets/20tpdplant.jpeg';
@@ -19,6 +19,8 @@ const plants = [
   { image: plant20tpd, title: '20 TPD Compressed Gas', location: 'Sahianwala, Faisalabad' },
   { image: multanPlant, title: '15 TPD Compressed Gas', location: 'Multan' },
   { image: daPlant, title: 'Dissolved Acetylene Plant', location: 'Multan, Faisalabad, Tharparkar' },
+  { title: '900-Ton LPG Plant', location: 'Under Construction', comingSoon: true },
+  { title: '~230 TPD Oxygen Plant Expansion', location: 'Under Construction', comingSoon: true },
 ];
 
 const features = [
@@ -55,10 +57,22 @@ export default function Production() {
               <div
                 key={plant.title}
                 style={{ transitionDelay: `${i * 80}ms` }}
-                className="group rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-500"
+                className="relative group rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-500"
               >
+                {plant.comingSoon && (
+                  <span className="absolute top-3 right-3 z-10 bg-mclRed text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-md">
+                    Under Construction
+                  </span>
+                )}
                 <div className="aspect-[16/10] overflow-hidden">
-                  <img src={plant.image} alt={plant.title} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" />
+                  {plant.image ? (
+                    <img src={plant.image} alt={plant.title} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" />
+                  ) : (
+                    <div className="w-full h-full bg-gray-100 flex flex-col items-center justify-center gap-2">
+                      <FaImage className="text-gray-300" size={48} />
+                      <span className="text-gray-400 text-xs font-semibold uppercase tracking-widest">Coming Soon</span>
+                    </div>
+                  )}
                 </div>
                 <div className="p-6 bg-white">
                   <h3 className="text-gray-900 font-bold text-lg mb-1">{plant.title}</h3>

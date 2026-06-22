@@ -23,7 +23,8 @@ export default function Footer() {
     switch(link) {
       case 'Home': navigate('/'); break;
       case 'About Us': navigate('/about'); break;
-      case 'Products': navigate('/products'); break;
+      case 'Gases': navigate('/gases'); break;
+      case 'Health Engineering': navigate('/health-engineering'); break;
       case 'Infrastructure': navigate('/infrastructure'); break;
       case 'Quality & Safety': navigate('/quality-safety'); break;
       case 'Contact Us': navigate('/contact'); break;
@@ -65,7 +66,7 @@ export default function Footer() {
             <h4 className="font-bold uppercase tracking-wide text-sm mb-4">Quick Links</h4>
             <div className="grid grid-cols-2 gap-2 text-xs opacity-90">
               <div className="flex flex-col space-y-2">
-                {['Home', 'About Us', 'Products'].map((link) => (
+                {['Home', 'About Us', 'Gases', 'Health Engineering'].map((link) => (
                   <button key={link} onClick={() => handleQuickLinkClick(link)} className="hover:opacity-100 transition-all opacity-80 hover:translate-x-0.5 text-left focus:outline-none focus:ring-2 focus:ring-white rounded px-1">{link}</button>
                 ))}
               </div>
@@ -78,10 +79,10 @@ export default function Footer() {
           </div>
 
           <div className="border-r-0 lg:border-r border-white/20 pr-0 lg:pr-4">
-            <h4 className="font-bold uppercase tracking-wide text-sm mb-4">Products</h4>
+            <h4 className="font-bold uppercase tracking-wide text-sm mb-4">Gases</h4>
             <div className="flex flex-col space-y-2.5 text-xs opacity-90">
               {Object.keys(productCategoryMap).map((product) => (
-                <button key={product} onClick={() => navigate(`/products?category=${productCategoryMap[product]}`)} className="hover:opacity-100 transition-all opacity-80 hover:translate-x-0.5 text-left focus:outline-none focus:ring-2 focus:ring-white rounded px-1">{product}</button>
+                <button key={product} onClick={() => navigate(`/gases?category=${productCategoryMap[product]}`)} className="hover:opacity-100 transition-all opacity-80 hover:translate-x-0.5 text-left focus:outline-none focus:ring-2 focus:ring-white rounded px-1">{product}</button>
               ))}
             </div>
           </div>

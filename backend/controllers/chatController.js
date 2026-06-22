@@ -27,7 +27,7 @@ export async function handleChat(req, res) {
   }
 
   try {
-    const matches = await retrieve(message, 5);
+    const matches = await retrieve(message, 8);
     const relevant = matches.filter((m) => m.score >= MIN_RELEVANCE);
     const context = relevant.map((m) => `[${m.source}]\n${m.text}`).join('\n\n') || 'No relevant context found.';
 

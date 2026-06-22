@@ -64,7 +64,7 @@ async function seed() {
       // ---- About Section 1 ----
       { section: 'about', key: 'section1-heading', title: 'About MCL', order: 1, isActive: true },
       { section: 'about', key: 'section1-title', title: 'Leader in Quality.<br />Driven by Innovation.', order: 2, isActive: true },
-      { section: 'about', key: 'section1-description', title: 'Established in 1980, Multan Chemicals Limited (MCL) has grown to become Pakistan\'s most trusted name in industrial and medical gases. With state-of-the-art production facilities, a modern fleet and a strong distribution network, we deliver reliability, safety and excellence to every industry and every life we touch.', order: 3, isActive: true },
+      { section: 'about', key: 'section1-description', title: 'Established in 1985, Multan Chemicals Limited (MCL) has grown to become Pakistan\'s most trusted name in industrial and medical gases. With state-of-the-art production facilities, a modern fleet and a strong distribution network, we deliver reliability, safety and excellence to every industry and every life we touch.', order: 3, isActive: true },
       { section: 'about', key: 'section1-image', title: 'About section image', description: 'hero02.JPG', order: 4, isActive: true },
       { section: 'about', key: 'feature-1', title: 'ISO Certified', description: 'Quality Management Systems', order: 5, isActive: true },
       { section: 'about', key: 'feature-2', title: 'Advanced Technology', description: 'Modern Plants & Equipment', order: 6, isActive: true },

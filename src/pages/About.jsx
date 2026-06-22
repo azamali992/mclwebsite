@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FaFlask, FaIndustry, FaTruck, FaHospital, FaAward, FaBuilding, FaShieldAlt, FaChartBar, FaRocket, FaBurn, FaChevronLeft, FaChevronRight, FaArrowRight } from 'react-icons/fa';
+import { FaIndustry, FaTruck, FaHospital, FaAward, FaBuilding, FaShieldAlt, FaChartBar, FaRocket, FaBurn, FaChevronLeft, FaChevronRight, FaArrowRight } from 'react-icons/fa';
 import AboutSection1 from '../components/AboutSection1';
 import AboutSection2 from '../components/AboutSection2';
 import AboutSection3 from '../components/AboutSection3';
@@ -50,8 +50,7 @@ const milestoneColors = [
 ];
 
 const milestones = [
-  { year: '1980', icon: FaBuilding, title: 'Establishment', desc: 'Multan Chemicals Limited is founded, beginning operations as a regional supplier of industrial gases in Multan.' },
-  { year: '1985', icon: FaFlask, title: 'Expansion into Medical Gases', desc: 'MCL enters the medical gas market, becoming one of Pakistan\'s first companies to supply medical-grade oxygen to healthcare facilities.' },
+  { year: '1985', icon: FaBuilding, title: 'Establishment & Entry into Medical Gases', desc: 'Multan Chemicals Limited is founded in Multan, beginning operations as a regional industrial gas supplier and quickly becoming one of Pakistan\'s first companies to supply medical-grade oxygen to healthcare facilities.' },
   { year: '1992', icon: FaIndustry, title: 'First Major ASU', desc: 'Commissioning of our first Air Separation Unit, significantly increasing production capacity for oxygen, nitrogen, and argon.' },
   { year: '2000', icon: FaAward, title: 'ISO Certification', desc: 'Achieved ISO 9001 certification from SGS UK, marking our commitment to international quality management standards.' },
   { year: '2008', icon: FaTruck, title: 'Nationwide Distribution', desc: 'Expanded distribution network to 20+ company-owned filling stations and 30 authorized distributors across Pakistan.' },

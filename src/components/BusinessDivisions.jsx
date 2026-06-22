@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import { FaIndustry, FaMedkit, FaNetworkWired, FaHeartbeat, FaAtom, FaFire, FaArrowRight } from 'react-icons/fa';
 import useContent from '../hooks/useContent';
 import useInView from '../hooks/useInView';
-import infra01 from '../assets/infra01.JPG';
-import infra02 from '../assets/infra02.JPG';
-import infra03 from '../assets/infra03.JPG';
-import infra04 from '../assets/infra04.JPG';
-import hero01 from '../assets/hero01.JPG';
-import hero02 from '../assets/hero02.JPG';
+import cylinderYard from '../assets/infra02.JPG';
+import mgpsWard from '../assets/products/mgps-ward-hero.jpeg';
+import mgpsEquipment from '../assets/products/medical-gas-manifolds.jpeg';
+import modularOtPhoto from '../assets/products/modular-ot-hero.jpeg';
+import daPlant from '../assets/daplant.jpeg';
+import lpgTruck from '../assets/trucks1.JPG';
 
 function DivisionCard({ div, index }) {
   const [ref, inView] = useInView();
@@ -53,12 +53,12 @@ function DivisionCard({ div, index }) {
 }
 
 const defaultDivisions = [
-  { id: 1, icon: <FaIndustry size={24} />, img: infra01, link: '/products?category=industrial' },
-  { id: 2, icon: <FaMedkit size={24} />, img: hero01, link: '/products?category=medical' },
-  { id: 3, icon: <FaNetworkWired size={24} />, img: infra02, link: '/products?category=mgps' },
-  { id: 4, icon: <FaHeartbeat size={24} />, img: hero02, link: '/products?category=modular' },
-  { id: 5, icon: <FaAtom size={24} />, img: infra03, link: '/products?category=specialty' },
-  { id: 6, icon: <FaFire size={24} />, img: infra04, link: '/products?category=lpg' },
+  { id: 1, icon: <FaIndustry size={24} />, img: cylinderYard, link: '/gases#industrial' },
+  { id: 2, icon: <FaMedkit size={24} />, img: mgpsWard, link: '/gases#medical' },
+  { id: 3, icon: <FaNetworkWired size={24} />, img: mgpsEquipment, link: '/mgps-solutions' },
+  { id: 4, icon: <FaHeartbeat size={24} />, img: modularOtPhoto, link: '/modular-ot' },
+  { id: 5, icon: <FaAtom size={24} />, img: daPlant, link: '/gases#specialty' },
+  { id: 6, icon: <FaFire size={24} />, img: lpgTruck, link: '/gases#lpg' },
 ];
 
 export default function BusinessDivisions() {
