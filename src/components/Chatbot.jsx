@@ -2,12 +2,13 @@ import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaCommentDots, FaTimes, FaPaperPlane, FaArrowRight } from 'react-icons/fa';
 import { sendChatMessage } from '../services/api';
+import useChatbot from '../hooks/useChatbot';
 
-const GREETING = "Hi! I'm MCL's product assistant. Ask me about any of our gases, MGPS, Modular OT or clinical equipment.";
+const GREETING = "Hi! I'm MCL's website assistant. Ask me about our products, certifications, infrastructure, careers, team or anything else about MCL.";
 
-export default function ProductChatbot() {
+export default function Chatbot() {
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
+  const { open, setOpen } = useChatbot();
   const [messages, setMessages] = useState([{ role: 'assistant', content: GREETING }]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -49,7 +50,7 @@ export default function ProductChatbot() {
     <>
       <button
         onClick={() => setOpen((o) => !o)}
-        aria-label={open ? 'Close product assistant' : 'Open product assistant'}
+        aria-label={open ? 'Close website assistant' : 'Open website assistant'}
         className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-mclRed text-white shadow-xl shadow-red-900/30 flex items-center justify-center hover:bg-red-800 transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-red-400"
       >
         {open ? <FaTimes size={20} /> : <FaCommentDots size={22} />}
@@ -58,8 +59,8 @@ export default function ProductChatbot() {
       {open && (
         <div className="fixed bottom-24 right-6 z-50 w-[92vw] max-w-sm h-[70vh] max-h-[520px] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden">
           <div className="bg-slate-900 px-5 py-4 flex-shrink-0">
-            <p className="text-white font-bold text-sm">MCL Product Assistant</p>
-            <p className="text-gray-400 text-xs mt-0.5">Answers sourced from our product catalog</p>
+            <p className="text-white font-bold text-sm">MCL Website Assistant</p>
+            <p className="text-gray-400 text-xs mt-0.5">Answers sourced from the MCL website</p>
           </div>
 
           <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-gray-50">
@@ -101,7 +102,7 @@ export default function ProductChatbot() {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask about a product..."
+              placeholder="Ask me anything about MCL..."
               maxLength={500}
               className="flex-1 text-sm px-3.5 py-2.5 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-mclRed/40 focus:border-mclRed"
             />

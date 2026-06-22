@@ -10,7 +10,6 @@ import {
 import useInView from '../hooks/useInView';
 import { fetchProducts } from '../services/api';
 import ProductCard from '../components/ProductCard';
-import ProductChatbot from '../components/ProductChatbot';
 import heroBg from '../assets/infra01.JPG';
 import mgpsEquipment from '../assets/products/medical-gas-manifolds.jpeg';
 import modularOtPhoto from '../assets/products/modular-ot-hero.jpeg';
@@ -235,8 +234,6 @@ export default function HealthEngineering() {
           <Link to="/about#certifications" className="text-mclRed font-semibold hover:underline">see all certifications</Link>
         </p>
       </SectionWrap>
-
-      <ProductChatbot />
     </div>
   );
 }

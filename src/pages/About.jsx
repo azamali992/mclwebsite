@@ -221,13 +221,13 @@ function TeamPreviewSection() {
             <div
               key={person.name}
               style={{ transitionDelay: inView ? `${i * 60}ms` : '0ms' }}
-              className={`flex flex-col items-center w-28 sm:w-32 transition-all duration-500 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+              className={`flex flex-col items-center w-36 sm:w-44 transition-all duration-500 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
             >
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-gray-100 shadow-md">
+              <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-2 border-gray-100 shadow-md">
                 <img src={person.image} alt={person.name} className="object-cover w-full h-full" />
               </div>
-              <p className="text-gray-900 font-bold text-sm text-center mt-3 leading-tight">{person.name}</p>
-              <p className="text-mclRed text-xs font-semibold text-center mt-0.5">{person.title}</p>
+              <p className="text-gray-900 font-bold text-base text-center mt-3 leading-tight">{person.name}</p>
+              <p className="text-mclRed text-sm font-semibold text-center mt-0.5">{person.title}</p>
             </div>
           ))}
         </div>

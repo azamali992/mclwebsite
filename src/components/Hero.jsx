@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaCommentDots } from 'react-icons/fa';
 import useContent from '../hooks/useContent';
+import useChatbot from '../hooks/useChatbot';
 import hero01 from '../assets/herogemini.png';
 import hero02 from '../assets/hero02.JPG';
 
@@ -9,6 +10,7 @@ export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
   const { contentMap } = useContent('hero');
+  const { setOpen: setChatOpen } = useChatbot();
 
   const heroImages = [hero01, hero02];
 
@@ -77,6 +79,12 @@ export default function Hero() {
                       className="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-3.5 text-sm font-bold uppercase tracking-wider transition-all hover:shadow-lg active:scale-95"
                     >
                       Contact Us
+                    </button>
+                    <button
+                      onClick={() => setChatOpen(true)}
+                      className="bg-white/10 hover:bg-white/20 border-2 border-white/40 text-white px-8 py-3.5 text-sm font-bold uppercase tracking-wider transition-all hover:shadow-lg active:scale-95 inline-flex items-center gap-2 backdrop-blur-sm"
+                    >
+                      <FaCommentDots size={16} /> Ask Our Assistant
                     </button>
                   </div>
                 </div>

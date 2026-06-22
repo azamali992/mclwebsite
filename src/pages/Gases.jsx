@@ -4,7 +4,6 @@ import useInView from '../hooks/useInView';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import useContent from '../hooks/useContent';
 import ProductCard from '../components/ProductCard';
-import ProductChatbot from '../components/ProductChatbot';
 import heroBg from '../assets/infra01.JPG';
 import cylinderYardImg from '../assets/infra02.JPG';
 import medicalGasImg from '../assets/products/mgps-ward-hero.jpeg';
@@ -161,8 +160,6 @@ export default function Gases() {
           <Link to="/about#certifications" className="text-mclRed font-semibold hover:underline">see all certifications</Link>
         </p>
       </SectionWrap>
-
-      <ProductChatbot />
     </div>
   );
 }

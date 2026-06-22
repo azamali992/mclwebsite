@@ -26,6 +26,8 @@ import NotFound from './pages/NotFound';
 import AboutSection1 from './components/AboutSection1';
 import AboutSection2 from './components/AboutSection2';
 import AboutSection3 from './components/AboutSection3';
+import Chatbot from './components/Chatbot';
+import { ChatbotProvider } from './context/ChatbotContext';
 
 function Home() {
   return (
@@ -43,31 +45,34 @@ function Home() {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-sans antialiased">
-      <ScrollToTop />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/infrastructure" element={<InfrastructurePage />} />
-        <Route path="/mgps-solutions" element={<MgpsSolutionsPage />} />
-        <Route path="/modular-ot" element={<ModularOT />} />
-        <Route path="/clinical-systems" element={<ClinicalSystems />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/gases" element={<Gases />} />
-        <Route path="/health-engineering" element={<HealthEngineering />} />
-        <Route path="/products" element={<Navigate to="/gases" replace />} />
-        <Route path="/careers" element={<Careers />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/quality-safety" element={<QualitySafety />} />
-        <Route path="/certifications" element={<Certifications />} />
-        <Route path="/production" element={<Production />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms" element={<Terms />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </div>
+    <ChatbotProvider>
+      <div className="min-h-screen bg-white text-gray-900 font-sans antialiased">
+        <ScrollToTop />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/infrastructure" element={<InfrastructurePage />} />
+          <Route path="/mgps-solutions" element={<MgpsSolutionsPage />} />
+          <Route path="/modular-ot" element={<ModularOT />} />
+          <Route path="/clinical-systems" element={<ClinicalSystems />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/gases" element={<Gases />} />
+          <Route path="/health-engineering" element={<HealthEngineering />} />
+          <Route path="/products" element={<Navigate to="/gases" replace />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/quality-safety" element={<QualitySafety />} />
+          <Route path="/certifications" element={<Certifications />} />
+          <Route path="/production" element={<Production />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+        <Chatbot />
+      </div>
+    </ChatbotProvider>
   );
 }
