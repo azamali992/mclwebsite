@@ -1,12 +1,11 @@
-import { useRef } from 'react';
 import {
   FaHospital, FaIndustry, FaOilCan, FaLeaf, FaFlask, FaUtensils,
   FaTshirt, FaBolt, FaCar, FaWrench, FaMicroscope,
-  FaChevronLeft, FaChevronRight,
 } from 'react-icons/fa';
 import useContent from '../hooks/useContent';
 import useInView from '../hooks/useInView';
 import Certifications from './Certifications';
+import ClientsMarquee from './ClientsMarquee';
 
 const industries = [
   { name: 'Healthcare', icon: FaHospital },
@@ -22,13 +21,7 @@ const industries = [
   { name: 'Laboratories & Research', icon: FaMicroscope },
 ];
 
-const clients = [
-  'Engro Fertilizer', 'Bestway Cement', 'Pakistan Petroleum',
-  'MOL Pakistan', 'Shakarganj Mills', 'Allied Hospital Faisalabad',
-];
-
 export default function AboutSection3() {
-  const carouselRef = useRef(null);
   const { contentMap } = useContent('about');
   const [industriesRef, industriesInView] = useInView();
   const [clientsRef, clientsInView] = useInView();
@@ -36,13 +29,6 @@ export default function AboutSection3() {
   const industriesHeading = contentMap['section3-heading']?.title || 'Industries We Serve';
   const industriesTitle = contentMap['section3-title']?.title || 'Empowering Industries. Enriching Lives.';
   const clientsHeading = contentMap['clients-heading']?.title || 'Trusted by Leading Organizations';
-
-  const scroll = (dir) => {
-    if (carouselRef.current) {
-      const amount = 300;
-      carouselRef.current.scrollBy({ left: dir * amount, behavior: 'smooth' });
-    }
-  };
 
   return (
     <section id="clients" className="bg-white py-20 px-4 sm:px-8 lg:px-12 scroll-mt-28">
@@ -77,21 +63,7 @@ export default function AboutSection3() {
           className={`transition-all duration-700 ${clientsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
           <h3 className="text-center text-red-600 font-bold uppercase tracking-widest text-sm mb-8">{clientsHeading}</h3>
-          <div className="flex items-center justify-between gap-4">
-            <button onClick={() => scroll(-1)} aria-label="Scroll left" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200 hover:scale-105 active:scale-95 shrink-0 transition-all">
-              <FaChevronLeft size={14} />
-            </button>
-            <div ref={carouselRef} className="flex flex-1 items-center gap-4 overflow-x-auto no-scrollbar scroll-smooth">
-              {clients.map((name) => (
-                <div key={name} className="bg-white border border-gray-100 rounded-lg h-20 min-w-[140px] px-4 flex items-center justify-center grayscale hover:grayscale-0 transition-all flex-1 hover:shadow-md hover:border-gray-200 hover:-translate-y-0.5 cursor-pointer">
-                  <span className="text-sm font-bold text-gray-500 tracking-wide uppercase">{name}</span>
-                </div>
-              ))}
-            </div>
-            <button onClick={() => scroll(1)} aria-label="Scroll right" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200 hover:scale-105 active:scale-95 shrink-0 transition-all">
-              <FaChevronRight size={14} />
-            </button>
-          </div>
+          <ClientsMarquee />
         </div>
       </div>
       <Certifications className="px-0 pt-20" />

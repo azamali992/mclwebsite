@@ -1,125 +1,52 @@
-import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaChevronLeft, FaChevronRight, FaCommentDots } from 'react-icons/fa';
+import { FaCommentDots } from 'react-icons/fa';
 import useContent from '../hooks/useContent';
 import useChatbot from '../hooks/useChatbot';
-import hero01 from '../assets/herogemini.png';
-import hero02 from '../assets/hero02.JPG';
+import heroImg from '../assets/heromcl.png';
 
 export default function Hero() {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
   const { contentMap } = useContent('hero');
   const { setOpen: setChatOpen } = useChatbot();
 
-  const heroImages = [hero01, hero02];
-
-  const getSlide = (index) => {
-    const num = index + 1;
-    return {
-      title: contentMap[`slide-${num}-title`]?.title || (index === 0
-        ? 'Leading the Way in Industrial Chemical Manufacturing'
-        : 'Innovating Healthcare Engineering Solutions'),
-      subtitle: contentMap[`slide-${num}-subtitle`]?.title || (index === 0
-        ? 'Providing high-quality chemical solutions, advanced healthcare engineering, and sustainable industrial infrastructure globally.'
-        : 'Equipping medical environments with state-of-the-art infrastructure and high-purity specialized chemicals.'),
-      bgImage: heroImages[index],
-    };
-  };
-
-  const slides = [getSlide(0), getSlide(1)];
-
-  const nextSlide = useCallback(() => setCurrentSlide((prev) => (prev + 1) % 2), []);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-
-  useEffect(() => {
-    const timer = setInterval(nextSlide, 5000);
-    return () => clearInterval(timer);
-  }, [nextSlide]);
+  const title = contentMap['slide-1-title']?.title || 'Leading the Way in Industrial Chemical Manufacturing';
+  const subtitle = contentMap['slide-1-subtitle']?.title || 'Providing high-quality chemical solutions, advanced healthcare engineering, and sustainable industrial infrastructure globally.';
 
   return (
-    <div className="relative h-[calc(100vh-80px)] sm:h-[calc(100vh-96px)] w-full overflow-hidden bg-gray-900">
-      <div className="relative h-full w-full">
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-all duration-[1200ms] ease-in-out ${
-              index === currentSlide ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-105 z-0'
-            }`}
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${slide.bgImage})` }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30 sm:to-transparent" />
-            <div className="absolute inset-0 flex items-center z-20">
-              <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 w-full text-white">
-                <div className="max-w-3xl space-y-6">
-                  <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight transition-all duration-700 delay-200 ${
-                    index === currentSlide ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                  }`}>
-                    {slide.title}
-                  </h1>
-                  <p className={`text-base sm:text-lg lg:text-xl text-gray-200 leading-relaxed font-light transition-all duration-700 delay-300 ${
-                    index === currentSlide ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                  }`}>
-                    {slide.subtitle}
-                  </p>
-                  <div className={`flex flex-wrap gap-4 pt-4 transition-all duration-700 delay-[400ms] ${
-                    index === currentSlide ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                  }`}>
-                    <button
-                      onClick={() => navigate('/gases')}
-                      className="bg-mclRed hover:bg-red-800 text-white px-8 py-3.5 text-sm font-bold uppercase tracking-wider transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95"
-                    >
-                      Explore Products
-                    </button>
-                    <button
-                      onClick={() => navigate('/contact')}
-                      className="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-3.5 text-sm font-bold uppercase tracking-wider transition-all hover:shadow-lg active:scale-95"
-                    >
-                      Contact Us
-                    </button>
-                    <button
-                      onClick={() => setChatOpen(true)}
-                      className="bg-white/10 hover:bg-white/20 border-2 border-white/40 text-white px-8 py-3.5 text-sm font-bold uppercase tracking-wider transition-all hover:shadow-lg active:scale-95 inline-flex items-center gap-2 backdrop-blur-sm"
-                    >
-                      <FaCommentDots size={16} /> Ask Our Assistant
-                    </button>
-                  </div>
-                </div>
-              </div>
+    <div className="relative h-[calc(100vh-80px)] sm:h-[calc(100vh-96px)] w-full overflow-hidden bg-blue-950">
+      <img src={heroImg} alt="" className="absolute inset-0 w-full h-full object-cover" />
+
+      <div className="absolute inset-0 flex items-center justify-center z-20">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 w-full">
+          <div className="max-w-3xl mx-auto text-center space-y-6">
+            <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+              {title}
+            </h1>
+            <p className="text-gray-200 text-base sm:text-lg lg:text-xl leading-relaxed font-light">
+              {subtitle}
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 pt-4">
+              <button
+                onClick={() => navigate('/gases')}
+                className="bg-mclRed hover:bg-red-800 text-white px-8 py-3.5 text-sm font-bold uppercase tracking-wider transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95"
+              >
+                Explore Products
+              </button>
+              <button
+                onClick={() => navigate('/contact')}
+                className="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-3.5 text-sm font-bold uppercase tracking-wider transition-all hover:shadow-lg active:scale-95"
+              >
+                Contact Us
+              </button>
+              <button
+                onClick={() => setChatOpen(true)}
+                className="bg-white/10 hover:bg-white/20 border-2 border-white/40 text-white px-8 py-3.5 text-sm font-bold uppercase tracking-wider transition-all hover:shadow-lg active:scale-95 inline-flex items-center gap-2 backdrop-blur-sm"
+              >
+                <FaCommentDots size={16} /> Ask Our Assistant
+              </button>
             </div>
           </div>
-        ))}
-      </div>
-
-      <button
-        onClick={prevSlide}
-        aria-label="Previous slide"
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black/20 hover:bg-black/60 text-white p-3 rounded-full transition-all hover:scale-110 hidden sm:block backdrop-blur-sm focus:ring-2 focus:ring-white focus:outline-none"
-      >
-        <FaChevronLeft size={20} />
-      </button>
-      <button
-        onClick={nextSlide}
-        aria-label="Next slide"
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black/20 hover:bg-black/60 text-white p-3 rounded-full transition-all hover:scale-110 hidden sm:block backdrop-blur-sm focus:ring-2 focus:ring-white focus:outline-none"
-      >
-        <FaChevronRight size={20} />
-      </button>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex space-x-3">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            aria-label={`Go to slide ${index + 1}`}
-            className={`transition-all duration-300 rounded-full focus:ring-2 focus:ring-mclRed focus:outline-none ${
-              index === currentSlide ? 'w-10 bg-mclRed shadow-lg shadow-red-900/40' : 'w-3 bg-white/40 hover:bg-white/80'
-            } h-3`}
-          />
-        ))}
+        </div>
       </div>
     </div>
   );

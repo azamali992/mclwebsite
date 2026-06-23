@@ -3,23 +3,12 @@ import { FaCheck, FaArrowRight, FaAward, FaLock, FaUsers, FaFileAlt, FaPhone } f
 import useInView from '../hooks/useInView';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import useContent from '../hooks/useContent';
-import ProductCard from '../components/ProductCard';
+import GasCard from '../components/GasCard';
 import heroBg from '../assets/infra01.JPG';
-import cylinderYardImg from '../assets/infra02.JPG';
-import medicalGasImg from '../assets/products/mgps-ward-hero.jpeg';
-import specialtyGasImg from '../assets/daplant.png';
-import lpgImg from '../assets/trucks1.JPG';
 import { categoryGroups } from '../data/products';
 import { gasesBySection } from '../data/gasesData';
 
 const gasesGroup = categoryGroups.find((g) => g.id === 'gases');
-
-const categoryImages = {
-  industrial: cylinderYardImg,
-  medical: medicalGasImg,
-  specialty: specialtyGasImg,
-  lpg: lpgImg,
-};
 
 function SectionWrap({ children, className = '', id }) {
   const [ref, inView] = useInView();
@@ -27,6 +16,43 @@ function SectionWrap({ children, className = '', id }) {
     <section id={id} ref={ref} className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}>
       {children}
     </section>
+  );
+}
+
+function CategoryCard({ cat, count }) {
+  const Icon = cat.icon;
+  return (
+    <button
+      onClick={() => document.getElementById(cat.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+      className="group relative flex flex-col h-64 lg:h-80 p-6 lg:p-7 bg-white rounded-[20px] border-2 border-mclRed/30 shadow-[0_1px_2px_rgba(0,0,0,0.04)] overflow-hidden text-left transition-[transform,border-color,box-shadow] duration-500 ease-out hover:-translate-y-1.5 hover:border-transparent hover:shadow-[0_28px_55px_-18px_rgba(29,78,216,0.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-mclRed focus-visible:ring-offset-2"
+    >
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-blue-700 to-mclRed opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+      <Icon className="absolute z-10 -right-4 -top-4 pointer-events-none select-none text-gray-900/[0.04] group-hover:text-white/[0.14] transition-colors duration-500" size={140} />
+
+      <div className="relative z-10 w-12 h-12 rounded-xl bg-red-50 text-mclRed flex items-center justify-center group-hover:bg-white/15 group-hover:text-white transition-colors duration-500">
+        <Icon size={22} />
+      </div>
+
+      <h3 className="relative z-10 font-serif text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white mt-6 transition-colors duration-500">
+        {cat.label}
+      </h3>
+
+      <div className="relative z-10 flex-1" />
+
+      <div className="relative z-10 pt-5 flex items-end justify-between border-t border-gray-100 group-hover:border-white/25 transition-colors duration-500">
+        <div>
+          <p className="font-serif text-xl leading-none text-gray-900 group-hover:text-white transition-colors duration-500">{count}</p>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-400 group-hover:text-white/70 mt-2 transition-colors duration-500">
+            {count === 1 ? 'Gas Available' : 'Gases Available'}
+          </p>
+        </div>
+        <span className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-mclRed group-hover:text-white whitespace-nowrap transition-colors duration-500">
+          View
+          <FaArrowRight size={11} className="group-hover:translate-x-1 transition-transform duration-300" />
+        </span>
+      </div>
+    </button>
   );
 }
 
@@ -63,21 +89,7 @@ export default function Gases() {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
             {gasesGroup.items.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => document.getElementById(cat.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-                className="group relative h-64 lg:h-96 rounded-2xl overflow-hidden shadow-xl focus:outline-none focus:ring-2 focus:ring-mclRed"
-              >
-                <img src={categoryImages[cat.id]} alt={cat.label} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/40 to-slate-900/10" />
-                <div className="absolute inset-0 flex flex-col items-center justify-end p-5 lg:p-6 text-center">
-                  <cat.icon className="text-mclRed mb-3" size={28} />
-                  <h3 className="text-white font-bold text-base lg:text-xl leading-tight">{cat.label}</h3>
-                  <span className="text-white/70 text-[10px] lg:text-xs uppercase tracking-widest mt-2 flex items-center gap-1 group-hover:gap-2 transition-all">
-                    View Products <FaArrowRight size={9} />
-                  </span>
-                </div>
-              </button>
+              <CategoryCard key={cat.id} cat={cat} count={gasesBySection[cat.id]?.length || 0} />
             ))}
           </div>
         </div>
@@ -94,15 +106,8 @@ export default function Gases() {
                 <h3 className="text-gray-900 font-bold text-xl">{cat.label}</h3>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {getProductsForCategory(cat.id).map((gas, i) => (
-                  <ProductCard
-                    key={gas.slug}
-                    index={i}
-                    isGas
-                    title={gas.cardTitle}
-                    description={gas.description}
-                    to={`/gases/${gas.categoryPath}/${gas.slug}`}
-                  />
+                {getProductsForCategory(cat.id).map((gas) => (
+                  <GasCard key={gas.slug} gas={gas} to={`/gases/${gas.categoryPath}/${gas.slug}`} />
                 ))}
               </div>
             </div>

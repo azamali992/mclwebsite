@@ -84,7 +84,7 @@ export default function StatsRow() {
   });
 
   return (
-    <div className="relative z-40 -mt-16 lg:-mt-20 max-w-full mx-auto px-4 sm:px-8 lg:px-12">
+    <div className="relative z-40 max-w-full mx-auto px-4 sm:px-8 lg:px-12">
       <div className="bg-white rounded-[2rem] lg:rounded-full shadow-2xl shadow-black/10 border border-gray-100 overflow-hidden relative">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-gray-50/50 pointer-events-none" />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-y md:divide-y-0 lg:divide-x divide-gray-100 relative z-10 py-4 lg:py-2">

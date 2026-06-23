@@ -1,7 +1,69 @@
 import { useState } from 'react';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaPaperPlane, FaCheckCircle, FaBuilding } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaPaperPlane, FaCheckCircle } from 'react-icons/fa';
 import { submitContact } from '../services/api';
 import useContent from '../hooks/useContent';
+
+const offices = [
+  {
+    type: 'Head Office',
+    city: 'Multan',
+    address: '4-C-II Industrial Estate, Multan Cantt, Sher Shah Town',
+    contacts: [
+      { label: 'Tel', value: '+92 61 6538206-8' },
+      { label: 'Mail', value: 'info@mcl-gases.com' },
+    ],
+  },
+  {
+    type: 'Production Office',
+    city: 'Faisalabad',
+    address: 'Plot A-6, 7, 8, FIEDMC Industrial Estate, Sahianwala, Faisalabad',
+    contacts: [
+      { label: 'Tel', value: '+92 41 89000111-12' },
+      { label: 'Mob', value: '+92 305 5550120' },
+      { label: 'Mail', value: 'Salesdept.fsd@mcl-gases.com' },
+    ],
+  },
+  {
+    type: 'Regional Office',
+    city: 'Islamabad',
+    address: 'Plot # 3, Sector D-16, near Dhok Paracha, Islamabad',
+    contacts: [
+      { label: 'Tel 1', value: '+92 61 6538206-8' },
+      { label: 'Tel 2', value: '+92 41 89000111-12' },
+      { label: 'Mail', value: 'mcl.gases@gmail.com' },
+    ],
+  },
+  {
+    type: 'Regional Office',
+    city: 'Lahore',
+    address: 'Mehmood Booti Chowk, Tehsil Shalimar, Lahore',
+    contacts: [
+      { label: 'Tel 1', value: '+92 61 6538206-8' },
+      { label: 'Tel 2', value: '+92 41 89000111-12' },
+      { label: 'Mail', value: 'mcl.gases@gmail.com' },
+    ],
+  },
+  {
+    type: 'Regional Office',
+    city: 'Peshawar',
+    address: 'Jamil Chowk, Ring Road, Peshawar',
+    contacts: [
+      { label: 'Tel 1', value: '+92 61 6538206-8' },
+      { label: 'Tel 2', value: '+92 41 89000111-12' },
+      { label: 'Mail', value: 'mcl.gases@gmail.com' },
+    ],
+  },
+  {
+    type: 'Regional Office',
+    city: 'Karachi',
+    address: 'Plot 13-14, Grax Village, Hoxbay Road, Maripur, Karachi',
+    contacts: [
+      { label: 'Tel 1', value: '+92 61 6538206-8' },
+      { label: 'Tel 2', value: '+92 41 89000111-12' },
+      { label: 'Mail', value: 'mcl.gases@gmail.com' },
+    ],
+  },
+];
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: 'General Inquiry', message: '' });
@@ -39,7 +101,7 @@ export default function Contact() {
       } else {
         setError('Failed to send message. Please try again.');
       }
-    } catch (err) {
+    } catch {
       setError('An error occurred. Please try again.');
     } finally {
       setLoading(false);
@@ -143,47 +205,45 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="py-16 bg-white px-4 sm:px-8 lg:px-12">
+      <section className="py-20 bg-white px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-gray-900 font-extrabold text-2xl lg:text-3xl mb-2">Our Location</h2>
-            <p className="text-gray-500 text-sm">Visit our main facility at the Multan Industrial Estate</p>
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="w-8 h-px bg-mclRed" />
+              <p className="text-mclRed font-semibold uppercase tracking-[0.25em] text-xs">Offices</p>
+            </div>
+            <h2 className="text-gray-900 font-serif text-4xl lg:text-5xl">Six cities. One team.</h2>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <div className="rounded-xl overflow-hidden shadow-lg border border-gray-200 h-[350px]">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3445.731768354844!2d71.5246787!3d30.2714995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b6f5e5c5f5c5f%3A0x5c5f5c5f5c5f5c5f!2sMultan%20Industrial%20Estate!5e0!3m2!1sen!2s!4v1"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Multan Chemicals Limited - Main Factory"
-              />
-            </div>
-            <div className="rounded-xl overflow-hidden shadow-lg border border-gray-200 h-[350px]">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3445.731768354844!2d71.5246787!3d30.2714995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b6f5e5c5f5c5f%3A0x5c5f5c5f5c5f5c5f!2sFaisalabad!5e0!3m2!1sen!2s!4v1"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="MCL Faisalabad ASU Plant"
-              />
-            </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 border-t border-l border-gray-200">
+            {offices.map((office) => (
+              <div key={office.city} className="border-b border-r border-gray-200 p-7 lg:p-9">
+                <p className="text-mclRed font-semibold uppercase tracking-[0.2em] text-[11px] mb-3">{office.type}</p>
+                <h3 className="text-gray-900 font-serif text-2xl lg:text-3xl mb-4">{office.city}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed mb-6">{office.address}</p>
+                <div className="space-y-2">
+                  {office.contacts.map((c, i) => (
+                    <div key={i} className="flex items-baseline gap-3 text-sm">
+                      <span className="text-gray-400 uppercase tracking-wider text-[10px] font-semibold w-12 flex-shrink-0">{c.label}</span>
+                      <span className="text-gray-800">{c.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="flex justify-center gap-8 mt-6 text-sm text-gray-500">
-            <div className="flex items-center gap-2">
-              <FaBuilding className="text-mclRed" size={14} />
-              <span>Main Factory: 4 C-II, Industrial Estate, Multan</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <FaBuilding className="text-mclRed" size={14} />
-              <span>ASU Plant: Faisalabad</span>
-            </div>
+
+          <div className="mt-12 rounded-xl overflow-hidden shadow-lg border border-gray-200 h-[360px]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3445.731768354844!2d71.5246787!3d30.2714995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b6f5e5c5f5c5f%3A0x5c5f5c5f5c5f5c5f!2sMultan%20Industrial%20Estate!5e0!3m2!1sen!2s!4v1"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Multan Chemicals Limited - Head Office"
+            />
           </div>
         </div>
       </section>

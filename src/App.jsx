@@ -28,6 +28,7 @@ import AboutSection1 from './components/AboutSection1';
 import AboutSection2 from './components/AboutSection2';
 import AboutSection3 from './components/AboutSection3';
 import Chatbot from './components/Chatbot';
+import SiteLoader from './components/SiteLoader';
 import { ChatbotProvider } from './context/ChatbotContext';
 
 function Home() {
@@ -48,6 +49,7 @@ export default function App() {
   return (
     <ChatbotProvider>
       <div className="min-h-screen bg-white text-gray-900 font-sans antialiased">
+        <SiteLoader />
         <ScrollToTop />
         <Navbar />
         <Routes>
