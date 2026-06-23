@@ -5,7 +5,7 @@ const contentSchema = new mongoose.Schema(
     section: {
       type: String,
       required: true,
-      enum: ['hero', 'about', 'products', 'services', 'careers', 'infrastructure', 'footer', 'navbar', 'contact', 'stats', 'divisions'],
+      enum: ['hero', 'about', 'products', 'services', 'careers', 'infrastructure', 'footer', 'navbar', 'contact', 'divisions'],
     },
     key: {
       type: String,

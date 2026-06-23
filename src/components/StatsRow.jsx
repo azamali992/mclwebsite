@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { FaRegCalendarAlt, FaIndustry, FaTruck, FaUsers } from 'react-icons/fa';
 import { TbCylinder } from 'react-icons/tb';
-import useContent from '../hooks/useContent';
+import useStats from '../hooks/useStats';
 import useInView from '../hooks/useInView';
+import { resolveStat } from '../data/stats';
 
 function AnimatedStat({ icon, number, title, subtitle, delay }) {
   const [ref, inView] = useInView();
@@ -59,31 +60,27 @@ function AnimatedStat({ icon, number, title, subtitle, delay }) {
   );
 }
 
-const defaultStats = [
-  { id: 1, icon: <FaRegCalendarAlt size={28} className="text-mclRed" />, number: "40+", title: "YEARS OF", subtitle: "EXCELLENCE" },
-  { id: 2, icon: <FaIndustry size={28} className="text-mclRed" />, number: "125 TPD", title: "OXYGEN PLANT", subtitle: "CAPACITY" },
-  { id: 3, icon: <TbCylinder size={32} strokeWidth={1.5} className="text-mclRed" />, number: "87000+", title: "CYLINDERS", subtitle: "CAPACITY" },
-  { id: 4, icon: <FaTruck size={28} className="text-mclRed" />, number: "65+", title: "TRUCKS IN", subtitle: "OUR FLEET" },
-  { id: 5, icon: <FaIndustry size={28} className="text-mclRed" />, number: "20+", title: "FILLING STATIONS", subtitle: "NATIONWIDE" },
-  { id: 6, icon: <FaUsers size={28} className="text-mclRed" />, number: "1000+", title: "SATISFIED", subtitle: "CLIENTS" },
+const statCards = [
+  { id: 1, key: 'years_of_excellence', icon: <FaRegCalendarAlt size={28} className="text-mclRed" /> },
+  { id: 2, key: 'oxygen_plant_capacity', icon: <FaIndustry size={28} className="text-mclRed" /> },
+  { id: 3, key: 'cylinder_capacity', icon: <TbCylinder size={32} strokeWidth={1.5} className="text-mclRed" /> },
+  { id: 4, key: 'fleet_trucks', icon: <FaTruck size={28} className="text-mclRed" /> },
+  { id: 5, key: 'filling_stations', icon: <FaIndustry size={28} className="text-mclRed" /> },
+  { id: 6, key: 'satisfied_clients', icon: <FaUsers size={28} className="text-mclRed" /> },
 ];
 
-const iconMap = [FaRegCalendarAlt, FaIndustry, TbCylinder, FaTruck, FaIndustry, FaUsers];
-
 export default function StatsRow() {
-  const { contentMap } = useContent('stats');
+  const { statsMap } = useStats();
 
-  const stats = defaultStats.map((s, i) => {
-    const c = contentMap[`stat-${s.id}`];
-    if (c) {
-      return {
-        ...s,
-        number: c.title || s.number,
-        title: c.description || s.title,
-        subtitle: c.text || s.subtitle,
-      };
-    }
-    return s;
+  const stats = statCards.map((card) => {
+    const stat = resolveStat(statsMap, card.key);
+    return {
+      id: card.id,
+      icon: card.icon,
+      number: stat.value,
+      title: stat.label?.toUpperCase(),
+      subtitle: stat.subtitle?.toUpperCase(),
+    };
   });
 
   return (

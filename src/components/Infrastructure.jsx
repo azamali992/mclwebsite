@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import useInView from '../hooks/useInView';
 import { FaIndustry, FaUsers, FaShieldAlt, FaClock, FaCog, FaMapMarkerAlt, FaCheck, FaCheckCircle } from 'react-icons/fa';
 import useContent from '../hooks/useContent';
+import useStats from '../hooks/useStats';
+import { resolveStat } from '../data/stats';
 import heroBg from '../assets/infra01.JPG';
 import stationImg from '../assets/stationimg.JPG';
 import plantImg1 from '../assets/hero02.JPG';
@@ -46,7 +48,7 @@ const stations = [
 ].map(s => ({ ...s, key: normalizeWarehouseName(s.name) }));
 
 const plants = [
-  { capacity: '125 TPD', type: 'Oxygen Plant', location: 'Faisalabad', imagePlaceholder: plantImg1 },
+  { capacityKey: 'oxygen_plant_capacity', type: 'Oxygen Plant', location: 'Faisalabad', imagePlaceholder: plantImg1 },
   { capacity: '20 TPD', type: 'Oxygen Plant', location: 'Multan', imagePlaceholder: plantImg2 },
   { capacity: '15 TPD', type: 'Oxygen Plant', location: 'Multan', imagePlaceholder: plantImg3 },
 ];
@@ -80,6 +82,7 @@ const SectionWrap = ({ children, className = '' }) => {
 
 export default function Infrastructure() {
   const { contentMap } = useContent('infrastructure');
+  const { statsMap } = useStats();
   const [highlightKey, setHighlightKey] = useState(null);
   const cardRefs = useRef({});
 
@@ -90,24 +93,25 @@ export default function Infrastructure() {
 
   const heroHeading = contentMap['hero-heading']?.title || 'OUR INFRASTRUCTURE';
   const heroTitle = contentMap['hero-title']?.title || 'Nationwide Filling Stations For Uninterrupted Supply';
-  const heroDesc = contentMap['hero-description']?.title || 'MCL operates 20+ company owned filling stations and 30+ authorized distributors across Pakistan to ensure availability, safety and reliable distribution of medical and industrial gases.';
+  const heroDesc = contentMap['hero-description']?.title || `MCL operates ${resolveStat(statsMap, 'filling_stations').value} company owned filling stations and ${resolveStat(statsMap, 'authorized_distributors').value} authorized distributors across Pakistan to ensure availability, safety and reliable distribution of medical and industrial gases.`;
 
-  const getStat = (i) => {
-    const c = contentMap[`stat-${i + 1}`];
+  const getStat = (key) => {
+    const c = contentMap[key];
     if (!c) return null;
     return { value: c.title, label: c.description, sublabel: c.text };
   };
 
   const statsData = [
-    { icon: FaIndustry, value: '20+', label: 'Filling Stations', sublabel: 'Nationwide' },
-    { icon: FaUsers, value: '30+', label: 'Authorized', sublabel: 'Distributors' },
+    { icon: FaIndustry, value: resolveStat(statsMap, 'filling_stations').value, label: 'Filling Stations', sublabel: 'Nationwide' },
+    { icon: FaUsers, value: resolveStat(statsMap, 'authorized_distributors').value, label: 'Authorized', sublabel: 'Distributors' },
     { icon: FaShieldAlt, value: 'Safety First', label: 'Strict Safety', sublabel: 'Protocols' },
     { icon: FaClock, value: '24/7', label: 'Reliable Supply', sublabel: 'Network' },
     { icon: FaCog, value: 'Expert Team', label: 'Trained & Certified', sublabel: 'Professionals' },
   ];
 
   const stats = statsData.map((s, i) => {
-    const api = getStat(i);
+    if (i < 2) return s; // filling stations / distributors already resolved from the central stats registry above
+    const api = getStat(`stat-${i + 1}`);
     return api ? { ...s, value: api.value, label: api.label, sublabel: api.sublabel } : s;
   });
 
@@ -135,15 +139,17 @@ export default function Infrastructure() {
   const logisticsTitle = contentMap['logistics-title']?.title || 'Strong Fleet. On-Time Delivery.';
   const logisticsDesc = contentMap['logistics-description']?.title || 'Our modern fleet of tankers and cylinder delivery vehicles ensures safe and timely delivery of gases to every corner of Pakistan.';
 
+  const logisticsDefaults = [
+    { value: resolveStat(statsMap, 'fleet_trucks').value, label: 'Delivery Trucks' },
+    { value: resolveStat(statsMap, 'tanker_trucks').value, label: 'Tanker Trucks' },
+    { value: resolveStat(statsMap, 'logistics_staff').value, label: 'Dedicated Staff' },
+    { value: 'Real-time', label: 'Tracking System' },
+  ];
+
   const logisticsStats = [1, 2, 3, 4].map(i => {
+    if (i <= 3) return logisticsDefaults[i - 1]; // delivery/tanker trucks & staff already resolved from the central stats registry
     const c = contentMap[`logistics-stat-${i}`];
-    const defaults = [
-      { value: '65+', label: 'Delivery Trucks' },
-      { value: '20+', label: 'Tanker Trucks' },
-      { value: '100+', label: 'Dedicated Staff' },
-      { value: 'Real-time', label: 'Tracking System' },
-    ];
-    return c ? { value: c.title, label: c.description } : defaults[i - 1];
+    return c ? { value: c.title, label: c.description } : logisticsDefaults[i - 1];
   });
 
   const qualityHeading = contentMap['quality-heading']?.title || 'QUALITY ASSURANCE';
@@ -217,7 +223,7 @@ export default function Infrastructure() {
                   <img src={plant.imagePlaceholder} alt={plant.location} className="object-cover w-full h-full" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B1A28]/90 via-[#0B1A28]/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 p-6 flex flex-col">
-                    <span className="text-white font-bold text-xl mb-1">{plant.capacity}</span>
+                    <span className="text-white font-bold text-xl mb-1">{plant.capacityKey ? resolveStat(statsMap, plant.capacityKey).value : plant.capacity}</span>
                     <span className="text-gray-300 text-sm">{plant.type}</span>
                     <span className="text-gray-400 text-xs mt-1">{plant.location}</span>
                   </div>

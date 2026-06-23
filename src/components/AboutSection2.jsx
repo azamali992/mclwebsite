@@ -2,18 +2,19 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaIndustry, FaTruck, FaWarehouse, FaShieldAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import useContent from '../hooks/useContent';
+import useStats from '../hooks/useStats';
 import useInView from '../hooks/useInView';
 import WarehouseMap from './WarehouseMap';
+import { resolveStat } from '../data/stats';
 
-const defaultFeatures = [
-  { icon: FaIndustry, title: '20+ Company Owned', subtitle: 'Filling Stations' },
-  { icon: FaTruck, title: '30+ Distributors', subtitle: 'Across Pakistan' },
+const staticFeatures = [
   { icon: FaWarehouse, title: 'Strategic Warehouses', subtitle: 'For Timely Delivery' },
   { icon: FaShieldAlt, title: 'Modern Fleet', subtitle: 'For Safe & Reliable Supply' },
 ];
 
 export default function AboutSection2() {
   const { contentMap } = useContent('about');
+  const { statsMap } = useStats();
   const [leftRef, leftInView] = useInView();
   const [mapRef, mapInView] = useInView();
   const [locations, setLocations] = useState([]);
@@ -22,14 +23,18 @@ export default function AboutSection2() {
   const heading = contentMap['section2-heading']?.title || 'Nationwide Network';
   const sectionTitle = contentMap['section2-title']?.title || 'Reaching Every Corner of Pakistan';
 
-  const features = defaultFeatures.map((f, i) => {
-    const c = contentMap[`network-feature-${i + 1}`];
-    return {
-      ...f,
-      title: c?.title || f.title,
-      subtitle: c?.description || f.subtitle,
-    };
-  });
+  const features = [
+    { icon: FaIndustry, title: `${resolveStat(statsMap, 'filling_stations').value} Company Owned`, subtitle: 'Filling Stations' },
+    { icon: FaTruck, title: `${resolveStat(statsMap, 'authorized_distributors').value} Distributors`, subtitle: 'Across Pakistan' },
+    ...staticFeatures.map((f, i) => {
+      const c = contentMap[`network-feature-${i + 3}`];
+      return {
+        ...f,
+        title: c?.title || f.title,
+        subtitle: c?.description || f.subtitle,
+      };
+    }),
+  ];
 
   return (
     <section className="bg-[#0B1A28] py-20 px-4 sm:px-8 lg:px-12">

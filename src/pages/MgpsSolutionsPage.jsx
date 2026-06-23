@@ -8,6 +8,8 @@ import {
 import { Link } from 'react-router-dom';
 import useInView from '../hooks/useInView';
 import useContent from '../hooks/useContent';
+import useStats from '../hooks/useStats';
+import { resolveStat } from '../data/stats';
 import renderImg from '../assets/3drender.png';
 import heroBg from '../assets/hero01.JPG';
 import manifolds from '../assets/products/medical-gas-manifolds.jpeg';
@@ -33,9 +35,9 @@ const heroStats = [
 ];
 
 const overviewStats = [
-  { icon: FaProjectDiagram, value: '100+', label: 'MGPS Projects Completed' },
-  { icon: FaAward, value: '25+', label: 'Years of Experience' },
-  { icon: FaHospital, value: '50,000+', label: 'Bed Capacity Connected' },
+  { icon: FaProjectDiagram, statKey: 'mgps_projects_completed', label: 'MGPS Projects Completed' },
+  { icon: FaAward, statKey: 'mgps_years_experience', label: 'Years of Experience' },
+  { icon: FaHospital, statKey: 'mgps_bed_capacity', label: 'Bed Capacity Connected' },
   { icon: FaShieldAlt, value: '100%', label: 'Quality & Safety Assurance' },
   { icon: FaHeadset, value: '24/7', label: 'After Sales Support' },
 ];
@@ -129,6 +131,7 @@ function OverviewSection({ c }) {
   const [leftRef, leftInView] = useInView();
   const [rightRef, rightInView] = useInView();
   const [statsRef, statsInView] = useInView();
+  const { statsMap } = useStats();
 
   return (
     <section className="py-20 bg-white max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
@@ -163,17 +166,20 @@ function OverviewSection({ c }) {
       </div>
       <div ref={statsRef} className={`mt-16 pt-8 border-t border-gray-100 transition-all duration-700 delay-300 ${statsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-          {overviewStats.map((stat, i) => (
-            <div key={i} className="flex items-center gap-4">
-              <div className="flex-shrink-0 w-12 h-12 rounded-full border border-mclRed/20 bg-red-50 flex items-center justify-center">
-                <stat.icon className="text-mclRed" size={18} />
+          {overviewStats.map((stat, i) => {
+            const value = stat.statKey ? resolveStat(statsMap, stat.statKey).value : stat.value;
+            return (
+              <div key={i} className="flex items-center gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full border border-mclRed/20 bg-red-50 flex items-center justify-center">
+                  <stat.icon className="text-mclRed" size={18} />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-2xl font-bold text-gray-900 leading-none">{value}</span>
+                  <span className="text-xs text-gray-500 mt-1">{stat.label}</span>
+                </div>
               </div>
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold text-gray-900 leading-none">{stat.value}</span>
-                <span className="text-xs text-gray-500 mt-1">{stat.label}</span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

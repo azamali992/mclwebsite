@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { FiLogOut, FiMenu, FiX, FiHome, FiFileText, FiPackage, FiBriefcase, FiImage, FiUsers } from 'react-icons/fi';
+import { FiLogOut, FiMenu, FiX, FiHome, FiFileText, FiPackage, FiBriefcase, FiImage, FiUsers, FiBarChart2 } from 'react-icons/fi';
 import ContentManager from './AdminPanelComponents/ContentManager';
+import StatsManager from './AdminPanelComponents/StatsManager';
 import ProductManager from './AdminPanelComponents/ProductManager';
 import CareerManager from './AdminPanelComponents/CareerManager';
 import ImageManager from './AdminPanelComponents/ImageManager';
@@ -12,6 +13,7 @@ const AdminDashboard = ({ token, admin, onLogout }) => {
 
   const tabs = [
     { id: 'content', label: 'Content', icon: FiFileText, component: ContentManager },
+    { id: 'stats', label: 'Stats', icon: FiBarChart2, component: StatsManager },
     { id: 'products', label: 'Products', icon: FiPackage, component: ProductManager },
     { id: 'careers', label: 'Careers', icon: FiBriefcase, component: CareerManager },
     { id: 'applications', label: 'Applications', icon: FiUsers, component: ApplicationsManager },

@@ -8,6 +8,7 @@
     "start": "node server.js",
     "dev": "node server.js",
     "init": "node scripts/initializeDB.js",
+    "seed-stats": "node scripts/seedStats.js",
     "reset-admin-password": "node scripts/resetAdminPassword.js"
   },
   "keywords": [

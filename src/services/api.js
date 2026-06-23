@@ -13,6 +13,19 @@ export function contentToMap(contentArray) {
   return map;
 }
 
+export async function fetchStats() {
+  const res = await fetch(`${API_URL}/api/stats`);
+  if (!res.ok) throw new Error('Failed to fetch stats');
+  const data = await res.json();
+  return Array.isArray(data) ? data : [];
+}
+
+export function statsToMap(statsArray) {
+  const map = {};
+  statsArray.forEach(item => { map[item.key] = item; });
+  return map;
+}
+
 export async function fetchProducts() {
   const res = await fetch(`${API_URL}/api/products`);
   if (!res.ok) throw new Error('Failed to fetch products');

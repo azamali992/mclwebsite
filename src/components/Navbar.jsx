@@ -3,8 +3,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes, FaChevronDown, FaArrowRight } from 'react-icons/fa';
 import logo from '../assets/MCL_Logo.jpeg';
 import { slugify, industrialGases, medicalGases, specialtyGases, lpgGases } from '../data/products';
+import useStats from '../hooks/useStats';
+import { resolveStat } from '../data/stats';
 
 export default function Navbar() {
+  const { statsMap } = useStats();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [gasesOpen, setGasesOpen] = useState(false);
@@ -149,7 +152,7 @@ export default function Navbar() {
                               </div>
                               <div className="bg-mclRed rounded-lg p-4 text-white">
                                 <p className="text-white/80 font-bold uppercase tracking-widest text-[10px] mb-1">Our Capacity</p>
-                                <p className="text-2xl font-extrabold leading-none mb-1">125 TPD</p>
+                                <p className="text-2xl font-extrabold leading-none mb-1">{resolveStat(statsMap, 'oxygen_plant_capacity').value}</p>
                                 <p className="text-white/80 text-xs mb-3">Largest single liquid oxygen plant in Pakistan.</p>
                                 <Link to="/production" onClick={() => setGasesOpen(false)} className="text-xs font-bold uppercase inline-flex items-center gap-1 hover:gap-2 transition-all">
                                   View Production <FaArrowRight size={10} />

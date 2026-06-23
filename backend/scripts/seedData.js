@@ -45,14 +45,6 @@ async function seed() {
       { section: 'hero', key: 'slide-2-subtitle', title: 'Equipping medical environments with state-of-the-art infrastructure and high-purity specialized chemicals.', description: 'Hero slide 2 subtitle', order: 5, isActive: true },
       { section: 'hero', key: 'slide-2-image', title: 'hero02.JPG', description: 'Hero slide 2 background image', order: 6, isActive: true },
 
-      // ---- Stats ----
-      { section: 'stats', key: 'stat-1', title: '40+', description: 'YEARS OF', text: 'EXCELLENCE', order: 1, isActive: true },
-      { section: 'stats', key: 'stat-2', title: '125 TPD', description: 'OXYGEN PLANT', text: 'CAPACITY', order: 2, isActive: true },
-      { section: 'stats', key: 'stat-3', title: '87000+', description: 'CYLINDERS', text: 'CAPACITY', order: 3, isActive: true },
-      { section: 'stats', key: 'stat-4', title: '65+', description: 'TRUCKS IN', text: 'OUR FLEET', order: 4, isActive: true },
-      { section: 'stats', key: 'stat-5', title: '35+', description: 'FILLING STATIONS', text: 'NATIONWIDE', order: 5, isActive: true },
-      { section: 'stats', key: 'stat-6', title: '1000+', description: 'SATISFIED', text: 'CLIENTS', order: 6, isActive: true },
-
       // ---- Business Divisions ----
       { section: 'divisions', key: 'div-1', title: 'Industrial Gases', description: 'Complete range of industrial gases for diverse applications across industries.', order: 1, isActive: true },
       { section: 'divisions', key: 'div-2', title: 'Medical Gases', description: 'High purity medical gases ensuring safety, reliability & patient care.', order: 2, isActive: true },
@@ -74,8 +66,6 @@ async function seed() {
       // ---- About Section 2 ----
       { section: 'about', key: 'section2-heading', title: 'Nationwide Network', order: 9, isActive: true },
       { section: 'about', key: 'section2-title', title: 'Reaching Every Corner of Pakistan', order: 10, isActive: true },
-      { section: 'about', key: 'network-feature-1', title: '20+ Company Owned', description: 'Filling Stations', order: 11, isActive: true },
-      { section: 'about', key: 'network-feature-2', title: '30+ Distributors', description: 'Across Pakistan', order: 12, isActive: true },
       { section: 'about', key: 'network-feature-3', title: 'Strategic Warehouses', description: 'For Timely Delivery', order: 13, isActive: true },
       { section: 'about', key: 'network-feature-4', title: 'Modern Fleet', description: 'For Safe & Reliable Supply', order: 14, isActive: true },
 
@@ -106,8 +96,6 @@ async function seed() {
       { section: 'infrastructure', key: 'hero-title', title: 'Nationwide Filling Stations For Uninterrupted Supply', order: 2, isActive: true },
       { section: 'infrastructure', key: 'hero-description', title: 'MCL operates 35+ company owned filling stations across Pakistan to ensure availability, safety and reliable distribution of medical and industrial gases.', order: 3, isActive: true },
 
-      { section: 'infrastructure', key: 'stat-1', title: '35+', description: 'Filling Stations', text: 'Nationwide', order: 4, isActive: true },
-      { section: 'infrastructure', key: 'stat-2', title: '100%', description: 'Nationwide', text: 'Coverage', order: 5, isActive: true },
       { section: 'infrastructure', key: 'stat-3', title: 'Safety First', description: 'Strict Safety', text: 'Protocols', order: 6, isActive: true },
       { section: 'infrastructure', key: 'stat-4', title: '24/7', description: 'Reliable Supply', text: 'Network', order: 7, isActive: true },
       { section: 'infrastructure', key: 'stat-5', title: 'Expert Team', description: 'Trained & Certified', text: 'Professionals', order: 8, isActive: true },
@@ -129,9 +117,6 @@ async function seed() {
       { section: 'infrastructure', key: 'logistics-heading', title: 'LOGISTICS & DISTRIBUTION', order: 21, isActive: true },
       { section: 'infrastructure', key: 'logistics-title', title: 'Strong Fleet. On-Time Delivery.', order: 22, isActive: true },
       { section: 'infrastructure', key: 'logistics-description', title: 'Our modern fleet of tankers and cylinder delivery vehicles ensures safe and timely delivery of gases to every corner of Pakistan.', order: 23, isActive: true },
-      { section: 'infrastructure', key: 'logistics-stat-1', title: '65+', description: 'Delivery Trucks', order: 24, isActive: true },
-      { section: 'infrastructure', key: 'logistics-stat-2', title: '20+', description: 'Tanker Trucks', order: 25, isActive: true },
-      { section: 'infrastructure', key: 'logistics-stat-3', title: '100+', description: 'Dedicated Staff', order: 26, isActive: true },
       { section: 'infrastructure', key: 'logistics-stat-4', title: 'Real-time', description: 'Tracking System', order: 27, isActive: true },
 
       { section: 'infrastructure', key: 'quality-heading', title: 'QUALITY ASSURANCE', order: 28, isActive: true },

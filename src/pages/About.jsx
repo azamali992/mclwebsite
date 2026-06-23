@@ -7,6 +7,8 @@ import AboutSection3 from '../components/AboutSection3';
 import useInView from '../hooks/useInView';
 import heroBg from '../assets/hero02.JPG';
 import { leadership } from '../data/team';
+import useStats from '../hooks/useStats';
+import { resolveStat } from '../data/stats';
 
 function AboutHero() {
   return (
@@ -50,7 +52,7 @@ const milestoneColors = [
 ];
 
 const milestones = [
-  { year: '1985', icon: FaBuilding, title: 'Establishment & Entry into Medical Gases', desc: 'Multan Chemicals Limited is founded in Multan, beginning operations as a regional industrial gas supplier and quickly becoming one of Pakistan\'s first companies to supply medical-grade oxygen to healthcare facilities.' },
+  { year: '1985', yearKey: 'founded_year', icon: FaBuilding, title: 'Establishment & Entry into Medical Gases', desc: 'Multan Chemicals Limited is founded in Multan, beginning operations as a regional industrial gas supplier and quickly becoming one of Pakistan\'s first companies to supply medical-grade oxygen to healthcare facilities.' },
   { year: '1992', icon: FaIndustry, title: 'First Major ASU', desc: 'Commissioning of our first Air Separation Unit, significantly increasing production capacity for oxygen, nitrogen, and argon.' },
   { year: '2000', icon: FaAward, title: 'ISO Certification', desc: 'Achieved ISO 9001 certification from SGS UK, marking our commitment to international quality management standards.' },
   { year: '2008', icon: FaTruck, title: 'Nationwide Distribution', desc: 'Expanded distribution network to 20+ company-owned filling stations and 30 authorized distributors across Pakistan.' },
@@ -79,7 +81,9 @@ const comingSoonMilestones = [
 function TimelineSection() {
   const [ref, inView] = useInView();
   const scrollRef = useRef(null);
-  const items = [...milestones, ...comingSoonMilestones];
+  const { statsMap } = useStats();
+  const resolvedMilestones = milestones.map(m => m.yearKey ? { ...m, year: resolveStat(statsMap, m.yearKey).value } : m);
+  const items = [...resolvedMilestones, ...comingSoonMilestones];
 
   const scroll = (dir) => {
     if (scrollRef.current) {

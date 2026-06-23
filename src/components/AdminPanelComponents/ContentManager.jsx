@@ -145,7 +145,6 @@ const ContentManager = ({ token }) => {
                 <option value="footer">Footer</option>
                 <option value="navbar">Navbar</option>
                 <option value="contact">Contact</option>
-                <option value="stats">Stats</option>
                 <option value="divisions">Divisions</option>
               </select>
             </div>

@@ -9,6 +9,7 @@ import errorHandler from './middleware/errorHandler.js';
 
 import authRoutes from './routes/authRoutes.js';
 import contentRoutes from './routes/contentRoutes.js';
+import statRoutes from './routes/statRoutes.js';
 import productRoutes from './routes/productRoutes.js';
 import careerRoutes from './routes/careerRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
@@ -47,6 +48,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/content', contentRoutes);
+app.use('/api/stats', statRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/careers', careerRoutes);
 app.use('/api/upload', uploadRoutes);

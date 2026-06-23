@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { FaAward, FaFlask, FaShieldAlt, FaCogs } from 'react-icons/fa';
 import useContent from '../hooks/useContent';
+import useStats from '../hooks/useStats';
 import useInView from '../hooks/useInView';
 import plantImage from '../assets/hero02.JPG';
+import { resolveStat } from '../data/stats';
 
 const featureIcons = [FaAward, FaFlask, FaShieldAlt, FaCogs];
 
@@ -11,10 +13,12 @@ export default function AboutSection1() {
   const [rightRef, rightInView] = useInView();
   const [featRef, featInView] = useInView();
   const { contentMap } = useContent('about');
+  const { statsMap } = useStats();
+  const foundedYear = resolveStat(statsMap, 'founded_year').value;
 
   const heading = contentMap['section1-heading']?.title || 'About MCL';
   const title = contentMap['section1-title']?.title || 'Leader in Quality.<br />Driven by Innovation.';
-  const description = contentMap['section1-description']?.title || 'Established in 1985, Multan Chemicals Limited (MCL) has grown to become Pakistan\'s most trusted name in industrial and medical gases.';
+  const description = contentMap['section1-description']?.title || `Established in ${foundedYear}, Multan Chemicals Limited (MCL) has grown to become Pakistan's most trusted name in industrial and medical gases.`;
 
   const features = [1, 2, 3, 4].map(i => {
     const c = contentMap[`feature-${i}`];
@@ -62,7 +66,7 @@ export default function AboutSection1() {
               />
             </div>
             <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl px-6 py-4 hidden sm:block">
-              <p className="text-mclRed font-extrabold text-3xl leading-none">1985</p>
+              <p className="text-mclRed font-extrabold text-3xl leading-none">{foundedYear}</p>
               <p className="text-gray-500 text-xs font-semibold uppercase tracking-wide mt-1">Est. & Trusted</p>
             </div>
           </div>
