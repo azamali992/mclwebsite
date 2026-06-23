@@ -38,7 +38,7 @@ export default function Hero() {
   }, [nextSlide]);
 
   return (
-    <div className="relative h-[calc(100vh-96px)] w-full overflow-hidden bg-gray-900">
+    <div className="relative h-[calc(100vh-80px)] sm:h-[calc(100vh-96px)] w-full overflow-hidden bg-gray-900">
       <div className="relative h-full w-full">
         {slides.map((slide, index) => (
           <div
@@ -51,7 +51,7 @@ export default function Hero() {
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${slide.bgImage})` }}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30 sm:to-transparent" />
             <div className="absolute inset-0 flex items-center z-20">
               <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 w-full text-white">
                 <div className="max-w-3xl space-y-6">

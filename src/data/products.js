@@ -4,7 +4,7 @@ import {
 } from 'react-icons/fa';
 import cylinderYardImg from '../assets/infra02.JPG';
 import medicalGasImg from '../assets/products/mgps-ward-hero.jpeg';
-import specialtyGasImg from '../assets/daplant.jpeg';
+import specialtyGasImg from '../assets/daplant.png';
 import lpgImg from '../assets/trucks1.JPG';
 
 export const slugify = (str) =>

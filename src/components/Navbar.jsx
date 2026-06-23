@@ -9,6 +9,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [gasesOpen, setGasesOpen] = useState(false);
   const [healthEngOpen, setHealthEngOpen] = useState(false);
+  const [mobileGasesOpen, setMobileGasesOpen] = useState(false);
+  const [mobileHealthEngOpen, setMobileHealthEngOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -89,8 +91,8 @@ export default function Navbar() {
                       </Link>
 
                       {gasesOpen && (
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[820px]">
-                          <div className="bg-white rounded-xl shadow-2xl border border-gray-100 p-8 grid grid-cols-4 gap-8">
+                        <div className="absolute top-full left-0 xl:left-1/2 xl:-translate-x-1/2 pt-3 w-[95vw] max-w-[820px]">
+                          <div className="bg-white rounded-xl shadow-2xl border border-gray-100 p-4 sm:p-6 lg:p-8 grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
                             <div>
                               <p className="text-mclRed font-bold uppercase tracking-widest text-xs mb-3">Medical Gases</p>
                               <ul className="space-y-2.5">
@@ -185,8 +187,8 @@ export default function Navbar() {
                       </Link>
 
                       {healthEngOpen && (
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[620px]">
-                          <div className="bg-white rounded-xl shadow-2xl border border-gray-100 p-8 grid grid-cols-3 gap-8">
+                        <div className="absolute top-full left-0 xl:left-1/2 xl:-translate-x-1/2 pt-3 w-[90vw] max-w-[620px]">
+                          <div className="bg-white rounded-xl shadow-2xl border border-gray-100 p-4 sm:p-6 lg:p-8 grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-8">
                             <div>
                               <p className="text-mclRed font-bold uppercase tracking-widest text-xs mb-3">MGPS Solutions</p>
                               <ul className="space-y-2.5">
@@ -270,15 +272,83 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       {isOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-4 space-y-1 shadow-lg">
+        <div className="lg:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-4 shadow-lg max-h-[80vh] overflow-y-auto">
           {navLinks.map((link) => {
             const active = isActive(link.path);
+            
+            if (link.name === 'Gases') {
+              return (
+                <div key={link.name} className="border-b border-gray-100 last:border-b-0">
+                  <button
+                    onClick={() => setMobileGasesOpen(!mobileGasesOpen)}
+                    className={`flex items-center justify-between w-full px-3 py-2.5 rounded-md text-base font-medium ${
+                      active ? 'text-mclRed bg-red-50' : 'text-gray-700 hover:bg-gray-50'
+                    }`}
+                  >
+                    {link.name}
+                    <FaChevronDown size={10} className={`transition-transform ${mobileGasesOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  {mobileGasesOpen && (
+                    <div className="pl-4 pb-2 space-y-1">
+                      <p className="text-[10px] font-bold text-mclRed uppercase tracking-wider px-3 pt-2">Medical Gases</p>
+                      {medicalGases.map((p) => (
+                        <Link key={p.title} to={`/gases#${slugify(p.title)}`} onClick={() => { setIsOpen(false); setMobileGasesOpen(false); }} className="block px-3 py-1.5 text-sm text-gray-600 hover:text-mclRed">
+                          {p.title}
+                        </Link>
+                      ))}
+                      <p className="text-[10px] font-bold text-mclRed uppercase tracking-wider px-3 pt-2">Industrial Gases</p>
+                      {[...industrialGases, ...lpgGases].map((p) => (
+                        <Link key={p.title} to={`/gases#${slugify(p.title)}`} onClick={() => { setIsOpen(false); setMobileGasesOpen(false); }} className="block px-3 py-1.5 text-sm text-gray-600 hover:text-mclRed">
+                          {p.title}
+                        </Link>
+                      ))}
+                      <p className="text-[10px] font-bold text-mclRed uppercase tracking-wider px-3 pt-2">Specialty Gases</p>
+                      {specialtyGases.map((p) => (
+                        <Link key={p.title} to={`/gases#${slugify(p.title)}`} onClick={() => { setIsOpen(false); setMobileGasesOpen(false); }} className="block px-3 py-1.5 text-sm text-gray-600 hover:text-mclRed">
+                          {p.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
+            if (link.name === 'Health Engineering') {
+              return (
+                <div key={link.name} className="border-b border-gray-100 last:border-b-0">
+                  <button
+                    onClick={() => setMobileHealthEngOpen(!mobileHealthEngOpen)}
+                    className={`flex items-center justify-between w-full px-3 py-2.5 rounded-md text-base font-medium ${
+                      active ? 'text-mclRed bg-red-50' : 'text-gray-700 hover:bg-gray-50'
+                    }`}
+                  >
+                    {link.name}
+                    <FaChevronDown size={10} className={`transition-transform ${mobileHealthEngOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  {mobileHealthEngOpen && (
+                    <div className="pl-4 pb-2 space-y-1">
+                      <Link to="/mgps-solutions" onClick={() => { setIsOpen(false); setMobileHealthEngOpen(false); }} className="block px-3 py-1.5 text-sm text-gray-600 hover:text-mclRed">
+                        MGPS Solutions
+                      </Link>
+                      <Link to="/modular-ot" onClick={() => { setIsOpen(false); setMobileHealthEngOpen(false); }} className="block px-3 py-1.5 text-sm text-gray-600 hover:text-mclRed">
+                        Modular OT
+                      </Link>
+                      <Link to="/clinical-systems" onClick={() => { setIsOpen(false); setMobileHealthEngOpen(false); }} className="block px-3 py-1.5 text-sm text-gray-600 hover:text-mclRed">
+                        Clinical Systems
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
             return (
               <Link
                 key={link.name}
                 to={link.path}
                 aria-current={active ? 'page' : undefined}
-                className={`flex items-center justify-between px-3 py-2 rounded-md text-base font-medium ${
+                className={`flex items-center justify-between px-3 py-2.5 rounded-md text-base font-medium border-b border-gray-100 last:border-b-0 ${
                   active ? 'text-mclRed bg-red-50' : 'text-gray-700 hover:bg-gray-50 hover:text-mclRed'
                 }`}
                 onClick={() => setIsOpen(false)}
@@ -287,7 +357,7 @@ export default function Navbar() {
               </Link>
             );
           })}
-          <button onClick={handleQuoteClick} className="w-full mt-4 bg-mclRed text-white px-4 py-2 text-sm font-bold uppercase tracking-wide hover:bg-red-800 transition-colors focus:ring-2 focus:ring-red-500 focus:outline-none">
+          <button onClick={() => { handleQuoteClick(); setIsOpen(false); }} className="w-full mt-4 bg-mclRed text-white px-4 py-2.5 text-sm font-bold uppercase tracking-wide hover:bg-red-800 transition-colors focus:ring-2 focus:ring-red-500 focus:outline-none rounded-md">
             Request Quote
           </button>
         </div>

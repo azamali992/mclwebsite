@@ -6,7 +6,7 @@ import cylinderYard from '../assets/infra02.JPG';
 import mgpsWard from '../assets/products/mgps-ward-hero.jpeg';
 import mgpsEquipment from '../assets/products/medical-gas-manifolds.jpeg';
 import modularOtPhoto from '../assets/products/modular-ot-hero.jpeg';
-import daPlant from '../assets/daplant.jpeg';
+import daPlant from '../assets/daplant.png';
 import lpgTruck from '../assets/trucks1.JPG';
 
 function DivisionCard({ div, index }) {

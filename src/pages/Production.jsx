@@ -2,7 +2,7 @@ import { FaIndustry, FaTruck, FaWarehouse, FaShieldAlt, FaClock, FaCertificate, 
 import useInView from '../hooks/useInView';
 import mainPlant from '../assets/main125tdplant.png';
 import plant20tpd from '../assets/20tpdplant.jpeg';
-import daPlant from '../assets/daplant.jpeg';
+import daPlant from '../assets/daplant.png';
 import multanPlant from '../assets/multanoxplant.jpeg';
 
 function SectionWrap({ children, className = '' }) {
