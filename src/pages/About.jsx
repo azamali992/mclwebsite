@@ -92,7 +92,7 @@ function TimelineSection() {
   };
 
   return (
-    <section ref={ref} className={`bg-gradient-to-b from-slate-900 to-slate-800 py-20 px-4 sm:px-8 lg:px-12 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+    <section id="history" ref={ref} className={`bg-gradient-to-b from-slate-900 to-slate-800 py-20 px-4 sm:px-8 lg:px-12 scroll-mt-28 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
       <div className="max-w-[1400px] mx-auto">
         <div className="text-center mb-14">
           <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">Our Journey</p>
@@ -164,7 +164,7 @@ function TimelineSection() {
 
 function MissionVisionSection() {
   return (
-    <section className="bg-white py-20 px-4 sm:px-8 lg:px-12">
+    <section id="mission" className="bg-white py-20 px-4 sm:px-8 lg:px-12 scroll-mt-28">
       <div className="max-w-[1400px] mx-auto">
         <div className="text-center mb-12">
           <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">
@@ -214,7 +214,7 @@ function MissionVisionSection() {
 function TeamPreviewSection() {
   const [ref, inView] = useInView();
   return (
-    <section ref={ref} className={`bg-white py-20 px-4 sm:px-8 lg:px-12 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+    <section id="team" ref={ref} className={`bg-white py-20 px-4 sm:px-8 lg:px-12 scroll-mt-28 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
       <div className="max-w-[1400px] mx-auto">
         <div className="text-center mb-12">
           <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">Our Team</p>

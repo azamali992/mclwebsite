@@ -37,7 +37,7 @@ export default function AboutSection2() {
   ];
 
   return (
-    <section className="bg-[#0B1A28] py-20 px-4 sm:px-8 lg:px-12">
+    <section id="network" className="bg-[#0B1A28] py-20 px-4 sm:px-8 lg:px-12 scroll-mt-28">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div
           ref={leftRef}
