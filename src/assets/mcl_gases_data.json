@@ -1,0 +1,1012 @@
+[
+  {
+    "name": "Medical Oxygen",
+    "formula": "O₂",
+    "category": "Medical Gases",
+    "url": "https://mcl-gases.com/medical-gases/oxygen",
+    "availability": "In Stock",
+    "supply_form": "Liquid & Compressed",
+    "description": "MCL supplies medical and industrial oxygen meeting the highest purity standards — from European Pharmacopeia-compliant medical grades to ultra-pure lab grades. Delivered 24/7 via our nationwide network of 20 filling stations and 30 distributors.",
+    "stat_capacity": "125 TPD",
+    "stat_cylinders": "0+\nCYLINDERS IN INVENTORY",
+    "stat_stations": "20 filling stations",
+    "stat_years": "0+\nYEARS OF SUPPLY",
+    "purity_grades": [
+      {
+        "label": "Medical Grade",
+        "sector": "HEALTHCARE",
+        "purity": "99.7%"
+      },
+      {
+        "label": "Industrial Grade",
+        "sector": "INDUSTRIAL",
+        "purity": "99.6%"
+      },
+      {
+        "label": "High Purity",
+        "sector": "RESEARCH",
+        "purity": "99.9%"
+      },
+      {
+        "label": "Lab Grade",
+        "sector": "LABORATORY",
+        "purity": "99.999%"
+      }
+    ],
+    "specifications": [],
+    "cylinders": [
+      {
+        "size": "5L",
+        "volume_m3": "0.8496",
+        "valve": "Pin index",
+        "pressure": "137 bar"
+      },
+      {
+        "size": "10L",
+        "volume_m3": "1.699",
+        "valve": "Side & top outlet",
+        "pressure": "137 bar"
+      },
+      {
+        "size": "47L",
+        "volume_m3": "6.796",
+        "valve": "Side & top outlet",
+        "pressure": "137 bar"
+      }
+    ],
+    "bulk_supply": [
+      "ISO Tankers (20 ton)",
+      "Dewar flasks for small hospitals and clinics",
+      "Portable Cryogenic Containers",
+      "Biweekly Backup Tank",
+      "Storage Backup",
+      "Small Tanks (5 ton)",
+      "Bulk Liquid Oxygen",
+      "18 tankers — largest fleet in Pakistan",
+      "1,150,000 m³ liquid medical oxygen reserve",
+      "1,200 ton backup storage — zero-interruption supply"
+    ],
+    "use_cases": [
+      {
+        "title": "Respiratory Therapy",
+        "description": "Critical support for patients with respiratory conditions, delivering precise O₂ concentrations to improve oxygenation."
+      },
+      {
+        "title": "Surgical Procedures",
+        "description": "Essential anesthesia support and life-sustaining supply during complex surgical interventions."
+      },
+      {
+        "title": "Steel Manufacturing",
+        "description": "Enhances combustion efficiency in steel-making furnaces, improving output and reducing waste."
+      },
+      {
+        "title": "Wastewater Treatment",
+        "description": "Dissolved oxygen injection to accelerate biological treatment processes in water facilities."
+      },
+      {
+        "title": "Laboratories",
+        "description": "Ultra-pure grades for analytical instruments, calibration standards, and research workflows."
+      },
+      {
+        "title": "Metal Fabrication",
+        "description": "Oxy-fuel cutting and welding applications requiring high-purity oxygen for clean, precise cuts."
+      },
+      {
+        "title": "—\nCOMPANY",
+        "description": "About\nProduction\nTeam\nCertifications"
+      },
+      {
+        "title": "—\nPRODUCTS",
+        "description": "Industrial Gases\nMedical Gases\nMGPS\nModular OT"
+      },
+      {
+        "title": "—\nRESOURCES",
+        "description": "Safety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use"
+      },
+      {
+        "title": "LOCATIONS",
+        "description": "HEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala +92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com"
+      }
+    ],
+    "certifications": [
+      "ISO 9001:2015",
+      "ISO 9001",
+      "GMP Compliant",
+      "GMP",
+      "EU Pharmacopeia",
+      "Eu Pharmacopeia",
+      "European Pharmacopeia",
+      "HTM02",
+      "SGS Certified",
+      "24/7 Supply"
+    ],
+    "raw_text": "ESTABLISHED 1985 · MULTAN, PAKISTAN\n+92 61 6538206-8\n|\nINFO@MCL-GASES.COM\nMultan Chemicals\nLIMITED\nAbout\nGases\nHealth Engineering\nProduction\nClients\nCertifications\nCareers\nREQUEST QUOTE\n→\n\nCOMPANY\n\nOverview\nWho we are and what we stand for\nHistory\nFour decades of industry leadership\nMission & Vision\nOur purpose, values and direction\nOur Team\nLeadership, management and technical staff\n\nSINCE 1985\n\nPakistan's most trusted industrial gas producer.\n\nCOMPANY OVERVIEW →\nMEDICAL GASES\nMedical Oxygen\nO₂\nNitrous Oxide\nN₂O\nMedical Air\nAir\nMedical Carbon Dioxide\nCO₂\nINDUSTRIAL GASES\nOxygen\nO₂\nNitrogen\nN₂\nArgon\nAr\nAcetylene\nC₂H₂\nLPG\nLPG\nHydrogen\nH₂\nAmmonia\nNH₃\nCarbon Dioxide\nCO₂\nMixture Gas\nMix\nSPECIALITY GASES\nHelium\nHe\nSpecial & Calibration\nCal\n\nQUICK LINKS\n\nAll Industrial Gases\n→\nAll Medical Gases\n→\nSpeciality Gases\n→\nSafety Data Sheets\n→\n\nOUR CAPACITY\n\n125 TPD\n\nLargest single liquid oxygen plant in Pakistan.\n\nVIEW PRODUCTION →\n\nHEALTHCARE ENGINEERING SERVICES\n\nMGPS\nMedical Gas Pipeline Systems\nOTS\nModular Operation Theatres\nRadiology\nRadiology department solutions\nICU\nIntensive care infrastructure\nCSSD\nCentral sterile supply dept.\nLaundry\nHealthcare laundry systems\nHVAC\nHeating, ventilation & air con.\nRequest a Project Quote\nTalk to our healthcare engineering team\n\nHEALTHCARE SOLUTIONS\n\nEnd-to-end medical gas and engineering infrastructure.\n\nMGPS PORTFOLIO →\nMODULAR OT SYSTEMS →\nHome\nMedical Gases\nOxygen\nO₂\nMEDICAL & INDUSTRIAL GASES\nIN STOCK\nOXYGEN\n(O₂)\nLiquid & Compressed\n\nMCL supplies medical and industrial oxygen meeting the highest purity standards — from European Pharmacopeia-compliant medical grades to ultra-pure lab grades. Delivered 24/7 via our nationwide network of 20 filling stations and 30 distributors.\n\nREQUEST QUOTE\n061 6538206-8\n\nAVAILABLE GRADES\n\nHEALTHCARE\n99.7%\nMedical Grade\nINDUSTRIAL\n99.6%\nIndustrial Grade\nRESEARCH\n99.9%\nHigh Purity\nLABORATORY\n99.999%\nLab Grade\n0 TPD\nLARGEST PLANT CAPACITY\n0+\nCYLINDERS IN INVENTORY\n0+\nFILLING STATIONS\n0+\nYEARS OF SUPPLY\nPURITY STANDARDS\nAvailable Grades & Specifications\nHEALTHCARE\n99.7%\nMedical Grade\nINDUSTRIAL\n99.6%\nIndustrial Grade\nRESEARCH\n99.9%\nHigh Purity\nLABORATORY\n99.999%\nLab Grade\nHEALTHCARE · MEDICAL GRADE\nPurity: 99.7%\nEuropean Pharmacopeia 1999\nPARAMETER\nEU PHARMACOPEIA\nMCL STANDARD\nOxygen Purity\n99.5% (min)\n99.7% (min)\nMoisture\n< 67 ppm\n< 0.1 ppm\nCarbon Dioxide\n< 300 ppm\n< 0.85 ppm\nCarbon Monoxide\n< 5 ppm\n< 1.0 ppm\nOdor\nOdorless\nOdorless\n\nMCL medical oxygen exceeds European Pharmacopeia 1999 standards — GMP compliant and HTM02 certified.\n\nPACKAGING & DELIVERY\nSupply Options\n\nAvailable in high-pressure cylinders and liquid cryogenic containers for small, medium, and large-scale requirements. Bulk liquid supply via ISO tankers for high-volume industrial users.\n\nCOMPRESSED GAS\nOxygen Cylinders\nCYLINDER\nGAS (M³)\nVALVE\nPRESSURE\n5L\n0.8496\nPin index\n137 bar\n10L\n1.699\nSide & top outlet\n137 bar\n47L\n6.796\nSide & top outlet\n137 bar\nCRYOGENIC LIQUID\nBulk Liquid Oxygen\nPortable Cryogenic Containers\nDewar flasks for small hospitals and clinics\nISO Tankers (20 ton)\n18 tankers — largest fleet in Pakistan\nSmall Tanks (5 ton)\n7 units for mid-scale requirements\nStorage Backup\n1,150,000 m³ liquid medical oxygen reserve\nBiweekly Backup Tank\n1,200 ton backup storage — zero-interruption supply\nDISCUSS BULK REQUIREMENTS\nUSE CASES\nClinical & Industrial Applications\n01\nRespiratory Therapy\n\nCritical support for patients with respiratory conditions, delivering precise O₂ concentrations to improve oxygenation.\n\n02\nSurgical Procedures\n\nEssential anesthesia support and life-sustaining supply during complex surgical interventions.\n\n03\nSteel Manufacturing\n\nEnhances combustion efficiency in steel-making furnaces, improving output and reducing waste.\n\n04\nWastewater Treatment\n\nDissolved oxygen injection to accelerate biological treatment processes in water facilities.\n\n05\nLaboratories\n\nUltra-pure grades for analytical instruments, calibration standards, and research workflows.\n\n06\nMetal Fabrication\n\nOxy-fuel cutting and welding applications requiring high-purity oxygen for clean, precise cuts.\n\nISO 9001:2015\nSGS CERTIFIED\nGMP Compliant\nMEDICAL GRADE\nEu Pharmacopeia\n1999 STANDARD\n24/7 Supply\nNATIONWIDE\nO₂\n\nNEED OXYGEN SUPPLY\nFOR YOUR FACILITY?\n\nOur team will assess your requirements and recommend the right grade and supply option.\n\nGET A QUOTE\n061 6538206\nMultan Chemicals Limited\n\nIndustrial and medical gases, MGPS and modular healthcare infrastructure — produced and supported across Pakistan.\n\nGET IN TOUCH\n→\nCALL HEAD OFFICE\n—\nCOMPANY\nAbout\nProduction\nTeam\nCertifications\n—\nPRODUCTS\nIndustrial Gases\nMedical Gases\nMGPS\nModular OT\n—\nREACH\nClients\nContact\n—\nRESOURCES\nSafety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use\nLOCATIONS\n\nHEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala\n\n+92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com\n\n© 2026 MULTAN CHEMICALS LIMITED\n\nWWW.MCL-GASES.COM"
+  },
+  {
+    "name": "Nitrous Oxide",
+    "formula": "N₂O",
+    "category": "Medical Gases",
+    "url": "https://mcl-gases.com/medical-gases/nitrous-oxide",
+    "availability": "In Stock",
+    "supply_form": "",
+    "description": "MCL supplies pharmaceutical-grade nitrous oxide for surgical anaesthesia, conscious sedation, and labour pain relief. Available as pure medical N₂O and as Entonox — a ready-mixed 50/50 blend with oxygen — conforming to European Pharmacopeia standards.",
+    "stat_capacity": "125 TPD",
+    "stat_cylinders": "0+\nCYLINDERS IN INVENTORY",
+    "stat_stations": "",
+    "stat_years": "",
+    "purity_grades": [],
+    "specifications": [],
+    "cylinders": [],
+    "bulk_supply": [],
+    "use_cases": [
+      {
+        "title": "General Anaesthesia",
+        "description": "Used alongside other anaesthetic agents to maintain surgical anaesthesia, reducing required doses of more potent agents."
+      },
+      {
+        "title": "Pain Relief (Entonox)",
+        "description": "50/50 blend with oxygen provides rapid, self-administered analgesia during labour, trauma care, and minor procedures."
+      },
+      {
+        "title": "Obstetrics & Labour",
+        "description": "Entonox is a first-line analgesic in labour wards — fast onset, no accumulation, safe for mother and baby."
+      },
+      {
+        "title": "Emergency Medicine",
+        "description": "Portable Entonox kits deployed in ambulances and A&E for rapid, non-invasive pain management."
+      },
+      {
+        "title": "Dental Procedures",
+        "description": "Conscious sedation in dentistry reduces patient anxiety and lowers pain perception during invasive procedures."
+      },
+      {
+        "title": "Cryosurgery",
+        "description": "Liquid N₂O used in cryosurgical probes for targeted tissue destruction in dermatological procedures."
+      },
+      {
+        "title": "—\nCOMPANY",
+        "description": "About\nProduction\nTeam\nCertifications"
+      },
+      {
+        "title": "—\nPRODUCTS",
+        "description": "Industrial Gases\nMedical Gases\nMGPS\nModular OT"
+      },
+      {
+        "title": "—\nRESOURCES",
+        "description": "Safety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use"
+      },
+      {
+        "title": "LOCATIONS",
+        "description": "HEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala +92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com"
+      }
+    ],
+    "certifications": [
+      "ISO 9001:2015",
+      "ISO 9001",
+      "GMP Compliant",
+      "GMP",
+      "EU Pharmacopeia",
+      "Eu Pharmacopeia",
+      "European Pharmacopeia",
+      "HTM02",
+      "SGS Certified",
+      "24/7 Supply"
+    ],
+    "raw_text": "ESTABLISHED 1985 · MULTAN, PAKISTAN\n+92 61 6538206-8\n|\nINFO@MCL-GASES.COM\nMultan Chemicals\nLIMITED\nAbout\nGases\nHealth Engineering\nProduction\nClients\nCertifications\nCareers\nREQUEST QUOTE\n→\n\nCOMPANY\n\nOverview\nWho we are and what we stand for\nHistory\nFour decades of industry leadership\nMission & Vision\nOur purpose, values and direction\nOur Team\nLeadership, management and technical staff\n\nSINCE 1985\n\nPakistan's most trusted industrial gas producer.\n\nCOMPANY OVERVIEW →\nMEDICAL GASES\nMedical Oxygen\nO₂\nNitrous Oxide\nN₂O\nMedical Air\nAir\nMedical Carbon Dioxide\nCO₂\nINDUSTRIAL GASES\nOxygen\nO₂\nNitrogen\nN₂\nArgon\nAr\nAcetylene\nC₂H₂\nLPG\nLPG\nHydrogen\nH₂\nAmmonia\nNH₃\nCarbon Dioxide\nCO₂\nMixture Gas\nMix\nSPECIALITY GASES\nHelium\nHe\nSpecial & Calibration\nCal\n\nQUICK LINKS\n\nAll Industrial Gases\n→\nAll Medical Gases\n→\nSpeciality Gases\n→\nSafety Data Sheets\n→\n\nOUR CAPACITY\n\n125 TPD\n\nLargest single liquid oxygen plant in Pakistan.\n\nVIEW PRODUCTION →\n\nHEALTHCARE ENGINEERING SERVICES\n\nMGPS\nMedical Gas Pipeline Systems\nOTS\nModular Operation Theatres\nRadiology\nRadiology department solutions\nICU\nIntensive care infrastructure\nCSSD\nCentral sterile supply dept.\nLaundry\nHealthcare laundry systems\nHVAC\nHeating, ventilation & air con.\nRequest a Project Quote\nTalk to our healthcare engineering team\n\nHEALTHCARE SOLUTIONS\n\nEnd-to-end medical gas and engineering infrastructure.\n\nMGPS PORTFOLIO →\nMODULAR OT SYSTEMS →\nHome\nMedical Gases\nNitrous Oxide\nN₂O\nMEDICAL GASES\nIN STOCK\nNITROUS\nOXIDE\nN₂O · Medical & Entonox Grades\n\nMCL supplies pharmaceutical-grade nitrous oxide for surgical anaesthesia, conscious sedation, and labour pain relief. Available as pure medical N₂O and as Entonox — a ready-mixed 50/50 blend with oxygen — conforming to European Pharmacopeia standards.\n\nHTM02 Compliant. All medical N₂O handled by our HTM02-trained Competent Person / Authorized Person certified team.\n\nREQUEST QUOTE\n061 6538206-8\n\nAVAILABLE GRADES\n\nHEALTHCARE\n≥ 98.0%\nMedical Grade\nEuropean Pharmacopeia\nANALGESIC\n50% N₂O / 50% O₂\nEntonox (50/50)\nPain Relief Blend\n\nEntonox equivalent: MCL supplies a 50% N₂O / 50% O₂ premix meeting the same pharmacopeial specification.\n\n0+\nYEARS SUPPLYING HEALTHCARE\n0+\nCYLINDERS IN INVENTORY\n0\nCOMPANY-OWNED STATIONS\n0+\nHEALTHCARE PARTNERS\nPURITY STANDARDS\nGRADES & SPECIFICATIONS\nHEALTHCARE\n≥ 98.0%\nMedical Grade\nANALGESIC\n50% N₂O / 50% O₂\nEntonox (50/50)\n\nAll grades conform to GMP processes and are tested batch-by-batch under our ISO 9001:2015 certified quality system.\n\nHEALTHCARE · MEDICAL GRADE\nPurity: ≥ 98.0%\nEuropean Pharmacopeia\nPARAMETER\nMCL SPECIFICATION\nNitrous Oxide Purity\n≥ 98.0% v/v\nWater (Moisture)\n≤ 67 ppm v/v\nCarbon Monoxide\n≤ 5 ppm v/v\nCarbon Dioxide\n≤ 300 ppm v/v\nNitric Oxide + NO₂\n≤ 2 ppm v/v\nOdor\nSlightly sweet\n\nMedical N₂O is supplied as a liquefied gas under pressure. Cylinders must be stored and handled upright by trained HTM02-certified personnel only.\n\nPACKAGING & DELIVERY\nSUPPLY OPTIONS\n\nNitrous oxide is supplied as a liquefied compressed gas in high-pressure cylinders. Three standard sizes suit clinic, ward, and theatre requirements.\n\nLIQUEFIED COMPRESSED GAS\nNitrous Oxide Cylinders\nSIZE\nGAS (L)\nVALVE\nPRESSURE\n5L\n1,620\nPin index\n80 bar\n10L\n3,240\nWheel type\n80 bar\n47L\n16,200\nWheel type\n80 bar\n\nGas capacity at 15 °C, 1 atm. Pressure is gauge at 15 °C for full cylinders. All cylinders colour-coded blue (BS 4800) per medical gas standards.\n\nSAFE USE\nHandling & Storage\nStore upright, secured\nCylinders must be chained or bracketed upright — N₂O is liquefied under pressure\nTemperature: 0 °C – 50 °C\nAvoid direct sunlight and heat sources; never store below freezing for Entonox\nHTM02-certified handling\nOur delivery teams hold HTM02 Competent / Authorized Person certification\nScavenging required in theatres\nUse with an Anaesthetic Gas Scavenging System (AGSS) in all theatre environments\nColour code: Blue (BS 4800)\nAll MCL medical N₂O cylinders painted blue per international medical gas standards\nDISCUSS SUPPLY REQUIREMENTS\nUSE CASES\nCLINICAL APPLICATIONS\n01\nGeneral Anaesthesia\n\nUsed alongside other anaesthetic agents to maintain surgical anaesthesia, reducing required doses of more potent agents.\n\n02\nPain Relief (Entonox)\n\n50/50 blend with oxygen provides rapid, self-administered analgesia during labour, trauma care, and minor procedures.\n\n03\nObstetrics & Labour\n\nEntonox is a first-line analgesic in labour wards — fast onset, no accumulation, safe for mother and baby.\n\n04\nEmergency Medicine\n\nPortable Entonox kits deployed in ambulances and A&E for rapid, non-invasive pain management.\n\n05\nDental Procedures\n\nConscious sedation in dentistry reduces patient anxiety and lowers pain perception during invasive procedures.\n\n06\nCryosurgery\n\nLiquid N₂O used in cryosurgical probes for targeted tissue destruction in dermatological procedures.\n\nISO 9001:2015\nSGS CERTIFIED\nGMP Compliant\nMEDICAL GRADE\nEU Pharmacopeia\nCOMPLIANT\n24/7 Supply\nNATIONWIDE\nN₂O\n\nNEED NITROUS OXIDE\nFOR YOUR FACILITY?\n\nOur team will assess your theatre, ward, or clinic requirements and recommend the right cylinder size and supply schedule.\n\nGET A QUOTE\n061 6538206-8\nMultan Chemicals Limited\n\nIndustrial and medical gases, MGPS and modular healthcare infrastructure — produced and supported across Pakistan.\n\nGET IN TOUCH\n→\nCALL HEAD OFFICE\n—\nCOMPANY\nAbout\nProduction\nTeam\nCertifications\n—\nPRODUCTS\nIndustrial Gases\nMedical Gases\nMGPS\nModular OT\n—\nREACH\nClients\nContact\n—\nRESOURCES\nSafety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use\nLOCATIONS\n\nHEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala\n\n+92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com\n\n© 2026 MULTAN CHEMICALS LIMITED\n\nWWW.MCL-GASES.COM"
+  },
+  {
+    "name": "Medical Air",
+    "formula": "Air",
+    "category": "Medical Gases",
+    "url": "https://mcl-gases.com/medical-gases/medical-air",
+    "availability": "In Stock",
+    "supply_form": "",
+    "description": "MCL supplies pharmaceutical-grade medical compressed air for respiratory therapy, anaesthesia delivery, surgical instrument driving, and NICU applications. Available as cylinder supply or via our MCL-installed Medical Compressed Air Plant, conforming to European Pharmacopeia and HTM 02-01 standards.",
+    "stat_capacity": "125 TPD",
+    "stat_cylinders": "0+\nCYLINDERS IN INVENTORY",
+    "stat_stations": "",
+    "stat_years": "",
+    "purity_grades": [],
+    "specifications": [],
+    "cylinders": [],
+    "bulk_supply": [],
+    "use_cases": [
+      {
+        "title": "Respiratory Therapy",
+        "description": "Medical air is blended with oxygen in precise concentrations to deliver controlled FiO₂ to ventilator-dependent and spontaneously breathing patients, managing conditions from COPD to ARDS."
+      },
+      {
+        "title": "Anaesthesia Delivery",
+        "description": "Used as the carrier gas in anaesthetic breathing circuits, medical air dilutes volatile anaesthetic agents and provides a controlled, non-enriched oxygen environment during surgery."
+      },
+      {
+        "title": "Surgical Instrument Driving",
+        "description": "700 kPa surgical air powers pneumatic drills, saws, and orthopaedic tools in theatres — eliminating the fire risk of oxygen-enriched atmospheres around powered instruments."
+      },
+      {
+        "title": "NICU & Neonatal Care",
+        "description": "Precise oxygen-air blending in neonatal intensive care prevents hyperoxia and retinopathy of prematurity, where exact FiO₂ control is clinically critical."
+      },
+      {
+        "title": "Mechanical Ventilation",
+        "description": "ICU ventilators require a continuous, high-quality medical air supply at consistent pressure and purity to deliver accurate tidal volumes and support long-term ventilated patients."
+      },
+      {
+        "title": "Pulmonary Function Labs",
+        "description": "Calibration of spirometers and body plethysmographs requires traceable, certified medical air for accurate diagnostic pulmonary function testing."
+      },
+      {
+        "title": "—\nCOMPANY",
+        "description": "About\nProduction\nTeam\nCertifications"
+      },
+      {
+        "title": "—\nPRODUCTS",
+        "description": "Industrial Gases\nMedical Gases\nMGPS\nModular OT"
+      },
+      {
+        "title": "—\nRESOURCES",
+        "description": "Safety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use"
+      },
+      {
+        "title": "LOCATIONS",
+        "description": "HEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala +92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com"
+      }
+    ],
+    "certifications": [
+      "ISO 9001:2015",
+      "ISO 9001",
+      "European Pharmacopeia",
+      "HTM 02-01"
+    ],
+    "raw_text": "ESTABLISHED 1985 · MULTAN, PAKISTAN\n+92 61 6538206-8\n|\nINFO@MCL-GASES.COM\nMultan Chemicals\nLIMITED\nAbout\nGases\nHealth Engineering\nProduction\nClients\nCertifications\nCareers\nREQUEST QUOTE\n→\n\nCOMPANY\n\nOverview\nWho we are and what we stand for\nHistory\nFour decades of industry leadership\nMission & Vision\nOur purpose, values and direction\nOur Team\nLeadership, management and technical staff\n\nSINCE 1985\n\nPakistan's most trusted industrial gas producer.\n\nCOMPANY OVERVIEW →\nMEDICAL GASES\nMedical Oxygen\nO₂\nNitrous Oxide\nN₂O\nMedical Air\nAir\nMedical Carbon Dioxide\nCO₂\nINDUSTRIAL GASES\nOxygen\nO₂\nNitrogen\nN₂\nArgon\nAr\nAcetylene\nC₂H₂\nLPG\nLPG\nHydrogen\nH₂\nAmmonia\nNH₃\nCarbon Dioxide\nCO₂\nMixture Gas\nMix\nSPECIALITY GASES\nHelium\nHe\nSpecial & Calibration\nCal\n\nQUICK LINKS\n\nAll Industrial Gases\n→\nAll Medical Gases\n→\nSpeciality Gases\n→\nSafety Data Sheets\n→\n\nOUR CAPACITY\n\n125 TPD\n\nLargest single liquid oxygen plant in Pakistan.\n\nVIEW PRODUCTION →\n\nHEALTHCARE ENGINEERING SERVICES\n\nMGPS\nMedical Gas Pipeline Systems\nOTS\nModular Operation Theatres\nRadiology\nRadiology department solutions\nICU\nIntensive care infrastructure\nCSSD\nCentral sterile supply dept.\nLaundry\nHealthcare laundry systems\nHVAC\nHeating, ventilation & air con.\nRequest a Project Quote\nTalk to our healthcare engineering team\n\nHEALTHCARE SOLUTIONS\n\nEnd-to-end medical gas and engineering infrastructure.\n\nMGPS PORTFOLIO →\nMODULAR OT SYSTEMS →\nHome\nMedical Gases\nMedical Air\nAir\nMEDICAL GASES\nIN STOCK\nMEDICAL\nCOMPRESSED\nAIR\n21% O₂ / 79% N₂ · Medical & Surgical Grades\n\nMCL supplies pharmaceutical-grade medical compressed air for respiratory therapy, anaesthesia delivery, surgical instrument driving, and NICU applications. Available as cylinder supply or via our MCL-installed Medical Compressed Air Plant, conforming to European Pharmacopeia and HTM 02-01 standards.\n\nHTM 02-01 & NFPA 99 Compliant. Our Medical Compressed Air Plants are oil-free, pre-wired, factory-tested and fully documented for healthcare commissioning.\n\nREQUEST QUOTE\n061 6538206-8\n\nAVAILABLE GRADES\n\nHEALTHCARE\n21% O₂ / 79% N₂\nMedical Compressed Air\nEuropean Pharmacopeia\nSURGICAL TOOLS\nOil-free / Dry\nSurgical Air (700 kPa)\nHTM 02-01 / NFPA 99\n\nPipeline supply available: MCL installs Medical Compressed Air Plants for centralised in-house generation — ask our MGPS team for a survey.\n\n0+\nYEARS SUPPLYING HEALTHCARE\n0+\nCYLINDERS IN INVENTORY\n0\nCOMPANY-OWNED STATIONS\n0+\nHEALTHCARE PARTNERS\nPURITY STANDARDS\nGRADES & SPECIFICATIONS\nHEALTHCARE\n21% O₂ / 79% N₂\nMedical Compressed Air\nSURGICAL TOOLS\nOil-free / Dry\nSurgical Air (700 kPa)\n\nAll grades are produced and tested under our ISO 9001:2015 certified QMS. Certificates of Conformity available on request.\n\nHEALTHCARE · MEDICAL COMPRESSED AIR\nComposition: 21% O₂ / 79% N₂\nEuropean Pharmacopeia\nPARAMETER\nMCL SPECIFICATION\nOxygen Content\n20.4 – 21.4% v/v\nWater Vapour (dew pt)\n≤ –46 °C at line\nOil Content\n≤ 0.1 mg/m³\nCarbon Monoxide\n≤ 5 ppm v/v\nCarbon Dioxide\n≤ 500 ppm v/v\nSulphur Dioxide\n≤ 1 ppm v/v\nNitrogen Oxides\n≤ 2 ppm v/v\nOdor\nOdorless\n\nMedical compressed air is a mixture of nitrogen and oxygen. It must never be confused with industrial air — oil, moisture, and contaminant limits are far tighter for patient-contact use.\n\nPIPELINE SUPPLY\nMEDICAL COMPRESSED\nAIR PLANT (MCP)\n\nFor hospitals and healthcare facilities with continuous demand, MCL designs, supplies, installs, and commissions a Medical Compressed Air Plant — eliminating cylinder logistics and ensuring an uninterrupted, centralised supply throughout your facility. The plant is supplied as a complete package: pre-wired, piped, and factory-tested before shipping.\n\nKEY FEATURES\nAir Compressor Plant\nOil-free\nZero lubricant carry-over into the gas stream\nDuplex\nDuty/standby configuration for 100% uptime\nPre-wired\nFactory-tested before shipping to site\nHTM 02-01\nFully compliant design and documentation\nDew-pt alarm\nIntegrated moisture monitoring and alert\nNFPA 99\nSuitable for US-standard hospital projects\n\nModels available with multiple compressor and pressure vessel combinations. Layout modified to fit irregular plant rooms.\n\nSAFE USE\nHandling & Storage\nMedical air is not industrial air\nNever substitute industrial compressed air for medical use — lubricant carry-over, moisture, and contaminants make it unsafe for patient contact.\nPipeline supply preferred for wards\nMCL's MGPS team can design and install a centralised medical air plant for your facility, eliminating cylinder logistics in high-consumption environments.\nOil-free compressor mandatory\nAll medical air compressors must be oil-free. Our MCPs (Medical Compressed Air Plants) use oil-free piston or scroll compressor technology.\nMonitor dew point continuously\nA dew point above –46 °C at the pipeline indicates a moisture ingress problem. Continuous area alarms should be installed per HTM 02-01.\nColour code: Black body / white shoulders\nMCL medical air cylinders are painted with black body and white-quartered shoulders per international medical gas cylinder standards.\nVIEW MGPS PORTFOLIO\nREQUEST A SITE SURVEY\nUSE CASES\nCLINICAL APPLICATIONS\n01\nRespiratory Therapy\n\nMedical air is blended with oxygen in precise concentrations to deliver controlled FiO₂ to ventilator-dependent and spontaneously breathing patients, managing conditions from COPD to ARDS.\n\n02\nAnaesthesia Delivery\n\nUsed as the carrier gas in anaesthetic breathing circuits, medical air dilutes volatile anaesthetic agents and provides a controlled, non-enriched oxygen environment during surgery.\n\n03\nSurgical Instrument Driving\n\n700 kPa surgical air powers pneumatic drills, saws, and orthopaedic tools in theatres — eliminating the fire risk of oxygen-enriched atmospheres around powered instruments.\n\n04\nNICU & Neonatal Care\n\nPrecise oxygen-air blending in neonatal intensive care prevents hyperoxia and retinopathy of prematurity, where exact FiO₂ control is clinically critical.\n\n05\nMechanical Ventilation\n\nICU ventilators require a continuous, high-quality medical air supply at consistent pressure"
+  },
+  {
+    "name": "Medical Carbon Dioxide",
+    "formula": "CO₂",
+    "category": "Medical Gases",
+    "url": "https://mcl-gases.com/medical-gases/carbon-dioxide",
+    "availability": "In Stock",
+    "supply_form": "",
+    "description": "MCL supplies pharmaceutical-grade medical carbon dioxide for respiratory therapy, laparoscopic insufflation, cryosurgery, and cell culture. Available in three cylinder sizes, conforming to European Pharmacopeia standards with full GMP traceability.",
+    "stat_capacity": "125 TPD",
+    "stat_cylinders": "0+\nCYLINDERS IN INVENTORY",
+    "stat_stations": "",
+    "stat_years": "",
+    "purity_grades": [],
+    "specifications": [],
+    "cylinders": [],
+    "bulk_supply": [],
+    "use_cases": [
+      {
+        "title": "Respiratory Therapy",
+        "description": "Administered in controlled concentrations to stimulate breathing and alleviate respiratory acidosis, triggering the body's respiratory drive to overcome hypoventilation."
+      },
+      {
+        "title": "Laparoscopic Surgery",
+        "description": "CO₂ insufflation creates the pneumoperitoneum required for laparoscopic and robotic procedures, providing a safe, non-flammable working cavity."
+      },
+      {
+        "title": "Cryosurgery",
+        "description": "Liquid CO₂ powers cryosurgical probes for targeted, controlled tissue destruction in dermatological and gynaecological procedures."
+      },
+      {
+        "title": "Cardiac & Vascular",
+        "description": "CO₂ angiography uses the gas as a contrast agent, enabling diagnostic imaging without nephrotoxic iodinated contrast — essential for renal-impaired patients."
+      },
+      {
+        "title": "Cell Culture & Lab",
+        "description": "Maintains precise pH in CO₂ incubators for mammalian cell culture, essential in pharmaceutical R&D, IVF, and microbiology laboratories."
+      },
+      {
+        "title": "Laser Surgery Assist",
+        "description": "Used as a purge and cooling gas in CO₂ laser surgical systems, improving beam quality and protecting optical components during precise tissue ablation."
+      },
+      {
+        "title": "—\nCOMPANY",
+        "description": "About\nProduction\nTeam\nCertifications"
+      },
+      {
+        "title": "—\nPRODUCTS",
+        "description": "Industrial Gases\nMedical Gases\nMGPS\nModular OT"
+      },
+      {
+        "title": "—\nRESOURCES",
+        "description": "Safety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use"
+      },
+      {
+        "title": "LOCATIONS",
+        "description": "HEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala +92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com"
+      }
+    ],
+    "certifications": [
+      "ISO 9001:2015",
+      "ISO 9001",
+      "GMP Compliant",
+      "GMP",
+      "EU Pharmacopeia",
+      "Eu Pharmacopeia",
+      "European Pharmacopeia",
+      "SGS Certified",
+      "24/7 Supply"
+    ],
+    "raw_text": "ESTABLISHED 1985 · MULTAN, PAKISTAN\n+92 61 6538206-8\n|\nINFO@MCL-GASES.COM\nMultan Chemicals\nLIMITED\nAbout\nGases\nHealth Engineering\nProduction\nClients\nCertifications\nCareers\nREQUEST QUOTE\n→\n\nCOMPANY\n\nOverview\nWho we are and what we stand for\nHistory\nFour decades of industry leadership\nMission & Vision\nOur purpose, values and direction\nOur Team\nLeadership, management and technical staff\n\nSINCE 1985\n\nPakistan's most trusted industrial gas producer.\n\nCOMPANY OVERVIEW →\nMEDICAL GASES\nMedical Oxygen\nO₂\nNitrous Oxide\nN₂O\nMedical Air\nAir\nMedical Carbon Dioxide\nCO₂\nINDUSTRIAL GASES\nOxygen\nO₂\nNitrogen\nN₂\nArgon\nAr\nAcetylene\nC₂H₂\nLPG\nLPG\nHydrogen\nH₂\nAmmonia\nNH₃\nCarbon Dioxide\nCO₂\nMixture Gas\nMix\nSPECIALITY GASES\nHelium\nHe\nSpecial & Calibration\nCal\n\nQUICK LINKS\n\nAll Industrial Gases\n→\nAll Medical Gases\n→\nSpeciality Gases\n→\nSafety Data Sheets\n→\n\nOUR CAPACITY\n\n125 TPD\n\nLargest single liquid oxygen plant in Pakistan.\n\nVIEW PRODUCTION →\n\nHEALTHCARE ENGINEERING SERVICES\n\nMGPS\nMedical Gas Pipeline Systems\nOTS\nModular Operation Theatres\nRadiology\nRadiology department solutions\nICU\nIntensive care infrastructure\nCSSD\nCentral sterile supply dept.\nLaundry\nHealthcare laundry systems\nHVAC\nHeating, ventilation & air con.\nRequest a Project Quote\nTalk to our healthcare engineering team\n\nHEALTHCARE SOLUTIONS\n\nEnd-to-end medical gas and engineering infrastructure.\n\nMGPS PORTFOLIO →\nMODULAR OT SYSTEMS →\nHome\nMedical Gases\nCarbon Dioxide\nCO₂\nMEDICAL GASES\nIN STOCK\nMEDICAL\nCARBON\nDIOXIDE\nCO₂ · Medical & Insufflation Grades\n\nMCL supplies pharmaceutical-grade medical carbon dioxide for respiratory therapy, laparoscopic insufflation, cryosurgery, and cell culture. Available in three cylinder sizes, conforming to European Pharmacopeia standards with full GMP traceability.\n\nGMP & EP Compliant. Every batch is tested and traceable under our ISO 9001:2015 certified quality management system.\n\nREQUEST QUOTE\n061 6538206-8\n\nAVAILABLE GRADES\n\nHEALTHCARE\n≥ 99.5%\nMedical Grade\nEuropean Pharmacopeia\nSURGICAL\n≥ 99.8%\nInsufflation Grade\nSurgical / Laparoscopic\n\nInsufflation grade: Our surgical CO₂ meets the elevated purity requirements of laparoscopic and robotic-assisted procedures.\n\n0+\nYEARS SUPPLYING HEALTHCARE\n0+\nCYLINDERS IN INVENTORY\n0\nCOMPANY-OWNED STATIONS\n0+\nHEALTHCARE PARTNERS\nPURITY STANDARDS\nGRADES & SPECIFICATIONS\nHEALTHCARE\n≥ 99.5%\nMedical Grade\nSURGICAL\n≥ 99.8%\nInsufflation Grade\n\nAll grades are batch-tested and traceable under our ISO 9001:2015 certified quality system. Certificates of Analysis available on request.\n\nHEALTHCARE · MEDICAL GRADE\nPurity: ≥ 99.5%\nEuropean Pharmacopeia\nPARAMETER\nMCL SPECIFICATION\nCarbon Dioxide Purity\n≥ 99.5% v/v\nWater (Moisture)\n≤ 20 ppm v/v\nCarbon Monoxide\n≤ 5 ppm v/v\nSulphur Dioxide\n≤ 1 ppm v/v\nNitric Oxide + NO₂\n≤ 2 ppm v/v\nHydrogen Sulphide\n≤ 1 ppm v/v\nTotal Hydrocarbons\n≤ 10 ppm v/v\nOdor\nOdorless\n\nMedical CO₂ is supplied as a liquefied gas under pressure. In respiratory applications, administer only in controlled concentrations under qualified clinical supervision.\n\nPACKAGING & DELIVERY\nSUPPLY OPTIONS\n\nMedical CO₂ is supplied as a liquefied compressed gas in high-pressure cylinders. Three standard sizes suit clinic, ward, theatre, and laboratory requirements.\n\nLIQUEFIED COMPRESSED GAS\nCO₂ Cylinder Sizes\nSIZE (WC)\nCONTENT\nVALVE\nPRESSURE\n5L\n4 kg\nBull nose\n78 bar\n10L\n7 kg\nBull nose\n78 bar\n47L\n30 kg\nBull nose\n78 bar\n\nContent is expressed in kg of liquid CO₂ at fill. Pressure is gauge at 15 °C for a full cylinder. Cylinders colour-coded grey body (BS 4800) per medical gas standards.\n\nSAFE USE\nHandling & Storage\nStore upright in ventilated areas\nCO₂ is heavier than air — accumulation in low-lying or enclosed spaces creates an asphyxiation risk. Ensure continuous ventilation.\nTemperature: 0 °C – 50 °C\nAvoid prolonged direct sunlight or heat sources. CO₂ cylinders contain liquefied gas under high pressure — never expose to open flame.\nBull-nose valve — use matching regulator\nAll MCL medical CO₂ cylinders use the BS 341 bull-nose outlet. Ensure your pressure regulator is specifically rated for CO₂ service.\nNo oxygen enrichment risk\nUnlike medical oxygen, CO₂ is non-flammable and non-oxidising. Standard conductive footwear and anti-static precautions still apply.\nColour code: Grey body (BS 4800)\nMCL medical CO₂ cylinders are painted grey per international medical gas cylinder colour coding standards.\nDISCUSS SUPPLY REQUIREMENTS\nUSE CASES\nCLINICAL APPLICATIONS\n01\nRespiratory Therapy\n\nAdministered in controlled concentrations to stimulate breathing and alleviate respiratory acidosis, triggering the body's respiratory drive to overcome hypoventilation.\n\n02\nLaparoscopic Surgery\n\nCO₂ insufflation creates the pneumoperitoneum required for laparoscopic and robotic procedures, providing a safe, non-flammable working cavity.\n\n03\nCryosurgery\n\nLiquid CO₂ powers cryosurgical probes for targeted, controlled tissue destruction in dermatological and gynaecological procedures.\n\n04\nCardiac & Vascular\n\nCO₂ angiography uses the gas as a contrast agent, enabling diagnostic imaging without nephrotoxic iodinated contrast — essential for renal-impaired patients.\n\n05\nCell Culture & Lab\n\nMaintains precise pH in CO₂ incubators for mammalian cell culture, essential in pharmaceutical R&D, IVF, and microbiology laboratories.\n\n06\nLaser Surgery Assist\n\nUsed as a purge and cooling gas in CO₂ laser surgical systems, improving beam quality and protecting optical components during precise tissue ablation.\n\nISO 9001:2015\nSGS CERTIFIED\nGMP Compliant\nMEDICAL GRADE\nEU Pharmacopeia\nCOMPLIANT\n24/7 Supply\nNATIONWIDE\nEXPLORE MORE\nO₂\nMEDICAL OXYGEN\nEXPLORE →\nN₂O\nNITROUS OXIDE\nEXPLORE →\nAir\nMEDICAL AIR\nEXPLORE →\nCO₂\nINDUSTRIAL CO₂\nEXPLORE →\nCO₂\n\nNEED MEDICAL CO₂\nFOR YOUR FACILITY?\n\nOur team will assess your theatre, lab, or ward requirements and recommend the right cylinder size and supply schedule.\n\nGET A QUOTE\n061 6538206-8\nMultan Chemicals Limited\n\nIndustrial and medical gases, MGPS and modular healthcare infrastructure — produced and supp"
+  },
+  {
+    "name": "Oxygen",
+    "formula": "O₂",
+    "category": "Industrial Gases",
+    "url": "https://mcl-gases.com/industrial-gases/oxygen",
+    "availability": "In Stock",
+    "supply_form": "Dissolved",
+    "description": "MCL produces industrial-grade liquid oxygen at three purity levels, serving steel manufacturing, healthcare, wastewater treatment, and laboratory applications across Pakistan.",
+    "stat_capacity": "125 TPD",
+    "stat_cylinders": "",
+    "stat_stations": "",
+    "stat_years": "",
+    "purity_grades": [],
+    "specifications": [],
+    "cylinders": [],
+    "bulk_supply": [],
+    "use_cases": [
+      {
+        "title": "PRODUCT DATA",
+        "description": "CHEMICAL SYMBOL\nO₂\nMOLECULAR WEIGHT\n32.00 g/mol\nBOILING POINT\n-182.96 °C\nCRITICAL TEMPERATURE\n-118.57 °C\nCRITICAL PRESSURE\n50.43 bar\nDENSITY (LIQUID)\n1,141 kg/m³\nCYLINDER PRESSURE (FULL)\n137 bar\nAVAILABLE SIZES\n5L / 10L / 47L WC Need a Safety Data Sheet?\n\nDownload the full SDS for liquid oxygen.\n\nVI"
+      },
+      {
+        "title": "STEEL MANUFACTURING",
+        "description": "Pure oxygen replaces air in blast furnaces and electric arc furnaces, dramatically increasing throughput and reducing fuel consumption."
+      },
+      {
+        "title": "WATER & WASTEWATER",
+        "description": "Dissolved oxygen injection accelerates aerobic digestion in treatment plants, improving effluent quality across municipal and industrial facilities."
+      },
+      {
+        "title": "HEALTHCARE",
+        "description": "Medical-grade oxygen is the backbone of respiratory therapy, anaesthesia, and emergency care in hospitals across Pakistan."
+      },
+      {
+        "title": "WELDING & CUTTING",
+        "description": "Oxy-fuel cutting and welding demands precise purity to maintain flame stability and achieve clean, porosity-free welds."
+      },
+      {
+        "title": "CHEMICAL PROCESSING",
+        "description": "Oxidation reactions in chemical synthesis — from fertiliser production to petrochemical refining — rely on controlled oxygen supply."
+      },
+      {
+        "title": "LABORATORY & R&D",
+        "description": "Gas chromatography, combustion analysis, and calibration procedures require stable, ultra-pure oxygen as carrier or reference gas."
+      },
+      {
+        "title": "—\nCOMPANY",
+        "description": "About\nProduction\nTeam\nCertifications"
+      },
+      {
+        "title": "—\nPRODUCTS",
+        "description": "Industrial Gases\nMedical Gases\nMGPS\nModular OT"
+      },
+      {
+        "title": "—\nRESOURCES",
+        "description": "Safety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use"
+      },
+      {
+        "title": "LOCATIONS",
+        "description": "HEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala +92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com"
+      }
+    ],
+    "certifications": [
+      "ISO 9001:2015",
+      "ISO 9001",
+      "HTM02"
+    ],
+    "raw_text": "ESTABLISHED 1985 · MULTAN, PAKISTAN\n+92 61 6538206-8\n|\nINFO@MCL-GASES.COM\nMultan Chemicals\nLIMITED\nAbout\nGases\nHealth Engineering\nProduction\nClients\nCertifications\nCareers\nREQUEST QUOTE\n→\n\nCOMPANY\n\nOverview\nWho we are and what we stand for\nHistory\nFour decades of industry leadership\nMission & Vision\nOur purpose, values and direction\nOur Team\nLeadership, management and technical staff\n\nSINCE 1985\n\nPakistan's most trusted industrial gas producer.\n\nCOMPANY OVERVIEW →\nMEDICAL GASES\nMedical Oxygen\nO₂\nNitrous Oxide\nN₂O\nMedical Air\nAir\nMedical Carbon Dioxide\nCO₂\nINDUSTRIAL GASES\nOxygen\nO₂\nNitrogen\nN₂\nArgon\nAr\nAcetylene\nC₂H₂\nLPG\nLPG\nHydrogen\nH₂\nAmmonia\nNH₃\nCarbon Dioxide\nCO₂\nMixture Gas\nMix\nSPECIALITY GASES\nHelium\nHe\nSpecial & Calibration\nCal\n\nQUICK LINKS\n\nAll Industrial Gases\n→\nAll Medical Gases\n→\nSpeciality Gases\n→\nSafety Data Sheets\n→\n\nOUR CAPACITY\n\n125 TPD\n\nLargest single liquid oxygen plant in Pakistan.\n\nVIEW PRODUCTION →\n\nHEALTHCARE ENGINEERING SERVICES\n\nMGPS\nMedical Gas Pipeline Systems\nOTS\nModular Operation Theatres\nRadiology\nRadiology department solutions\nICU\nIntensive care infrastructure\nCSSD\nCentral sterile supply dept.\nLaundry\nHealthcare laundry systems\nHVAC\nHeating, ventilation & air con.\nRequest a Project Quote\nTalk to our healthcare engineering team\n\nHEALTHCARE SOLUTIONS\n\nEnd-to-end medical gas and engineering infrastructure.\n\nMGPS PORTFOLIO →\nMODULAR OT SYSTEMS →\nHome\n/\nIndustrial Gases\n/\nOxygen\nO₂\nINDUSTRIAL GASES\nIN STOCK\nLIQUID &\nCOMPRESSED\nOXYGEN\n\nMCL produces industrial-grade liquid oxygen at three purity levels, serving steel manufacturing, healthcare, wastewater treatment, and laboratory applications across Pakistan.\n\nREQUEST QUOTE\nVIEW GRADES →\n3\nPURITY GRADES\n125 TPD\nLARGEST PLANT OUTPUT\n99.999%\nMAX PURITY (LAB)\n137 bar\nCYLINDER PRESSURE\nOVERVIEW\nA CORNERSTONE\nINDUSTRIAL PRODUCT\n\nMultan Chemicals Limited takes great pride in its production of industrial grade liquid oxygen — a cornerstone product essential for numerous industrial applications. Our liquid oxygen undergoes rigorous manufacturing processes to ensure impeccable purity and reliability, meeting the stringent standards required across a spectrum of industries.\n\nFrom steel manufacturing to wastewater treatment, our industrial-grade liquid oxygen serves as a fundamental component in enhancing operational efficiency and productivity. With a commitment to excellence and sustainability, MCL continues to be a trusted provider.\n\n✓\nProduced at MCL's 125 TPD plant in Faisalabad\n✓\nContinuous round-the-clock supply guarantee\n✓\nISO 9001:2015 certified production process\n✓\nHTM02 trained competent person certification\nTECHNICAL SPECIFICATIONS\nPRODUCT DATA\nCHEMICAL SYMBOL\nO₂\nMOLECULAR WEIGHT\n32.00 g/mol\nBOILING POINT\n-182.96 °C\nCRITICAL TEMPERATURE\n-118.57 °C\nCRITICAL PRESSURE\n50.43 bar\nDENSITY (LIQUID)\n1,141 kg/m³\nCYLINDER PRESSURE (FULL)\n137 bar\nAVAILABLE SIZES\n5L / 10L / 47L WC\n\nNeed a Safety Data Sheet?\n\nDownload the full SDS for liquid oxygen.\n\nVIEW SDS →\nAVAILABLE GRADES\nTHREE PURITY LEVELS.\nONE TRUSTED SOURCE.\nMOST COMMON\n\nO₂ 99.6%\n\nINDUSTRIAL GRADE\n\nThe workhorse grade for steel manufacturing, metal cutting, water treatment, and general industrial combustion processes.\n\nREQUEST THIS GRADE →\nRECOMMENDED\n\nO₂ 99.9%\n\nHIGH PURITY\n\nElevated purity for pharmaceutical manufacturing, food processing, and precision welding where contamination tolerance is low.\n\nREQUEST THIS GRADE →\nULTRA PURE\n\nO₂ 99.999%\n\nLAB GRADE\n\nUltra-pure oxygen for laboratory analysis, scientific research, and semiconductor processes demanding five-nine purity.\n\nREQUEST THIS GRADE →\nWHERE IT'S USED\nKEY APPLICATIONS\n⚙\nSTEEL MANUFACTURING\n\nPure oxygen replaces air in blast furnaces and electric arc furnaces, dramatically increasing throughput and reducing fuel consumption.\n\n💧\nWATER & WASTEWATER\n\nDissolved oxygen injection accelerates aerobic digestion in treatment plants, improving effluent quality across municipal and industrial facilities.\n\n🏥\nHEALTHCARE\n\nMedical-grade oxygen is the backbone of respiratory therapy, anaesthesia, and emergency care in hospitals across Pakistan.\n\n🔥\nWELDING & CUTTING\n\nOxy-fuel cutting and welding demands precise purity to maintain flame stability and achieve clean, porosity-free welds.\n\n⚗\nCHEMICAL PROCESSING\n\nOxidation reactions in chemical synthesis — from fertiliser production to petrochemical refining — rely on controlled oxygen supply.\n\n🧪\nLABORATORY & R&D\n\nGas chromatography, combustion analysis, and calibration procedures require stable, ultra-pure oxygen as carrier or reference gas.\n\nSECTORS SERVED\nINDUSTRIES WE SUPPLY\n\nOxygen from MCL reaches virtually every sector of Pakistan's industrial economy.\n\nAUTOMOTIVE\nCHEMICALS\nWATER TREATMENT\nWELDING & FABRICATION\nFOOD & BEVERAGE\nHEALTHCARE\nOIL & GAS\nPHARMACEUTICALS\nREFINING\nLABORATORIES\nMETAL PROCESSING\nGLASS\nEXPLORE MORE\nN₂\nNITROGEN\nEXPLORE →\nAr\nARGON\nEXPLORE →\nC₂H₂\nACETYLENE\nEXPLORE →\nH₂\nHYDROGEN\nEXPLORE →\nO₂\n\nREADY TO PLACE AN ORDER?\n\nOur team responds within 24 hours for all oxygen enquiries.\n\nCONTACT US\nCALL NOW\nMultan Chemicals Limited\n\nIndustrial and medical gases, MGPS and modular healthcare infrastructure — produced and supported across Pakistan.\n\nGET IN TOUCH\n→\nCALL HEAD OFFICE\n—\nCOMPANY\nAbout\nProduction\nTeam\nCertifications\n—\nPRODUCTS\nIndustrial Gases\nMedical Gases\nMGPS\nModular OT\n—\nREACH\nClients\nContact\n—\nRESOURCES\nSafety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use\nLOCATIONS\n\nHEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala\n\n+92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com\n\n© 2026 MULTAN CHEMICALS LIMITED\n\nWWW.MCL-GASES.COM"
+  },
+  {
+    "name": "Nitrogen",
+    "formula": "N₂",
+    "category": "Industrial Gases",
+    "url": "https://mcl-gases.com/industrial-gases/nitrogen",
+    "availability": "In Stock",
+    "supply_form": "",
+    "description": "MCL produces industrial-grade liquid nitrogen at three purity levels, serving food preservation, semiconductor manufacturing, chemical processing, and laboratory applications across Pakistan.",
+    "stat_capacity": "125 TPD",
+    "stat_cylinders": "",
+    "stat_stations": "",
+    "stat_years": "",
+    "purity_grades": [],
+    "specifications": [],
+    "cylinders": [],
+    "bulk_supply": [],
+    "use_cases": [
+      {
+        "title": "PRODUCT DATA",
+        "description": "CHEMICAL SYMBOL\nN₂\nMOLECULAR WEIGHT\n28.01 g/mol\nBOILING POINT\n-195.79 °C\nCRITICAL TEMPERATURE\n-146.96 °C\nCRITICAL PRESSURE\n33.96 bar\nDENSITY (LIQUID)\n808 kg/m³\nCYLINDER PRESSURE (FULL)\n137 bar\nAVAILABLE SIZES\n5L / 10L / 47L WC Need a Safety Data Sheet?\n\nDownload the full SDS for liquid nitrogen.\n\nVI"
+      },
+      {
+        "title": "FOOD PRESERVATION",
+        "description": "Nitrogen flushing displaces oxygen in food packaging, extending shelf life and preventing spoilage without altering taste or texture."
+      },
+      {
+        "title": "SEMICONDUCTOR MANUFACTURING",
+        "description": "Ultra-pure nitrogen provides inert atmospheres during wafer processing and soldering, protecting sensitive components from oxidation."
+      },
+      {
+        "title": "CHEMICAL PROCESSING",
+        "description": "Used for purging pipelines, pressurising reactors, and providing inert blankets over flammable or reactive chemical processes."
+      },
+      {
+        "title": "METAL PROCESSING",
+        "description": "Nitrogen atmospheres protect metals during heat treatment, annealing, and sintering operations, preventing surface oxidation and scaling."
+      },
+      {
+        "title": "LABORATORY & R&D",
+        "description": "Carrier gas for gas chromatography, sample preservation, and analytical instrumentation requiring a stable, inert reference medium."
+      },
+      {
+        "title": "FERTILIZER PRODUCTION",
+        "description": "Nitrogen is a foundational feedstock and process gas in ammonia synthesis and downstream fertilizer manufacturing operations."
+      },
+      {
+        "title": "—\nCOMPANY",
+        "description": "About\nProduction\nTeam\nCertifications"
+      },
+      {
+        "title": "—\nPRODUCTS",
+        "description": "Industrial Gases\nMedical Gases\nMGPS\nModular OT"
+      },
+      {
+        "title": "—\nRESOURCES",
+        "description": "Safety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use"
+      },
+      {
+        "title": "LOCATIONS",
+        "description": "HEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala +92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com"
+      }
+    ],
+    "certifications": [
+      "ISO 9001:2015",
+      "ISO 9001",
+      "HTM02"
+    ],
+    "raw_text": "ESTABLISHED 1985 · MULTAN, PAKISTAN\n+92 61 6538206-8\n|\nINFO@MCL-GASES.COM\nMultan Chemicals\nLIMITED\nAbout\nGases\nHealth Engineering\nProduction\nClients\nCertifications\nCareers\nREQUEST QUOTE\n→\n\nCOMPANY\n\nOverview\nWho we are and what we stand for\nHistory\nFour decades of industry leadership\nMission & Vision\nOur purpose, values and direction\nOur Team\nLeadership, management and technical staff\n\nSINCE 1985\n\nPakistan's most trusted industrial gas producer.\n\nCOMPANY OVERVIEW →\nMEDICAL GASES\nMedical Oxygen\nO₂\nNitrous Oxide\nN₂O\nMedical Air\nAir\nMedical Carbon Dioxide\nCO₂\nINDUSTRIAL GASES\nOxygen\nO₂\nNitrogen\nN₂\nArgon\nAr\nAcetylene\nC₂H₂\nLPG\nLPG\nHydrogen\nH₂\nAmmonia\nNH₃\nCarbon Dioxide\nCO₂\nMixture Gas\nMix\nSPECIALITY GASES\nHelium\nHe\nSpecial & Calibration\nCal\n\nQUICK LINKS\n\nAll Industrial Gases\n→\nAll Medical Gases\n→\nSpeciality Gases\n→\nSafety Data Sheets\n→\n\nOUR CAPACITY\n\n125 TPD\n\nLargest single liquid oxygen plant in Pakistan.\n\nVIEW PRODUCTION →\n\nHEALTHCARE ENGINEERING SERVICES\n\nMGPS\nMedical Gas Pipeline Systems\nOTS\nModular Operation Theatres\nRadiology\nRadiology department solutions\nICU\nIntensive care infrastructure\nCSSD\nCentral sterile supply dept.\nLaundry\nHealthcare laundry systems\nHVAC\nHeating, ventilation & air con.\nRequest a Project Quote\nTalk to our healthcare engineering team\n\nHEALTHCARE SOLUTIONS\n\nEnd-to-end medical gas and engineering infrastructure.\n\nMGPS PORTFOLIO →\nMODULAR OT SYSTEMS →\nHome\n/\nIndustrial Gases\n/\nNitrogen\nN₂\nINDUSTRIAL GASES\nIN STOCK\nLIQUID &\nCOMPRESSED\nNITROGEN\n\nMCL produces industrial-grade liquid nitrogen at three purity levels, serving food preservation, semiconductor manufacturing, chemical processing, and laboratory applications across Pakistan.\n\nREQUEST QUOTE\nVIEW GRADES\n3\nPURITY GRADES\n125 TPD\nLARGEST PLANT OUTPUT\n99.999%\nMAX PURITY (LAB)\n137 bar\nCYLINDER PRESSURE\nOVERVIEW\nA VITAL RESOURCE\nFOR EVERY INDUSTRY\n\nAt Multan Chemicals Limited, we are proud to offer industrial-grade liquid nitrogen, a vital resource essential for a wide range of industrial applications. Our liquid nitrogen is meticulously produced to meet the exacting standards demanded by diverse industries, ensuring impeccable purity and reliability in every batch.\n\nFrom food preservation to semiconductor manufacturing, our industrial-grade liquid nitrogen serves as a versatile and indispensable tool for enhancing efficiency and performance. With a commitment to excellence and sustainability, MCL continues to be a trusted provider nationwide.\n\n✓\nProduced at MCL's 125 TPD plant in Faisalabad\n✓\nContinuous round-the-clock supply guarantee\n✓\nISO 9001:2015 certified production process\n✓\nHTM02 trained competent person certification\nTECHNICAL SPECIFICATIONS\nPRODUCT DATA\nCHEMICAL SYMBOL\nN₂\nMOLECULAR WEIGHT\n28.01 g/mol\nBOILING POINT\n-195.79 °C\nCRITICAL TEMPERATURE\n-146.96 °C\nCRITICAL PRESSURE\n33.96 bar\nDENSITY (LIQUID)\n808 kg/m³\nCYLINDER PRESSURE (FULL)\n137 bar\nAVAILABLE SIZES\n5L / 10L / 47L WC\n\nNeed a Safety Data Sheet?\n\nDownload the full SDS for liquid nitrogen.\n\nVIEW SDS\nAVAILABLE GRADES\nTHREE PURITY LEVELS.\nONE TRUSTED SOURCE.\nMOST COMMON\n\nN₂ 99.8%\n\nINDUSTRIAL GRADE\n\nThe standard grade for purging, blanketing, and inerting applications in chemical plants, steel mills, and general manufacturing environments.\n\nREQUEST THIS GRADE\nRECOMMENDED\n\nN₂ 99.9%\n\nHIGH PURITY\n\nElevated purity for food packaging, pharmaceutical blanketing, and precision metal processing where trace oxygen contamination must be avoided.\n\nREQUEST THIS GRADE\nULTRA PURE\n\nN₂ 99.999%\n\nLAB GRADE\n\nUltra-pure nitrogen for gas chromatography carrier gas, semiconductor fabrication, and scientific analysis demanding five-nine purity.\n\nREQUEST THIS GRADE\nWHERE IT'S USED\nKEY APPLICATIONS\n🧊\nFOOD PRESERVATION\n\nNitrogen flushing displaces oxygen in food packaging, extending shelf life and preventing spoilage without altering taste or texture.\n\n💻\nSEMICONDUCTOR MANUFACTURING\n\nUltra-pure nitrogen provides inert atmospheres during wafer processing and soldering, protecting sensitive components from oxidation.\n\n⚗\nCHEMICAL PROCESSING\n\nUsed for purging pipelines, pressurising reactors, and providing inert blankets over flammable or reactive chemical processes.\n\n🔩\nMETAL PROCESSING\n\nNitrogen atmospheres protect metals during heat treatment, annealing, and sintering operations, preventing surface oxidation and scaling.\n\n🧪\nLABORATORY & R&D\n\nCarrier gas for gas chromatography, sample preservation, and analytical instrumentation requiring a stable, inert reference medium.\n\n🏭\nFERTILIZER PRODUCTION\n\nNitrogen is a foundational feedstock and process gas in ammonia synthesis and downstream fertilizer manufacturing operations.\n\nSECTORS SERVED\nINDUSTRIES WE SUPPLY\n\nNitrogen from MCL reaches virtually every sector of Pakistan's industrial economy.\n\nFOOD & BEVERAGE\nCHEMICALS\nSEMICONDUCTORS\nMETAL PROCESSING\nPHARMACEUTICALS\nFERTILIZERS\nOIL & GAS\nAUTOMOTIVE\nLABORATORIES\nWATER TREATMENT\nGLASS\nREFINING\nEXPLORE MORE\nO₂\nOXYGEN\nEXPLORE\nAr\nARGON\nEXPLORE\nC₂H₂\nACETYLENE\nEXPLORE\nH₂\nHYDROGEN\nEXPLORE\nN₂\n\nREADY TO PLACE AN ORDER?\n\nOur team responds within 24 hours for all nitrogen enquiries.\n\nCONTACT US\nCALL NOW\nMultan Chemicals Limited\n\nIndustrial and medical gases, MGPS and modular healthcare infrastructure — produced and supported across Pakistan.\n\nGET IN TOUCH\n→\nCALL HEAD OFFICE\n—\nCOMPANY\nAbout\nProduction\nTeam\nCertifications\n—\nPRODUCTS\nIndustrial Gases\nMedical Gases\nMGPS\nModular OT\n—\nREACH\nClients\nContact\n—\nRESOURCES\nSafety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use\nLOCATIONS\n\nHEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala\n\n+92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com\n\n© 2026 MULTAN CHEMICALS LIMITED\n\nWWW.MCL-GASES.COM"
+  },
+  {
+    "name": "Argon",
+    "formula": "Ar",
+    "category": "Industrial Gases",
+    "url": "https://mcl-gases.com/industrial-gases/argon",
+    "availability": "In Stock",
+    "supply_form": "",
+    "description": "MCL produces industrial-grade liquid argon at three purity levels, serving welding operations, metal processing, semiconductor fabrication, and laboratory applications across Pakistan.",
+    "stat_capacity": "125 TPD",
+    "stat_cylinders": "",
+    "stat_stations": "",
+    "stat_years": "",
+    "purity_grades": [],
+    "specifications": [],
+    "cylinders": [],
+    "bulk_supply": [],
+    "use_cases": [
+      {
+        "title": "PRODUCT DATA",
+        "description": "CHEMICAL SYMBOL\nAr\nMOLECULAR WEIGHT\n39.95 g/mol\nBOILING POINT\n-185.85 °C\nCRITICAL TEMPERATURE\n-122.28 °C\nCRITICAL PRESSURE\n48.87 bar\nDENSITY (LIQUID)\n1,394 kg/m³\nCYLINDER PRESSURE (FULL)\n137 bar\nAVAILABLE SIZES\n5L / 10L / 47L WC Need a Safety Data Sheet?\n\nDownload the full SDS for liquid argon.\n\nVIE"
+      },
+      {
+        "title": "WELDING & METAL FABRICATION",
+        "description": "Argon is the primary shielding gas for MIG and TIG welding, protecting the weld pool from atmospheric contamination and ensuring clean, porosity-free joints."
+      },
+      {
+        "title": "METAL PROCESSING",
+        "description": "Inert argon atmospheres are used in heat treatment, annealing, and sintering of metals to prevent oxidation and surface scaling during high-temperature operations."
+      },
+      {
+        "title": "LABORATORY & R&D",
+        "description": "Used as carrier gas in gas chromatography and as a plasma gas in inductively coupled plasma spectrometry for trace element analysis."
+      },
+      {
+        "title": "LIGHTING INDUSTRY",
+        "description": "Argon fills incandescent and fluorescent light bulbs, slowing filament evaporation and extending lamp life through its chemically inert properties."
+      },
+      {
+        "title": "CHEMICAL PROCESSING",
+        "description": "Provides inert blankets over reactive chemical processes and is used in the production of specialty chemicals and reactive metals such as titanium."
+      },
+      {
+        "title": "SEMICONDUCTOR FABRICATION",
+        "description": "Ultra-pure argon creates contamination-free environments for silicon wafer processing, thin-film deposition, and ion implantation in chip manufacturing."
+      },
+      {
+        "title": "—\nCOMPANY",
+        "description": "About\nProduction\nTeam\nCertifications"
+      },
+      {
+        "title": "—\nPRODUCTS",
+        "description": "Industrial Gases\nMedical Gases\nMGPS\nModular OT"
+      },
+      {
+        "title": "—\nRESOURCES",
+        "description": "Safety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use"
+      },
+      {
+        "title": "LOCATIONS",
+        "description": "HEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala +92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com"
+      }
+    ],
+    "certifications": [
+      "ISO 9001:2015",
+      "ISO 9001",
+      "HTM02"
+    ],
+    "raw_text": "ESTABLISHED 1985 · MULTAN, PAKISTAN\n+92 61 6538206-8\n|\nINFO@MCL-GASES.COM\nMultan Chemicals\nLIMITED\nAbout\nGases\nHealth Engineering\nProduction\nClients\nCertifications\nCareers\nREQUEST QUOTE\n→\n\nCOMPANY\n\nOverview\nWho we are and what we stand for\nHistory\nFour decades of industry leadership\nMission & Vision\nOur purpose, values and direction\nOur Team\nLeadership, management and technical staff\n\nSINCE 1985\n\nPakistan's most trusted industrial gas producer.\n\nCOMPANY OVERVIEW →\nMEDICAL GASES\nMedical Oxygen\nO₂\nNitrous Oxide\nN₂O\nMedical Air\nAir\nMedical Carbon Dioxide\nCO₂\nINDUSTRIAL GASES\nOxygen\nO₂\nNitrogen\nN₂\nArgon\nAr\nAcetylene\nC₂H₂\nLPG\nLPG\nHydrogen\nH₂\nAmmonia\nNH₃\nCarbon Dioxide\nCO₂\nMixture Gas\nMix\nSPECIALITY GASES\nHelium\nHe\nSpecial & Calibration\nCal\n\nQUICK LINKS\n\nAll Industrial Gases\n→\nAll Medical Gases\n→\nSpeciality Gases\n→\nSafety Data Sheets\n→\n\nOUR CAPACITY\n\n125 TPD\n\nLargest single liquid oxygen plant in Pakistan.\n\nVIEW PRODUCTION →\n\nHEALTHCARE ENGINEERING SERVICES\n\nMGPS\nMedical Gas Pipeline Systems\nOTS\nModular Operation Theatres\nRadiology\nRadiology department solutions\nICU\nIntensive care infrastructure\nCSSD\nCentral sterile supply dept.\nLaundry\nHealthcare laundry systems\nHVAC\nHeating, ventilation & air con.\nRequest a Project Quote\nTalk to our healthcare engineering team\n\nHEALTHCARE SOLUTIONS\n\nEnd-to-end medical gas and engineering infrastructure.\n\nMGPS PORTFOLIO →\nMODULAR OT SYSTEMS →\nHome\n/\nIndustrial Gases\n/\nArgon\nAr\nINDUSTRIAL GASES\nIN STOCK\nLIQUID &\nCOMPRESSED\nARGON\n\nMCL produces industrial-grade liquid argon at three purity levels, serving welding operations, metal processing, semiconductor fabrication, and laboratory applications across Pakistan.\n\nREQUEST QUOTE\nVIEW GRADES\n3\nPURITY GRADES\n125 TPD\nLARGEST PLANT OUTPUT\n99.999%\nMAX PURITY (LAB)\n137 bar\nCYLINDER PRESSURE\nOVERVIEW\nA VERSATILE\nINDUSTRIAL RESOURCE\n\nMultan Chemicals Limited takes pride in its production of industrial-grade liquid argon, a crucial component essential for a myriad of industrial applications. Our liquid argon is meticulously manufactured to meet stringent quality standards, ensuring exceptional purity and reliability in every batch.\n\nFrom shielding gases in welding operations to providing inert atmospheres in metal processing, our industrial-grade liquid argon serves as a versatile and indispensable resource for enhancing productivity and efficiency across various industries.\n\n✓\nProduced at MCL's 125 TPD plant in Faisalabad\n✓\nContinuous round-the-clock supply guarantee\n✓\nISO 9001:2015 certified production process\n✓\nHTM02 trained competent person certification\nTECHNICAL SPECIFICATIONS\nPRODUCT DATA\nCHEMICAL SYMBOL\nAr\nMOLECULAR WEIGHT\n39.95 g/mol\nBOILING POINT\n-185.85 °C\nCRITICAL TEMPERATURE\n-122.28 °C\nCRITICAL PRESSURE\n48.87 bar\nDENSITY (LIQUID)\n1,394 kg/m³\nCYLINDER PRESSURE (FULL)\n137 bar\nAVAILABLE SIZES\n5L / 10L / 47L WC\n\nNeed a Safety Data Sheet?\n\nDownload the full SDS for liquid argon.\n\nVIEW SDS\nAVAILABLE GRADES\nTHREE PURITY LEVELS.\nONE TRUSTED SOURCE.\nMOST COMMON\n\nAr 99.9%\n\nINDUSTRIAL GRADE\n\nThe standard grade for shielding gas in MIG and TIG welding operations and for providing inert atmospheres in general metal processing.\n\nREQUEST THIS GRADE\nRECOMMENDED\n\nAr 99.9%\n\nHIGH PURITY\n\nElevated purity for precision welding, metal fabrication, and heat treatment processes where trace contamination must be strictly controlled.\n\nREQUEST THIS GRADE\nULTRA PURE\n\nAr 99.999%\n\nLAB GRADE\n\nUltra-pure argon for gas chromatography carrier gas, plasma spectrometry, semiconductor fabrication, and scientific research demanding five-nine purity.\n\nREQUEST THIS GRADE\nWHERE IT'S USED\nKEY APPLICATIONS\n🔧\nWELDING & METAL FABRICATION\n\nArgon is the primary shielding gas for MIG and TIG welding, protecting the weld pool from atmospheric contamination and ensuring clean, porosity-free joints.\n\n🏗\nMETAL PROCESSING\n\nInert argon atmospheres are used in heat treatment, annealing, and sintering of metals to prevent oxidation and surface scaling during high-temperature operations.\n\n🧪\nLABORATORY & R&D\n\nUsed as carrier gas in gas chromatography and as a plasma gas in inductively coupled plasma spectrometry for trace element analysis.\n\n💡\nLIGHTING INDUSTRY\n\nArgon fills incandescent and fluorescent light bulbs, slowing filament evaporation and extending lamp life through its chemically inert properties.\n\n⚗\nCHEMICAL PROCESSING\n\nProvides inert blankets over reactive chemical processes and is used in the production of specialty chemicals and reactive metals such as titanium.\n\n🔬\nSEMICONDUCTOR FABRICATION\n\nUltra-pure argon creates contamination-free environments for silicon wafer processing, thin-film deposition, and ion implantation in chip manufacturing.\n\nSECTORS SERVED\nINDUSTRIES WE SUPPLY\n\nArgon from MCL reaches virtually every sector of Pakistan's industrial economy.\n\nWELDING & FABRICATION\nMETAL PROCESSING\nCHEMICALS\nSEMICONDUCTORS\nLIGHTING\nLABORATORIES\nOIL & GAS\nAUTOMOTIVE\nPHARMACEUTICALS\nAEROSPACE\nGLASS\nREFINING\nEXPLORE MORE\nO₂\nOXYGEN\nEXPLORE\nN₂\nNITROGEN\nEXPLORE\nC₂H₂\nACETYLENE\nEXPLORE\nH₂\nHYDROGEN\nEXPLORE\nAr\n\nREADY TO PLACE AN ORDER?\n\nOur team responds within 24 hours for all argon enquiries.\n\nCONTACT US\nCALL NOW\nMultan Chemicals Limited\n\nIndustrial and medical gases, MGPS and modular healthcare infrastructure — produced and supported across Pakistan.\n\nGET IN TOUCH\n→\nCALL HEAD OFFICE\n—\nCOMPANY\nAbout\nProduction\nTeam\nCertifications\n—\nPRODUCTS\nIndustrial Gases\nMedical Gases\nMGPS\nModular OT\n—\nREACH\nClients\nContact\n—\nRESOURCES\nSafety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use\nLOCATIONS\n\nHEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala\n\n+92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com\n\n© 2026 MULTAN CHEMICALS LIMITED\n\nWWW.MCL-GASES.COM"
+  },
+  {
+    "name": "Acetylene",
+    "formula": "C₂H₂",
+    "category": "Industrial Gases",
+    "url": "https://mcl-gases.com/industrial-gases/acetylene",
+    "availability": "In Stock",
+    "supply_form": "Dissolved",
+    "description": "MCL specialises in the production of dissolved acetylene at two purity levels, serving metal cutting, welding, fabrication, and chemical synthesis industries across Pakistan from three plant locations.",
+    "stat_capacity": "125 TPD",
+    "stat_cylinders": "",
+    "stat_stations": "",
+    "stat_years": "",
+    "purity_grades": [],
+    "specifications": [],
+    "cylinders": [],
+    "bulk_supply": [],
+    "use_cases": [
+      {
+        "title": "PRODUCT DATA",
+        "description": "CHEMICAL FORMULA\nC₂H₂\nMOLECULAR WEIGHT\n26.04 g/mol\nBOILING POINT\n-84.0 °C\nFLASH POINT\n-18 °C\nFLAME TEMPERATURE\n3,160 °C (with O₂)\nSUPPLY FORM\nDissolved in acetone\nPLANT LOCATIONS\nMultan / Faisalabad / Tharparkar\nAVAILABLE SIZES\nStandard DA cylinders Need a Safety Data Sheet?\n\nDownload the full SDS f"
+      },
+      {
+        "title": "METAL CUTTING",
+        "description": "Oxy-acetylene cutting is the most widely used thermal cutting process, delivering high-temperature flames capable of cutting through thick steel plate rapidly and cleanly."
+      },
+      {
+        "title": "WELDING & FABRICATION",
+        "description": "Oxy-acetylene welding provides precise heat control for joining ferrous and non-ferrous metals, making it indispensable in metal fabrication shops and repair workshops."
+      },
+      {
+        "title": "BRAZING & SOLDERING",
+        "description": "The controllable flame temperature of acetylene makes it ideal for brazing copper, brass, and aluminium joints in refrigeration, HVAC, and plumbing systems."
+      },
+      {
+        "title": "FLAME HARDENING",
+        "description": "Localised flame hardening of steel components such as gears, shafts, and rails uses the intense heat of an oxy-acetylene flame to increase surface hardness."
+      },
+      {
+        "title": "CHEMICAL SYNTHESIS",
+        "description": "Acetylene is a key building block in the production of vinyl chloride, acetic acid, and other chemical intermediates used in petrochemical and pharmaceutical manufacturing."
+      },
+      {
+        "title": "STEEL INDUSTRY",
+        "description": "Used for scarfing, gouging, and profile cutting of steel billets and slabs in steelworks, as well as maintenance cutting and repair across heavy industry."
+      },
+      {
+        "title": "—\nCOMPANY",
+        "description": "About\nProduction\nTeam\nCertifications"
+      },
+      {
+        "title": "—\nPRODUCTS",
+        "description": "Industrial Gases\nMedical Gases\nMGPS\nModular OT"
+      },
+      {
+        "title": "—\nRESOURCES",
+        "description": "Safety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use"
+      },
+      {
+        "title": "LOCATIONS",
+        "description": "HEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala +92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com"
+      }
+    ],
+    "certifications": [
+      "ISO 9001:2015",
+      "ISO 9001"
+    ],
+    "raw_text": "ESTABLISHED 1985 · MULTAN, PAKISTAN\n+92 61 6538206-8\n|\nINFO@MCL-GASES.COM\nMultan Chemicals\nLIMITED\nAbout\nGases\nHealth Engineering\nProduction\nClients\nCertifications\nCareers\nREQUEST QUOTE\n→\n\nCOMPANY\n\nOverview\nWho we are and what we stand for\nHistory\nFour decades of industry leadership\nMission & Vision\nOur purpose, values and direction\nOur Team\nLeadership, management and technical staff\n\nSINCE 1985\n\nPakistan's most trusted industrial gas producer.\n\nCOMPANY OVERVIEW →\nMEDICAL GASES\nMedical Oxygen\nO₂\nNitrous Oxide\nN₂O\nMedical Air\nAir\nMedical Carbon Dioxide\nCO₂\nINDUSTRIAL GASES\nOxygen\nO₂\nNitrogen\nN₂\nArgon\nAr\nAcetylene\nC₂H₂\nLPG\nLPG\nHydrogen\nH₂\nAmmonia\nNH₃\nCarbon Dioxide\nCO₂\nMixture Gas\nMix\nSPECIALITY GASES\nHelium\nHe\nSpecial & Calibration\nCal\n\nQUICK LINKS\n\nAll Industrial Gases\n→\nAll Medical Gases\n→\nSpeciality Gases\n→\nSafety Data Sheets\n→\n\nOUR CAPACITY\n\n125 TPD\n\nLargest single liquid oxygen plant in Pakistan.\n\nVIEW PRODUCTION →\n\nHEALTHCARE ENGINEERING SERVICES\n\nMGPS\nMedical Gas Pipeline Systems\nOTS\nModular Operation Theatres\nRadiology\nRadiology department solutions\nICU\nIntensive care infrastructure\nCSSD\nCentral sterile supply dept.\nLaundry\nHealthcare laundry systems\nHVAC\nHeating, ventilation & air con.\nRequest a Project Quote\nTalk to our healthcare engineering team\n\nHEALTHCARE SOLUTIONS\n\nEnd-to-end medical gas and engineering infrastructure.\n\nMGPS PORTFOLIO →\nMODULAR OT SYSTEMS →\nHome\n/\nIndustrial Gases\n/\nAcetylene\nC₂H₂\nINDUSTRIAL GASES\nIN STOCK\nDISSOLVED\nACETYLENE\n\nMCL specialises in the production of dissolved acetylene at two purity levels, serving metal cutting, welding, fabrication, and chemical synthesis industries across Pakistan from three plant locations.\n\nREQUEST QUOTE\nVIEW GRADES\n2\nPURITY GRADES\n3\nPLANT LOCATIONS\n3,160°C\nOXY-FLAME TEMPERATURE\n99.5%\nMAX PURITY\nOVERVIEW\nTHE HOTTEST\nINDUSTRIAL FLAME\n\nAt Multan Chemicals Limited, we specialise in the production of dissolved acetylene, a critical compound widely used in various industrial processes. Our dissolved acetylene is manufactured with meticulous attention to detail, ensuring high purity and stability for optimal performance in diverse applications.\n\nFrom metal fabrication to chemical synthesis, our dissolved acetylene serves as a versatile and reliable resource for industries seeking efficient and cost-effective solutions. MCL operates DA plants at Multan, Faisalabad, and Tharparkar to ensure nationwide availability.\n\n✓\nDA plants at Multan, Faisalabad, and Tharparkar\n✓\nContinuous round-the-clock supply guarantee\n✓\nISO 9001:2015 certified production process\n✓\nHigh purity and stability in every cylinder\nTECHNICAL SPECIFICATIONS\nPRODUCT DATA\nCHEMICAL FORMULA\nC₂H₂\nMOLECULAR WEIGHT\n26.04 g/mol\nBOILING POINT\n-84.0 °C\nFLASH POINT\n-18 °C\nFLAME TEMPERATURE\n3,160 °C (with O₂)\nSUPPLY FORM\nDissolved in acetone\nPLANT LOCATIONS\nMultan / Faisalabad / Tharparkar\nAVAILABLE SIZES\nStandard DA cylinders\n\nNeed a Safety Data Sheet?\n\nDownload the full SDS for dissolved acetylene.\n\nVIEW SDS\nAVAILABLE GRADES\nTWO PURITY LEVELS.\nONE TRUSTED SOURCE.\nMOST COMMON\n\nC₂H₂ 98%\n\nINDUSTRIAL GRADE\n\nThe standard grade for oxy-fuel cutting, welding, and flame hardening across general metal fabrication and construction environments.\n\nREQUEST THIS GRADE\nHIGH PURITY\n\nC₂H₂ 99.5%\n\nHIGH PURITY\n\nElevated purity for precision cutting, brazing, and chemical synthesis applications where flame stability and consistent burn characteristics are critical.\n\nREQUEST THIS GRADE\nWHERE IT'S USED\nKEY APPLICATIONS\n✂\nMETAL CUTTING\n\nOxy-acetylene cutting is the most widely used thermal cutting process, delivering high-temperature flames capable of cutting through thick steel plate rapidly and cleanly.\n\n🔧\nWELDING & FABRICATION\n\nOxy-acetylene welding provides precise heat control for joining ferrous and non-ferrous metals, making it indispensable in metal fabrication shops and repair workshops.\n\n🔩\nBRAZING & SOLDERING\n\nThe controllable flame temperature of acetylene makes it ideal for brazing copper, brass, and aluminium joints in refrigeration, HVAC, and plumbing systems.\n\n🏗\nFLAME HARDENING\n\nLocalised flame hardening of steel components such as gears, shafts, and rails uses the intense heat of an oxy-acetylene flame to increase surface hardness.\n\n⚗\nCHEMICAL SYNTHESIS\n\nAcetylene is a key building block in the production of vinyl chloride, acetic acid, and other chemical intermediates used in petrochemical and pharmaceutical manufacturing.\n\n🏭\nSTEEL INDUSTRY\n\nUsed for scarfing, gouging, and profile cutting of steel billets and slabs in steelworks, as well as maintenance cutting and repair across heavy industry.\n\nSECTORS SERVED\nINDUSTRIES WE SUPPLY\n\nAcetylene from MCL reaches virtually every sector of Pakistan's industrial economy.\n\nWELDING & FABRICATION\nSTEEL MANUFACTURING\nAUTOMOTIVE\nCHEMICALS\nCONSTRUCTION\nSHIPBUILDING\nOIL & GAS\nREFINING\nHVAC\nPLUMBING\nHEAVY ENGINEERING\nMAINTENANCE & REPAIR\nEXPLORE MORE\nO₂\nOXYGEN\nEXPLORE\nN₂\nNITROGEN\nEXPLORE\nAr\nARGON\nEXPLORE\nH₂\nHYDROGEN\nEXPLORE\nC₂H₂\n\nREADY TO PLACE AN ORDER?\n\nOur team responds within 24 hours for all acetylene enquiries.\n\nCONTACT US\nCALL NOW\nMultan Chemicals Limited\n\nIndustrial and medical gases, MGPS and modular healthcare infrastructure — produced and supported across Pakistan.\n\nGET IN TOUCH\n→\nCALL HEAD OFFICE\n—\nCOMPANY\nAbout\nProduction\nTeam\nCertifications\n—\nPRODUCTS\nIndustrial Gases\nMedical Gases\nMGPS\nModular OT\n—\nREACH\nClients\nContact\n—\nRESOURCES\nSafety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use\nLOCATIONS\n\nHEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala\n\n+92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com\n\n© 2026 MULTAN CHEMICALS LIMITED\n\nWWW.MCL-GASES.COM"
+  },
+  {
+    "name": "LPG",
+    "formula": "LPG",
+    "category": "Industrial Gases",
+    "url": "https://mcl-gases.com/industrial-gases/lpg",
+    "availability": "In Stock",
+    "supply_form": "Liquefied",
+    "description": "MCL is a trusted LPG distributor sourcing from reputable vendors including PSO, available in three cylinder sizes for domestic and commercial use, delivered through 20 company-owned filling stations nationwide.",
+    "stat_capacity": "125 TPD",
+    "stat_cylinders": "",
+    "stat_stations": "",
+    "stat_years": "",
+    "purity_grades": [],
+    "specifications": [],
+    "cylinders": [],
+    "bulk_supply": [],
+    "use_cases": [
+      {
+        "title": "PRODUCT DATA",
+        "description": "MAIN COMPONENTS\nPropane / Butane blend\nPHYSICAL STATE\nLiquefied under pressure\nBOILING POINT (PROPANE)\n-42.1 °C\nBOILING POINT (BUTANE)\n-0.5 °C\nCALORIFIC VALUE\nApprox. 46 MJ/kg\nSUPPLY VENDORS\nPSO and others\nAVAILABLE SIZES\n11.8kg / 15.0kg / 45.4kg\nDISTRIBUTION\n20 company-owned filling stations Need a"
+      },
+      {
+        "title": "RESIDENTIAL COOKING",
+        "description": "LPG is the primary cooking fuel for millions of Pakistani households, delivering instant heat, precise flame control, and reliable performance."
+      },
+      {
+        "title": "HOTELS & RESTAURANTS",
+        "description": "Commercial kitchens rely on LPG for high-output cooking equipment, ovens, and grills where a consistent and powerful fuel supply is essential."
+      },
+      {
+        "title": "INDUSTRIAL HEATING",
+        "description": "LPG powers industrial furnaces, dryers, and process heaters across manufacturing, ceramics, glass, and food processing operations."
+      },
+      {
+        "title": "AGRICULTURAL USE",
+        "description": "Used for crop drying, poultry heating, and greenhouse climate control, LPG provides flexible and portable energy solutions for the agriculture sector."
+      },
+      {
+        "title": "SPACE HEATING",
+        "description": "LPG space heaters and central heating systems provide efficient warmth in commercial buildings, warehouses, and facilities without natural gas access."
+      },
+      {
+        "title": "CONSTRUCTION & TORCHING",
+        "description": "Construction sites use LPG for roofing torches, soldering, and temporary heating during building works and civil engineering projects."
+      },
+      {
+        "title": "—\nCOMPANY",
+        "description": "About\nProduction\nTeam\nCertifications"
+      },
+      {
+        "title": "—\nPRODUCTS",
+        "description": "Industrial Gases\nMedical Gases\nMGPS\nModular OT"
+      },
+      {
+        "title": "—\nRESOURCES",
+        "description": "Safety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use"
+      },
+      {
+        "title": "LOCATIONS",
+        "description": "HEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala +92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com"
+      }
+    ],
+    "certifications": [],
+    "raw_text": "ESTABLISHED 1985 · MULTAN, PAKISTAN\n+92 61 6538206-8\n|\nINFO@MCL-GASES.COM\nMultan Chemicals\nLIMITED\nAbout\nGases\nHealth Engineering\nProduction\nClients\nCertifications\nCareers\nREQUEST QUOTE\n→\n\nCOMPANY\n\nOverview\nWho we are and what we stand for\nHistory\nFour decades of industry leadership\nMission & Vision\nOur purpose, values and direction\nOur Team\nLeadership, management and technical staff\n\nSINCE 1985\n\nPakistan's most trusted industrial gas producer.\n\nCOMPANY OVERVIEW →\nMEDICAL GASES\nMedical Oxygen\nO₂\nNitrous Oxide\nN₂O\nMedical Air\nAir\nMedical Carbon Dioxide\nCO₂\nINDUSTRIAL GASES\nOxygen\nO₂\nNitrogen\nN₂\nArgon\nAr\nAcetylene\nC₂H₂\nLPG\nLPG\nHydrogen\nH₂\nAmmonia\nNH₃\nCarbon Dioxide\nCO₂\nMixture Gas\nMix\nSPECIALITY GASES\nHelium\nHe\nSpecial & Calibration\nCal\n\nQUICK LINKS\n\nAll Industrial Gases\n→\nAll Medical Gases\n→\nSpeciality Gases\n→\nSafety Data Sheets\n→\n\nOUR CAPACITY\n\n125 TPD\n\nLargest single liquid oxygen plant in Pakistan.\n\nVIEW PRODUCTION →\n\nHEALTHCARE ENGINEERING SERVICES\n\nMGPS\nMedical Gas Pipeline Systems\nOTS\nModular Operation Theatres\nRadiology\nRadiology department solutions\nICU\nIntensive care infrastructure\nCSSD\nCentral sterile supply dept.\nLaundry\nHealthcare laundry systems\nHVAC\nHeating, ventilation & air con.\nRequest a Project Quote\nTalk to our healthcare engineering team\n\nHEALTHCARE SOLUTIONS\n\nEnd-to-end medical gas and engineering infrastructure.\n\nMGPS PORTFOLIO →\nMODULAR OT SYSTEMS →\nHome\n/\nIndustrial Gases\n/\nLPG\nLPG\nINDUSTRIAL GASES\nIN STOCK\nLIQUEFIED\nPETROLEUM\nGAS\n\nMCL is a trusted LPG distributor sourcing from reputable vendors including PSO, available in three cylinder sizes for domestic and commercial use, delivered through 20 company-owned filling stations nationwide.\n\nREQUEST QUOTE\nVIEW SIZES\n3\nCYLINDER SIZES\n20\nCOMPANY FILLING STATIONS\n30+\nDISTRIBUTORS NATIONWIDE\nPSO\nPRIMARY SUPPLY VENDOR\nOVERVIEW\nQUALITY AND\nQUANTITY GUARANTEED\n\nAt Multan Chemicals Limited, we take pride in our role as a trusted distributor of LPG gas sourced from reputable vendors like PSO and others. We prioritise quality and reliability, ensuring that our customers receive LPG gas that meets the highest standards without compromise.\n\nThrough stringent quality control measures and transparent supply chain practices, we guarantee the integrity of both the quality and quantity of LPG gas we provide, backed by our nationwide network of 20 company-owned filling stations and over 30 distributors.\n\n✓\nSourced from reputable vendors including PSO\n✓\nStringent quality control on every delivery\n✓\n20 company-owned filling stations nationwide\n✓\nOver 30 reliable distributors across Pakistan\nTECHNICAL SPECIFICATIONS\nPRODUCT DATA\nMAIN COMPONENTS\nPropane / Butane blend\nPHYSICAL STATE\nLiquefied under pressure\nBOILING POINT (PROPANE)\n-42.1 °C\nBOILING POINT (BUTANE)\n-0.5 °C\nCALORIFIC VALUE\nApprox. 46 MJ/kg\nSUPPLY VENDORS\nPSO and others\nAVAILABLE SIZES\n11.8kg / 15.0kg / 45.4kg\nDISTRIBUTION\n20 company-owned filling stations\n\nNeed a Safety Data Sheet?\n\nDownload the full SDS for LPG.\n\nVIEW SDS\nAVAILABLE SIZES\nTHREE CYLINDER SIZES.\nONE TRUSTED SOURCE.\nRESIDENTIAL\n\n11.8 kg\n\nDOMESTIC\n\nThe standard household cylinder for residential cooking, water heating, and space heating. Widely used across homes throughout Pakistan.\n\nREQUEST THIS SIZE\nMOST POPULAR\n\n15.0 kg\n\nCOMMERCIAL\n\nMid-size cylinder suited to restaurants, small businesses, and commercial kitchens requiring a reliable and cost-effective fuel source.\n\nREQUEST THIS SIZE\nHEAVY DUTY\n\n45.4 kg\n\nCOMMERCIAL\n\nHeavy-duty cylinder for industrial kitchens, large commercial operations, and facilities with high fuel consumption demands.\n\nREQUEST THIS SIZE\nWHERE IT'S USED\nKEY APPLICATIONS\n🍳\nRESIDENTIAL COOKING\n\nLPG is the primary cooking fuel for millions of Pakistani households, delivering instant heat, precise flame control, and reliable performance.\n\n🏨\nHOTELS & RESTAURANTS\n\nCommercial kitchens rely on LPG for high-output cooking equipment, ovens, and grills where a consistent and powerful fuel supply is essential.\n\n🏭\nINDUSTRIAL HEATING\n\nLPG powers industrial furnaces, dryers, and process heaters across manufacturing, ceramics, glass, and food processing operations.\n\n🌾\nAGRICULTURAL USE\n\nUsed for crop drying, poultry heating, and greenhouse climate control, LPG provides flexible and portable energy solutions for the agriculture sector.\n\n🔥\nSPACE HEATING\n\nLPG space heaters and central heating systems provide efficient warmth in commercial buildings, warehouses, and facilities without natural gas access.\n\n🏗\nCONSTRUCTION & TORCHING\n\nConstruction sites use LPG for roofing torches, soldering, and temporary heating during building works and civil engineering projects.\n\nSECTORS SERVED\nINDUSTRIES WE SUPPLY\n\nLPG from MCL reaches homes, businesses, and industries across every corner of Pakistan.\n\nRESIDENTIAL\nHOTELS & RESTAURANTS\nFOOD PROCESSING\nAGRICULTURE\nCONSTRUCTION\nINDUSTRIAL HEATING\nCERAMICS\nGLASS\nTEXTILES\nWAREHOUSING\nHEALTHCARE FACILITIES\nEDUCATION\nEXPLORE MORE\nO₂\nOXYGEN\nEXPLORE\nN₂\nNITROGEN\nEXPLORE\nC₂H₂\nACETYLENE\nEXPLORE\nH₂\nHYDROGEN\nEXPLORE\nLPG\n\nREADY TO PLACE AN ORDER?\n\nOur team responds within 24 hours for all LPG enquiries.\n\nCONTACT US\nCALL NOW\nMultan Chemicals Limited\n\nIndustrial and medical gases, MGPS and modular healthcare infrastructure — produced and supported across Pakistan.\n\nGET IN TOUCH\n→\nCALL HEAD OFFICE\n—\nCOMPANY\nAbout\nProduction\nTeam\nCertifications\n—\nPRODUCTS\nIndustrial Gases\nMedical Gases\nMGPS\nModular OT\n—\nREACH\nClients\nContact\n—\nRESOURCES\nSafety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use\nLOCATIONS\n\nHEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala\n\n+92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com\n\n© 2026 MULTAN CHEMICALS LIMITED\n\nWWW.MCL-GASES.COM"
+  },
+  {
+    "name": "Hydrogen",
+    "formula": "H₂",
+    "category": "Industrial Gases",
+    "url": "https://mcl-gases.com/industrial-gases/hydrogen",
+    "availability": "In Stock",
+    "supply_form": "",
+    "description": "MCL imports high-quality hydrogen gas in six purity grades sourced from Sharjah Oxygen in the UAE, serving chemical processing, refining, metal treatment, and laboratory applications across Pakistan.",
+    "stat_capacity": "125 TPD",
+    "stat_cylinders": "",
+    "stat_stations": "",
+    "stat_years": "",
+    "purity_grades": [],
+    "specifications": [],
+    "cylinders": [],
+    "bulk_supply": [],
+    "use_cases": [
+      {
+        "title": "PRODUCT DATA",
+        "description": "CHEMICAL SYMBOL\nH₂\nMOLECULAR WEIGHT\n2.016 g/mol\nBOILING POINT\n-252.87 °C\nCRITICAL TEMPERATURE\n-239.96 °C\nCRITICAL PRESSURE\n13.15 bar\nDENSITY (GAS, 15°C)\n0.0838 kg/m³\nSUPPLY SOURCE\nSharjah Oxygen, UAE\nPURITY RANGE\n98% to 99.999% Need a Safety Data Sheet?\n\nDownload the full SDS for hydrogen gas.\n\nVIEW"
+      },
+      {
+        "title": "CHEMICAL PROCESSING",
+        "description": "Hydrogen is a fundamental feedstock in the production of ammonia, methanol, and numerous chemical intermediates used across the petrochemical industry."
+      },
+      {
+        "title": "REFINING & HYDROTREATING",
+        "description": "Oil refineries use hydrogen extensively for hydrotreating and hydrocracking processes to remove sulphur from fuels and upgrade heavier crude fractions."
+      },
+      {
+        "title": "METAL PROCESSING",
+        "description": "Hydrogen atmospheres are used in the annealing and sintering of metals, providing a reducing environment that prevents oxidation and improves surface quality."
+      },
+      {
+        "title": "FLOAT GLASS MANUFACTURING",
+        "description": "The float glass process uses a hydrogen and nitrogen atmosphere above the molten tin bath to prevent oxidation and produce flawless flat glass."
+      },
+      {
+        "title": "LABORATORY & R&D",
+        "description": "Ultra-pure hydrogen serves as a carrier gas in gas chromatography and as a fuel gas for flame ionisation detectors in analytical laboratories."
+      },
+      {
+        "title": "FUEL CELLS & ENERGY",
+        "description": "Hydrogen fuel cells convert hydrogen directly into electricity with water as the only byproduct, supporting clean energy and industrial power applications."
+      },
+      {
+        "title": "—\nCOMPANY",
+        "description": "About\nProduction\nTeam\nCertifications"
+      },
+      {
+        "title": "—\nPRODUCTS",
+        "description": "Industrial Gases\nMedical Gases\nMGPS\nModular OT"
+      },
+      {
+        "title": "—\nRESOURCES",
+        "description": "Safety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use"
+      },
+      {
+        "title": "LOCATIONS",
+        "description": "HEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala +92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com"
+      }
+    ],
+    "certifications": [],
+    "raw_text": "ESTABLISHED 1985 · MULTAN, PAKISTAN\n+92 61 6538206-8\n|\nINFO@MCL-GASES.COM\nMultan Chemicals\nLIMITED\nAbout\nGases\nHealth Engineering\nProduction\nClients\nCertifications\nCareers\nREQUEST QUOTE\n→\n\nCOMPANY\n\nOverview\nWho we are and what we stand for\nHistory\nFour decades of industry leadership\nMission & Vision\nOur purpose, values and direction\nOur Team\nLeadership, management and technical staff\n\nSINCE 1985\n\nPakistan's most trusted industrial gas producer.\n\nCOMPANY OVERVIEW →\nMEDICAL GASES\nMedical Oxygen\nO₂\nNitrous Oxide\nN₂O\nMedical Air\nAir\nMedical Carbon Dioxide\nCO₂\nINDUSTRIAL GASES\nOxygen\nO₂\nNitrogen\nN₂\nArgon\nAr\nAcetylene\nC₂H₂\nLPG\nLPG\nHydrogen\nH₂\nAmmonia\nNH₃\nCarbon Dioxide\nCO₂\nMixture Gas\nMix\nSPECIALITY GASES\nHelium\nHe\nSpecial & Calibration\nCal\n\nQUICK LINKS\n\nAll Industrial Gases\n→\nAll Medical Gases\n→\nSpeciality Gases\n→\nSafety Data Sheets\n→\n\nOUR CAPACITY\n\n125 TPD\n\nLargest single liquid oxygen plant in Pakistan.\n\nVIEW PRODUCTION →\n\nHEALTHCARE ENGINEERING SERVICES\n\nMGPS\nMedical Gas Pipeline Systems\nOTS\nModular Operation Theatres\nRadiology\nRadiology department solutions\nICU\nIntensive care infrastructure\nCSSD\nCentral sterile supply dept.\nLaundry\nHealthcare laundry systems\nHVAC\nHeating, ventilation & air con.\nRequest a Project Quote\nTalk to our healthcare engineering team\n\nHEALTHCARE SOLUTIONS\n\nEnd-to-end medical gas and engineering infrastructure.\n\nMGPS PORTFOLIO →\nMODULAR OT SYSTEMS →\nHome\n/\nIndustrial Gases\n/\nHydrogen\nH₂\nINDUSTRIAL GASES\nIN STOCK\nHYDROGEN\nGAS\n\nMCL imports high-quality hydrogen gas in six purity grades sourced from Sharjah Oxygen in the UAE, serving chemical processing, refining, metal treatment, and laboratory applications across Pakistan.\n\nREQUEST QUOTE\nVIEW GRADES\n6\nPURITY GRADES\n99.999%\nMAX PURITY (LAB)\nUAE\nIMPORT SOURCE\n24/7\nSUPPLY AVAILABILITY\nOVERVIEW\nUNPARALLELED\nQUALITY AND PURITY\n\nAt Multan Chemicals Limited, we uphold our commitment to excellence by sourcing hydrogen gas from esteemed vendors like Sharjah Oxygen in the UAE. Our partnership ensures the importation of hydrogen gas of unparalleled quality and reliability, catering to the diverse needs of industries reliant on this crucial element.\n\nWe prioritise stringent quality control measures throughout the procurement process to guarantee that our hydrogen gas meets the highest standards without compromise, across all six available purity grades from industrial to lab quality.\n\n✓\nSourced from Sharjah Oxygen, UAE\n✓\nSix purity grades from 98% to 99.999%\n✓\nStringent quality control throughout procurement\n✓\nContinuous round-the-clock supply availability\nTECHNICAL SPECIFICATIONS\nPRODUCT DATA\nCHEMICAL SYMBOL\nH₂\nMOLECULAR WEIGHT\n2.016 g/mol\nBOILING POINT\n-252.87 °C\nCRITICAL TEMPERATURE\n-239.96 °C\nCRITICAL PRESSURE\n13.15 bar\nDENSITY (GAS, 15°C)\n0.0838 kg/m³\nSUPPLY SOURCE\nSharjah Oxygen, UAE\nPURITY RANGE\n98% to 99.999%\n\nNeed a Safety Data Sheet?\n\nDownload the full SDS for hydrogen gas.\n\nVIEW SDS\nAVAILABLE GRADES\nSIX PURITY LEVELS.\nONE TRUSTED SOURCE.\nINDUSTRIAL\n\nH₂ 98%\n\nINDUSTRIAL GRADE\n\nEntry-level industrial hydrogen for general chemical processes, hydrogenation reactions, and bulk industrial applications.\n\nREQUEST THIS GRADE\nINDUSTRIAL\n\nH₂ 99%\n\nINDUSTRIAL GRADE\n\nElevated industrial grade for refinery hydrotreating, ammonia synthesis, and petrochemical processing operations.\n\nREQUEST THIS GRADE\nINDUSTRIAL\n\nH₂ 99.6%\n\nINDUSTRIAL GRADE\n\nHigher purity for float glass manufacturing, metal annealing atmospheres, and precision industrial processes.\n\nREQUEST THIS GRADE\nPREMIUM\n\nH₂ 99.9%\n\nINDUSTRIAL GRADE\n\nPremium industrial grade for fuel cells, electronics manufacturing, and controlled atmosphere heat treatment of metals.\n\nREQUEST THIS GRADE\nHIGH PURITY\n\nH₂ 99.99%\n\nHIGH PURITY\n\nHigh purity grade for semiconductor processing, meteorological applications, and analytical instrumentation.\n\nREQUEST THIS GRADE\nULTRA PURE\n\nH₂ 99.999%\n\nLAB GRADE\n\nUltra-pure five-nine hydrogen for gas chromatography carrier gas, scientific research, and calibration laboratory use.\n\nREQUEST THIS GRADE\nWHERE IT'S USED\nKEY APPLICATIONS\n⚗\nCHEMICAL PROCESSING\n\nHydrogen is a fundamental feedstock in the production of ammonia, methanol, and numerous chemical intermediates used across the petrochemical industry.\n\n🏭\nREFINING & HYDROTREATING\n\nOil refineries use hydrogen extensively for hydrotreating and hydrocracking processes to remove sulphur from fuels and upgrade heavier crude fractions.\n\n🔩\nMETAL PROCESSING\n\nHydrogen atmospheres are used in the annealing and sintering of metals, providing a reducing environment that prevents oxidation and improves surface quality.\n\n🪟\nFLOAT GLASS MANUFACTURING\n\nThe float glass process uses a hydrogen and nitrogen atmosphere above the molten tin bath to prevent oxidation and produce flawless flat glass.\n\n🧪\nLABORATORY & R&D\n\nUltra-pure hydrogen serves as a carrier gas in gas chromatography and as a fuel gas for flame ionisation detectors in analytical laboratories.\n\n⚡\nFUEL CELLS & ENERGY\n\nHydrogen fuel cells convert hydrogen directly into electricity with water as the only byproduct, supporting clean energy and industrial power applications.\n\nSECTORS SERVED\nINDUSTRIES WE SUPPLY\n\nHydrogen from MCL reaches virtually every sector of Pakistan's industrial economy.\n\nCHEMICALS\nOIL & GAS\nREFINING\nMETAL PROCESSING\nGLASS\nPHARMACEUTICALS\nLABORATORIES\nFOOD & BEVERAGE\nSEMICONDUCTORS\nFERTILIZERS\nFUEL CELLS\nAUTOMOTIVE\nEXPLORE MORE\nO₂\nOXYGEN\nEXPLORE\nN₂\nNITROGEN\nEXPLORE\nAr\nARGON\nEXPLORE\nC₂H₂\nACETYLENE\nEXPLORE\nH₂\n\nREADY TO PLACE AN ORDER?\n\nOur team responds within 24 hours for all hydrogen enquiries.\n\nCONTACT US\nCALL NOW\nMultan Chemicals Limited\n\nIndustrial and medical gases, MGPS and modular healthcare infrastructure — produced and supported across Pakistan.\n\nGET IN TOUCH\n→\nCALL HEAD OFFICE\n—\nCOMPANY\nAbout\nProduction\nTeam\nCertifications\n—\nPRODUCTS\nIndustrial Gases\nMedical Gases\nMGPS\nModular OT\n—\nREACH\nClients\nContact\n—\nRESOURCES\nSafety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use\nLOCATIONS\n\nHEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multa"
+  },
+  {
+    "name": "Ammonia",
+    "formula": "NH₃",
+    "category": "Industrial Gases",
+    "url": "https://mcl-gases.com/industrial-gases/ammonia",
+    "availability": "In Stock",
+    "supply_form": "",
+    "description": "MCL supplies industrial-grade anhydrous ammonia sourced from trusted vendors, serving fertiliser production, industrial refrigeration, water treatment, and chemical manufacturing across Pakistan with an unwavering commitment to quality and reliability.",
+    "stat_capacity": "125 TPD",
+    "stat_cylinders": "",
+    "stat_stations": "",
+    "stat_years": "",
+    "purity_grades": [],
+    "specifications": [],
+    "cylinders": [],
+    "bulk_supply": [],
+    "use_cases": [
+      {
+        "title": "PRODUCT DATA",
+        "description": "CHEMICAL SYMBOL\nNH₃\nMOLECULAR WEIGHT\n17.03 g/mol\nBOILING POINT\n-33.35 °C\nCRITICAL TEMPERATURE\n132.4 °C\nCRITICAL PRESSURE\n113.5 bar\nDENSITY (LIQUID)\n682 kg/m³ at –33°C\nSUPPLY SOURCE\nTrusted Vendors\nPURITY RANGE\n99.5% to 99.8% SAFETY NOTICE\n\nAmmonia is a toxic, corrosive gas with a TLV-TWA of 25 ppm. "
+      },
+      {
+        "title": "—\nCOMPANY",
+        "description": "About\nProduction\nTeam\nCertifications"
+      },
+      {
+        "title": "—\nPRODUCTS",
+        "description": "Industrial Gases\nMedical Gases\nMGPS\nModular OT"
+      },
+      {
+        "title": "—\nRESOURCES",
+        "description": "Safety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use"
+      },
+      {
+        "title": "LOCATIONS",
+        "description": "HEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala +92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com"
+      }
+    ],
+    "certifications": [],
+    "raw_text": "ESTABLISHED 1985 · MULTAN, PAKISTAN\n+92 61 6538206-8\n|\nINFO@MCL-GASES.COM\nMultan Chemicals\nLIMITED\nAbout\nGases\nHealth Engineering\nProduction\nClients\nCertifications\nCareers\nREQUEST QUOTE\n→\n\nCOMPANY\n\nOverview\nWho we are and what we stand for\nHistory\nFour decades of industry leadership\nMission & Vision\nOur purpose, values and direction\nOur Team\nLeadership, management and technical staff\n\nSINCE 1985\n\nPakistan's most trusted industrial gas producer.\n\nCOMPANY OVERVIEW →\nMEDICAL GASES\nMedical Oxygen\nO₂\nNitrous Oxide\nN₂O\nMedical Air\nAir\nMedical Carbon Dioxide\nCO₂\nINDUSTRIAL GASES\nOxygen\nO₂\nNitrogen\nN₂\nArgon\nAr\nAcetylene\nC₂H₂\nLPG\nLPG\nHydrogen\nH₂\nAmmonia\nNH₃\nCarbon Dioxide\nCO₂\nMixture Gas\nMix\nSPECIALITY GASES\nHelium\nHe\nSpecial & Calibration\nCal\n\nQUICK LINKS\n\nAll Industrial Gases\n→\nAll Medical Gases\n→\nSpeciality Gases\n→\nSafety Data Sheets\n→\n\nOUR CAPACITY\n\n125 TPD\n\nLargest single liquid oxygen plant in Pakistan.\n\nVIEW PRODUCTION →\n\nHEALTHCARE ENGINEERING SERVICES\n\nMGPS\nMedical Gas Pipeline Systems\nOTS\nModular Operation Theatres\nRadiology\nRadiology department solutions\nICU\nIntensive care infrastructure\nCSSD\nCentral sterile supply dept.\nLaundry\nHealthcare laundry systems\nHVAC\nHeating, ventilation & air con.\nRequest a Project Quote\nTalk to our healthcare engineering team\n\nHEALTHCARE SOLUTIONS\n\nEnd-to-end medical gas and engineering infrastructure.\n\nMGPS PORTFOLIO →\nMODULAR OT SYSTEMS →\nHome\n/\nIndustrial Gases\n/\nAmmonia\nNH₃\nINDUSTRIAL GASES\nIN STOCK\nAMMONIA\nGAS\n\nMCL supplies industrial-grade anhydrous ammonia sourced from trusted vendors, serving fertiliser production, industrial refrigeration, water treatment, and chemical manufacturing across Pakistan with an unwavering commitment to quality and reliability.\n\nREQUEST QUOTE\nVIEW GRADES\n2\nPURITY GRADES\n99.8%\nMAX PURITY\n1000+\nBUSINESS PARTNERS\n24/7\nSUPPLY AVAILABILITY\nOVERVIEW\nRELIABLE SUPPLY.\nUNCOMPROMISED\nQUALITY.\n\nAt Multan Chemicals Limited, we pride ourselves on our reputation as a reliable distributor of industrial-grade ammonia gas sourced from trusted vendors. We prioritise the procurement of ammonia gas from reputable suppliers to ensure the highest standards of quality and reliability.\n\nOur commitment to excellence is unwavering, and we do not compromise on either the quality or quantity of ammonia gas we trade. Rigorous quality control measures are implemented throughout the procurement process, guaranteeing that the ammonia gas we provide meets and exceeds industry standards.\n\n✓\nSourced exclusively from trusted, reputable vendors\n✓\nTwo purity grades for industrial and high-purity applications\n✓\nRigorous quality control throughout procurement\n✓\nContinuous round-the-clock supply availability\nTECHNICAL SPECIFICATIONS\nPRODUCT DATA\nCHEMICAL SYMBOL\nNH₃\nMOLECULAR WEIGHT\n17.03 g/mol\nBOILING POINT\n-33.35 °C\nCRITICAL TEMPERATURE\n132.4 °C\nCRITICAL PRESSURE\n113.5 bar\nDENSITY (LIQUID)\n682 kg/m³ at –33°C\nSUPPLY SOURCE\nTrusted Vendors\nPURITY RANGE\n99.5% to 99.8%\n\nSAFETY NOTICE\n\nAmmonia is a toxic, corrosive gas with a TLV-TWA of 25 ppm. Handle only in well-ventilated areas with appropriate PPE. Refer to the SDS before use.\n\nVIEW SDS →\n\nNeed a Safety Data Sheet?\n\nDownload the full SDS for ammonia gas.\n\nVIEW SDS\nAVAILABLE GRADES\nTWO PURITY LEVELS.\nONE TRUSTED SOURCE.\nINDUSTRIAL\n\nNH₃ 99.5%\n\nINDUSTRIAL GRADE\n\nStandard industrial grade for refrigeration systems, agricultural fertiliser applications, and general chemical manufacturing processes.\n\nREQUEST THIS GRADE\nHIGH PURITY\n\nNH₃ 99.8%\n\nHIGH PURITY\n\nElevated purity grade for semiconductor manufacturing, metal nitriding, and precision chemical synthesis where tighter contaminant limits are required.\n\nREQUEST THIS GRADE\nWHERE IT'S USED\nKEY APPLICATIONS\n🌱\nFERTILISER PRODUCTION\n\n❄\nINDUSTRIAL REFRIGERATION\n\n💧\nWATER TREATMENT\n\n🏭\nCHEMICAL MANUFACTURING\n\n🔩\nMETAL TREATMENT\n\n🖥\nELECTRONICS & SEMICONDUCTORS\n\nSECTORS SERVED\nINDUSTRIES WE SUPPLY\n\nAmmonia from MCL serves industries ranging from agriculture to advanced semiconductor manufacturing across Pakistan.\n\nFERTILISERS\nREFRIGERATION\nWATER TREATMENT\nCHEMICALS\nPHARMACEUTICALS\nTEXTILES\nPLASTICS\nEXPLOSIVES\nMETAL PROCESSING\nSEMICONDUCTORS\nFOOD PROCESSING\nMINING\nEXPLORE MORE\nN₂\nNITROGEN\nEXPLORE\nH₂\nHYDROGEN\nEXPLORE\nO₂\nOXYGEN\nEXPLORE\nCO₂\nCARBON DIOXIDE\nEXPLORE\nNH₃\n\nREADY TO PLACE AN ORDER?\n\nOur team responds within 24 hours for all ammonia enquiries.\n\nCONTACT US\nCALL NOW\nMultan Chemicals Limited\n\nIndustrial and medical gases, MGPS and modular healthcare infrastructure — produced and supported across Pakistan.\n\nGET IN TOUCH\n→\nCALL HEAD OFFICE\n—\nCOMPANY\nAbout\nProduction\nTeam\nCertifications\n—\nPRODUCTS\nIndustrial Gases\nMedical Gases\nMGPS\nModular OT\n—\nREACH\nClients\nContact\n—\nRESOURCES\nSafety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use\nLOCATIONS\n\nHEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala\n\n+92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com\n\n© 2026 MULTAN CHEMICALS LIMITED\n\nWWW.MCL-GASES.COM"
+  },
+  {
+    "name": "Carbon Dioxide",
+    "formula": "CO₂",
+    "category": "Industrial Gases",
+    "url": "https://mcl-gases.com/industrial-gases/carbon-dioxide",
+    "availability": "In Stock",
+    "supply_form": "",
+    "description": "MCL is a reliable distributor of industrial-grade carbon dioxide sourced from trusted vendors, serving food and beverage, welding, pharmaceuticals, water treatment, and chemical manufacturing across Pakistan with an unwavering commitment to quality.",
+    "stat_capacity": "125 TPD",
+    "stat_cylinders": "",
+    "stat_stations": "",
+    "stat_years": "",
+    "purity_grades": [],
+    "specifications": [],
+    "cylinders": [],
+    "bulk_supply": [],
+    "use_cases": [
+      {
+        "title": "PRODUCT DATA",
+        "description": "CHEMICAL SYMBOL\nCO₂\nMOLECULAR WEIGHT\n44.01 g/mol\nBOILING POINT\n-78.5 °C (sublimes)\nCRITICAL TEMPERATURE\n31.1 °C\nCRITICAL PRESSURE\n73.8 bar\nDENSITY (LIQUID)\n1,032 kg/m³ at 0°C\nSUPPLY SOURCE\nTrusted Vendors\nPURITY RANGE\n99.5% to 99.9% Need a Safety Data Sheet?\n\nDownload the full SDS for CO₂.\n\nVIEW SDS"
+      },
+      {
+        "title": "FOOD & BEVERAGE",
+        "description": "CO₂ carbonates soft drinks, beer, and sparkling water, and is used in modified atmosphere packaging to extend the shelf life of fresh produce, meat, and bakery products."
+      },
+      {
+        "title": "WELDING & METAL FABRICATION",
+        "description": "Used as a shielding gas (pure or in Ar/CO₂ blends) for MIG/MAG welding of mild steel, improving arc stability, weld penetration, and reducing spatter."
+      },
+      {
+        "title": "PHARMACEUTICAL MANUFACTURING",
+        "description": "Supercritical CO₂ extraction and synthesis processes in pharmaceutical production require high-purity CO₂ as a solvent and reaction medium."
+      },
+      {
+        "title": "DRY ICE & QUICK FREEZING",
+        "description": "Solid CO₂ (dry ice) is used for temperature-controlled logistics, surface cleaning (dry ice blasting), and cryogenic quick-freezing of food products."
+      },
+      {
+        "title": "WATER TREATMENT",
+        "description": "CO₂ is injected to lower the pH of alkaline water in treatment plants and swimming pools, replacing acid dosing with a safer, more controllable alternative."
+      },
+      {
+        "title": "CHEMICAL SYNTHESIS",
+        "description": "CO₂ serves as a raw material in the synthesis of urea, salicylic acid, carbonates, and as a reaction medium in supercritical fluid extraction processes."
+      },
+      {
+        "title": "—\nCOMPANY",
+        "description": "About\nProduction\nTeam\nCertifications"
+      },
+      {
+        "title": "—\nPRODUCTS",
+        "description": "Industrial Gases\nMedical Gases\nMGPS\nModular OT"
+      },
+      {
+        "title": "—\nRESOURCES",
+        "description": "Safety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use"
+      },
+      {
+        "title": "LOCATIONS",
+        "description": "HEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala +92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com"
+      }
+    ],
+    "certifications": [],
+    "raw_text": "ESTABLISHED 1985 · MULTAN, PAKISTAN\n+92 61 6538206-8\n|\nINFO@MCL-GASES.COM\nMultan Chemicals\nLIMITED\nAbout\nGases\nHealth Engineering\nProduction\nClients\nCertifications\nCareers\nREQUEST QUOTE\n→\n\nCOMPANY\n\nOverview\nWho we are and what we stand for\nHistory\nFour decades of industry leadership\nMission & Vision\nOur purpose, values and direction\nOur Team\nLeadership, management and technical staff\n\nSINCE 1985\n\nPakistan's most trusted industrial gas producer.\n\nCOMPANY OVERVIEW →\nMEDICAL GASES\nMedical Oxygen\nO₂\nNitrous Oxide\nN₂O\nMedical Air\nAir\nMedical Carbon Dioxide\nCO₂\nINDUSTRIAL GASES\nOxygen\nO₂\nNitrogen\nN₂\nArgon\nAr\nAcetylene\nC₂H₂\nLPG\nLPG\nHydrogen\nH₂\nAmmonia\nNH₃\nCarbon Dioxide\nCO₂\nMixture Gas\nMix\nSPECIALITY GASES\nHelium\nHe\nSpecial & Calibration\nCal\n\nQUICK LINKS\n\nAll Industrial Gases\n→\nAll Medical Gases\n→\nSpeciality Gases\n→\nSafety Data Sheets\n→\n\nOUR CAPACITY\n\n125 TPD\n\nLargest single liquid oxygen plant in Pakistan.\n\nVIEW PRODUCTION →\n\nHEALTHCARE ENGINEERING SERVICES\n\nMGPS\nMedical Gas Pipeline Systems\nOTS\nModular Operation Theatres\nRadiology\nRadiology department solutions\nICU\nIntensive care infrastructure\nCSSD\nCentral sterile supply dept.\nLaundry\nHealthcare laundry systems\nHVAC\nHeating, ventilation & air con.\nRequest a Project Quote\nTalk to our healthcare engineering team\n\nHEALTHCARE SOLUTIONS\n\nEnd-to-end medical gas and engineering infrastructure.\n\nMGPS PORTFOLIO →\nMODULAR OT SYSTEMS →\nHome\n/\nIndustrial Gases\n/\nCarbon Dioxide\nCO₂\nINDUSTRIAL GASES\nIN STOCK\nCARBON\nDIOXIDE\n\nMCL is a reliable distributor of industrial-grade carbon dioxide sourced from trusted vendors, serving food and beverage, welding, pharmaceuticals, water treatment, and chemical manufacturing across Pakistan with an unwavering commitment to quality.\n\nREQUEST QUOTE\nVIEW GRADES\n2\nPURITY GRADES\n99.9%\nMAX PURITY\n1000+\nBUSINESS PARTNERS\n24/7\nSUPPLY AVAILABILITY\nOVERVIEW\nINTEGRITY OF QUALITY\nAND QUANTITY.\nGUARANTEED.\n\nAt Multan Chemicals Limited, we are committed to being a reliable distributor of industrial grade carbon dioxide sourced from trusted vendors. Our dedication to quality ensures that we never compromise on the integrity of the carbon dioxide we trade, whether in terms of quality or quantity.\n\nThrough stringent quality control measures implemented throughout the procurement process, we guarantee that the carbon dioxide we provide meets the highest industry standards. Carbon dioxide serves a multitude of industrial purposes, from food and beverage production to pharmaceutical manufacturing and beyond.\n\n✓\nSourced exclusively from trusted, reputable vendors\n✓\nIndustrial and food-grade options available\n✓\nStringent quality control throughout procurement\n✓\nContinuous round-the-clock supply availability\nTECHNICAL SPECIFICATIONS\nPRODUCT DATA\nCHEMICAL SYMBOL\nCO₂\nMOLECULAR WEIGHT\n44.01 g/mol\nBOILING POINT\n-78.5 °C (sublimes)\nCRITICAL TEMPERATURE\n31.1 °C\nCRITICAL PRESSURE\n73.8 bar\nDENSITY (LIQUID)\n1,032 kg/m³ at 0°C\nSUPPLY SOURCE\nTrusted Vendors\nPURITY RANGE\n99.5% to 99.9%\n\nNeed a Safety Data Sheet?\n\nDownload the full SDS for CO₂.\n\nVIEW SDS\nAVAILABLE GRADES\nTWO PURITY LEVELS.\nONE TRUSTED SOURCE.\nINDUSTRIAL\n\nCO₂ 99.5%\n\nINDUSTRIAL GRADE\n\nGeneral purpose industrial grade for carbonation of beverages, pH adjustment in water treatment, welding shielding, and bulk chemical manufacturing.\n\nREQUEST THIS GRADE\nFOOD GRADE\n\nCO₂ 99.9%\n\nFOOD GRADE\n\nFood-contact grade CO₂ meeting ISBT / EIGA purity standards for carbonated drinks, modified atmosphere packaging, quick-freezing, and dry ice production.\n\nREQUEST THIS GRADE\nWHERE IT'S USED\nKEY APPLICATIONS\n🥤\nFOOD & BEVERAGE\n\nCO₂ carbonates soft drinks, beer, and sparkling water, and is used in modified atmosphere packaging to extend the shelf life of fresh produce, meat, and bakery products.\n\n🔥\nWELDING & METAL FABRICATION\n\nUsed as a shielding gas (pure or in Ar/CO₂ blends) for MIG/MAG welding of mild steel, improving arc stability, weld penetration, and reducing spatter.\n\n💊\nPHARMACEUTICAL MANUFACTURING\n\nSupercritical CO₂ extraction and synthesis processes in pharmaceutical production require high-purity CO₂ as a solvent and reaction medium.\n\n🧊\nDRY ICE & QUICK FREEZING\n\nSolid CO₂ (dry ice) is used for temperature-controlled logistics, surface cleaning (dry ice blasting), and cryogenic quick-freezing of food products.\n\n💧\nWATER TREATMENT\n\nCO₂ is injected to lower the pH of alkaline water in treatment plants and swimming pools, replacing acid dosing with a safer, more controllable alternative.\n\n🔬\nCHEMICAL SYNTHESIS\n\nCO₂ serves as a raw material in the synthesis of urea, salicylic acid, carbonates, and as a reaction medium in supercritical fluid extraction processes.\n\nSECTORS SERVED\nINDUSTRIES WE SUPPLY\n\nCO₂ from MCL reaches food producers, chemical plants, metal fabricators, and laboratories across Pakistan.\n\nFOOD & BEVERAGE\nPHARMACEUTICALS\nWELDING & FABRICATION\nWATER TREATMENT\nCHEMICALS\nOIL & GAS\nRUBBER & PLASTICS\nDRY ICE PRODUCTION\nFIRE SUPPRESSION\nLABORATORIES\nPACKAGING\nAGRICULTURE\nEXPLORE MORE\nO₂\nOXYGEN\nEXPLORE\nN₂\nNITROGEN\nEXPLORE\nAr\nARGON\nEXPLORE\nMix\nMIXTURE GAS\nEXPLORE\nCO₂\n\nREADY TO PLACE AN ORDER?\n\nOur team responds within 24 hours for all CO₂ enquiries.\n\nCONTACT US\nCALL NOW\nMultan Chemicals Limited\n\nIndustrial and medical gases, MGPS and modular healthcare infrastructure — produced and supported across Pakistan.\n\nGET IN TOUCH\n→\nCALL HEAD OFFICE\n—\nCOMPANY\nAbout\nProduction\nTeam\nCertifications\n—\nPRODUCTS\nIndustrial Gases\nMedical Gases\nMGPS\nModular OT\n—\nREACH\nClients\nContact\n—\nRESOURCES\nSafety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use\nLOCATIONS\n\nHEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala\n\n+92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com\n\n© 2026 MULTAN CHEMICALS LIMITED\n\nWWW.MCL-GASES.COM"
+  },
+  {
+    "name": "Mixture Gas",
+    "formula": "Mix",
+    "category": "Industrial Gases",
+    "url": "https://mcl-gases.com/industrial-gases/mixture-gas",
+    "availability": "",
+    "supply_form": "",
+    "description": "MCL produces a diverse range of mixture gases tailored to meet the specific needs of industrial, scientific, and calibration applications. From standard Ar/CO₂ welding blends to P10 detector gas and fully bespoke custom mixtures, we formulate to your exact specification.",
+    "stat_capacity": "125 TPD",
+    "stat_cylinders": "",
+    "stat_stations": "",
+    "stat_years": "",
+    "purity_grades": [],
+    "specifications": [],
+    "cylinders": [],
+    "bulk_supply": [],
+    "use_cases": [
+      {
+        "title": "PRODUCT DATA",
+        "description": "BLEND TYPES\nBinary & Ternary\nCOMPONENT RANGE\nAny certified gases\nCONCENTRATION ACCURACY\n±1% rel. (standard)\nCYLINDER PRESSURE\nUp to 200 bar\nAVAILABLE SIZES\n10L, 40L, 47L cylinders\nCERTIFICATE OF ANALYSIS\nProvided on request\nSHELF LIFE\n12 – 36 months (gas dep.)\nMIN. ORDER\nContact MCL for details Need"
+      },
+      {
+        "title": "MIG / MAG WELDING",
+        "description": "Ar/CO₂ blends are essential for MIG/MAG welding — CO₂ enhances penetration and arc energy while argon stabilises the arc and reduces spatter for cleaner, higher-quality welds."
+      },
+      {
+        "title": "PARTICLE PHYSICS & RADIATION",
+        "description": "P10 gas (Ar/CH₄) fills proportional counters and multi-wire detectors used in nuclear research, radiation measurement, and high-energy particle physics experiments."
+      },
+      {
+        "title": "CALIBRATION & METROLOGY",
+        "description": "Certified reference gas mixtures with traceable, certified compositions are used to calibrate gas analysers, environmental monitoring instruments, and industrial process sensors."
+      },
+      {
+        "title": "DIVING & HYPERBARIC",
+        "description": "Heliox and trimix blends replace nitrogen in breathing gas for deep commercial diving, reducing narcosis risk and enabling operation at depths beyond air's safe limits."
+      },
+      {
+        "title": "LABORATORY & RESEARCH",
+        "description": "Custom blends at precise concentrations support chromatography, spectroscopy, cell culture CO₂ incubation, and a wide range of other research and analytical applications."
+      },
+      {
+        "title": "HEAT TREATMENT ATMOSPHERES",
+        "description": "Controlled N₂/H₂ and N₂/CH₄ mixtures create reducing or neutral atmospheres for annealing, sintering, and bright hardening of metals in industrial furnaces."
+      },
+      {
+        "title": "—\nCOMPANY",
+        "description": "About\nProduction\nTeam\nCertifications"
+      },
+      {
+        "title": "—\nPRODUCTS",
+        "description": "Industrial Gases\nMedical Gases\nMGPS\nModular OT"
+      },
+      {
+        "title": "—\nRESOURCES",
+        "description": "Safety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use"
+      },
+      {
+        "title": "LOCATIONS",
+        "description": "HEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala +92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com"
+      }
+    ],
+    "certifications": [],
+    "raw_text": "ESTABLISHED 1985 · MULTAN, PAKISTAN\n+92 61 6538206-8\n|\nINFO@MCL-GASES.COM\nMultan Chemicals\nLIMITED\nAbout\nGases\nHealth Engineering\nProduction\nClients\nCertifications\nCareers\nREQUEST QUOTE\n→\n\nCOMPANY\n\nOverview\nWho we are and what we stand for\nHistory\nFour decades of industry leadership\nMission & Vision\nOur purpose, values and direction\nOur Team\nLeadership, management and technical staff\n\nSINCE 1985\n\nPakistan's most trusted industrial gas producer.\n\nCOMPANY OVERVIEW →\nMEDICAL GASES\nMedical Oxygen\nO₂\nNitrous Oxide\nN₂O\nMedical Air\nAir\nMedical Carbon Dioxide\nCO₂\nINDUSTRIAL GASES\nOxygen\nO₂\nNitrogen\nN₂\nArgon\nAr\nAcetylene\nC₂H₂\nLPG\nLPG\nHydrogen\nH₂\nAmmonia\nNH₃\nCarbon Dioxide\nCO₂\nMixture Gas\nMix\nSPECIALITY GASES\nHelium\nHe\nSpecial & Calibration\nCal\n\nQUICK LINKS\n\nAll Industrial Gases\n→\nAll Medical Gases\n→\nSpeciality Gases\n→\nSafety Data Sheets\n→\n\nOUR CAPACITY\n\n125 TPD\n\nLargest single liquid oxygen plant in Pakistan.\n\nVIEW PRODUCTION →\n\nHEALTHCARE ENGINEERING SERVICES\n\nMGPS\nMedical Gas Pipeline Systems\nOTS\nModular Operation Theatres\nRadiology\nRadiology department solutions\nICU\nIntensive care infrastructure\nCSSD\nCentral sterile supply dept.\nLaundry\nHealthcare laundry systems\nHVAC\nHeating, ventilation & air con.\nRequest a Project Quote\nTalk to our healthcare engineering team\n\nHEALTHCARE SOLUTIONS\n\nEnd-to-end medical gas and engineering infrastructure.\n\nMGPS PORTFOLIO →\nMODULAR OT SYSTEMS →\nHome\n/\nIndustrial Gases\n/\nMixture Gas\nA+B\nINDUSTRIAL GASES\nCUSTOM BLENDS\nMIXTURE\nGASES\n\nMCL produces a diverse range of mixture gases tailored to meet the specific needs of industrial, scientific, and calibration applications. From standard Ar/CO₂ welding blends to P10 detector gas and fully bespoke custom mixtures, we formulate to your exact specification.\n\nREQUEST A BLEND\nVIEW BLENDS\n6+\nSTANDARD BLENDS\n±1%\nCONCENTRATION ACCURACY\nCustom\nBESPOKE FORMULATION\n24/7\nSUPPLY AVAILABILITY\nOVERVIEW\nPRECISION BLENDS\nFOR EVERY PROCESS.\n\nAt Multan Chemicals Limited, we pride ourselves on our capability to produce a diverse range of mixture gases tailored to meet the specific needs of various industrial applications. These mixtures are meticulously formulated to deliver optimal performance and efficiency in specific industrial processes.\n\nThe Argon and CO₂ blend, for instance, finds widespread use in welding applications, offering enhanced stability and penetration characteristics. P10 Gas is commonly employed in gas-filled detectors and particle physics experiments due to its unique properties.\n\n✓\nStandard blends held in stock for immediate dispatch\n✓\nBespoke binary and ternary blends to specification\n✓\nCertificate of Analysis provided on every batch\n✓\nConcentration accuracy of ±1% relative (standard grade)\nGENERAL SPECIFICATIONS\nPRODUCT DATA\nBLEND TYPES\nBinary & Ternary\nCOMPONENT RANGE\nAny certified gases\nCONCENTRATION ACCURACY\n±1% rel. (standard)\nCYLINDER PRESSURE\nUp to 200 bar\nAVAILABLE SIZES\n10L, 40L, 47L cylinders\nCERTIFICATE OF ANALYSIS\nProvided on request\nSHELF LIFE\n12 – 36 months (gas dep.)\nMIN. ORDER\nContact MCL for details\n\nNeed a custom blend?\n\nTell us your components, ratios, and required accuracy and our technical team will formulate and quote.\n\nDISCUSS YOUR BLEND\nAVAILABLE BLENDS\nSTANDARD & CUSTOM\nMIXTURE GASES.\nWELDING\n\nAr / CO₂\n\nWELDING SHIELDING BLEND\n\nTypically 75–82% Ar + 18–25% CO₂\n\nThe most widely used MIG/MAG welding gas blend. CO₂ improves penetration and arc stability while argon reduces spatter, producing clean welds on mild and stainless steel.\n\nREQUEST THIS BLEND\nSCIENTIFIC\n\nP10\n\nDETECTOR GAS\n\n90% Argon + 10% Methane\n\nThe industry standard fill gas for proportional counters and gas-filled particle detectors in nuclear physics, radiation monitoring, and scientific research applications.\n\nREQUEST THIS BLEND\nMEDICAL / DIVING\n\nHe / O₂\n\nHELIOX BLEND\n\nCustom He / O₂ ratios\n\nHeliox blends reduce breathing resistance in patients with severe airway obstruction and are used in deep-sea diving operations to prevent nitrogen narcosis.\n\nREQUEST THIS BLEND\nCALIBRATION\n\nN₂ / O₂\n\nSYNTHETIC AIR BLEND\n\n78% N₂ + 21% O₂ + trace\n\nPrecision synthetic air with certified oxygen content for instrument calibration, combustion analysis, and environmental monitoring reference standards.\n\nREQUEST THIS BLEND\nWELDING\n\nAr / He\n\nTIG WELDING BLEND\n\nCustom Ar / He ratios\n\nHelium addition to argon increases heat input and arc voltage, improving travel speeds and fusion when TIG welding thick sections of aluminium and stainless steel.\n\nREQUEST THIS BLEND\nCUSTOM\n\nCustom\n\nBESPOKE BLENDS\n\nAny binary or ternary mix\n\nMCL formulates custom mixture gases to your exact specification — binary or ternary blends, any component ratio, certified with analysis certificate for your process.\n\nREQUEST THIS BLEND\nWHERE THEY'RE USED\nKEY APPLICATIONS\n🔥\nMIG / MAG WELDING\n\nAr/CO₂ blends are essential for MIG/MAG welding — CO₂ enhances penetration and arc energy while argon stabilises the arc and reduces spatter for cleaner, higher-quality welds.\n\n⚛\nPARTICLE PHYSICS & RADIATION\n\nP10 gas (Ar/CH₄) fills proportional counters and multi-wire detectors used in nuclear research, radiation measurement, and high-energy particle physics experiments.\n\n🧪\nCALIBRATION & METROLOGY\n\nCertified reference gas mixtures with traceable, certified compositions are used to calibrate gas analysers, environmental monitoring instruments, and industrial process sensors.\n\n🌊\nDIVING & HYPERBARIC\n\nHeliox and trimix blends replace nitrogen in breathing gas for deep commercial diving, reducing narcosis risk and enabling operation at depths beyond air's safe limits.\n\n🔬\nLABORATORY & RESEARCH\n\nCustom blends at precise concentrations support chromatography, spectroscopy, cell culture CO₂ incubation, and a wide range of other research and analytical applications.\n\n🏭\nHEAT TREATMENT ATMOSPHERES\n\nControlled N₂/H₂ and N₂/CH₄ mixtures create reducing or neutral atmospheres for annealing, sintering, and bright hardening of metals in industrial furnaces.\n\nSECTORS SERVED\nINDUSTRIES WE SUPPLY\n\nMixture gases fr"
+  },
+  {
+    "name": "Helium",
+    "formula": "He",
+    "category": "Speciality Gases",
+    "url": "https://mcl-gases.com/speciality-gases/helium",
+    "availability": "",
+    "supply_form": "",
+    "description": "MCL imports high-purity helium gas in three grades sourced from Sharjah Oxygen in the UAE, serving gas chromatography, MRI cryocooling, leak detection, fibre optic manufacturing, and semiconductor applications across Pakistan.",
+    "stat_capacity": "125 TPD",
+    "stat_cylinders": "",
+    "stat_stations": "",
+    "stat_years": "",
+    "purity_grades": [],
+    "specifications": [],
+    "cylinders": [],
+    "bulk_supply": [],
+    "use_cases": [
+      {
+        "title": "PRODUCT DATA",
+        "description": "CHEMICAL SYMBOL\nHe\nMOLECULAR WEIGHT\n4.003 g/mol\nBOILING POINT\n-268.93 °C (4.22 K)\nCRITICAL TEMPERATURE\n-267.96 °C (5.19 K)\nCRITICAL PRESSURE\n2.27 bar\nDENSITY (GAS, 15°C)\n0.164 kg/m³\nSUPPLY SOURCE\nSharjah Oxygen, UAE\nPURITY RANGE\n99.6% to 99.999% Need a Safety Data Sheet?\n\nDownload the full SDS for h"
+      },
+      {
+        "title": "GAS CHROMATOGRAPHY",
+        "description": "Helium is the preferred carrier gas in gas chromatography (GC and GC/MS), providing inert, high-diffusivity transport of analytes through capillary columns for precise analytical separations."
+      },
+      {
+        "title": "MRI CRYOCOOLING",
+        "description": "Liquid helium cools the superconducting magnets in MRI scanners to near absolute zero (-269 °C), maintaining the magnetic field required for high-resolution diagnostic imaging."
+      },
+      {
+        "title": "LEAK DETECTION",
+        "description": "Helium's small molecular size and atmospheric rarity make it the ideal tracer gas for mass spectrometer-based leak testing of vacuum systems, refrigeration units, and pressure vessels."
+      },
+      {
+        "title": "FIBRE OPTIC MANUFACTURING",
+        "description": "High-purity helium purges the draw furnace and cooling tube during optical fibre drawing, preventing oxidation of the silica preform and ensuring low attenuation in the finished fibre."
+      },
+      {
+        "title": "SEMICONDUCTOR & ELECTRONICS",
+        "description": "Used in epitaxial growth, ion implantation cooling, and as a backside cooling gas in wafer processing equipment to maintain precise temperature control during semiconductor fabrication."
+      },
+      {
+        "title": "TIG WELDING OF REACTIVE METALS",
+        "description": "Helium additions to argon shielding gas increase arc temperature and heat input, enabling faster travel speeds when TIG welding thick aluminium, titanium, and copper alloys."
+      },
+      {
+        "title": "—\nCOMPANY",
+        "description": "About\nProduction\nTeam\nCertifications"
+      },
+      {
+        "title": "—\nPRODUCTS",
+        "description": "Industrial Gases\nMedical Gases\nMGPS\nModular OT"
+      },
+      {
+        "title": "—\nRESOURCES",
+        "description": "Safety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use"
+      },
+      {
+        "title": "LOCATIONS",
+        "description": "HEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala +92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com"
+      }
+    ],
+    "certifications": [],
+    "raw_text": "ESTABLISHED 1985 · MULTAN, PAKISTAN\n+92 61 6538206-8\n|\nINFO@MCL-GASES.COM\nMultan Chemicals\nLIMITED\nAbout\nGases\nHealth Engineering\nProduction\nClients\nCertifications\nCareers\nREQUEST QUOTE\n→\n\nCOMPANY\n\nOverview\nWho we are and what we stand for\nHistory\nFour decades of industry leadership\nMission & Vision\nOur purpose, values and direction\nOur Team\nLeadership, management and technical staff\n\nSINCE 1985\n\nPakistan's most trusted industrial gas producer.\n\nCOMPANY OVERVIEW →\nMEDICAL GASES\nMedical Oxygen\nO₂\nNitrous Oxide\nN₂O\nMedical Air\nAir\nMedical Carbon Dioxide\nCO₂\nINDUSTRIAL GASES\nOxygen\nO₂\nNitrogen\nN₂\nArgon\nAr\nAcetylene\nC₂H₂\nLPG\nLPG\nHydrogen\nH₂\nAmmonia\nNH₃\nCarbon Dioxide\nCO₂\nMixture Gas\nMix\nSPECIALITY GASES\nHelium\nHe\nSpecial & Calibration\nCal\n\nQUICK LINKS\n\nAll Industrial Gases\n→\nAll Medical Gases\n→\nSpeciality Gases\n→\nSafety Data Sheets\n→\n\nOUR CAPACITY\n\n125 TPD\n\nLargest single liquid oxygen plant in Pakistan.\n\nVIEW PRODUCTION →\n\nHEALTHCARE ENGINEERING SERVICES\n\nMGPS\nMedical Gas Pipeline Systems\nOTS\nModular Operation Theatres\nRadiology\nRadiology department solutions\nICU\nIntensive care infrastructure\nCSSD\nCentral sterile supply dept.\nLaundry\nHealthcare laundry systems\nHVAC\nHeating, ventilation & air con.\nRequest a Project Quote\nTalk to our healthcare engineering team\n\nHEALTHCARE SOLUTIONS\n\nEnd-to-end medical gas and engineering infrastructure.\n\nMGPS PORTFOLIO →\nMODULAR OT SYSTEMS →\nHome\n/\nSpeciality Gases\n/\nHelium\nHe\nSPECIALITY GASES\nIMPORTED\nHELIUM\nGAS\n\nMCL imports high-purity helium gas in three grades sourced from Sharjah Oxygen in the UAE, serving gas chromatography, MRI cryocooling, leak detection, fibre optic manufacturing, and semiconductor applications across Pakistan.\n\nREQUEST QUOTE\nVIEW GRADES\n3\nPURITY GRADES\n99.999%\nMAX PURITY (LAB)\nUAE\nIMPORT SOURCE\n24/7\nSUPPLY AVAILABILITY\nOVERVIEW\nEXCEPTIONAL PURITY\nAND RELIABILITY\n\nAt Multan Chemicals Limited, we take pride in our partnership with trusted vendors such as Sharjah Oxygen from the UAE for the importation of Helium Gas. We prioritise the procurement of high-quality Helium Gas to meet the diverse needs of our customers across various industries.\n\nThrough our collaboration with reputable suppliers, we ensure that the Helium Gas we import maintains exceptional purity and reliability without compromise. Helium is a non-renewable, finite resource — our supply chain prioritises quality traceability and consistency for mission-critical applications.\n\n✓\nSourced from Sharjah Oxygen, UAE — trusted global supplier\n✓\nThree purity grades from 99.6% to 99.999%\n✓\nStringent quality control throughout procurement\n✓\nCertificates of Analysis available on every batch\n\nA note on helium supply\n\nHelium is a finite, non-renewable resource extracted as a by-product of natural gas. Global supply constraints mean lead times can vary. Contact MCL early to secure allocation for long-term or high-volume requirements.\n\nTECHNICAL SPECIFICATIONS\nPRODUCT DATA\nCHEMICAL SYMBOL\nHe\nMOLECULAR WEIGHT\n4.003 g/mol\nBOILING POINT\n-268.93 °C (4.22 K)\nCRITICAL TEMPERATURE\n-267.96 °C (5.19 K)\nCRITICAL PRESSURE\n2.27 bar\nDENSITY (GAS, 15°C)\n0.164 kg/m³\nSUPPLY SOURCE\nSharjah Oxygen, UAE\nPURITY RANGE\n99.6% to 99.999%\n\nNeed a Safety Data Sheet?\n\nDownload the full SDS for helium gas.\n\nVIEW SDS\n\nSUPPLY NOTICE\n\nHelium is an imported speciality gas subject to global supply constraints. Lead times vary by grade and quantity. Contact our team early for volume orders or ongoing contracts.\n\nDISCUSS REQUIREMENTS →\nAVAILABLE GRADES\nTHREE PURITY LEVELS.\nONE TRUSTED SOURCE.\nINDUSTRIAL\n\nHe 99.6%\n\nINDUSTRIAL GRADE\n\nEntry-level helium for general industrial use including leak detection, controlled atmosphere welding of reactive metals, and inflation of balloons and airships.\n\nREQUEST THIS GRADE\nHIGH PURITY\n\nHe 99.9%\n\nHIGH PURITY\n\nElevated purity for gas chromatography carrier gas, fibre optic manufacturing, and semiconductor process chambers where moisture and oxygen traces are critical.\n\nREQUEST THIS GRADE\nULTRA PURE\n\nHe 99.999%\n\nLAB GRADE\n\nUltra-pure five-nine helium for GC/MS carrier gas, NMR spectroscopy, cryogenic cooling of superconducting MRI magnets, and quantum physics research.\n\nREQUEST THIS GRADE\nWHERE IT'S USED\nKEY APPLICATIONS\n🧪\nGAS CHROMATOGRAPHY\n\nHelium is the preferred carrier gas in gas chromatography (GC and GC/MS), providing inert, high-diffusivity transport of analytes through capillary columns for precise analytical separations.\n\n🏥\nMRI CRYOCOOLING\n\nLiquid helium cools the superconducting magnets in MRI scanners to near absolute zero (-269 °C), maintaining the magnetic field required for high-resolution diagnostic imaging.\n\n🔍\nLEAK DETECTION\n\nHelium's small molecular size and atmospheric rarity make it the ideal tracer gas for mass spectrometer-based leak testing of vacuum systems, refrigeration units, and pressure vessels.\n\n🌐\nFIBRE OPTIC MANUFACTURING\n\nHigh-purity helium purges the draw furnace and cooling tube during optical fibre drawing, preventing oxidation of the silica preform and ensuring low attenuation in the finished fibre.\n\n⚡\nSEMICONDUCTOR & ELECTRONICS\n\nUsed in epitaxial growth, ion implantation cooling, and as a backside cooling gas in wafer processing equipment to maintain precise temperature control during semiconductor fabrication.\n\n🔥\nTIG WELDING OF REACTIVE METALS\n\nHelium additions to argon shielding gas increase arc temperature and heat input, enabling faster travel speeds when TIG welding thick aluminium, titanium, and copper alloys.\n\nSECTORS SERVED\nINDUSTRIES WE SUPPLY\n\nHelium from MCL supports advanced research, medical imaging, and precision manufacturing across Pakistan.\n\nLABORATORIES\nHEALTHCARE / MRI\nSEMICONDUCTORS\nFIBRE OPTICS\nLEAK DETECTION\nWELDING & FABRICATION\nAEROSPACE\nNUCLEAR RESEARCH\nCRYOGENICS\nMETEOROLOGY\nDIVING\nRESEARCH & DEVELOPMENT\nEXPLORE MORE\nCal\nSPECIAL & CALIBRATION\nEXPLORE\nN₂\nNITROGEN\nEXPLORE\nAr\nARGON\nEXPLORE\nH₂\nHYDROGEN\nEXPLORE\nHe\n\nREADY TO PLACE AN ORDER?\n\nOur team responds within 24 hours for all helium enquiries.\n\nCONTACT US\nCALL NOW\nMultan"
+  },
+  {
+    "name": "Special & Calibration",
+    "formula": "Cal",
+    "category": "Speciality Gases",
+    "url": "https://mcl-gases.com/speciality-gases/special-calibration",
+    "availability": "",
+    "supply_form": "",
+    "description": "Industrial and medical gases, MGPS and modular healthcare infrastructure — produced and supported across Pakistan.",
+    "stat_capacity": "125 TPD",
+    "stat_cylinders": "",
+    "stat_stations": "",
+    "stat_years": "",
+    "purity_grades": [],
+    "specifications": [],
+    "cylinders": [],
+    "bulk_supply": [],
+    "use_cases": [
+      {
+        "title": "—\nCOMPANY",
+        "description": "About\nProduction\nTeam\nCertifications"
+      },
+      {
+        "title": "—\nPRODUCTS",
+        "description": "Industrial Gases\nMedical Gases\nMGPS\nModular OT"
+      },
+      {
+        "title": "—\nRESOURCES",
+        "description": "Safety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use"
+      },
+      {
+        "title": "LOCATIONS",
+        "description": "HEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala +92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com"
+      }
+    ],
+    "certifications": [],
+    "raw_text": "ESTABLISHED 1985 · MULTAN, PAKISTAN\n+92 61 6538206-8\n|\nINFO@MCL-GASES.COM\nMultan Chemicals\nLIMITED\nAbout\nGases\nHealth Engineering\nProduction\nClients\nCertifications\nCareers\nREQUEST QUOTE\n→\n\nCOMPANY\n\nOverview\nWho we are and what we stand for\nHistory\nFour decades of industry leadership\nMission & Vision\nOur purpose, values and direction\nOur Team\nLeadership, management and technical staff\n\nSINCE 1985\n\nPakistan's most trusted industrial gas producer.\n\nCOMPANY OVERVIEW →\nMEDICAL GASES\nMedical Oxygen\nO₂\nNitrous Oxide\nN₂O\nMedical Air\nAir\nMedical Carbon Dioxide\nCO₂\nINDUSTRIAL GASES\nOxygen\nO₂\nNitrogen\nN₂\nArgon\nAr\nAcetylene\nC₂H₂\nLPG\nLPG\nHydrogen\nH₂\nAmmonia\nNH₃\nCarbon Dioxide\nCO₂\nMixture Gas\nMix\nSPECIALITY GASES\nHelium\nHe\nSpecial & Calibration\nCal\n\nQUICK LINKS\n\nAll Industrial Gases\n→\nAll Medical Gases\n→\nSpeciality Gases\n→\nSafety Data Sheets\n→\n\nOUR CAPACITY\n\n125 TPD\n\nLargest single liquid oxygen plant in Pakistan.\n\nVIEW PRODUCTION →\n\nHEALTHCARE ENGINEERING SERVICES\n\nMGPS\nMedical Gas Pipeline Systems\nOTS\nModular Operation Theatres\nRadiology\nRadiology department solutions\nICU\nIntensive care infrastructure\nCSSD\nCentral sterile supply dept.\nLaundry\nHealthcare laundry systems\nHVAC\nHeating, ventilation & air con.\nRequest a Project Quote\nTalk to our healthcare engineering team\n\nHEALTHCARE SOLUTIONS\n\nEnd-to-end medical gas and engineering infrastructure.\n\nMGPS PORTFOLIO →\nMODULAR OT SYSTEMS →\n\nNot Found\n\nMultan Chemicals Limited\n\nIndustrial and medical gases, MGPS and modular healthcare infrastructure — produced and supported across Pakistan.\n\nGET IN TOUCH\n→\nCALL HEAD OFFICE\n—\nCOMPANY\nAbout\nProduction\nTeam\nCertifications\n—\nPRODUCTS\nIndustrial Gases\nMedical Gases\nMGPS\nModular OT\n—\nREACH\nClients\nContact\n—\nRESOURCES\nSafety data sheets (MSDS)\nCareers\nPrivacy policy\nTerms of use\nLOCATIONS\n\nHEAD OFFICE\n\nMultan\n\n4-C-II Industrial Estate, Multan Cantt\n\nPRODUCTION\n\nFaisalabad\n\nPlot 6-7-8, FIEDMC Industrial Estate, Sahianwala\n\n+92 61 6538206-8\n+92 41 8900111-2\ninfo@mcl-gases.com\n\n© 2026 MULTAN CHEMICALS LIMITED\n\nWWW.MCL-GASES.COM"
+  }
+]

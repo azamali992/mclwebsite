@@ -13,6 +13,7 @@ import ModularOT from './pages/ModularOT';
 import ClinicalSystems from './pages/ClinicalSystems';
 import Team from './pages/Team';
 import Gases from './pages/Gases';
+import GasDetail from './pages/GasDetail';
 import HealthEngineering from './pages/HealthEngineering';
 import Contact from './pages/Contact';
 import Careers from './pages/Careers';
@@ -58,6 +59,7 @@ export default function App() {
           <Route path="/clinical-systems" element={<ClinicalSystems />} />
           <Route path="/team" element={<Team />} />
           <Route path="/gases" element={<Gases />} />
+          <Route path="/gases/:categoryPath/:slug" element={<GasDetail />} />
           <Route path="/health-engineering" element={<HealthEngineering />} />
           <Route path="/products" element={<Navigate to="/gases" replace />} />
           <Route path="/careers" element={<Careers />} />

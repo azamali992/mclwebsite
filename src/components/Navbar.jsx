@@ -5,7 +5,7 @@ import {
   FaBuilding, FaBullseye, FaHistory, FaUsers, FaMapMarkedAlt, FaIndustry, FaAward,
 } from 'react-icons/fa';
 import logo from '../assets/MCL_Logo.jpeg';
-import { slugify, industrialGases, medicalGases, specialtyGases, lpgGases } from '../data/products';
+import { gasesBySection } from '../data/gasesData';
 import useStats from '../hooks/useStats';
 import { resolveStat } from '../data/stats';
 
@@ -164,10 +164,10 @@ export default function Navbar() {
                             <div>
                               <p className="text-mclRed font-bold uppercase tracking-widest text-xs mb-3">Medical Gases</p>
                               <ul className="space-y-2.5">
-                                {medicalGases.map((p) => (
-                                  <li key={p.title}>
-                                    <Link to={`/gases#${slugify(p.title)}`} onClick={() => setGasesOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
-                                      {p.title}
+                                {gasesBySection.medical.map((g) => (
+                                  <li key={g.slug}>
+                                    <Link to={`/gases/${g.categoryPath}/${g.slug}`} onClick={() => setGasesOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
+                                      {g.cardTitle}
                                     </Link>
                                   </li>
                                 ))}
@@ -176,10 +176,10 @@ export default function Navbar() {
                             <div>
                               <p className="text-mclRed font-bold uppercase tracking-widest text-xs mb-3">Industrial Gases</p>
                               <ul className="space-y-2.5">
-                                {[...industrialGases, ...lpgGases].map((p) => (
-                                  <li key={p.title}>
-                                    <Link to={`/gases#${slugify(p.title)}`} onClick={() => setGasesOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
-                                      {p.title}
+                                {[...gasesBySection.industrial, ...gasesBySection.lpg].map((g) => (
+                                  <li key={g.slug}>
+                                    <Link to={`/gases/${g.categoryPath}/${g.slug}`} onClick={() => setGasesOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
+                                      {g.cardTitle}
                                     </Link>
                                   </li>
                                 ))}
@@ -188,10 +188,10 @@ export default function Navbar() {
                             <div>
                               <p className="text-mclRed font-bold uppercase tracking-widest text-xs mb-3">Specialty Gases</p>
                               <ul className="space-y-2.5">
-                                {specialtyGases.map((p) => (
-                                  <li key={p.title}>
-                                    <Link to={`/gases#${slugify(p.title)}`} onClick={() => setGasesOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
-                                      {p.title}
+                                {gasesBySection.specialty.map((g) => (
+                                  <li key={g.slug}>
+                                    <Link to={`/gases/${g.categoryPath}/${g.slug}`} onClick={() => setGasesOpen(false)} className="text-sm text-gray-700 hover:text-mclRed transition-colors">
+                                      {g.cardTitle}
                                     </Link>
                                   </li>
                                 ))}
@@ -384,21 +384,21 @@ export default function Navbar() {
                   {mobileGasesOpen && (
                     <div className="pl-4 pb-2 space-y-1">
                       <p className="text-[10px] font-bold text-mclRed uppercase tracking-wider px-3 pt-2">Medical Gases</p>
-                      {medicalGases.map((p) => (
-                        <Link key={p.title} to={`/gases#${slugify(p.title)}`} onClick={() => { setIsOpen(false); setMobileGasesOpen(false); }} className="block px-3 py-1.5 text-sm text-gray-600 hover:text-mclRed">
-                          {p.title}
+                      {gasesBySection.medical.map((g) => (
+                        <Link key={g.slug} to={`/gases/${g.categoryPath}/${g.slug}`} onClick={() => { setIsOpen(false); setMobileGasesOpen(false); }} className="block px-3 py-1.5 text-sm text-gray-600 hover:text-mclRed">
+                          {g.cardTitle}
                         </Link>
                       ))}
                       <p className="text-[10px] font-bold text-mclRed uppercase tracking-wider px-3 pt-2">Industrial Gases</p>
-                      {[...industrialGases, ...lpgGases].map((p) => (
-                        <Link key={p.title} to={`/gases#${slugify(p.title)}`} onClick={() => { setIsOpen(false); setMobileGasesOpen(false); }} className="block px-3 py-1.5 text-sm text-gray-600 hover:text-mclRed">
-                          {p.title}
+                      {[...gasesBySection.industrial, ...gasesBySection.lpg].map((g) => (
+                        <Link key={g.slug} to={`/gases/${g.categoryPath}/${g.slug}`} onClick={() => { setIsOpen(false); setMobileGasesOpen(false); }} className="block px-3 py-1.5 text-sm text-gray-600 hover:text-mclRed">
+                          {g.cardTitle}
                         </Link>
                       ))}
                       <p className="text-[10px] font-bold text-mclRed uppercase tracking-wider px-3 pt-2">Specialty Gases</p>
-                      {specialtyGases.map((p) => (
-                        <Link key={p.title} to={`/gases#${slugify(p.title)}`} onClick={() => { setIsOpen(false); setMobileGasesOpen(false); }} className="block px-3 py-1.5 text-sm text-gray-600 hover:text-mclRed">
-                          {p.title}
+                      {gasesBySection.specialty.map((g) => (
+                        <Link key={g.slug} to={`/gases/${g.categoryPath}/${g.slug}`} onClick={() => { setIsOpen(false); setMobileGasesOpen(false); }} className="block px-3 py-1.5 text-sm text-gray-600 hover:text-mclRed">
+                          {g.cardTitle}
                         </Link>
                       ))}
                     </div>

@@ -9,9 +9,8 @@ import cylinderYardImg from '../assets/infra02.JPG';
 import medicalGasImg from '../assets/products/mgps-ward-hero.jpeg';
 import specialtyGasImg from '../assets/daplant.png';
 import lpgImg from '../assets/trucks1.JPG';
-import {
-  industrialGases, medicalGases, specialtyGases, lpgGases, categoryGroups,
-} from '../data/products';
+import { categoryGroups } from '../data/products';
+import { gasesBySection } from '../data/gasesData';
 
 const gasesGroup = categoryGroups.find((g) => g.id === 'gases');
 
@@ -45,14 +44,7 @@ export default function Gases() {
     return () => clearTimeout(timeout);
   }, [categoryParam]);
 
-  const gasDefaults = {
-    industrial: industrialGases,
-    medical: medicalGases,
-    specialty: specialtyGases,
-    lpg: lpgGases,
-  };
-
-  const getProductsForCategory = (categoryId) => gasDefaults[categoryId] || [];
+  const getProductsForCategory = (categoryId) => gasesBySection[categoryId] || [];
 
   const pageTitle = contentMap['page-hero-title']?.title || 'Industrial, Medical & Specialty Gases';
   const pageDesc = contentMap['page-hero-description']?.title || 'Multan Chemicals Limited is Pakistan\'s premier supplier of high-purity industrial gases, medical-grade gases, specialty gas mixtures, and LPG.';
@@ -102,8 +94,15 @@ export default function Gases() {
                 <h3 className="text-gray-900 font-bold text-xl">{cat.label}</h3>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {getProductsForCategory(cat.id).map((product, i) => (
-                  <ProductCard key={i} index={i} isGas {...product} />
+                {getProductsForCategory(cat.id).map((gas, i) => (
+                  <ProductCard
+                    key={gas.slug}
+                    index={i}
+                    isGas
+                    title={gas.cardTitle}
+                    description={gas.description}
+                    to={`/gases/${gas.categoryPath}/${gas.slug}`}
+                  />
                 ))}
               </div>
             </div>
