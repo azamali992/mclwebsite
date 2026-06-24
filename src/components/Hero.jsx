@@ -1,53 +1,58 @@
 import { useNavigate } from 'react-router-dom';
-import { FaCommentDots } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 import useContent from '../hooks/useContent';
-import useChatbot from '../hooks/useChatbot';
 import heroImg from '../assets/heromcl.png';
 
 export default function Hero() {
   const navigate = useNavigate();
   const { contentMap } = useContent('hero');
-  const { setOpen: setChatOpen } = useChatbot();
 
-  const title = contentMap['slide-1-title']?.title || 'Leading the Way in Industrial Chemical Manufacturing';
-  const subtitle = contentMap['slide-1-subtitle']?.title || 'Providing high-quality chemical solutions, advanced healthcare engineering, and sustainable industrial infrastructure globally.';
+  const title = contentMap['slide-1-title']?.title || 'Industrial and medical gases, engineered for Pakistan.';
+  const subtitle = contentMap['slide-1-subtitle']?.title || 'High-purity gases, medical pipeline systems and healthcare engineering, delivered nationwide with uncompromising safety.';
 
   return (
-    <div className="relative h-[calc(100vh-80px)] sm:h-[calc(100vh-96px)] w-full overflow-hidden bg-blue-950">
-      <img src={heroImg} alt="" className="absolute inset-0 w-full h-full object-cover" />
+    <section className="relative min-h-[calc(100dvh-6rem)] w-full overflow-hidden bg-ink-deep">
+      <img
+        src={heroImg}
+        alt=""
+        fetchPriority="high"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      {/* Directional scrim — readable copy, image still breathes on the right */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#06101b]/92 via-[#06101b]/70 to-[#06101b]/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#06101b]/80 via-transparent to-transparent" />
 
-      <div className="absolute inset-0 flex items-center justify-center z-20">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 w-full">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+      <div className="relative z-10 flex min-h-[calc(100dvh-6rem)] items-center">
+        <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-8 lg:px-12">
+          <div className="max-w-2xl reveal is-in">
+            <p className="eyebrow mb-5" style={{ color: 'var(--on-ink-accent)' }}>
+              Multan Chemicals Limited
+            </p>
+            <h1 className="text-balance text-[2.6rem] font-semibold leading-[1.04] tracking-[-0.03em] text-white sm:text-6xl lg:text-[4.25rem]">
               {title}
             </h1>
-            <p className="text-gray-200 text-base sm:text-lg lg:text-xl leading-relaxed font-light">
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#c8cfd8]">
               {subtitle}
             </p>
-            <div className="flex flex-wrap justify-center gap-4 pt-4">
+            <div className="mt-9 flex flex-wrap gap-3">
               <button
                 onClick={() => navigate('/gases')}
-                className="bg-mclRed hover:bg-red-800 text-white px-8 py-3.5 text-sm font-bold uppercase tracking-wider transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95"
+                className="btn btn-primary"
               >
-                Explore Products
+                Explore our gases
+                <FaArrowRight size={13} />
               </button>
               <button
                 onClick={() => navigate('/contact')}
-                className="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-3.5 text-sm font-bold uppercase tracking-wider transition-all hover:shadow-lg active:scale-95"
+                className="btn"
+                style={{ color: '#fff', border: '1px solid rgba(255,255,255,0.32)' }}
               >
-                Contact Us
-              </button>
-              <button
-                onClick={() => setChatOpen(true)}
-                className="bg-white/10 hover:bg-white/20 border-2 border-white/40 text-white px-8 py-3.5 text-sm font-bold uppercase tracking-wider transition-all hover:shadow-lg active:scale-95 inline-flex items-center gap-2 backdrop-blur-sm"
-              >
-                <FaCommentDots size={16} /> Ask Our Assistant
+                Contact us
               </button>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

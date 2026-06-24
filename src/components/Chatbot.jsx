@@ -51,23 +51,23 @@ export default function Chatbot() {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label={open ? 'Close website assistant' : 'Open website assistant'}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-mclRed text-white shadow-xl shadow-red-900/30 flex items-center justify-center hover:bg-red-800 transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-red-400"
+        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-white shadow-[var(--shadow-accent)] transition-[background-color,transform] duration-200 ease-out hover:bg-accent-strong hover:scale-105 active:scale-95"
       >
         {open ? <FaTimes size={20} /> : <FaCommentDots size={22} />}
       </button>
 
       {open && (
-        <div className="fixed bottom-24 right-6 z-50 w-[92vw] max-w-sm h-[70vh] max-h-[520px] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden">
-          <div className="bg-slate-900 px-5 py-4 flex-shrink-0">
-            <p className="text-white font-bold text-sm">MCL Website Assistant</p>
-            <p className="text-gray-400 text-xs mt-0.5">Answers sourced from the MCL website</p>
+        <div className="fixed bottom-24 right-6 z-50 flex h-[70vh] max-h-[520px] w-[92vw] max-w-sm flex-col overflow-hidden rounded-2xl border border-line bg-canvas shadow-[var(--shadow-lg)]">
+          <div className="flex-shrink-0 bg-ink-deep px-5 py-4">
+            <p className="text-sm font-semibold text-white">MCL Website Assistant</p>
+            <p className="mt-0.5 text-xs text-on-dark-soft">Answers sourced from the MCL website</p>
           </div>
 
-          <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-gray-50">
+          <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto bg-surface px-4 py-4">
             {messages.map((m, i) => (
               <div key={i} className={`flex flex-col ${m.role === 'user' ? 'items-end' : 'items-start'}`}>
-                <div className={`max-w-[85%] rounded-xl px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-line ${
-                  m.role === 'user' ? 'bg-mclRed text-white' : 'bg-white text-gray-700 border border-gray-200 shadow-sm'
+                <div className={`max-w-[85%] whitespace-pre-line rounded-xl px-3.5 py-2.5 text-sm leading-relaxed ${
+                  m.role === 'user' ? 'bg-accent text-white' : 'border border-line bg-canvas text-ink-soft shadow-[var(--shadow-sm)]'
                 }`}>
                   {m.content}
                 </div>
@@ -77,7 +77,7 @@ export default function Chatbot() {
                       <button
                         key={link.path}
                         onClick={() => goTo(link.path)}
-                        className="text-xs font-semibold text-mclRed bg-red-50 hover:bg-red-100 border border-red-100 rounded-full px-3 py-1.5 inline-flex items-center gap-1.5 transition-colors"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-line bg-accent-soft px-3 py-1.5 text-xs font-semibold text-accent transition-colors duration-150 hover:bg-surface-2"
                       >
                         {link.label} <FaArrowRight size={9} />
                       </button>
@@ -88,29 +88,29 @@ export default function Chatbot() {
             ))}
             {loading && (
               <div className="flex justify-start">
-                <div className="bg-white border border-gray-200 shadow-sm rounded-xl px-4 py-3 flex gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce [animation-delay:-0.3s]" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce [animation-delay:-0.15s]" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce" />
+                <div className="flex gap-1.5 rounded-xl border border-line bg-canvas px-4 py-3 shadow-[var(--shadow-sm)]">
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted [animation-delay:-0.3s]" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted [animation-delay:-0.15s]" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted" />
                 </div>
               </div>
             )}
           </div>
 
-          <form onSubmit={handleSend} className="flex-shrink-0 border-t border-gray-100 p-3 flex items-center gap-2 bg-white">
+          <form onSubmit={handleSend} className="flex flex-shrink-0 items-center gap-2 border-t border-line bg-canvas p-3">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask me anything about MCL..."
               maxLength={500}
-              className="flex-1 text-sm px-3.5 py-2.5 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-mclRed/40 focus:border-mclRed"
+              className="flex-1 rounded-full border border-line bg-surface px-3.5 py-2.5 text-sm text-ink outline-none focus:border-accent"
             />
             <button
               type="submit"
               disabled={loading || !input.trim()}
               aria-label="Send message"
-              className="w-10 h-10 rounded-full bg-mclRed text-white flex items-center justify-center flex-shrink-0 hover:bg-red-800 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-accent text-white transition-colors duration-150 hover:bg-accent-strong disabled:cursor-not-allowed disabled:opacity-40"
             >
               <FaPaperPlane size={14} />
             </button>

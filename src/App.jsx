@@ -48,7 +48,7 @@ function Home() {
 export default function App() {
   return (
     <ChatbotProvider>
-      <div className="min-h-screen bg-white text-gray-900 font-sans antialiased">
+      <div className="min-h-screen bg-canvas text-ink font-sans antialiased">
         <SiteLoader />
         <ScrollToTop />
         <Navbar />

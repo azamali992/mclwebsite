@@ -13,7 +13,7 @@ const gasesGroup = categoryGroups.find((g) => g.id === 'gases');
 function SectionWrap({ children, className = '', id }) {
   const [ref, inView] = useInView();
   return (
-    <section id={id} ref={ref} className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}>
+    <section id={id} ref={ref} className={`transition-[opacity,transform] duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}>
       {children}
     </section>
   );
@@ -24,32 +24,30 @@ function CategoryCard({ cat, count }) {
   return (
     <button
       onClick={() => document.getElementById(cat.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-      className="group relative flex flex-col h-64 lg:h-80 p-6 lg:p-7 bg-white rounded-[20px] border-2 border-mclRed/30 shadow-[0_1px_2px_rgba(0,0,0,0.04)] overflow-hidden text-left transition-[transform,border-color,box-shadow] duration-500 ease-out hover:-translate-y-1.5 hover:border-transparent hover:shadow-[0_28px_55px_-18px_rgba(29,78,216,0.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-mclRed focus-visible:ring-offset-2"
+      className="group relative flex h-64 flex-col overflow-hidden rounded-lg border border-line bg-canvas p-6 text-left transition-[transform,background-color,border-color,box-shadow] duration-300 ease-out hover:-translate-y-1.5 hover:border-accent hover:bg-accent hover:shadow-[var(--shadow-accent)] lg:h-80 lg:p-7"
     >
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-blue-700 to-mclRed opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <Icon className="pointer-events-none absolute -right-4 -top-4 select-none text-ink/[0.04] transition-colors duration-300 group-hover:text-white/[0.14]" size={140} />
 
-      <Icon className="absolute z-10 -right-4 -top-4 pointer-events-none select-none text-gray-900/[0.04] group-hover:text-white/[0.14] transition-colors duration-500" size={140} />
-
-      <div className="relative z-10 w-12 h-12 rounded-xl bg-red-50 text-mclRed flex items-center justify-center group-hover:bg-white/15 group-hover:text-white transition-colors duration-500">
+      <div className="relative flex h-12 w-12 items-center justify-center rounded-md bg-accent-soft text-accent transition-colors duration-300 group-hover:bg-white/15 group-hover:text-white">
         <Icon size={22} />
       </div>
 
-      <h3 className="relative z-10 font-serif text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-white mt-6 transition-colors duration-500">
+      <h3 className="relative mt-6 text-2xl font-semibold tracking-tight text-ink transition-colors duration-300 group-hover:text-white">
         {cat.label}
       </h3>
 
-      <div className="relative z-10 flex-1" />
+      <div className="relative flex-1" />
 
-      <div className="relative z-10 pt-5 flex items-end justify-between border-t border-gray-100 group-hover:border-white/25 transition-colors duration-500">
+      <div className="relative flex items-end justify-between border-t border-line pt-5 transition-colors duration-300 group-hover:border-white/25">
         <div>
-          <p className="font-serif text-xl leading-none text-gray-900 group-hover:text-white transition-colors duration-500">{count}</p>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-400 group-hover:text-white/70 mt-2 transition-colors duration-500">
-            {count === 1 ? 'Gas Available' : 'Gases Available'}
+          <p className="font-mono text-xl leading-none text-ink transition-colors duration-300 group-hover:text-white">{count}</p>
+          <p className="mt-2 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted transition-colors duration-300 group-hover:text-white/70">
+            {count === 1 ? 'Gas available' : 'Gases available'}
           </p>
         </div>
-        <span className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-mclRed group-hover:text-white whitespace-nowrap transition-colors duration-500">
+        <span className="flex items-center gap-1.5 whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.14em] text-accent transition-colors duration-300 group-hover:text-white">
           View
-          <FaArrowRight size={11} className="group-hover:translate-x-1 transition-transform duration-300" />
+          <FaArrowRight size={11} className="transition-transform duration-200 group-hover:translate-x-1" />
         </span>
       </div>
     </button>
@@ -77,17 +75,17 @@ export default function Gases() {
 
   return (
     <div className="pt-24">
-      <section className="relative w-full bg-slate-900 py-24 px-4 sm:px-8 lg:px-12 overflow-hidden">
-        <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/95 via-slate-900/90 to-slate-900" />
-        <div className="relative max-w-[1400px] mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-3">Our Gases</p>
-            <h1 className="text-white font-extrabold text-4xl lg:text-5xl leading-tight mb-4">{pageTitle}</h1>
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto">{pageDesc}</p>
+      <section className="relative w-full overflow-hidden bg-ink-deep px-6 py-24 sm:px-8 lg:px-12">
+        <img src={heroBg} alt="" className="absolute inset-0 h-full w-full object-cover opacity-[0.18]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#06101b]/95 via-[#06101b]/90 to-[#06101b]" />
+        <div className="relative mx-auto max-w-[1400px]">
+          <div className="mb-12 max-w-3xl">
+            <p className="eyebrow mb-4" style={{ color: 'var(--on-ink-accent)' }}>Our gases</p>
+            <h1 className="text-4xl font-semibold leading-[1.06] tracking-tight text-white lg:text-[3.25rem]">{pageTitle}</h1>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-on-dark-soft">{pageDesc}</p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+          <div className="grid grid-cols-2 gap-5 lg:grid-cols-4 lg:gap-6">
             {gasesGroup.items.map((cat) => (
               <CategoryCard key={cat.id} cat={cat} count={gasesBySection[cat.id]?.length || 0} />
             ))}
@@ -99,11 +97,9 @@ export default function Gases() {
         {gasesGroup.items.map((cat) => (
           <SectionWrap key={cat.id} id={cat.id} className="px-4 sm:px-8 lg:px-12 scroll-mt-28">
             <div className="max-w-[1400px] mx-auto">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-red-50 text-mclRed flex items-center justify-center flex-shrink-0">
-                  <cat.icon size={18} />
-                </div>
-                <h3 className="text-gray-900 font-bold text-xl">{cat.label}</h3>
+              <div className="mb-8 flex items-baseline gap-3 border-b border-line pb-4">
+                <cat.icon size={18} className="self-center text-accent" />
+                <h3 className="text-xl font-semibold tracking-tight text-ink">{cat.label}</h3>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {getProductsForCategory(cat.id).map((gas) => (
@@ -115,24 +111,22 @@ export default function Gases() {
         ))}
       </div>
 
-      <SectionWrap className="py-20 bg-gradient-to-r from-mclRed to-red-700 px-4 sm:px-8 lg:px-12">
-        <div className="max-w-[1400px] mx-auto">
-          <h2 className="text-white text-3xl font-bold mb-12 text-center">Why Choose MCL Products?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <SectionWrap className="bg-ink-deep px-6 py-24 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-[1400px]">
+          <h2 className="mb-14 max-w-2xl text-3xl font-semibold tracking-tight text-white md:text-[2.5rem]">Why teams choose MCL</h2>
+          <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: FaAward, title: 'International Standards', desc: 'HTM, NFPA, ISO compliant systems' },
-              { icon: FaLock, title: 'Safety First', desc: 'Maximum protection for patients and staff' },
-              { icon: FaUsers, title: 'Expert Support', desc: '24/7 technical support and maintenance' },
-              { icon: FaFileAlt, title: 'Quality Assured', desc: 'Certified materials and rigorous testing' }
+              { icon: FaAward, title: 'International standards', desc: 'HTM, NFPA and ISO compliant systems' },
+              { icon: FaLock, title: 'Safety first', desc: 'Maximum protection for patients and staff' },
+              { icon: FaUsers, title: 'Expert support', desc: '24/7 technical support and maintenance' },
+              { icon: FaFileAlt, title: 'Quality assured', desc: 'Certified materials and rigorous testing' },
             ].map((item, i) => {
               const Icon = item.icon;
               return (
-                <div key={i} className="text-center text-white">
-                  <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4">
-                    <Icon size={32} />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p className="text-white/80 text-sm">{item.desc}</p>
+                <div key={i}>
+                  <Icon size={24} className="text-on-ink-accent" />
+                  <h3 className="mt-5 text-lg font-semibold text-white">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-on-dark-soft">{item.desc}</p>
                 </div>
               );
             })}
@@ -140,28 +134,24 @@ export default function Gases() {
         </div>
       </SectionWrap>
 
-      <SectionWrap className="py-16 bg-white px-4 sm:px-8 lg:px-12 border-t-4 border-mclRed">
-        <div className="max-w-[1400px] mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Need a Custom Solution?</h2>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Contact our team for customized gas supply solutions and system consultations tailored to your facility needs.
+      <SectionWrap className="bg-surface px-6 py-24 text-center sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-2xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-ink md:text-[2.5rem]">Need a custom solution?</h2>
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted">
+            Talk to our team about customised gas supply and system consultations tailored to your facility.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => navigate('/contact')} className="bg-mclRed hover:bg-red-800 text-white px-8 py-3.5 font-bold uppercase tracking-wider inline-flex items-center gap-2 transition-all focus:ring-2 focus:ring-red-500 focus:outline-none rounded">
-              <FaPhone /> Contact Us
-            </button>
-            <button onClick={() => navigate('/careers')} className="border-2 border-mclRed text-mclRed hover:bg-mclRed hover:text-white px-8 py-3.5 font-bold uppercase tracking-wider transition-all focus:ring-2 focus:ring-mclRed focus:outline-none rounded">
-              Join Our Team
-            </button>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <button onClick={() => navigate('/contact')} className="btn btn-primary"><FaPhone size={13} /> Contact us</button>
+            <button onClick={() => navigate('/careers')} className="btn btn-ghost">Join our team</button>
           </div>
         </div>
       </SectionWrap>
 
-      <SectionWrap className="py-10 bg-gray-50 px-4 sm:px-8 lg:px-12 text-center">
-        <p className="text-gray-600 text-sm">
-          <FaCheck className="inline text-mclRed mb-0.5 mr-2" size={14} />
-          HTM 02-01 &middot; NFPA 99 &middot; ISO 7396-1 &middot; ISO 9001 certified —{' '}
-          <Link to="/about#certifications" className="text-mclRed font-semibold hover:underline">see all certifications</Link>
+      <SectionWrap className="bg-canvas px-6 py-10 text-center sm:px-8 lg:px-12">
+        <p className="text-sm text-muted">
+          <FaCheck className="mb-0.5 mr-2 inline text-accent" size={13} />
+          HTM 02-01 · NFPA 99 · ISO 7396-1 · ISO 9001 certified.{' '}
+          <Link to="/about#certifications" className="font-semibold text-accent hover:underline">See all certifications</Link>
         </p>
       </SectionWrap>
     </div>

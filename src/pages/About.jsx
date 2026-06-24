@@ -40,16 +40,8 @@ const pageContent = {
   ],
 };
 
-const milestoneColors = [
-  'from-red-500 to-red-700',
-  'from-blue-500 to-blue-700',
-  'from-emerald-500 to-emerald-700',
-  'from-amber-500 to-amber-700',
-  'from-purple-500 to-purple-700',
-  'from-cyan-500 to-cyan-700',
-  'from-rose-500 to-rose-700',
-  'from-indigo-500 to-indigo-700',
-];
+// Single brand accent across the timeline (one-accent lock).
+const milestoneColors = Array(8).fill('from-mclRed to-[#8f1c21]');
 
 const milestones = [
   { year: '1985', yearKey: 'founded_year', icon: FaBuilding, title: 'Establishment & Entry into Medical Gases', desc: 'Multan Chemicals Limited is founded in Multan, beginning operations as a regional industrial gas supplier and quickly becoming one of Pakistan\'s first companies to supply medical-grade oxygen to healthcare facilities.' },

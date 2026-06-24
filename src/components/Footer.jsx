@@ -1,4 +1,4 @@
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGlobe, FaFacebook, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGlobe, FaFacebook, FaLinkedinIn, FaYoutube, FaArrowRight } from 'react-icons/fa';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MclLogo from '../assets/MCL_Logo.jpeg';
@@ -11,26 +11,21 @@ export default function Footer() {
   const [nlMsg, setNlMsg] = useState('');
   const { contentMap } = useContent('footer');
 
-  const companyDesc = contentMap['company-description']?.title || 'Powering industry and healthcare with advanced gas technologies, engineering excellence and unwavering commitment to safety and quality.';
-  const address = contentMap['address']?.title || 'Multan A-C, Industrial Estate Multan - Pakistan';
+  const companyDesc = contentMap['company-description']?.title || 'Powering industry and healthcare with advanced gas technologies, engineering excellence and an unwavering commitment to safety and quality.';
+  const address = contentMap['address']?.title || 'Industrial Estate, Multan, Pakistan';
   const phone = contentMap['phone']?.title || '061-6510200-6';
   const email = contentMap['email']?.title || 'info@mcl-gases.com';
   const website = contentMap['website']?.title || 'www.mcl-gases.com';
-  const newsletterText = contentMap['newsletter-text']?.title || 'Stay updated with our latest news and updates.';
-  const copyright = contentMap['copyright']?.title || '© 2024 Multan Chemicals Limited. All Rights Reserved.';
+  const newsletterText = contentMap['newsletter-text']?.title || 'Stay updated with our latest news and announcements.';
+  const copyright = contentMap['copyright']?.title || '© 2024 Multan Chemicals Limited. All rights reserved.';
 
   const handleQuickLinkClick = (link) => {
-    switch(link) {
-      case 'Home': navigate('/'); break;
-      case 'About Us': navigate('/about'); break;
-      case 'Gases': navigate('/gases'); break;
-      case 'Health Engineering': navigate('/health-engineering'); break;
-      case 'Infrastructure': navigate('/infrastructure'); break;
-      case 'Quality & Safety': navigate('/quality-safety'); break;
-      case 'Contact Us': navigate('/contact'); break;
-      case 'Certifications': navigate('/certifications'); break;
-      case 'Careers': navigate('/careers'); break;
-    }
+    const map = {
+      'Home': '/', 'About Us': '/about', 'Gases': '/gases', 'Health Engineering': '/health-engineering',
+      'Infrastructure': '/infrastructure', 'Quality & Safety': '/quality-safety', 'Contact Us': '/contact',
+      'Certifications': '/certifications', 'Careers': '/careers',
+    };
+    if (map[link]) navigate(map[link]);
   };
 
   const productCategoryMap = {
@@ -46,7 +41,7 @@ export default function Footer() {
     if (!newsletter.trim()) return;
     try {
       await subscribeNewsletter(newsletter.trim());
-      setNlMsg('Thank you for subscribing!');
+      setNlMsg('Thank you for subscribing.');
       setNewsletter('');
     } catch {
       setNlMsg('Subscription failed. Please try again.');
@@ -54,89 +49,94 @@ export default function Footer() {
     setTimeout(() => setNlMsg(''), 4000);
   };
 
+  const colLink = 'text-left text-sm text-on-dark-soft transition-colors duration-150 hover:text-white';
+
   return (
-    <footer className="bg-mclRed text-white pt-16 pb-8 px-4 sm:px-8 lg:px-12">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12">
-          <div className="border-r-0 lg:border-r border-white/20 pr-0 lg:pr-4">
-            <img src={MclLogo} alt="MCL Multan Chemicals Limited" className="h-12 mb-6 brightness-0 invert" />
-            <p className="text-xs leading-relaxed opacity-90 tracking-wide">{companyDesc}</p>
-          </div>
+    <footer className="bg-ink-deep px-6 pb-10 pt-20 text-white sm:px-8 lg:px-12">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-10 md:grid-cols-3 lg:grid-cols-5 lg:gap-12">
+        <div className="lg:pr-6">
+          <span className="mb-6 inline-flex items-center rounded-md bg-white px-3 py-2">
+            <img src={MclLogo} alt="Multan Chemicals Limited" className="h-8 w-auto" />
+          </span>
+          <p className="max-w-xs text-sm leading-relaxed text-on-dark-soft">{companyDesc}</p>
+        </div>
 
-          <div>
-            <h4 className="font-bold uppercase tracking-wide text-sm mb-4">Quick Links</h4>
-            <div className="grid grid-cols-2 gap-2 text-xs opacity-90">
-              <div className="flex flex-col space-y-2">
-                {['Home', 'About Us', 'Gases', 'Health Engineering'].map((link) => (
-                  <button key={link} onClick={() => handleQuickLinkClick(link)} className="hover:opacity-100 transition-all opacity-80 hover:translate-x-0.5 text-left focus:outline-none focus:ring-2 focus:ring-white rounded px-1">{link}</button>
-                ))}
-              </div>
-              <div className="flex flex-col space-y-2">
-                {['Infrastructure', 'Quality & Safety', 'Careers', 'Contact Us'].map((link) => (
-                  <button key={link} onClick={() => handleQuickLinkClick(link)} className="hover:opacity-100 transition-all opacity-80 hover:translate-x-0.5 text-left focus:outline-none focus:ring-2 focus:ring-white rounded px-1">{link}</button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="border-r-0 lg:border-r border-white/20 pr-0 lg:pr-4">
-            <h4 className="font-bold uppercase tracking-wide text-sm mb-4">Gases</h4>
-            <div className="flex flex-col space-y-2.5 text-xs opacity-90">
-              {Object.keys(productCategoryMap).map((product) => (
-                <button key={product} onClick={() => navigate(`/gases?category=${productCategoryMap[product]}`)} className="hover:opacity-100 transition-all opacity-80 hover:translate-x-0.5 text-left focus:outline-none focus:ring-2 focus:ring-white rounded px-1">{product}</button>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="font-bold uppercase tracking-wide text-sm mb-4">Reach Us</h4>
-            <div className="flex flex-col space-y-3 text-xs">
-              <div className="flex items-start space-x-3">
-                <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 mt-0.5"><FaMapMarkerAlt size={10} /></div>
-                <span className="opacity-90">{address}</span>
-              </div>
-              <div className="flex items-start space-x-3">
-                <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 mt-0.5"><FaPhone size={10} /></div>
-                <span className="opacity-90">{phone}</span>
-              </div>
-              <div className="flex items-start space-x-3">
-                <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 mt-0.5"><FaEnvelope size={10} /></div>
-                <span className="opacity-90">{email}</span>
-              </div>
-              <div className="flex items-start space-x-3">
-                <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 mt-0.5"><FaGlobe size={10} /></div>
-                <span className="opacity-90">{website}</span>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="font-bold uppercase tracking-wide text-sm mb-4">Newsletter</h4>
-            <p className="text-xs opacity-90 mb-4">{newsletterText}</p>
-            {nlMsg && <p className="text-xs text-green-200 mb-2">{nlMsg}</p>}
-            <form onSubmit={handleNewsletterSubmit} className="flex max-w-sm rounded-lg overflow-hidden">
-              <input type="email" placeholder="Your email address" value={newsletter} onChange={(e) => setNewsletter(e.target.value)} required className="bg-white text-gray-800 placeholder-gray-400 px-4 py-2.5 text-xs flex-1 outline-none" />
-              <button type="submit" className="bg-red-900/40 hover:bg-black/20 p-2.5 px-4 transition-colors flex items-center justify-center focus:ring-2 focus:ring-white focus:outline-none">
-                <span className="text-white text-sm">&rarr;</span>
-              </button>
-            </form>
+        <div>
+          <h4 className="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-white/50">Quick links</h4>
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2.5">
+            {['Home', 'About Us', 'Gases', 'Health Engineering', 'Infrastructure', 'Quality & Safety', 'Careers', 'Contact Us'].map((link) => (
+              <button key={link} onClick={() => handleQuickLinkClick(link)} className={colLink}>{link}</button>
+            ))}
           </div>
         </div>
 
-        <div className="border-t border-white/20 pt-6 mt-12 max-w-[1400px] mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs opacity-80">
-            <span>{copyright}</span>
-            <div className="flex space-x-2">
-              <button onClick={() => navigate('/privacy-policy')} className="hover:underline focus:outline-none focus:ring-2 focus:ring-white rounded px-1">Privacy Policy</button>
-              <span>|</span>
-              <button onClick={() => navigate('/terms')} className="hover:underline focus:outline-none focus:ring-2 focus:ring-white rounded px-1">Terms &amp; Conditions</button>
-            </div>
-            <div className="flex space-x-3">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors focus:ring-2 focus:ring-white focus:outline-none"><FaFacebook size={12} /></a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors focus:ring-2 focus:ring-white focus:outline-none"><FaLinkedinIn size={12} /></a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors focus:ring-2 focus:ring-white focus:outline-none"><FaYoutube size={12} /></a>
-            </div>
+        <div>
+          <h4 className="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-white/50">Gases</h4>
+          <div className="flex flex-col gap-2.5">
+            {Object.keys(productCategoryMap).map((product) => (
+              <button key={product} onClick={() => navigate(`/gases?category=${productCategoryMap[product]}`)} className={colLink}>{product}</button>
+            ))}
           </div>
         </div>
-      </footer>
+
+        <div>
+          <h4 className="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-white/50">Reach us</h4>
+          <div className="flex flex-col gap-3 text-sm text-on-dark-soft">
+            {[
+              { icon: FaMapMarkerAlt, value: address },
+              { icon: FaPhone, value: phone },
+              { icon: FaEnvelope, value: email },
+              { icon: FaGlobe, value: website },
+            ].map(({ icon: Icon, value }) => (
+              <div key={value} className="flex items-start gap-3">
+                <Icon className="mt-0.5 flex-shrink-0 text-on-ink-accent" size={13} />
+                <span>{value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h4 className="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-white/50">Newsletter</h4>
+          <p className="mb-4 text-sm text-on-dark-soft">{newsletterText}</p>
+          {nlMsg && <p className="mb-2 text-xs text-emerald-300">{nlMsg}</p>}
+          <form onSubmit={handleNewsletterSubmit} className="flex max-w-sm overflow-hidden rounded-full border border-white/15 bg-white/[0.06] focus-within:border-white/40">
+            <input
+              type="email"
+              placeholder="Your email address"
+              value={newsletter}
+              onChange={(e) => setNewsletter(e.target.value)}
+              required
+              aria-label="Email address"
+              className="flex-1 bg-transparent px-4 py-2.5 text-sm text-white placeholder-white/40 outline-none"
+            />
+            <button type="submit" aria-label="Subscribe" className="flex items-center justify-center bg-accent px-4 text-white transition-colors duration-150 hover:bg-accent-strong">
+              <FaArrowRight size={13} />
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div className="mx-auto mt-14 max-w-[1400px] border-t border-white/10 pt-6">
+        <div className="flex flex-col items-center justify-between gap-4 text-sm text-on-dark-soft md:flex-row">
+          <span>{copyright}</span>
+          <div className="flex gap-4">
+            <button onClick={() => navigate('/privacy-policy')} className="transition-colors hover:text-white">Privacy Policy</button>
+            <button onClick={() => navigate('/terms')} className="transition-colors hover:text-white">Terms &amp; Conditions</button>
+          </div>
+          <div className="flex gap-2">
+            {[
+              { icon: FaFacebook, label: 'Facebook', href: 'https://facebook.com' },
+              { icon: FaLinkedinIn, label: 'LinkedIn', href: 'https://linkedin.com' },
+              { icon: FaYoutube, label: 'YouTube', href: 'https://youtube.com' },
+            ].map(({ icon: Icon, label, href }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white transition-colors duration-150 hover:bg-white/20">
+                <Icon size={13} />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 }

@@ -39,7 +39,7 @@ export default function ClientsMarquee() {
       <button
         onClick={() => manualScroll(-1)}
         aria-label="Scroll left"
-        className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-mclRed hover:text-white hover:scale-105 active:scale-95 shrink-0 transition-all focus:outline-none focus:ring-2 focus:ring-mclRed"
+        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-2 text-ink-soft transition-[background-color,color,transform] duration-200 ease-out hover:bg-accent hover:text-white active:scale-95"
       >
         <FaChevronLeft size={14} />
       </button>
@@ -53,9 +53,9 @@ export default function ClientsMarquee() {
         {items.map((name, i) => (
           <div
             key={i}
-            className="group bg-white border border-gray-100 rounded-lg h-20 w-[210px] flex-shrink-0 px-5 flex items-center justify-center grayscale hover:grayscale-0 hover:shadow-md hover:border-mclRed/40 hover:-translate-y-0.5 transition-all cursor-default"
+            className="group flex h-20 w-[210px] flex-shrink-0 cursor-default items-center justify-center rounded-md border border-line bg-canvas px-5 transition-[transform,border-color,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:border-line-strong hover:shadow-[var(--shadow-md)]"
           >
-            <span className="text-center text-xs font-bold text-gray-500 group-hover:text-mclRed tracking-wide uppercase leading-tight line-clamp-3 transition-colors">
+            <span className="line-clamp-3 text-center text-xs font-semibold uppercase leading-tight tracking-wide text-muted transition-colors duration-200 group-hover:text-ink">
               {name}
             </span>
           </div>
@@ -65,7 +65,7 @@ export default function ClientsMarquee() {
       <button
         onClick={() => manualScroll(1)}
         aria-label="Scroll right"
-        className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-mclRed hover:text-white hover:scale-105 active:scale-95 shrink-0 transition-all focus:outline-none focus:ring-2 focus:ring-mclRed"
+        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-2 text-ink-soft transition-[background-color,color,transform] duration-200 ease-out hover:bg-accent hover:text-white active:scale-95"
       >
         <FaChevronRight size={14} />
       </button>

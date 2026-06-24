@@ -31,27 +31,27 @@ export default function AboutSection3() {
   const clientsHeading = contentMap['clients-heading']?.title || 'Trusted by Leading Organizations';
 
   return (
-    <section id="clients" className="bg-white py-20 px-4 sm:px-8 lg:px-12 scroll-mt-28">
-      <div className="max-w-[1400px] mx-auto flex flex-col space-y-20">
+    <section id="clients" className="bg-canvas px-6 py-24 sm:px-8 lg:px-12 scroll-mt-28">
+      <div className="mx-auto flex max-w-[1400px] flex-col gap-24">
         <div
           ref={industriesRef}
-          className={`transition-all duration-700 ${industriesInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          className={`transition-[opacity,transform] duration-500 ease-out ${industriesInView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
         >
-          <h3 className="text-red-600 font-bold uppercase tracking-widest text-sm mb-2">{industriesHeading}</h3>
-          <h2 className="text-gray-900 font-extrabold text-3xl md:text-4xl mb-10">{industriesTitle}</h2>
-          <div className="flex flex-wrap justify-center gap-4">
+          <p className="eyebrow mb-4">{industriesHeading}</p>
+          <h2 className="mb-10 max-w-2xl text-3xl font-semibold tracking-tight text-ink md:text-[2.5rem]">{industriesTitle}</h2>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-11">
             {industries.map((item, i) => {
               const Icon = item.icon;
               return (
                 <div
                   key={item.name}
-                  style={{ transitionDelay: industriesInView ? `${i * 40}ms` : '0ms' }}
-                  className={`w-[calc(50%-8px)] sm:w-[calc(25%-12px)] md:w-[calc(16.666%-16px)] lg:w-[calc(9.09%-16px)] bg-white border border-gray-200 rounded-xl hover:shadow-md hover:border-mclRed hover:-translate-y-1 transition-all duration-500 p-4 flex flex-col items-center justify-center text-center aspect-square group ${
-                    industriesInView ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                  style={{ transitionDelay: industriesInView ? `${i * 35}ms` : '0ms' }}
+                  className={`group flex aspect-square flex-col items-center justify-center rounded-md border border-line bg-canvas p-3 text-center transition-[transform,border-color,box-shadow] duration-200 ease-out hover:-translate-y-1 hover:border-line-strong hover:shadow-[var(--shadow-md)] ${
+                    industriesInView ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
                   }`}
                 >
-                  <Icon className="text-gray-400 group-hover:text-mclRed transition-colors" size={28} />
-                  <span className="text-[10px] md:text-xs font-semibold text-gray-900 mt-3 leading-tight">{item.name}</span>
+                  <Icon className="text-muted transition-colors duration-200 group-hover:text-accent" size={26} />
+                  <span className="mt-3 text-[11px] font-medium leading-tight text-ink">{item.name}</span>
                 </div>
               );
             })}
@@ -60,13 +60,13 @@ export default function AboutSection3() {
 
         <div
           ref={clientsRef}
-          className={`transition-all duration-700 ${clientsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          className={`transition-[opacity,transform] duration-500 ease-out ${clientsInView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
         >
-          <h3 className="text-center text-red-600 font-bold uppercase tracking-widest text-sm mb-8">{clientsHeading}</h3>
+          <h3 className="mb-8 text-center text-sm font-medium text-muted">{clientsHeading}</h3>
           <ClientsMarquee />
         </div>
       </div>
-      <Certifications className="px-0 pt-20" />
+      <Certifications className="px-0 pt-24" />
     </section>
   );
 }

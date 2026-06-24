@@ -37,29 +37,29 @@ export default function AboutSection2() {
   ];
 
   return (
-    <section id="network" className="bg-[#0B1A28] py-20 px-4 sm:px-8 lg:px-12 scroll-mt-28">
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section id="network" className="bg-ink-deep px-6 py-24 sm:px-8 lg:px-12 scroll-mt-28">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div
           ref={leftRef}
-          className={`transition-all duration-700 ${leftInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
+          className={`transition-[opacity,transform] duration-500 ease-out ${leftInView ? 'translate-x-0 opacity-100' : '-translate-x-6 opacity-0'}`}
         >
-          <h3 className="text-red-600 font-bold uppercase tracking-widest text-sm mb-2">{heading}</h3>
-          <h2 className="text-white font-extrabold text-3xl md:text-4xl mb-10">{sectionTitle}</h2>
-          <div className="flex flex-col space-y-6">
+          <p className="eyebrow mb-4" style={{ color: 'var(--on-ink-accent)' }}>{heading}</p>
+          <h2 className="mb-10 text-3xl font-semibold tracking-tight text-white md:text-[2.5rem]">{sectionTitle}</h2>
+          <div className="flex flex-col gap-6">
             {features.map((item, i) => {
               const Icon = item.icon;
               return (
                 <div
                   key={i}
-                  className={`flex items-center space-x-4 group transition-all duration-500 ${leftInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
-                  style={{ transitionDelay: leftInView ? `${150 + i * 100}ms` : '0ms' }}
+                  className={`group flex items-center gap-4 transition-[opacity,transform] duration-500 ease-out ${leftInView ? 'translate-x-0 opacity-100' : '-translate-x-3 opacity-0'}`}
+                  style={{ transitionDelay: leftInView ? `${120 + i * 80}ms` : '0ms' }}
                 >
-                  <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center flex-shrink-0 group-hover:border-mclRed group-hover:bg-mclRed/10 transition-colors">
-                    <Icon className="text-white" size={20} />
-                  </div>
+                  <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-md border border-white/15 bg-white/[0.04] text-white transition-colors duration-200 group-hover:border-white/40">
+                    <Icon size={18} />
+                  </span>
                   <div>
-                    <p className="text-white font-bold">{item.title}</p>
-                    <p className="text-gray-400 text-sm">{item.subtitle}</p>
+                    <p className="font-semibold text-white">{item.title}</p>
+                    <p className="text-sm text-on-dark-soft">{item.subtitle}</p>
                   </div>
                 </div>
               );
@@ -68,11 +68,11 @@ export default function AboutSection2() {
 
           {locations.length > 0 && (
             <div
-              className={`mt-8 transition-all duration-700 ${leftInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+              className={`mt-8 transition-[opacity,transform] duration-700 ease-out ${leftInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
               style={{ transitionDelay: leftInView ? '550ms' : '0ms' }}
             >
-              <p className="text-gray-500 text-xs font-bold uppercase tracking-widest mb-3">
-                Warehouse Locations — click to locate
+              <p className="mb-3 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-on-dark-soft">
+                Warehouse locations, click to locate
               </p>
               <div className="flex flex-wrap gap-2">
                 {locations.map((loc) => {
@@ -81,13 +81,13 @@ export default function AboutSection2() {
                     <button
                       key={loc.id}
                       onClick={() => setHighlightKey(loc.key)}
-                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all focus:outline-none focus:ring-2 focus:ring-mclRed ${
+                      className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-[background-color,border-color,color,transform] duration-200 ease-out ${
                         active
-                          ? 'bg-mclRed border-mclRed text-white shadow-md shadow-red-900/30 scale-105'
-                          : 'bg-white/5 border-white/15 text-gray-300 hover:border-mclRed hover:text-white'
+                          ? 'scale-105 border-accent bg-accent text-white'
+                          : 'border-white/15 bg-white/5 text-on-dark-soft hover:border-white/40 hover:text-white'
                       }`}
                     >
-                      <FaMapMarkerAlt size={10} className={active ? 'text-white' : 'text-mclRed'} />
+                      <FaMapMarkerAlt size={10} className={active ? 'text-white' : 'text-on-ink-accent'} />
                       {loc.name}
                     </button>
                   );
@@ -96,13 +96,13 @@ export default function AboutSection2() {
             </div>
           )}
 
-          <Link to="/infrastructure" className="bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase px-8 py-3 mt-8 inline-block transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95 rounded">
-            View Our Network
+          <Link to="/infrastructure" className="btn btn-primary mt-8">
+            View our network
           </Link>
         </div>
         <div
           ref={mapRef}
-          className={`transition-all duration-700 delay-150 ${mapInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}
+          className={`transition-[opacity,transform] duration-500 ease-out ${mapInView ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'}`}
         >
           <WarehouseMap
             className="h-[500px]"

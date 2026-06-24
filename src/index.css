@@ -1,95 +1,280 @@
 @import "tailwindcss";
 
-@theme {
-  --color-mclRed: #c1272d;
+/* The site ships light-locked. Dark tokens exist for the converted surfaces but
+   only apply under a `.dark` class on <html>, which nothing sets — there is no
+   toggle and OS dark preference is intentionally not wired (legacy pages are
+   still light-only). The variant is kept so dark stays one class away. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------ *
+   Design tokens — MCL design system
+   Brand: Multan Chemicals Limited. One accent (brand red), one type
+   family in many weights (Geist) + a mono for technical numerals.
+ * ------------------------------------------------------------------ */
+:root {
+  /* Surfaces & ink (light) */
+  --bg: #ffffff;
+  --surface: #f5f5f7;        /* Apple-grey subtle section */
+  --surface-2: #ececf0;
+  --surface-ink: #0b1622;    /* the recurring deep slate used for dark bands */
+  --surface-ink-2: #0f2030;
+  --ink: #16181d;
+  --ink-soft: #3c3f47;
+  --muted: #65676e;          /* 5.0:1 on white — passes AA body */
+  --line: #e5e5ea;
+  --line-strong: #d4d4dc;
+
+  /* Brand accent */
+  --accent: #c1272d;
+  --accent-strong: #a01f24;
+  --accent-soft: #fceced;
+  --accent-ink: #ffffff;     /* text on accent */
+  --on-ink-accent: #f0888c;  /* accent legible on the dark slate band */
+
+  /* Text used on the dark slate / accent bands */
+  --on-dark: #f4f5f7;
+  --on-dark-soft: #c3c8d0;   /* AA on --surface-ink */
+  --on-accent-soft: #ffd9da; /* soft white-red on the red footer */
+
+  /* Radius scale (one system: 8 / 12 / 18 / pill) */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-pill: 999px;
+
+  /* Elevation — tinted to surface, never pure black */
+  --shadow-sm: 0 1px 2px rgba(16, 18, 25, 0.06);
+  --shadow-md: 0 8px 24px -8px rgba(16, 18, 25, 0.12);
+  --shadow-lg: 0 24px 60px -20px rgba(16, 18, 25, 0.20);
+  --shadow-accent: 0 20px 45px -18px rgba(193, 39, 45, 0.45);
+
+  /* Motion — strong custom curves (Emil) */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);          /* UI enter / feedback */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);      /* on-screen movement */
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  color-scheme: light;
+}
+
+:root.dark,
+:root:where(.dark) {
+  --bg: #0b0c0f;
+  --surface: #131419;
+  --surface-2: #1c1d24;
+  --surface-ink: #07101a;
+  --surface-ink-2: #0c1826;
+  --ink: #f3f4f6;
+  --ink-soft: #cbccd2;
+  --muted: #989aa3;          /* AA on dark surfaces */
+  --line: #26272e;
+  --line-strong: #34353d;
+
+  --accent: #e64a50;         /* brightened so brand stays vivid + legible */
+  --accent-strong: #f0666b;
+  --accent-soft: #2a1416;
+  --accent-ink: #ffffff;
+  --on-ink-accent: #f0888c;
+
+  --on-dark: #f3f4f6;
+  --on-dark-soft: #c3c8d0;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 10px 28px -10px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 28px 70px -24px rgba(0, 0, 0, 0.7);
+  --shadow-accent: 0 22px 50px -18px rgba(230, 74, 80, 0.4);
+
+  color-scheme: dark;
+}
+
+/* Map semantic tokens to Tailwind utilities (bg-canvas, text-ink, etc.) */
+@theme inline {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, "SF Mono", "JetBrains Mono",
+    "Cascadia Code", Menlo, monospace;
+
+  --color-canvas: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+  --color-ink-deep: var(--surface-ink);
+  --color-ink-deep-2: var(--surface-ink-2);
+  --color-on-dark: var(--on-dark);
+  --color-on-dark-soft: var(--on-dark-soft);
+
+  /* keep legacy brand classes alive for not-yet-converted pages */
+  --color-mclRed: var(--accent);
+  --color-mclDark: var(--surface-ink);
+
+  --radius-sm: var(--r-sm);
+  --radius-md: var(--r-md);
+  --radius-lg: var(--r-lg);
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-@keyframes count-up {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Display headings: tight, balanced, Apple-precise */
+h1, h2, h3 {
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.7s ease-out both;
+::selection {
+  background: var(--accent);
+  color: #fff;
 }
 
-.animate-count-up {
-  animation: count-up 0.4s ease-out both;
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
-.stagger-1 { animation-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; }
-.stagger-5 { animation-delay: 0.5s; }
-.stagger-6 { animation-delay: 0.6s; }
+/* Consistent focus ring across the app */
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ------------------------------------------------------------------ *
+   Reusable primitives
+ * ------------------------------------------------------------------ */
+
+/* Eyebrow — used sparingly (max ~1 per 3 sections), mono for a technical
+   register that fits a gases/chemicals brand. */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Buttons — press feedback + custom easing, properties named (no all) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1;
+  border-radius: var(--r-pill);
+  padding: 0.85rem 1.6rem;
+  transition: background-color 180ms var(--ease-out),
+    color 180ms var(--ease-out), border-color 180ms var(--ease-out),
+    box-shadow 220ms var(--ease-out), transform 140ms var(--ease-out);
+  cursor: pointer;
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover { background-color: var(--accent-strong); box-shadow: var(--shadow-accent); }
+  .btn-ghost:hover { border-color: var(--ink); }
+}
+.btn:active { transform: scale(0.97); }
+.btn-primary {
+  background-color: var(--accent);
+  color: var(--accent-ink);
+}
+.btn-ghost {
+  background-color: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+}
+
+/* ------------------------------------------------------------------ *
+   Motion utilities
+ * ------------------------------------------------------------------ */
+@keyframes fade-rise {
+  from { opacity: 0; transform: translate3d(0, 16px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Scroll-reveal entrance (decorative, longer is OK for entrances) */
+.reveal {
+  opacity: 0;
+}
+.reveal.is-in {
+  animation: fade-rise 560ms var(--ease-out) both;
+}
+.animate-fade-in-up { animation: fade-rise 560ms var(--ease-out) both; }
+.animate-count-up { animation: fade-in 360ms var(--ease-out) both; }
+
+.stagger-1 { animation-delay: 60ms; }
+.stagger-2 { animation-delay: 120ms; }
+.stagger-3 { animation-delay: 180ms; }
+.stagger-4 { animation-delay: 240ms; }
+.stagger-5 { animation-delay: 300ms; }
+.stagger-6 { animation-delay: 360ms; }
 
 /* Gentle bob for the gas cylinder graphic */
 @keyframes cyl-float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-9px); }
 }
-.animate-cyl-float {
-  animation: cyl-float 5s ease-in-out infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .animate-cyl-float { animation: none; }
-}
+.animate-cyl-float { animation: cyl-float 5s var(--ease-in-out) infinite; }
 
 /* ---- Site preloader ---- */
 @keyframes loader-logo-in {
-  0%   { opacity: 0; transform: scale(0.8) translateY(12px); filter: blur(4px); }
+  0% { opacity: 0; transform: scale(0.92) translateY(8px); filter: blur(3px); }
   100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
 }
 @keyframes loader-word-in {
-  0%   { opacity: 0; transform: translateY(14px); }
+  0% { opacity: 0; transform: translateY(10px); }
   100% { opacity: 1; transform: translateY(0); }
 }
-@keyframes loader-bar-track {
-  0%   { transform: scaleX(0); }
-  100% { transform: scaleX(1); }
-}
 @keyframes loader-bar-fill {
-  0%   { left: -40%; }
-  100% { left: 100%; }
-}
-@keyframes loader-ring {
-  0%   { transform: scale(0.6); opacity: 0.7; }
-  100% { transform: scale(2.4); opacity: 0; }
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(250%); }
 }
 @keyframes loader-out {
-  0%   { transform: translateY(0); }
+  0% { transform: translateY(0); }
   100% { transform: translateY(-100%); }
 }
-
-.loader-logo  { animation: loader-logo-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
-.loader-word  { animation: loader-word-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both; }
-.loader-track { animation: loader-bar-track 0.6s ease-out 0.4s both; transform-origin: left; }
-.loader-fill  { animation: loader-bar-fill 1.1s cubic-bezier(0.65, 0, 0.35, 1) 0.6s infinite; }
-.loader-ring  { animation: loader-ring 1.6s ease-out infinite; }
-.loader-exit  { animation: loader-out 0.85s cubic-bezier(0.76, 0, 0.24, 1) forwards; }
+.loader-logo { animation: loader-logo-in 0.55s var(--ease-out) both; }
+.loader-word { animation: loader-word-in 0.5s var(--ease-out) 0.12s both; }
+.loader-fill { animation: loader-bar-fill 0.9s var(--ease-in-out) 0.2s infinite; }
+.loader-exit { animation: loader-out 0.5s var(--ease-in-out) forwards; }
 
 @media (prefers-reduced-motion: reduce) {
-  .loader-logo, .loader-word, .loader-track, .loader-fill, .loader-ring { animation: none; }
+  html { scroll-behavior: auto; }
+  .animate-cyl-float,
+  .loader-logo, .loader-word, .loader-fill {
+    animation: none;
+  }
+  .reveal, .reveal.is-in,
+  .animate-fade-in-up, .animate-count-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
