@@ -69,7 +69,7 @@ export default function Navbar() {
           : 'border-b border-transparent bg-canvas'
       }`}
     >
-      <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+      <div className="w-full px-6 sm:px-8 lg:px-12">
         <div className="flex h-24 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex flex-shrink-0 items-center">
