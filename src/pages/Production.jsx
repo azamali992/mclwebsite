@@ -2,7 +2,6 @@ import { FaIndustry, FaTruck, FaWarehouse, FaShieldAlt, FaClock, FaCertificate, 
 import useInView from '../hooks/useInView';
 import mainPlant from '../assets/main125tdplant.png';
 import plant20tpd from '../assets/20tpdplant.jpeg';
-import daPlant from '../assets/daplant.png';
 import multanPlant from '../assets/multanoxplant.jpeg';
 
 function SectionWrap({ children, className = '' }) {
@@ -18,7 +17,6 @@ const plants = [
   { image: mainPlant, title: '125 TPD Liquid Generation Plant', location: 'Sahianwala, Faisalabad' },
   { image: plant20tpd, title: '20 TPD Compressed Gas', location: 'Sahianwala, Faisalabad' },
   { image: multanPlant, title: '15 TPD Compressed Gas', location: 'Multan' },
-  { image: daPlant, title: 'Dissolved Acetylene Plant', location: 'Multan, Faisalabad, Tharparkar' },
   { title: '900-Ton LPG Plant', location: 'Under Construction', comingSoon: true },
   { title: '~230 TPD Oxygen Plant Expansion', location: 'Under Construction', comingSoon: true },
 ];
@@ -45,7 +43,7 @@ export default function Production() {
             Three ASU Plants Across Punjab, Pakistan.
           </h1>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-            MCL operates three Air Separation Units in Punjab — two for compressed gases and one for liquid gases — supported by dissolved acetylene plants in Multan, Faisalabad and Tharparkar.
+            MCL operates three Air Separation Units in Punjab — two for compressed gases and one for liquid gases — supplying high-purity industrial and medical gases nationwide.
           </p>
         </div>
       </section>

@@ -6,7 +6,7 @@ import cylinderYard from '../assets/infra02.JPG';
 import mgpsWard from '../assets/products/mgps-ward-hero.jpeg';
 import mgpsEquipment from '../assets/products/medical-gas-manifolds.jpeg';
 import modularOtPhoto from '../assets/products/modular-ot-hero.jpeg';
-import daPlant from '../assets/daplant.png';
+import specialtyPlant from '../assets/main125tdplant.png';
 import lpgTruck from '../assets/trucks1.JPG';
 
 function DivisionCard({ div, index }) {
@@ -55,7 +55,7 @@ const defaultDivisions = [
   { id: 2, icon: FaMedkit, img: mgpsWard, link: '/gases#medical' },
   { id: 3, icon: FaNetworkWired, img: mgpsEquipment, link: '/mgps-solutions' },
   { id: 4, icon: FaHeartbeat, img: modularOtPhoto, link: '/modular-ot' },
-  { id: 5, icon: FaAtom, img: daPlant, link: '/gases#specialty' },
+  { id: 5, icon: FaAtom, img: specialtyPlant, link: '/gases#specialty' },
   { id: 6, icon: FaFire, img: lpgTruck, link: '/gases#lpg' },
 ];
 

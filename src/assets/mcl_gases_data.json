@@ -545,8 +545,8 @@
     "url": "https://mcl-gases.com/industrial-gases/acetylene",
     "availability": "In Stock",
     "supply_form": "Dissolved",
-    "description": "MCL specialises in the production of dissolved acetylene at two purity levels, serving metal cutting, welding, fabrication, and chemical synthesis industries across Pakistan from three plant locations.",
-    "stat_capacity": "125 TPD",
+    "description": "MCL supplies dissolved acetylene at two purity levels, serving metal cutting, welding, fabrication, and chemical synthesis industries across Pakistan.",
+    "stat_capacity": "",
     "stat_cylinders": "",
     "stat_stations": "",
     "stat_years": "",
@@ -557,7 +557,7 @@
     "use_cases": [
       {
         "title": "PRODUCT DATA",
-        "description": "CHEMICAL FORMULA\nC₂H₂\nMOLECULAR WEIGHT\n26.04 g/mol\nBOILING POINT\n-84.0 °C\nFLASH POINT\n-18 °C\nFLAME TEMPERATURE\n3,160 °C (with O₂)\nSUPPLY FORM\nDissolved in acetone\nPLANT LOCATIONS\nMultan / Faisalabad / Tharparkar\nAVAILABLE SIZES\nStandard DA cylinders Need a Safety Data Sheet?\n\nDownload the full SDS f"
+        "description": "CHEMICAL FORMULA\nC₂H₂\nMOLECULAR WEIGHT\n26.04 g/mol\nBOILING POINT\n-84.0 °C\nFLASH POINT\n-18 °C\nFLAME TEMPERATURE\n3,160 °C (with O₂)\nSUPPLY FORM\nDissolved in acetone\nAVAILABLE SIZES\nStandard DA cylinders Need a Safety Data Sheet?\n\nDownload the full SDS f"
       },
       {
         "title": "METAL CUTTING",
