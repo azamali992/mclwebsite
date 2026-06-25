@@ -11,7 +11,7 @@ export default function Hero() {
   const subtitle = contentMap['slide-1-subtitle']?.title || 'High-purity gases, medical pipeline systems and healthcare engineering, delivered nationwide with uncompromising safety.';
 
   return (
-    <section className="relative min-h-[calc(100dvh-6rem)] w-full overflow-hidden bg-ink-deep">
+    <section className="relative min-h-[calc(100dvh-13rem)] w-full overflow-hidden bg-ink-deep">
       <img
         src={heroImg}
         alt=""
@@ -22,7 +22,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-[#06101b]/92 via-[#06101b]/70 to-[#06101b]/20" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#06101b]/80 via-transparent to-transparent" />
 
-      <div className="relative z-10 flex min-h-[calc(100dvh-6rem)] items-center">
+      <div className="relative z-10 flex min-h-[calc(100dvh-13rem)] items-center">
         <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-8 lg:px-12">
           <div className="max-w-2xl reveal is-in">
             <p className="eyebrow mb-5" style={{ color: 'var(--on-ink-accent)' }}>
