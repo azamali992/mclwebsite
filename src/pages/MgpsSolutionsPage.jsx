@@ -11,7 +11,6 @@ import useContent from '../hooks/useContent';
 import useStats from '../hooks/useStats';
 import { resolveStat } from '../data/stats';
 import renderImg from '../assets/3drender.png';
-import heroBg from '../assets/hero01.JPG';
 import manifolds from '../assets/products/medical-gas-manifolds.jpeg';
 import compressorPlant from '../assets/products/medical-air-compressor-plant.png';
 import oxygenPlant from '../assets/products/oxygen-generation-plant.png';
@@ -86,7 +85,7 @@ function HeroSection({ c }) {
   return (
     <section className="w-full relative bg-slate-900 min-h-[600px] lg:min-h-[700px] overflow-hidden">
       <div className="absolute inset-0 w-full h-full">
-        <img src={heroBg} alt="Hospital ICU" className="absolute right-0 top-0 w-full lg:w-[60%] h-full object-cover" />
+        <img src={renderImg} alt="3D medical gas pipeline layout" className="absolute right-0 top-0 w-full lg:w-[60%] h-full object-contain p-6" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-transparent" />
       </div>
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 h-full min-h-[600px] lg:min-h-[700px] flex flex-col justify-center">
