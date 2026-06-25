@@ -32,8 +32,8 @@ function Stat({ number, title, subtitle, active }) {
   const display = useCountUp(numeric, active);
 
   return (
-    <div className="px-5 py-7 text-center sm:text-left">
-      <p className="font-mono text-3xl font-medium tracking-tight text-ink sm:text-[2.6rem]">
+    <div className="px-6 py-6 text-center">
+      <p className="font-mono text-3xl font-medium tracking-tight text-ink sm:text-[2.4rem]">
         {numeric ? display.toLocaleString() : ''}{suffix}
       </p>
       <p className="mt-2 text-sm font-medium text-ink">{title}</p>
@@ -61,12 +61,17 @@ export default function StatsRow() {
   });
 
   return (
-    <section className="bg-canvas border-b border-line">
-      <div ref={ref} className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-2 divide-line sm:grid-cols-3 sm:divide-x lg:grid-cols-6 [&>*]:border-t [&>*]:border-line sm:[&>*]:border-t-0">
-          {stats.map((s) => (
-            <Stat key={s.key} {...s} active={inView} />
-          ))}
+    <section className="bg-canvas py-10 sm:py-12">
+      <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+        <div
+          ref={ref}
+          className="overflow-hidden rounded-[2.5rem] border border-line bg-surface shadow-[var(--shadow-md)] lg:rounded-full lg:px-6"
+        >
+          <div className="grid grid-cols-2 divide-line sm:grid-cols-3 sm:divide-x lg:grid-cols-6 lg:divide-x [&>*]:border-t [&>*]:border-line sm:[&>*]:border-t-0">
+            {stats.map((s) => (
+              <Stat key={s.key} {...s} active={inView} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
