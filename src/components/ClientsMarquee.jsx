@@ -38,11 +38,20 @@ export default function ClientsMarquee() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     let raf;
+    // Track position in a float accumulator. Reading el.scrollLeft back each
+    // frame rounds sub-pixel increments to 0, so the marquee never advances.
+    let pos = el.scrollLeft;
+    let lastSet = pos;
     const step = () => {
       if (!pausedRef.current) {
-        el.scrollLeft += SPEED;
+        // Adopt any manual scroll (arrow buttons, wheel, drag) so the loop
+        // continues from there instead of snapping back.
+        if (Math.abs(el.scrollLeft - lastSet) > 2) pos = el.scrollLeft;
         const half = el.scrollWidth / 2;
-        if (el.scrollLeft >= half) el.scrollLeft -= half;
+        pos += SPEED;
+        if (half > 0 && pos >= half) pos -= half;
+        el.scrollLeft = pos;
+        lastSet = el.scrollLeft;
       }
       raf = requestAnimationFrame(step);
     };
@@ -50,8 +59,10 @@ export default function ClientsMarquee() {
     return () => cancelAnimationFrame(raf);
   }, []);
 
+  // Instant jump (no smooth) so the auto-scroll loop doesn't override it
+  // mid-animation; the loop resyncs to the new position on the next frame.
   const manualScroll = (dir) => {
-    scrollRef.current?.scrollBy({ left: dir * 320, behavior: 'smooth' });
+    scrollRef.current?.scrollBy({ left: dir * 320 });
   };
 
   const items = [...logos, ...logos];
@@ -70,7 +81,7 @@ export default function ClientsMarquee() {
         ref={scrollRef}
         onMouseEnter={() => { pausedRef.current = true; }}
         onMouseLeave={() => { pausedRef.current = false; }}
-        className="flex flex-1 items-center gap-4 overflow-x-auto no-scrollbar"
+        className="flex min-w-0 flex-1 items-center gap-4 overflow-x-auto no-scrollbar"
       >
         {items.map((logo, i) => (
           <div
