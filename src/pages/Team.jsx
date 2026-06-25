@@ -66,11 +66,13 @@ const stats = [
   { icon: FaUsers, value: '+1', label: 'One Team, United Goal' },
 ];
 
-const VLine = () => <span className="hidden h-8 w-px bg-accent/40 xl:block" />;
+const VLine = ({ delay }) => (
+  <span className="hidden h-8 w-px bg-accent/40 xl:block animate-line-y" style={{ animationDelay: `${delay}ms` }} />
+);
 
-function NodeBox({ children, className = '' }) {
+function NodeBox({ children, className = '', style }) {
   return (
-    <div className={`rounded-xl bg-accent px-6 py-4 text-center text-white shadow-[var(--shadow-accent)] ${className}`}>
+    <div style={style} className={`rounded-xl bg-accent px-6 py-4 text-center text-white shadow-[var(--shadow-accent)] ${className}`}>
       {children}
     </div>
   );
@@ -120,7 +122,7 @@ function OrgChart() {
   return (
     <div className="flex flex-col items-center">
       {/* Chairman */}
-      <NodeBox className="w-full max-w-xs animate-fade-in-up">
+      <NodeBox className="w-full max-w-xs animate-node">
         <span className="mb-1 flex items-center justify-center gap-2">
           <FaUserTie size={16} />
           <span className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white/80">Chairman</span>
@@ -128,10 +130,10 @@ function OrgChart() {
         <p className="text-lg font-semibold leading-tight">{chairman?.name || 'Chairman'}</p>
       </NodeBox>
 
-      <VLine />
+      <VLine delay={140} />
 
       {/* Directors */}
-      <NodeBox className="w-full max-w-sm animate-fade-in-up">
+      <NodeBox className="w-full max-w-sm animate-node" style={{ animationDelay: '220ms' }}>
         <span className="mb-2 flex items-center justify-center gap-2">
           <FaUsers size={16} />
           <span className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white/80">Directors</span>
@@ -143,30 +145,32 @@ function OrgChart() {
         </div>
       </NodeBox>
 
-      <VLine />
+      <VLine delay={330} />
 
       {/* Branch bus + columns */}
       <div className="relative w-full">
-        <div className="absolute left-[8.333%] right-[8.333%] top-0 hidden h-px bg-accent/40 xl:block" />
+        <div className="absolute left-[8.333%] right-[8.333%] top-0 hidden h-px bg-accent/40 xl:block animate-line-x" style={{ animationDelay: '410ms' }} />
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-          {columns.map((col) => {
+          {columns.map((col, i) => {
             const Icon = col.icon;
             return (
               <div key={col.title} className="flex flex-col">
-                <span className="mx-auto hidden h-6 w-px bg-accent/40 xl:block" />
-                <div className="flex min-h-[84px] flex-col items-center justify-center gap-1.5 rounded-t-xl bg-accent px-4 py-4 text-center text-white">
-                  <Icon size={18} />
-                  <p className="text-sm font-semibold leading-tight">{col.title}</p>
-                  {col.lead && <p className="text-xs text-white/80">{col.lead}</p>}
+                <span className="mx-auto hidden h-6 w-px bg-accent/40 xl:block animate-line-y" style={{ animationDelay: `${470 + i * 60}ms` }} />
+                <div className="flex flex-1 flex-col animate-node" style={{ animationDelay: `${510 + i * 60}ms` }}>
+                  <div className="flex min-h-[84px] flex-col items-center justify-center gap-1.5 rounded-t-xl bg-accent px-4 py-4 text-center text-white">
+                    <Icon size={18} />
+                    <p className="text-sm font-semibold leading-tight">{col.title}</p>
+                    {col.lead && <p className="text-xs text-white/80">{col.lead}</p>}
+                  </div>
+                  <ul className="flex-1 space-y-2.5 rounded-b-xl border border-t-0 border-line bg-canvas p-5">
+                    {col.posts.map((post) => (
+                      <li key={post} className="flex items-start gap-2.5 text-sm text-ink-soft">
+                        <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
+                        {post}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="flex-1 space-y-2.5 rounded-b-xl border border-t-0 border-line bg-canvas p-5">
-                  {col.posts.map((post) => (
-                    <li key={post} className="flex items-start gap-2.5 text-sm text-ink-soft">
-                      <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                      {post}
-                    </li>
-                  ))}
-                </ul>
               </div>
             );
           })}

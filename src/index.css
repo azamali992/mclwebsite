@@ -230,6 +230,17 @@ p {
 .animate-fade-in-up { animation: fade-rise 560ms var(--ease-out) both; }
 .animate-count-up { animation: fade-in 360ms var(--ease-out) both; }
 
+/* Org-chart node pop-in + connector-line draw */
+@keyframes node-in {
+  from { opacity: 0; transform: translate3d(0, 10px, 0) scale(0.96); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes line-grow-y { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes line-grow-x { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.animate-node { animation: node-in 420ms var(--ease-out) both; }
+.animate-line-y { transform-origin: top center; animation: line-grow-y 300ms var(--ease-out) both; }
+.animate-line-x { transform-origin: center; animation: line-grow-x 420ms var(--ease-out) both; }
+
 .stagger-1 { animation-delay: 60ms; }
 .stagger-2 { animation-delay: 120ms; }
 .stagger-3 { animation-delay: 180ms; }
@@ -273,7 +284,8 @@ p {
     animation: none;
   }
   .reveal, .reveal.is-in,
-  .animate-fade-in-up, .animate-count-up {
+  .animate-fade-in-up, .animate-count-up,
+  .animate-node, .animate-line-y, .animate-line-x {
     animation: none;
     opacity: 1;
     transform: none;
