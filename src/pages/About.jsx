@@ -1,6 +1,5 @@
-import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FaIndustry, FaTruck, FaHospital, FaAward, FaBuilding, FaShieldAlt, FaChartBar, FaRocket, FaBurn, FaChevronLeft, FaChevronRight, FaArrowRight } from 'react-icons/fa';
+import { FaIndustry, FaTruck, FaHospital, FaAward, FaBuilding, FaShieldAlt, FaChartBar, FaRocket, FaBurn, FaSolarPanel, FaArrowRight } from 'react-icons/fa';
 import AboutSection1 from '../components/AboutSection1';
 import AboutSection2 from '../components/AboutSection2';
 import AboutSection3 from '../components/AboutSection3';
@@ -40,9 +39,6 @@ const pageContent = {
   ],
 };
 
-// Single brand accent across the timeline (one-accent lock).
-const milestoneColors = Array(8).fill('from-mclRed to-[#8f1c21]');
-
 const milestones = [
   { year: '1985', yearKey: 'founded_year', icon: FaBuilding, title: 'Establishment & Entry into Medical Gases', desc: 'Multan Chemicals Limited is founded in Multan, beginning operations as a regional industrial gas supplier and quickly becoming one of Pakistan\'s first companies to supply medical-grade oxygen to healthcare facilities.' },
   { year: '1992', icon: FaIndustry, title: 'First Major ASU', desc: 'Commissioning of our first Air Separation Unit, significantly increasing production capacity for oxygen, nitrogen, and argon.' },
@@ -51,6 +47,7 @@ const milestones = [
   { year: '2015', icon: FaHospital, title: 'MGPS Division Launch', desc: 'Launched our Medical Gas Pipeline Systems (MGPS) division, providing end-to-end healthcare engineering solutions.' },
   { year: '2020', icon: FaIndustry, title: '125 TPD Plant in Faisalabad', desc: 'Commissioned Pakistan\'s largest liquid oxygen plant in Faisalabad with 125 TPD capacity, serving the entire nation.' },
   { year: '2024', icon: FaAward, title: 'Total Capacity 160+ TPD', desc: 'Reached a combined production capacity of over 160 tons per day across multiple plants, solidifying our position as the industry leader.' },
+  { year: '2025', icon: FaSolarPanel, title: 'Flagship Plant Goes Solar', desc: 'Transitioned our flagship 125 TPD plant to clean energy with a dedicated 1.2 MW solar power plant, cutting carbon emissions while sustaining round-the-clock production.' },
 ];
 
 const comingSoonMilestones = [
@@ -70,85 +67,80 @@ const comingSoonMilestones = [
   },
 ];
 
-function TimelineSection() {
-  const [ref, inView] = useInView();
-  const scrollRef = useRef(null);
-  const { statsMap } = useStats();
-  const resolvedMilestones = milestones.map(m => m.yearKey ? { ...m, year: resolveStat(statsMap, m.yearKey).value } : m);
-  const items = [...resolvedMilestones, ...comingSoonMilestones];
-
-  const scroll = (dir) => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: dir * 320, behavior: 'smooth' });
-    }
-  };
+function TimelineItem({ mil, last, inView, delay }) {
+  const MIcon = mil.icon;
+  const planned = !!mil.comingSoon;
 
   return (
-    <section id="history" ref={ref} className={`bg-gradient-to-b from-slate-900 to-slate-800 py-20 px-4 sm:px-8 lg:px-12 scroll-mt-28 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-      <div className="max-w-[1400px] mx-auto">
-        <div className="text-center mb-14">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">Our Journey</p>
-          <h2 className="text-white font-extrabold text-3xl lg:text-4xl leading-tight">Company History & Milestones</h2>
-          <p className="text-gray-400 mt-3 max-w-2xl mx-auto text-sm">From a regional gas supplier to Pakistan's premier industrial and medical gas company — our story of growth, innovation, and what's ahead.</p>
-        </div>
+    <li
+      className={`grid grid-cols-[2.75rem_1fr] gap-x-5 transition-[opacity,transform] duration-500 ease-out ${inView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+      style={{ transitionDelay: inView ? `${delay}ms` : '0ms' }}
+    >
+      {/* rail + node */}
+      <div className="flex flex-col items-center">
+        <span
+          className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full ${
+            planned
+              ? 'border border-dashed border-white/30 text-on-dark-soft'
+              : 'bg-accent text-white shadow-[var(--shadow-accent)]'
+          }`}
+        >
+          <MIcon size={17} />
+        </span>
+        {!last && <span className="mt-1 w-px flex-1 bg-white/12" />}
+      </div>
 
+      {/* content */}
+      <div className={last ? 'pb-0' : 'pb-12'}>
         <div className="flex items-center gap-3">
-          <button
-            onClick={() => scroll(-1)}
-            aria-label="Scroll timeline left"
-            className="hidden sm:flex w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 items-center justify-center text-white transition-all duration-200 hover:scale-110 active:scale-90 focus:outline-none focus:ring-2 focus:ring-mclRed shrink-0"
-          >
-            <FaChevronLeft size={14} />
-          </button>
-
-          <div ref={scrollRef} className="overflow-x-auto pb-4 flex-1 no-scrollbar">
-            <div className="relative flex gap-8 w-max px-2">
-            <div className="absolute left-0 right-0 top-6 h-0.5 bg-white/10" />
-            {items.map((mil, i) => {
-              const MIcon = mil.icon;
-              const comingSoon = !!mil.comingSoon;
-              return (
-                <div
-                  key={i}
-                  className={`relative flex flex-col items-center w-52 flex-shrink-0 transition-all duration-500 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-                  style={{ transitionDelay: inView ? `${i * 80}ms` : '0ms' }}
-                >
-                  <div className={`relative z-10 w-12 h-12 rounded-full flex items-center justify-center shadow-lg ${
-                    comingSoon
-                      ? 'bg-slate-800 border-2 border-dashed border-amber-400 animate-pulse'
-                      : `bg-gradient-to-br ${milestoneColors[i % milestoneColors.length]}`
-                  }`}>
-                    <MIcon className={comingSoon ? 'text-amber-400' : 'text-white'} size={18} />
-                  </div>
-
-                  <div className={`mt-4 w-full rounded-xl p-4 text-center shadow-md ${
-                    comingSoon
-                      ? 'bg-slate-800/60 border-2 border-dashed border-amber-400/50'
-                      : 'bg-slate-800/80 border border-white/10'
-                  }`}>
-                    {comingSoon ? (
-                      <span className="inline-block bg-amber-400/15 text-amber-400 text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-full mb-1.5">Coming Soon</span>
-                    ) : (
-                      <p className="text-mclRed font-black text-lg">{mil.year}</p>
-                    )}
-                    {comingSoon && <p className="text-amber-400 font-black text-base mb-0.5">{mil.year}</p>}
-                    <h3 className="text-white font-bold text-sm mt-0.5 leading-tight">{mil.title}</h3>
-                    <p className="text-gray-400 text-xs mt-1.5 leading-relaxed">{mil.desc}</p>
-                  </div>
-                </div>
-              );
-            })}
-            </div>
-          </div>
-
-          <button
-            onClick={() => scroll(1)}
-            aria-label="Scroll timeline right"
-            className="hidden sm:flex w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 items-center justify-center text-white transition-all duration-200 hover:scale-110 active:scale-90 focus:outline-none focus:ring-2 focus:ring-mclRed shrink-0"
-          >
-            <FaChevronRight size={14} />
-          </button>
+          <span className={`font-mono text-xl font-medium leading-none ${planned ? 'text-on-dark-soft' : 'text-on-ink-accent'}`}>
+            {mil.year}
+          </span>
+          {planned && (
+            <span className="rounded-full border border-white/15 px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-on-dark-soft">
+              Planned
+            </span>
+          )}
         </div>
+        <h3 className="mt-2 text-lg font-semibold tracking-tight text-white">{mil.title}</h3>
+        <p className="mt-1.5 max-w-xl text-sm leading-relaxed text-on-dark-soft">{mil.desc}</p>
+      </div>
+    </li>
+  );
+}
+
+function TimelineSection() {
+  const [ref, inView] = useInView();
+  const { statsMap } = useStats();
+  const resolvedMilestones = milestones.map((m) => (m.yearKey ? { ...m, year: resolveStat(statsMap, m.yearKey).value } : m));
+  const items = [...resolvedMilestones, ...comingSoonMilestones];
+
+  return (
+    <section id="history" className="bg-ink-deep px-6 py-24 sm:px-8 lg:px-12 scroll-mt-28">
+      <div className="mx-auto grid max-w-[1400px] gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+        {/* sticky intro */}
+        <div className="lg:sticky lg:top-28 lg:self-start">
+          <p className="eyebrow mb-4" style={{ color: 'var(--on-ink-accent)' }}>Our journey</p>
+          <h2 className="text-3xl font-semibold leading-[1.1] tracking-tight text-white md:text-[2.75rem]">
+            Four decades of building Pakistan&rsquo;s gas infrastructure.
+          </h2>
+          <p className="mt-5 max-w-md text-base leading-relaxed text-on-dark-soft">
+            From a regional supplier in Multan to the country&rsquo;s premier industrial and medical gas company, here is how MCL grew, and where it is headed next.
+          </p>
+        </div>
+
+        {/* timeline */}
+        <ol ref={ref} className="relative">
+          {items.map((mil, i) => (
+            <TimelineItem
+              key={`${mil.year}-${i}`}
+              mil={mil}
+              last={i === items.length - 1}
+              inView={inView}
+              delay={Math.min(i, 6) * 70}
+            />
+          ))}
+        </ol>
       </div>
     </section>
   );

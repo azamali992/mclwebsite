@@ -110,6 +110,7 @@
   --color-ink-deep-2: var(--surface-ink-2);
   --color-on-dark: var(--on-dark);
   --color-on-dark-soft: var(--on-dark-soft);
+  --color-on-ink-accent: var(--on-ink-accent);
 
   /* keep legacy brand classes alive for not-yet-converted pages */
   --color-mclRed: var(--accent);
