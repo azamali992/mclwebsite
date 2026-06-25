@@ -1,6 +1,8 @@
 import { useParams, Link, Navigate, useNavigate } from 'react-router-dom';
 import { FaArrowRight, FaPhone, FaCheckCircle, FaAward, FaChevronRight } from 'react-icons/fa';
 import { getGas, getRelatedGases } from '../data/gasesData';
+import useStats from '../hooks/useStats';
+import { resolveStat } from '../data/stats';
 
 function StatBox({ stat }) {
   if (!stat) return null;
@@ -16,6 +18,7 @@ export default function GasDetail() {
   const { categoryPath, slug } = useParams();
   const navigate = useNavigate();
   const gas = getGas(categoryPath, slug);
+  const { statsMap } = useStats();
 
   if (!gas) return <Navigate to="/gases" replace />;
 
@@ -26,7 +29,12 @@ export default function GasDetail() {
   const hasTechSpecs = gas.techSpecs?.length > 0;
   const hasUseCases = gas.useCases?.length > 0;
   const hasCerts = gas.certifications?.length > 0;
-  const statBoxes = [gas.stats.capacity, gas.stats.cylinders, gas.stats.stations, gas.stats.years].filter(Boolean);
+  // Plant capacity comes from the central, admin-editable stat so it stays in
+  // sync with the rest of the site.
+  const capacityStat = gas.stats.capacity
+    ? { ...gas.stats.capacity, value: resolveStat(statsMap, 'oxygen_plant_capacity').value }
+    : null;
+  const statBoxes = [capacityStat, gas.stats.cylinders, gas.stats.stations, gas.stats.years].filter(Boolean);
   const sameFormula = !gas.formula || gas.formula === gas.name;
 
   const scrollToGrades = () => document.getElementById('grades')?.scrollIntoView({ behavior: 'smooth', block: 'start' });

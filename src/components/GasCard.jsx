@@ -1,18 +1,23 @@
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
+import useStats from '../hooks/useStats';
+import { resolveStat } from '../data/stats';
 
 // Pick the single most meaningful headline metric for the footer, gracefully
-// degrading across the inconsistent scraped dataset.
-function headlineStat(gas) {
+// degrading across the inconsistent scraped dataset. Plant capacity is pulled
+// from the central `oxygen_plant_capacity` stat so editing it in the admin
+// panel updates every card at once.
+function headlineStat(gas, plantCapacity) {
   const grade = gas.purity_grades?.[0];
   if (grade) return { value: grade.purity, label: `${grade.label}` };
   if (gas.supply_form) return { value: gas.supply_form, label: 'Supply form' };
-  if (gas.stats?.capacity) return { value: gas.stats.capacity.value, label: 'Plant capacity' };
+  if (gas.stats?.capacity) return { value: plantCapacity, label: 'Plant capacity' };
   return { value: gas.availability || 'Available', label: 'Availability' };
 }
 
 export default function GasCard({ gas, to }) {
-  const stat = headlineStat(gas);
+  const { statsMap } = useStats();
+  const stat = headlineStat(gas, resolveStat(statsMap, 'oxygen_plant_capacity').value);
   const categoryLabel = gas.category.replace(/Gases$/i, 'Gas').trim();
 
   return (
