@@ -48,8 +48,14 @@ export const listImages = async (req, res) => {
 
 export const deleteImage = async (req, res) => {
   try {
-    const { filename } = req.params;
-    const filePath = path.join(uploadsDir, filename);
+    // Strip any path components so a crafted name (e.g. "../../server.js")
+    // can never escape the uploads directory.
+    const safeName = path.basename(req.params.filename || '');
+    const filePath = path.join(uploadsDir, safeName);
+
+    if (!safeName || path.dirname(filePath) !== uploadsDir) {
+      return res.status(400).json({ message: 'Invalid filename' });
+    }
 
     if (fs.existsSync(filePath)) {
       fs.unlinkSync(filePath);

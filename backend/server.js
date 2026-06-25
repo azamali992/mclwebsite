@@ -6,6 +6,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import connectDB from './config/db.js';
 import errorHandler from './middleware/errorHandler.js';
+import sanitizeBody from './middleware/sanitize.js';
 
 import authRoutes from './routes/authRoutes.js';
 import contentRoutes from './routes/contentRoutes.js';
@@ -43,6 +44,7 @@ app.use(cors({
 
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ limit: '20mb', extended: true }));
+app.use(sanitizeBody);
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
@@ -58,6 +60,11 @@ app.use('/api', contactRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ message: 'Backend is running' });
+});
+
+// Unknown API routes get a clean 404 instead of falling through to the SPA.
+app.use('/api', (req, res) => {
+  res.status(404).json({ message: 'Not found' });
 });
 
 app.use(errorHandler);

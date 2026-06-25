@@ -6,7 +6,7 @@ export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    if (!email || !password) {
+    if (!email || !password || typeof email !== 'string' || typeof password !== 'string') {
       return res.status(400).json({ message: 'Email and password required' });
     }
 
@@ -42,7 +42,8 @@ export const register = async (req, res) => {
   try {
     const { email, password, name } = req.body;
 
-    if (!email || !password || !name) {
+    if (!email || !password || !name ||
+        typeof email !== 'string' || typeof password !== 'string' || typeof name !== 'string') {
       return res.status(400).json({ message: 'Email, password, and name required' });
     }
 
@@ -63,7 +64,10 @@ export const register = async (req, res) => {
 
     await admin.save();
 
-    res.status(201).json({ message: 'Admin created successfully', admin });
+    res.status(201).json({
+      message: 'Admin created successfully',
+      admin: { id: admin._id, email: admin.email, name: admin.name, role: admin.role },
+    });
   } catch (error) {
     res.status(500).json({ message: 'Registration failed', error: error.message });
   }
