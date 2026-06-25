@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   FaUserTie, FaUsers, FaIndustry, FaCalculator, FaChartLine,
   FaClipboardList, FaPlusCircle, FaUserShield, FaGlobe, FaCog,
@@ -75,7 +76,114 @@ function NodeBox({ children, className = '' }) {
   );
 }
 
+/* ---------- View 1: Leadership profile cards ---------- */
+function LeadershipCards() {
+  return (
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {leadership.map((person, i) => {
+        const featured = person.title === 'Chairman';
+        return (
+          <div
+            key={person.name}
+            style={{ animationDelay: `${i * 70}ms` }}
+            className={`animate-fade-in-up group relative overflow-hidden rounded-2xl border border-line bg-ink-deep shadow-[var(--shadow-md)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[var(--shadow-lg)] ${
+              featured ? 'sm:col-span-2 lg:col-span-1' : ''
+            }`}
+          >
+            <div className="aspect-[4/5] w-full overflow-hidden">
+              <img
+                src={person.image}
+                alt={person.name}
+                loading="lazy"
+                className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#06101b] via-[#06101b]/35 to-transparent" />
+            {featured && (
+              <span className="absolute right-4 top-4 rounded-full bg-accent px-3 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-white">
+                Chairman
+              </span>
+            )}
+            <div className="absolute inset-x-0 bottom-0 p-5">
+              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-on-ink-accent">{person.title}</p>
+              <h3 className="mt-1.5 text-xl font-semibold tracking-tight text-white">{person.name}</h3>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ---------- View 2: Org chart hierarchy ---------- */
+function OrgChart() {
+  return (
+    <div className="flex flex-col items-center">
+      {/* Chairman */}
+      <NodeBox className="w-full max-w-xs animate-fade-in-up">
+        <span className="mb-1 flex items-center justify-center gap-2">
+          <FaUserTie size={16} />
+          <span className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white/80">Chairman</span>
+        </span>
+        <p className="text-lg font-semibold leading-tight">{chairman?.name || 'Chairman'}</p>
+      </NodeBox>
+
+      <VLine />
+
+      {/* Directors */}
+      <NodeBox className="w-full max-w-sm animate-fade-in-up">
+        <span className="mb-2 flex items-center justify-center gap-2">
+          <FaUsers size={16} />
+          <span className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white/80">Directors</span>
+        </span>
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-1">
+          {directors.map((d) => (
+            <p key={d.name} className="text-sm font-semibold leading-tight">{d.name}</p>
+          ))}
+        </div>
+      </NodeBox>
+
+      <VLine />
+
+      {/* Branch bus + columns */}
+      <div className="relative w-full">
+        <div className="absolute left-[8.333%] right-[8.333%] top-0 hidden h-px bg-accent/40 xl:block" />
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+          {columns.map((col) => {
+            const Icon = col.icon;
+            return (
+              <div key={col.title} className="flex flex-col">
+                <span className="mx-auto hidden h-6 w-px bg-accent/40 xl:block" />
+                <div className="flex min-h-[84px] flex-col items-center justify-center gap-1.5 rounded-t-xl bg-accent px-4 py-4 text-center text-white">
+                  <Icon size={18} />
+                  <p className="text-sm font-semibold leading-tight">{col.title}</p>
+                  {col.lead && <p className="text-xs text-white/80">{col.lead}</p>}
+                </div>
+                <ul className="flex-1 space-y-2.5 rounded-b-xl border border-t-0 border-line bg-canvas p-5">
+                  {col.posts.map((post) => (
+                    <li key={post} className="flex items-start gap-2.5 text-sm text-ink-soft">
+                      <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
+                      {post}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const VIEWS = [
+  { id: 'cards', label: 'Leadership' },
+  { id: 'chart', label: 'Org Structure' },
+];
+
 export default function Team() {
+  const [view, setView] = useState('cards');
+
   return (
     <div className="pt-24">
       {/* Hero */}
@@ -91,68 +199,37 @@ export default function Team() {
         </div>
       </section>
 
-      {/* Org chart */}
-      <SectionWrap className="bg-surface px-6 py-20 sm:px-8 lg:px-12">
-        <div className="mx-auto flex max-w-[1400px] flex-col items-center">
-          {/* Chairman */}
-          <NodeBox className="w-full max-w-xs">
-            <span className="mb-1 flex items-center justify-center gap-2">
-              <FaUserTie size={16} />
-              <span className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white/80">Chairman</span>
-            </span>
-            <p className="text-lg font-semibold leading-tight">{chairman?.name || 'Chairman'}</p>
-          </NodeBox>
-
-          <VLine />
-
-          {/* Directors */}
-          <NodeBox className="w-full max-w-sm">
-            <span className="mb-2 flex items-center justify-center gap-2">
-              <FaUsers size={16} />
-              <span className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white/80">Directors</span>
-            </span>
-            <div className="flex flex-wrap justify-center gap-x-4 gap-y-1">
-              {directors.map((d) => (
-                <p key={d.name} className="text-sm font-semibold leading-tight">{d.name}</p>
-              ))}
-            </div>
-          </NodeBox>
-
-          <VLine />
-
-          {/* Branch bus + columns */}
-          <div className="relative w-full">
-            <div className="absolute left-[8.333%] right-[8.333%] top-0 hidden h-px bg-accent/40 xl:block" />
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-              {columns.map((col) => {
-                const Icon = col.icon;
-                return (
-                  <div key={col.title} className="flex flex-col">
-                    <span className="mx-auto hidden h-6 w-px bg-accent/40 xl:block" />
-                    {/* Head */}
-                    <div className="flex min-h-[84px] flex-col items-center justify-center gap-1.5 rounded-t-xl bg-accent px-4 py-4 text-center text-white">
-                      <Icon size={18} />
-                      <p className="text-sm font-semibold leading-tight">{col.title}</p>
-                      {col.lead && <p className="text-xs text-white/80">{col.lead}</p>}
-                    </div>
-                    {/* Posts */}
-                    <ul className="flex-1 space-y-2.5 rounded-b-xl border border-t-0 border-line bg-canvas p-5">
-                      {col.posts.map((post) => (
-                        <li key={post} className="flex items-start gap-2.5 text-sm text-ink-soft">
-                          <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                          {post}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
-            </div>
+      {/* Toggle */}
+      <div className="bg-surface px-6 pt-14 sm:px-8 lg:px-12">
+        <div className="mx-auto flex max-w-[1400px] justify-center">
+          <div className="inline-flex rounded-full border border-line bg-canvas p-1 shadow-[var(--shadow-sm)]">
+            {VIEWS.map((v) => {
+              const active = view === v.id;
+              return (
+                <button
+                  key={v.id}
+                  onClick={() => setView(v.id)}
+                  aria-pressed={active}
+                  className={`rounded-full px-5 py-2 text-sm font-semibold transition-[background-color,color] duration-200 ease-out ${
+                    active ? 'bg-accent text-white' : 'text-muted hover:text-ink'
+                  }`}
+                >
+                  {v.label}
+                </button>
+              );
+            })}
           </div>
         </div>
-      </SectionWrap>
+      </div>
 
-      {/* Stats strip */}
+      {/* Toggled content */}
+      <section className="bg-surface px-6 pb-20 pt-10 sm:px-8 lg:px-12">
+        <div key={view} className="mx-auto max-w-[1400px]">
+          {view === 'cards' ? <LeadershipCards /> : <OrgChart />}
+        </div>
+      </section>
+
+      {/* Stats strip (shared) */}
       <SectionWrap className="bg-canvas px-6 pb-24 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3 lg:grid-cols-6">
           {stats.map((s) => {
