@@ -456,31 +456,25 @@ export default function HospitalPipeline3D({ height = 580 }) {
     ].forEach(([x,y,z]) => box(0.35,0.55,0.35,m.junc,x,y,z));
 
     // ══════════════════════════════════
-    //  MCL LOGO SIGN
+    //  WALL-MOUNTED MCL LOGO PLAQUES
     // ══════════════════════════════════
 
     const logoLoader = new THREE.TextureLoader();
     const logoTexture = logoLoader.load(mclLogoImg);
     logoTexture.colorSpace = THREE.SRGBColorSpace;
-    const logoMat = new THREE.MeshLambertMaterial({ map: logoTexture, transparent: true, side: THREE.DoubleSide });
-    const logoSvg = new THREE.PlaneGeometry(1.8, 0.6);
-    const logoMesh = new THREE.Mesh(logoSvg, logoMat);
-    logoMesh.position.set(0, 1.5, -10.2);
-    logoMesh.rotation.x = -0.05;
-    scene.add(logoMesh); all.push(logoMesh);
-
-    // Pole
-    const poleMat = new THREE.MeshLambertMaterial({ color: 0x90a4ae });
-    const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.1, 6), poleMat);
-    pole.position.set(0, 0.7, -10.2);
-    pole.castShadow = true;
-    scene.add(pole); all.push(pole);
-
-    // Base
-    const base = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.3, 0.08, 8), poleMat);
-    base.position.set(0, 0.04, -10.2);
-    base.castShadow = true; base.receiveShadow = true;
-    scene.add(base); all.push(base);
+    function wallLogo(x, y, z, ry) {
+      const mat = new THREE.MeshLambertMaterial({ map: logoTexture, transparent: true });
+      const geo = new THREE.PlaneGeometry(1.6, 0.5);
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.position.set(x, y, z);
+      mesh.rotation.y = ry;
+      scene.add(mesh); all.push(mesh);
+    }
+    wallLogo(3.08, 1.5,  2,   Math.PI/2);   // ICU corridor wall
+    wallLogo(3.08, 1.5, -4,   Math.PI/2);   // ICU south wall
+    wallLogo(-2.92, 1.5, -5,  Math.PI/2);   // Plant room wall
+    wallLogo(-8,  1.5,  8.08, 0);            // OR rear wall
+    wallLogo(8,   1.5, -1.05, 0);            // Radiology wall
 
     // ══════════════════════════════════
     //  CAMERA ORBIT CONTROLS
