@@ -155,11 +155,7 @@ export default function HospitalPipeline3D({ height = 580 }) {
     box(WT, WH, 3,  m.wall,  3, WH/2, -8);
     box(WT, WH, 3,  m.wall, -3, WH/2, -8);
 
-    // Ceiling panels
-    box(10, 0.06, 9,  m.ceil, -8, WH-0.03,  4.5);
-    box(10, 0.06, 12, m.ceil,  8, WH-0.03, -4);
-    box(10, 0.06, 8,  m.ceil,  8, WH-0.03,  6);
-    box(10, 0.06, 12, m.ceil, -8, WH-0.03, -6);
+    // Ceiling panels — removed (roof removed per request)
 
     // ══════════════════════════════════
     //  OPERATING THEATRE
