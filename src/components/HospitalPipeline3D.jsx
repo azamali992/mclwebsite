@@ -55,8 +55,8 @@ export default function HospitalPipeline3D({ height = 580 }) {
 
     // ── Scene ──
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xd0dbe5);
-    scene.fog = new THREE.Fog(0xd0dbe5, 35, 70);
+    scene.background = new THREE.Color(0x1e293b);
+    scene.fog = new THREE.Fog(0x1e293b, 35, 70);
 
     // ── Camera ──
     const camera = new THREE.PerspectiveCamera(38, W / H, 0.1, 120);
@@ -574,7 +574,7 @@ export default function HospitalPipeline3D({ height = 580 }) {
   ];
 
   return (
-    <div style={{ position:'relative', width:'100%', height, borderRadius:12, overflow:'hidden', border:'1px solid #cdd5de', background:'#d0dbe5' }}>
+    <div style={{ position:'relative', width:'100%', height, borderRadius:0, overflow:'hidden', border:'none', background:'#1e293b' }}>
       <div ref={mountRef} style={{ width:'100%', height:'100%' }} />
 
       {ready && (
