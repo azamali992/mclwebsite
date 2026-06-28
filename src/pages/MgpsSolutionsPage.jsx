@@ -25,7 +25,6 @@ import entonoxSuction from '../assets/products/entonox-suction.png';
 import oxygenConcentrator from '../assets/products/oxygen-concentrator.png';
 import Seo from '../components/Seo';
 import StatValue from '../components/StatValue';
-import HospitalPipeline3D from '../components/HospitalPipeline3D';
 
 const heroStats = [
   { icon: FaFileAlt, title: 'HTM 02-01', subtitle: 'Compliant' },
@@ -88,9 +87,7 @@ function HeroSection({ c }) {
   return (
     <section className="w-full relative bg-slate-900 min-h-[600px] lg:min-h-[700px] overflow-hidden">
       <div className="absolute inset-0 w-full h-full">
-        <div className="absolute right-0 top-0 w-full lg:w-[60%] h-full">
-          <HospitalPipeline3D height={700} />
-        </div>
+        <img src={renderImg} alt="3D medical gas pipeline layout" className="absolute right-0 top-0 w-full lg:w-[60%] h-full object-contain p-6" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-transparent" />
       </div>
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 h-full min-h-[600px] lg:min-h-[700px] flex flex-col justify-center">

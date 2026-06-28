@@ -55,8 +55,8 @@ export default function HospitalPipeline3D({ height = 580 }) {
 
     // ── Scene ──
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x1e293b);
-    scene.fog = new THREE.Fog(0x1e293b, 35, 70);
+    scene.background = new THREE.Color(0xd0dbe5);
+    scene.fog = new THREE.Fog(0xd0dbe5, 35, 70);
 
     // ── Camera ──
     const camera = new THREE.PerspectiveCamera(38, W / H, 0.1, 120);
