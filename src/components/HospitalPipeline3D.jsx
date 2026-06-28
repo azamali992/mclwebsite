@@ -17,6 +17,7 @@
  */
 
 import { useEffect, useRef, useState, useCallback } from 'react';
+import mclLogoImg from '../assets/mcl_client_logos/mcl-logo.png';
 
 // ─── CDN loader ──────────────────────────────────────────────────────────────
 function loadScript(src) {
@@ -453,6 +454,33 @@ export default function HospitalPipeline3D({ height = 580 }) {
       [-8,1.35,-1],[-8,1.35,2],[-8,1.35,3],
       [3.1,1.35,0],[3.1,1.35,-5],[3.1,1.35,-9],
     ].forEach(([x,y,z]) => box(0.35,0.55,0.35,m.junc,x,y,z));
+
+    // ══════════════════════════════════
+    //  MCL LOGO SIGN
+    // ══════════════════════════════════
+
+    const logoLoader = new THREE.TextureLoader();
+    const logoTexture = logoLoader.load(mclLogoImg);
+    logoTexture.colorSpace = THREE.SRGBColorSpace;
+    const logoMat = new THREE.MeshLambertMaterial({ map: logoTexture, transparent: true, side: THREE.DoubleSide });
+    const logoSvg = new THREE.PlaneGeometry(1.8, 0.6);
+    const logoMesh = new THREE.Mesh(logoSvg, logoMat);
+    logoMesh.position.set(0, 1.5, -10.2);
+    logoMesh.rotation.x = -0.05;
+    scene.add(logoMesh); all.push(logoMesh);
+
+    // Pole
+    const poleMat = new THREE.MeshLambertMaterial({ color: 0x90a4ae });
+    const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.1, 6), poleMat);
+    pole.position.set(0, 0.7, -10.2);
+    pole.castShadow = true;
+    scene.add(pole); all.push(pole);
+
+    // Base
+    const base = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.3, 0.08, 8), poleMat);
+    base.position.set(0, 0.04, -10.2);
+    base.castShadow = true; base.receiveShadow = true;
+    scene.add(base); all.push(base);
 
     // ══════════════════════════════════
     //  CAMERA ORBIT CONTROLS
