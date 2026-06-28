@@ -25,6 +25,7 @@ import entonoxSuction from '../assets/products/entonox-suction.png';
 import oxygenConcentrator from '../assets/products/oxygen-concentrator.png';
 import Seo from '../components/Seo';
 import StatValue from '../components/StatValue';
+import HospitalPipeline3D from '../components/HospitalPipeline3D';
 
 const heroStats = [
   { icon: FaFileAlt, title: 'HTM 02-01', subtitle: 'Compliant' },
@@ -161,7 +162,7 @@ function OverviewSection({ c }) {
         </div>
         <div ref={rightRef} className={`w-full lg:w-1/2 transition-all duration-700 delay-200 ${rightInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
           <div className="w-full aspect-video rounded-xl overflow-hidden shadow-lg">
-            <img src={renderImg} alt="3D Hospital Layout" className="w-full h-full object-contain bg-gray-50 p-4" />
+            <HospitalPipeline3D height="100%" />
           </div>
         </div>
       </div>
