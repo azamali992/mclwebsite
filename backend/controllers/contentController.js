@@ -79,7 +79,7 @@ export const deleteContent = async (req, res) => {
       return res.status(404).json({ message: 'Content not found' });
     }
 
-    res.json({ message: 'Content deleted successfully' });
+    res.status(204).end();
   } catch (error) {
     res.status(500).json({ message: 'Failed to delete content', error: error.message });
   }

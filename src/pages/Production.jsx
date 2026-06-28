@@ -1,17 +1,9 @@
 import { FaIndustry, FaTruck, FaWarehouse, FaShieldAlt, FaClock, FaCertificate, FaFlask, FaBoxes, FaImage } from 'react-icons/fa';
-import useInView from '../hooks/useInView';
+import SectionWrap from '../components/SectionWrap';
 import mainPlant from '../assets/main125tdplant.png';
 import plant20tpd from '../assets/20tpdplant.jpeg';
 import multanPlant from '../assets/multanoxplant.jpeg';
-
-function SectionWrap({ children, className = '' }) {
-  const [ref, inView] = useInView();
-  return (
-    <section ref={ref} className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}>
-      {children}
-    </section>
-  );
-}
+import Seo from '../components/Seo';
 
 const plants = [
   { image: mainPlant, title: '125 TPD Liquid Generation Plant', location: 'Sahianwala, Faisalabad' },
@@ -36,9 +28,14 @@ const features = [
 export default function Production() {
   return (
     <div className="pt-24">
+      <Seo
+        title="Production Plants"
+        description="MCL operates three Air Separation Units in Punjab, Pakistan: a 125 TPD liquid plant in Faisalabad plus 20 TPD and 15 TPD compressed gas plants, supplying high-purity industrial and medical gases nationwide."
+        path="/production"
+      />
       <section className="bg-slate-900 py-20 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto text-center">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-3">Production</p>
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-3">Production</p>
           <h1 className="text-white font-extrabold text-4xl lg:text-5xl leading-tight mb-4">
             Three ASU Plants Across Punjab, Pakistan.
           </h1>
@@ -58,7 +55,7 @@ export default function Production() {
                 className="relative group rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-500"
               >
                 {plant.comingSoon && (
-                  <span className="absolute top-3 right-3 z-10 bg-mclRed text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-md">
+                  <span className="absolute top-3 right-3 z-10 bg-accent text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-md">
                     Under Construction
                   </span>
                 )}
@@ -84,7 +81,7 @@ export default function Production() {
 
       <SectionWrap className="py-20 bg-gray-50 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-3">Salient Features</p>
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-3">Salient Features</p>
           <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight mb-12">
             Capacity and Reliability
           </h2>
@@ -93,9 +90,9 @@ export default function Production() {
               <div
                 key={f.text}
                 style={{ transitionDelay: `${i * 50}ms` }}
-                className="flex items-start gap-4 bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md hover:border-mclRed/30 transition-all"
+                className="flex items-start gap-4 bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md hover:border-accent/30 transition-all"
               >
-                <div className="w-10 h-10 rounded-lg bg-red-50 text-mclRed flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-red-50 text-accent flex items-center justify-center flex-shrink-0">
                   <f.icon size={16} />
                 </div>
                 <p className="text-gray-700 text-sm leading-relaxed pt-1.5">{f.text}</p>

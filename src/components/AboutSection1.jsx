@@ -34,7 +34,7 @@ export default function AboutSection1() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div
             ref={leftRef}
-            className={`transition-[opacity,transform] duration-500 ease-out ${leftInView ? 'translate-x-0 opacity-100' : '-translate-x-6 opacity-0'}`}
+            className={`transition-[opacity,transform] duration-500 ease-[var(--ease-out)] ${leftInView ? 'translate-x-0 opacity-100' : '-translate-x-6 opacity-0'}`}
           >
             <p className="eyebrow mb-4">About MCL</p>
             <h2 className="text-3xl font-semibold leading-[1.08] tracking-tight text-ink md:text-[2.75rem]">
@@ -46,7 +46,7 @@ export default function AboutSection1() {
 
           <div
             ref={rightRef}
-            className={`relative transition-[opacity,transform] duration-500 ease-out ${rightInView ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'}`}
+            className={`relative transition-[opacity,transform] duration-500 ease-[var(--ease-out)] ${rightInView ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'}`}
           >
             <div className="overflow-hidden rounded-lg shadow-[var(--shadow-lg)]">
               <img src={plantImage} alt="MCL industrial plant at dusk" loading="lazy" className="w-full object-cover" />
@@ -60,7 +60,7 @@ export default function AboutSection1() {
 
         <div
           ref={featRef}
-          className={`mt-16 grid grid-cols-1 gap-x-8 gap-y-6 border-t border-line pt-10 transition-[opacity,transform] duration-500 ease-out sm:grid-cols-2 lg:grid-cols-4 ${featInView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+          className={`mt-16 grid grid-cols-1 gap-x-8 gap-y-6 border-t border-line pt-10 transition-[opacity,transform] duration-500 ease-[var(--ease-out)] sm:grid-cols-2 lg:grid-cols-4 ${featInView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
         >
           {features.map((item, index) => {
             const Icon = item.icon;

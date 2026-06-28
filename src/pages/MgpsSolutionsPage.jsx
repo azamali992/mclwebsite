@@ -23,6 +23,8 @@ import vacuumRegulator from '../assets/products/vacuum-regulator.png';
 import airFlowMeter from '../assets/products/air-flow-meter.png';
 import entonoxSuction from '../assets/products/entonox-suction.png';
 import oxygenConcentrator from '../assets/products/oxygen-concentrator.png';
+import Seo from '../components/Seo';
+import StatValue from '../components/StatValue';
 
 const heroStats = [
   { icon: FaFileAlt, title: 'HTM 02-01', subtitle: 'Compliant' },
@@ -90,7 +92,7 @@ function HeroSection({ c }) {
       </div>
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 h-full min-h-[600px] lg:min-h-[700px] flex flex-col justify-center">
         <div className="max-w-2xl">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-4">
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-4">
             {c['mgps-hero-heading']?.title || 'MGPS SOLUTIONS'}
           </p>
           <h1 className="text-white font-extrabold text-4xl lg:text-5xl leading-tight mb-6">
@@ -100,7 +102,7 @@ function HeroSection({ c }) {
             {c['mgps-hero-desc']?.title || 'We design, supply, install, test and commission complete Medical Gas Pipeline Systems in accordance with HTM 02-01, NFPA 99, ISO 7396-1 and other international standards.'}
           </p>
           <div className="flex flex-wrap gap-4">
-            <button className="bg-mclRed hover:bg-red-800 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95 inline-flex items-center gap-2 shadow-md">
+            <button className="bg-accent hover:bg-red-800 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95 inline-flex items-center gap-2 shadow-md">
               EXPLORE SOLUTIONS <FaArrowRight />
             </button>
             <button className="border border-white/30 hover:bg-white/10 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all inline-flex items-center gap-2">
@@ -113,7 +115,7 @@ function HeroSection({ c }) {
         <div className="bg-white rounded-lg shadow-xl flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-gray-100">
           {heroStats.map((stat, i) => (
             <div key={i} className="flex-1 flex items-center justify-center gap-3 p-5">
-              <stat.icon className="text-mclRed flex-shrink-0" size={20} />
+              <stat.icon className="text-accent flex-shrink-0" size={20} />
               <div className="flex flex-col">
                 <span className="text-xs font-bold text-gray-900 leading-tight">{stat.title}</span>
                 <span className="text-[10px] text-gray-500 font-medium uppercase tracking-widest mt-0.5">{stat.subtitle}</span>
@@ -136,7 +138,7 @@ function OverviewSection({ c }) {
     <section className="py-20 bg-white max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
       <div className="flex flex-col lg:flex-row gap-12 xl:gap-20 items-center">
         <div ref={leftRef} className={`w-full lg:w-1/2 transition-all duration-700 ${leftInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">
             {c['mgps-overview-heading']?.title || 'MGPS OVERVIEW'}
           </p>
           <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight mb-6">
@@ -148,12 +150,12 @@ function OverviewSection({ c }) {
           <ul className="space-y-3 mb-8">
             {overviewChecklist.map((item, i) => (
               <li key={i} className="flex items-start group">
-                <FaCheck className="text-mclRed mt-1 mr-3 flex-shrink-0 group-hover:scale-110 transition-transform" size={14} />
+                <FaCheck className="text-accent mt-1 mr-3 flex-shrink-0 group-hover:scale-110 transition-transform" size={14} />
                 <span className="text-gray-700 text-sm font-medium">{item}</span>
               </li>
             ))}
           </ul>
-          <button className="bg-mclRed hover:bg-red-800 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95 inline-flex items-center gap-2 shadow-md">
+          <button className="bg-accent hover:bg-red-800 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95 inline-flex items-center gap-2 shadow-md">
             REQUEST A CONSULTATION <FaArrowRight />
           </button>
         </div>
@@ -169,11 +171,11 @@ function OverviewSection({ c }) {
             const value = stat.statKey ? resolveStat(statsMap, stat.statKey).value : stat.value;
             return (
               <div key={i} className="flex items-center gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full border border-mclRed/20 bg-red-50 flex items-center justify-center">
-                  <stat.icon className="text-mclRed" size={18} />
+                <div className="flex-shrink-0 w-12 h-12 rounded-full border border-accent/20 bg-red-50 flex items-center justify-center">
+                  <stat.icon className="text-accent" size={18} />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-2xl font-bold text-gray-900 leading-none">{value}</span>
+                  <StatValue value={value} active={statsInView} className="text-2xl font-bold text-gray-900 leading-none" />
                   <span className="text-xs text-gray-500 mt-1">{stat.label}</span>
                 </div>
               </div>
@@ -193,7 +195,7 @@ function ComponentsSection() {
 
   return (
     <section className="py-16 bg-white max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
-      <p className="text-mclRed font-bold uppercase tracking-widest text-sm text-center mb-8">
+      <p className="text-accent font-bold uppercase tracking-widest text-sm text-center mb-8">
         MGPS SYSTEM COMPONENTS
       </p>
       <div className="flex justify-center gap-4 overflow-x-auto text-sm font-semibold pb-4">
@@ -202,7 +204,7 @@ function ComponentsSection() {
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={`whitespace-nowrap pb-2 border-b-2 transition-colors ${
-              activeTab === tab ? 'text-mclRed border-mclRed' : 'text-gray-500 border-transparent hover:text-gray-700'
+              activeTab === tab ? 'text-accent border-accent' : 'text-gray-500 border-transparent hover:text-gray-700'
             }`}
           >
             {tab}
@@ -223,7 +225,7 @@ function ComponentsSection() {
         ))}
       </div>
       <div className="mt-10 text-center">
-        <button className="border border-mclRed/30 text-mclRed hover:bg-red-50 font-bold text-xs uppercase px-8 py-3 inline-flex items-center gap-2 transition-all">
+        <button className="border border-accent/30 text-accent hover:bg-red-50 font-bold text-xs uppercase px-8 py-3 inline-flex items-center gap-2 transition-all">
           VIEW ALL COMPONENTS <FaArrowRight />
         </button>
       </div>
@@ -235,7 +237,7 @@ function EquipmentSection() {
   return (
     <section className="bg-gray-50 py-20 max-w-full mx-auto px-4 sm:px-8 lg:px-12">
       <div className="max-w-[1400px] mx-auto text-center mb-10">
-        <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">MGPS EQUIPMENT</p>
+        <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">MGPS EQUIPMENT</p>
         <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight">High Quality Equipment For Maximum Safety</h2>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-[1400px] mx-auto mt-10">
@@ -250,7 +252,7 @@ function EquipmentSection() {
         ))}
       </div>
       <div className="mt-10 text-center">
-        <button className="border border-mclRed/30 text-mclRed hover:bg-red-50 font-bold text-xs uppercase px-8 py-3 inline-flex items-center gap-2 transition-all">
+        <button className="border border-accent/30 text-accent hover:bg-red-50 font-bold text-xs uppercase px-8 py-3 inline-flex items-center gap-2 transition-all">
           VIEW ALL EQUIPMENTS <FaArrowRight />
         </button>
       </div>
@@ -263,7 +265,7 @@ function ComplianceDiagramSection({ c }) {
     <section className="py-20 bg-white max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
         <div className="w-full lg:w-[40%]">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">
             {c['mgps-compliance-heading']?.title || 'COMPLIANCE & STANDARDS'}
           </p>
           <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight mb-6">
@@ -272,12 +274,12 @@ function ComplianceDiagramSection({ c }) {
           <p className="text-gray-600 text-sm leading-relaxed mb-8">
             Every system is designed, installed and tested to HTM 02-01, NFPA 99 and ISO 7396-1 — see our full certifications on the About page.
           </p>
-          <Link to="/about#certifications" className="bg-mclRed hover:bg-red-800 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95 inline-flex items-center gap-2 shadow-md">
+          <Link to="/about#certifications" className="bg-accent hover:bg-red-800 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95 inline-flex items-center gap-2 shadow-md">
             OUR CERTIFICATIONS <FaArrowRight />
           </Link>
         </div>
         <div className="w-full lg:w-[60%]">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-4">SYSTEM LAYOUT DIAGRAM</p>
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-4">SYSTEM LAYOUT DIAGRAM</p>
           <div className="w-full border border-gray-200 rounded-lg overflow-hidden bg-gray-50 p-6">
             <div className="w-full aspect-video relative rounded-md overflow-hidden">
               <img src={renderImg} alt="MGPS System Layout Diagram" className="w-full h-full object-contain" />
@@ -307,13 +309,13 @@ function KeyFeaturesBenefitsSection() {
     <section className="bg-[#0B1A28] py-20 max-w-full mx-auto px-4 sm:px-8 lg:px-12">
       <div className="max-w-[1400px] mx-auto">
         <div className="text-center mb-12">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">Key Features</p>
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">Key Features</p>
           <h2 className="text-white font-extrabold text-3xl lg:text-4xl leading-tight">Engineered For Safety & Reliability</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {keyFeatures.map((f, i) => (
             <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors">
-              <div className="w-12 h-12 rounded-lg bg-mclRed/20 text-mclRed flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-accent/20 text-accent flex items-center justify-center mb-4">
                 <f.icon size={20} />
               </div>
               <h3 className="text-white font-bold text-sm mb-2">{f.title}</h3>
@@ -323,13 +325,13 @@ function KeyFeaturesBenefitsSection() {
         </div>
 
         <div className="text-center mb-12">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">Benefits</p>
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">Benefits</p>
           <h2 className="text-white font-extrabold text-3xl lg:text-4xl leading-tight">Why Hospitals Choose MGPS</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {benefits.map((b, i) => (
             <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6 text-center hover:bg-white/10 transition-colors">
-              <div className="w-12 h-12 rounded-lg bg-mclRed/20 text-mclRed flex items-center justify-center mb-4 mx-auto">
+              <div className="w-12 h-12 rounded-lg bg-accent/20 text-accent flex items-center justify-center mb-4 mx-auto">
                 <b.icon size={20} />
               </div>
               <h3 className="text-white font-bold text-sm mb-2">{b.title}</h3>
@@ -356,6 +358,11 @@ export default function MgpsSolutionsPage() {
 
   return (
     <div className="pt-24">
+      <Seo
+        title="Medical Gas Pipeline Systems (MGPS)"
+        description="HTM 02-01, NFPA 99 and ISO 7396-1 compliant medical gas pipeline systems: oxygen generation plants, manifolds, zone valve boxes, alarm systems and bed head units, designed, installed and supported by Multan Chemicals Limited."
+        path="/mgps-solutions"
+      />
       <HeroSection c={contentMap} />
       <OverviewSection c={contentMap} />
       <ComponentsSection />

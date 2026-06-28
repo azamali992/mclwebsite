@@ -35,10 +35,11 @@ function sectionId(name, category) {
 }
 
 export const gases = gasesRaw.map((g) => {
-  const urlParts = g.url.split('/').filter(Boolean);
+  const urlParts = (g.url || '').split('/').filter(Boolean);
   const slug = slugify(urlParts.pop());
   const categoryPath = slugify(urlParts.pop());
-  const techSpecEntry = g.use_cases.find((u) => u.title === 'PRODUCT DATA');
+  const useCasesRaw = Array.isArray(g.use_cases) ? g.use_cases : [];
+  const techSpecEntry = useCasesRaw.find((u) => u.title === 'PRODUCT DATA');
 
   return {
     ...g,
@@ -47,7 +48,7 @@ export const gases = gasesRaw.map((g) => {
     section: sectionId(g.name, g.category),
     cardTitle: g.formula && g.formula !== g.name ? `${g.name} (${g.formula})` : g.name,
     techSpecs: parseTechSpecs(techSpecEntry?.description),
-    useCases: g.use_cases.filter((u) => isRealUseCase(u.title)),
+    useCases: useCasesRaw.filter((u) => isRealUseCase(u.title)),
     stats: {
       capacity: parseStat(g.stat_capacity),
       cylinders: parseStat(g.stat_cylinders),

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { FiEdit2, FiTrash2, FiPlus, FiSave, FiX, FiSearch } from 'react-icons/fi';
-import adminApi from '../../services/adminApi';
+import useAdminResource from '../../hooks/useAdminResource';
 import ImagePicker from './ImagePicker';
 
 const emptyForm = {
@@ -15,29 +15,19 @@ const emptyForm = {
 };
 
 const ProductManager = ({ token }) => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const {
+    items: products,
+    loading,
+    error,
+    setError,
+    createItem,
+    updateItem,
+    removeItem,
+  } = useAdminResource('/api/products', token);
   const [editingId, setEditingId] = useState(null);
   const [formData, setFormData] = useState(emptyForm);
   const [showForm, setShowForm] = useState(false);
   const [search, setSearch] = useState('');
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
-  const fetchProducts = async () => {
-    try {
-      setLoading(true);
-      const data = await adminApi.get('/api/products', token);
-      setProducts(Array.isArray(data) ? data : []);
-    } catch (err) {
-      setError(err.message || 'Failed to fetch products');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleSave = async () => {
     try {
@@ -49,12 +39,11 @@ const ProductManager = ({ token }) => {
       };
 
       if (editingId) {
-        await adminApi.put(`/api/products/${editingId}`, token, dataToSend);
+        await updateItem(editingId, dataToSend);
       } else {
-        await adminApi.post('/api/products', token, dataToSend);
+        await createItem(dataToSend);
       }
 
-      await fetchProducts();
       setShowForm(false);
       setEditingId(null);
       setFormData(emptyForm);
@@ -66,8 +55,7 @@ const ProductManager = ({ token }) => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this product?')) return;
     try {
-      await adminApi.delete(`/api/products/${id}`, token);
-      await fetchProducts();
+      await removeItem(id, { refetch: true });
     } catch (err) {
       setError(err.message || 'Failed to delete product');
     }

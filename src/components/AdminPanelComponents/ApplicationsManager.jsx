@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { FiTrash2, FiDownload, FiSearch } from 'react-icons/fi';
-import adminApi from '../../services/adminApi';
+import useAdminResource from '../../hooks/useAdminResource';
 import API_URL from '../../services/api';
 
 const statusColors = {
@@ -11,32 +11,20 @@ const statusColors = {
 };
 
 const ApplicationsManager = ({ token }) => {
-  const [applications, setApplications] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const {
+    items: applications,
+    loading,
+    error,
+    setError,
+    updateItem,
+    removeItem,
+  } = useAdminResource('/api/applications', token);
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
 
-  useEffect(() => {
-    fetchApplications();
-  }, []);
-
-  const fetchApplications = async () => {
-    try {
-      setLoading(true);
-      const data = await adminApi.get('/api/applications', token);
-      setApplications(Array.isArray(data) ? data : []);
-    } catch (err) {
-      setError(err.message || 'Failed to fetch applications');
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const handleStatusChange = async (id, status) => {
     try {
-      await adminApi.put(`/api/applications/${id}`, token, { status });
-      setApplications((prev) => prev.map((a) => (a._id === id ? { ...a, status } : a)));
+      await updateItem(id, { status }, { refetch: false });
     } catch (err) {
       setError(err.message || 'Failed to update application');
     }
@@ -45,8 +33,7 @@ const ApplicationsManager = ({ token }) => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this application?')) return;
     try {
-      await adminApi.delete(`/api/applications/${id}`, token);
-      setApplications((prev) => prev.filter((a) => a._id !== id));
+      await removeItem(id);
     } catch (err) {
       setError(err.message || 'Failed to delete application');
     }

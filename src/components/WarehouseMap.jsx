@@ -77,13 +77,11 @@ function FlyToHighlight({ locations, highlightKey }) {
   return null;
 }
 
-export default function WarehouseMap({ className = 'h-[500px]', onLocationClick, highlightKey, tileTheme = 'dark', showLegend = true, onLocationsLoaded }) {
-  const [locations, setLocations] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+let cachedLocationsPromise = null;
 
-  useEffect(() => {
-    fetch(xlsxUrl)
+function loadWarehouseLocations() {
+  if (!cachedLocationsPromise) {
+    cachedLocationsPromise = fetch(xlsxUrl)
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch Excel file');
         return res.arrayBuffer();
@@ -111,16 +109,40 @@ export default function WarehouseMap({ className = 'h-[500px]', onLocationClick,
             });
           }
         }
+        return parsed;
+      })
+      .catch(err => {
+        cachedLocationsPromise = null;
+        throw err;
+      });
+  }
+  return cachedLocationsPromise;
+}
+
+export default function WarehouseMap({ className = 'h-[500px]', onLocationClick, highlightKey, tileTheme = 'dark', showLegend = true, onLocationsLoaded }) {
+  const [locations, setLocations] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    let mounted = true;
+
+    loadWarehouseLocations()
+      .then(parsed => {
+        if (!mounted) return;
         setLocations(parsed);
         setError(null);
         onLocationsLoaded?.(parsed);
       })
       .catch(err => {
+        if (!mounted) return;
         console.error('Excel parse error:', err);
         setError('Unable to load map data.');
         setLocations([]);
       })
-      .finally(() => setLoading(false));
+      .finally(() => { if (mounted) setLoading(false); });
+
+    return () => { mounted = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

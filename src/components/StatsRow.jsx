@@ -1,32 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
 import { FaRegCalendarAlt, FaIndustry, FaTruck, FaUsers, FaGasPump } from 'react-icons/fa';
 import { TbCylinder } from 'react-icons/tb';
 import useStats from '../hooks/useStats';
 import useInView from '../hooks/useInView';
+import useCountUp from '../hooks/useCountUp';
 import { resolveStat } from '../data/stats';
-
-function useCountUp(target, active, duration = 1400) {
-  const [value, setValue] = useState(0);
-  const rafRef = useRef(0);
-
-  useEffect(() => {
-    if (!active) return;
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const dur = reduced ? 0 : duration;
-    let startTime;
-    const ease = (t) => 1 - Math.pow(1 - t, 3); // ease-out cubic
-    const tick = (now) => {
-      if (!startTime) startTime = now;
-      const p = dur === 0 ? 1 : Math.min((now - startTime) / dur, 1);
-      setValue(Math.round(ease(p) * target));
-      if (p < 1) rafRef.current = requestAnimationFrame(tick);
-    };
-    rafRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [target, active, duration]);
-
-  return value;
-}
 
 function Stat({ icon: Icon, number, title, subtitle, active }) {
   const numeric = parseInt(String(number).replace(/[^0-9]/g, ''), 10) || 0;

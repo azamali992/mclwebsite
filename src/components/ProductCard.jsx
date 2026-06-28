@@ -26,7 +26,7 @@ function GasCylinder({ name, formula, delay }) {
   return (
     <div className="relative w-full h-80 flex items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 via-gray-50 to-white">
       {/* brand glow + ground shadow */}
-      <div className="absolute top-8 left-1/2 -translate-x-1/2 w-52 h-52 rounded-full bg-mclRed/15 blur-3xl pointer-events-none" />
+      <div className="absolute top-8 left-1/2 -translate-x-1/2 w-52 h-52 rounded-full bg-accent/15 blur-3xl pointer-events-none" />
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-32 h-4 rounded-[50%] bg-black/25 blur-md transition-all duration-500 group-hover:w-36 group-hover:bg-black/30" />
 
       <div className="relative flex flex-col items-center mb-6 animate-cyl-float motion-reduce:animate-none" style={{ animationDelay: delay }}>
@@ -54,12 +54,12 @@ function GasCylinder({ name, formula, delay }) {
           <div className="absolute bottom-0 inset-x-0 h-5 bg-gradient-to-b from-transparent to-black/20" />
 
           <div className="text-center mb-3 relative">
-            <p className="text-mclRed font-black text-2xl italic tracking-tighter drop-shadow-sm leading-none">MCL</p>
+            <p className="text-accent font-black text-2xl italic tracking-tighter drop-shadow-sm leading-none">MCL</p>
             <p className="text-[6.5px] font-bold text-gray-700 uppercase tracking-[0.22em] mt-1">Multan Chemicals</p>
           </div>
 
           <div className="text-center w-full px-2 relative">
-            {formula && <div className="text-mclRed font-mono font-black text-3xl mb-1 drop-shadow-sm leading-none">{formula}</div>}
+            {formula && <div className="text-accent font-mono font-black text-3xl mb-1 drop-shadow-sm leading-none">{formula}</div>}
             <h4 className={`text-red-800 font-black uppercase break-words leading-tight ${long ? 'text-[11px] tracking-wide' : 'text-lg tracking-widest'}`}>
               {name}
             </h4>
@@ -99,7 +99,7 @@ export default function ProductCard({ icon: Icon, image, title, description, fea
           </div>
         </div>
       ) : (
-        <div className="relative bg-gradient-to-br from-slate-800 via-slate-800 to-mclRed p-6 pb-9 text-white overflow-hidden">
+        <div className="relative bg-gradient-to-br from-slate-800 via-slate-800 to-accent p-6 pb-9 text-white overflow-hidden">
           <div className="absolute -right-6 -top-6 w-28 h-28 rounded-full bg-white/5" />
           <div className="absolute -right-2 top-8 w-16 h-16 rounded-full bg-white/5" />
           <h3 className="relative text-lg font-bold mb-1 pr-12 leading-snug">{title}</h3>
@@ -109,7 +109,7 @@ export default function ProductCard({ icon: Icon, image, title, description, fea
 
       {!hasVisual && (
         <div className="relative flex justify-end px-6">
-          <div className="absolute -top-7 right-6 w-14 h-14 rounded-2xl bg-white shadow-md flex items-center justify-center text-mclRed group-hover:bg-mclRed group-hover:text-white group-hover:-rotate-6 transition-all duration-300">
+          <div className="absolute -top-7 right-6 w-14 h-14 rounded-2xl bg-white shadow-md flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white group-hover:-rotate-6 transition-all duration-300">
             <Icon size={24} />
           </div>
         </div>
@@ -128,7 +128,7 @@ export default function ProductCard({ icon: Icon, image, title, description, fea
                 <ul className="space-y-2">
                   {features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                      <FaCheck className="text-mclRed mt-0.5 flex-shrink-0" size={12} />
+                      <FaCheck className="text-accent mt-0.5 flex-shrink-0" size={12} />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -140,9 +140,9 @@ export default function ProductCard({ icon: Icon, image, title, description, fea
       )}
 
       <div className="px-6 py-4 flex items-center justify-between border-t border-gray-100">
-        <span className="text-xs font-semibold text-gray-400 uppercase tracking-wide">{to ? 'View details' : expanded ? 'Show less' : 'Key features'}</span>
+        <span className="text-xs font-semibold text-muted uppercase tracking-wide">{to ? 'View details' : expanded ? 'Show less' : 'Key features'}</span>
         <span className="w-7 h-7 rounded-full bg-gray-50 group-hover:bg-red-50 flex items-center justify-center transition-colors">
-          <FaArrowRight className={`text-mclRed transition-transform duration-300 ${!to && expanded ? 'rotate-90' : ''}`} size={11} />
+          <FaArrowRight className={`text-accent transition-transform duration-300 ${!to && expanded ? 'rotate-90' : ''}`} size={11} />
         </span>
       </div>
     </div>

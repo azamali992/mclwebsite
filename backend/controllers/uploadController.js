@@ -1,14 +1,9 @@
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { resolveUploadDir } from '../middleware/upload.js';
+import { verifyFileSignature } from '../utils/fileSignature.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const uploadsDir = path.join(__dirname, '../uploads/images');
-
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
-}
+const uploadsDir = resolveUploadDir('images');
 
 export const uploadImage = async (req, res) => {
   try {
@@ -16,10 +11,15 @@ export const uploadImage = async (req, res) => {
       return res.status(400).json({ message: 'No file uploaded' });
     }
 
+    if (!verifyFileSignature(req.file.path, req.file.mimetype)) {
+      fs.unlinkSync(req.file.path);
+      return res.status(400).json({ message: 'File content does not match its declared type.' });
+    }
+
     const filename = req.file.filename;
     const fileUrl = `/uploads/images/${filename}`;
 
-    res.json({
+    res.status(201).json({
       message: 'Image uploaded successfully',
       filename,
       url: fileUrl,
@@ -59,7 +59,7 @@ export const deleteImage = async (req, res) => {
 
     if (fs.existsSync(filePath)) {
       fs.unlinkSync(filePath);
-      res.json({ message: 'Image deleted successfully' });
+      res.status(204).end();
     } else {
       res.status(404).json({ message: 'Image not found' });
     }

@@ -35,7 +35,8 @@ export default function Chatbot() {
     try {
       const history = nextMessages.slice(-7, -1);
       const data = await sendChatMessage(text, history);
-      setMessages((prev) => [...prev, { role: 'assistant', content: data.reply, links: data.links }]);
+      const reply = data?.reply || "Sorry, I'm having trouble responding right now. Please try again or use the Contact page.";
+      setMessages((prev) => [...prev, { role: 'assistant', content: reply, links: Array.isArray(data?.links) ? data.links : [] }]);
     } catch {
       setMessages((prev) => [...prev, {
         role: 'assistant',

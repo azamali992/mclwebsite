@@ -7,7 +7,7 @@ import {
   FaTint, FaWind, FaRadiation, FaBed, FaPlug,
   FaSyringe, FaDoorOpen, FaBoxes, FaDesktop, FaToggleOn, FaPills, FaHospital,
 } from 'react-icons/fa';
-import useInView from '../hooks/useInView';
+import SectionWrap from '../components/SectionWrap';
 import { fetchProducts } from '../services/api';
 import ProductCard from '../components/ProductCard';
 import heroBg from '../assets/infra01.JPG';
@@ -15,18 +15,10 @@ import mgpsEquipment from '../assets/products/medical-gas-manifolds.jpeg';
 import modularOtPhoto from '../assets/products/modular-ot-hero.jpeg';
 import clinicalPhoto from '../assets/products/anesthesia-workstation.png';
 import { categoryGroups } from '../data/products';
+import Seo from '../components/Seo';
 
 const healthGroup = categoryGroups.find((g) => g.id === 'healthcare-engineering');
 const categoryLabel = (id) => healthGroup.items.find((c) => c.id === id);
-
-function SectionWrap({ children, className = '' }) {
-  const [ref, inView] = useInView();
-  return (
-    <section ref={ref} className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}>
-      {children}
-    </section>
-  );
-}
 
 const defaultProducts = {
   mgps: [
@@ -141,12 +133,17 @@ export default function HealthEngineering() {
 
   return (
     <div className="pt-24">
+      <Seo
+        title="Healthcare Engineering & Equipment"
+        description="End-to-end medical gas pipeline systems (MGPS), modular operation theatres, and clinical & diagnostic equipment, designed, supplied, installed and supported by Multan Chemicals Limited across Pakistan."
+        path="/health-engineering"
+      />
       <section className="relative w-full bg-slate-900 py-24 px-4 sm:px-8 lg:px-12 overflow-hidden">
         <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/95 via-slate-900/90 to-slate-900" />
         <div className="relative max-w-[1400px] mx-auto">
           <div className="text-center mb-12">
-            <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-3">Health Engineering</p>
+            <p className="text-accent font-bold uppercase tracking-widest text-sm mb-3">Health Engineering</p>
             <h1 className="text-white font-extrabold text-4xl lg:text-5xl leading-tight mb-4">Healthcare Engineering & Equipment</h1>
             <p className="text-gray-300 text-lg max-w-3xl mx-auto">
               End-to-end medical gas pipeline systems, modular operation theatres, and clinical & diagnostic equipment — designed, supplied, installed and supported by MCL.
@@ -158,12 +155,12 @@ export default function HealthEngineering() {
               <Link
                 key={hub.key}
                 to={hub.path}
-                className="group relative h-64 lg:h-96 rounded-2xl overflow-hidden shadow-xl focus:outline-none focus:ring-2 focus:ring-mclRed"
+                className="group relative h-64 lg:h-96 rounded-2xl overflow-hidden shadow-xl focus:outline-none focus:ring-2 focus:ring-accent"
               >
                 <img src={hub.image} alt={hub.label} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/40 to-slate-900/10" />
                 <div className="absolute inset-0 flex flex-col items-center justify-end p-5 lg:p-6 text-center">
-                  <hub.icon className="text-mclRed mb-3" size={28} />
+                  <hub.icon className="text-accent mb-3" size={28} />
                   <h3 className="text-white font-bold text-base lg:text-xl leading-tight">{hub.label}</h3>
                   <span className="text-white/70 text-[10px] lg:text-xs uppercase tracking-widest mt-2 flex items-center gap-1 group-hover:gap-2 transition-all">
                     View Page <FaArrowRight size={9} />
@@ -181,12 +178,12 @@ export default function HealthEngineering() {
             <div className="max-w-[1400px] mx-auto">
               <div className="flex items-center justify-between gap-3 mb-10">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-red-50 text-mclRed flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-red-50 text-accent flex items-center justify-center flex-shrink-0">
                     <hub.icon size={18} />
                   </div>
                   <h2 className="text-gray-900 font-bold text-2xl">{hub.label}</h2>
                 </div>
-                <button onClick={() => navigate(hub.path)} className="text-mclRed font-semibold text-sm inline-flex items-center gap-1.5 hover:gap-2.5 transition-all flex-shrink-0">
+                <button onClick={() => navigate(hub.path)} className="text-accent font-semibold text-sm inline-flex items-center gap-1.5 hover:gap-2.5 transition-all flex-shrink-0">
                   {hub.ctaLabel} <FaArrowRight size={11} />
                 </button>
               </div>
@@ -210,17 +207,17 @@ export default function HealthEngineering() {
         ))}
       </div>
 
-      <SectionWrap className="py-16 bg-white px-4 sm:px-8 lg:px-12 border-t-4 border-mclRed">
+      <SectionWrap className="py-16 bg-white px-4 sm:px-8 lg:px-12 border-t-4 border-accent">
         <div className="max-w-[1400px] mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Need a Custom Solution?</h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             Contact our team for healthcare engineering consultations and equipment tailored to your facility needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => navigate('/contact')} className="bg-mclRed hover:bg-red-800 text-white px-8 py-3.5 font-bold uppercase tracking-wider inline-flex items-center gap-2 transition-all focus:ring-2 focus:ring-red-500 focus:outline-none rounded">
+            <button onClick={() => navigate('/contact')} className="bg-accent hover:bg-red-800 text-white px-8 py-3.5 font-bold uppercase tracking-wider inline-flex items-center gap-2 transition-all focus:ring-2 focus:ring-red-500 focus:outline-none rounded">
               <FaPhone /> Contact Us
             </button>
-            <button onClick={() => navigate('/careers')} className="border-2 border-mclRed text-mclRed hover:bg-mclRed hover:text-white px-8 py-3.5 font-bold uppercase tracking-wider transition-all focus:ring-2 focus:ring-mclRed focus:outline-none rounded">
+            <button onClick={() => navigate('/careers')} className="border-2 border-accent text-accent hover:bg-accent hover:text-white px-8 py-3.5 font-bold uppercase tracking-wider transition-all focus:ring-2 focus:ring-accent focus:outline-none rounded">
               Join Our Team
             </button>
           </div>
@@ -229,9 +226,9 @@ export default function HealthEngineering() {
 
       <SectionWrap className="py-10 bg-gray-50 px-4 sm:px-8 lg:px-12 text-center">
         <p className="text-gray-600 text-sm">
-          <FaCheck className="inline text-mclRed mb-0.5 mr-2" size={14} />
+          <FaCheck className="inline text-accent mb-0.5 mr-2" size={14} />
           HTM 02-01 &middot; NFPA 99 &middot; ISO 7396-1 &middot; ISO 9001 certified —{' '}
-          <Link to="/about#certifications" className="text-mclRed font-semibold hover:underline">see all certifications</Link>
+          <Link to="/about#certifications" className="text-accent font-semibold hover:underline">see all certifications</Link>
         </p>
       </SectionWrap>
     </div>

@@ -1,3 +1,5 @@
+import Seo from '../components/Seo';
+
 export default function Terms() {
   const sections = [
     {
@@ -36,9 +38,14 @@ export default function Terms() {
 
   return (
     <div className="pt-24">
+      <Seo
+        title="Terms & Conditions"
+        description="Terms and conditions governing the use of Multan Chemicals Limited's website, products and services, including cylinder ownership, order acceptance and intellectual property."
+        path="/terms"
+      />
       <section className="bg-slate-900 py-16 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">Legal</p>
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">Legal</p>
           <h1 className="text-white font-extrabold text-4xl lg:text-5xl leading-tight">Terms & Conditions</h1>
           <p className="text-gray-300 mt-4 max-w-xl text-sm">Last updated: June 2026</p>
         </div>

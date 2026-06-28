@@ -255,6 +255,14 @@ p {
 }
 .animate-cyl-float { animation: cyl-float 5s var(--ease-in-out) infinite; }
 
+/* Ambient floating shapes for dark hero/section backgrounds — slow, linear,
+   alternating drift so it reads as atmosphere rather than a focal motion. */
+@keyframes float-ambient {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-16px); }
+}
+.animate-float-ambient { animation: float-ambient 5s var(--ease-in-out) infinite alternate; }
+
 /* ---- Site preloader ---- */
 @keyframes loader-logo-in {
   0% { opacity: 0; transform: scale(0.92) translateY(8px); filter: blur(3px); }
@@ -275,11 +283,11 @@ p {
 .loader-logo { animation: loader-logo-in 0.55s var(--ease-out) both; }
 .loader-word { animation: loader-word-in 0.5s var(--ease-out) 0.12s both; }
 .loader-fill { animation: loader-bar-fill 0.9s var(--ease-in-out) 0.2s infinite; }
-.loader-exit { animation: loader-out 0.5s var(--ease-in-out) forwards; }
+.loader-exit { animation: loader-out 0.5s var(--ease-out-quart) forwards; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .animate-cyl-float,
+  .animate-cyl-float, .animate-float-ambient,
   .loader-logo, .loader-word, .loader-fill {
     animation: none;
   }
@@ -289,5 +297,13 @@ p {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+  /* Catches the `transition-[opacity,transform] duration-NNN` scroll-reveal
+     pattern used by 20+ components (gated by useInView state, not by one of
+     the named classes above) — shortening the transition to near-zero lets
+     each section resolve to its already-correct in-view state instantly
+     instead of animating into it. */
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
   }
 }

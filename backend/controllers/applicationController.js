@@ -2,9 +2,13 @@ import Application from '../models/Application.js';
 
 export const getAllApplications = async (req, res) => {
   try {
+    // Only build the filter from genuine strings — a repeated query key
+    // (?status=a&status=b) parses to an array, which Mongoose would treat as
+    // an implicit $in match rather than the single-value filter the admin
+    // UI's dropdown actually sends.
     const filter = {};
-    if (req.query.jobId) filter.jobId = req.query.jobId;
-    if (req.query.status) filter.status = req.query.status;
+    if (typeof req.query.jobId === 'string' && req.query.jobId) filter.jobId = req.query.jobId;
+    if (typeof req.query.status === 'string' && req.query.status) filter.status = req.query.status;
 
     const applications = await Application.find(filter)
       .populate('jobId', 'position department location')
@@ -45,7 +49,7 @@ export const deleteApplication = async (req, res) => {
       return res.status(404).json({ message: 'Application not found' });
     }
 
-    res.json({ message: 'Application deleted successfully' });
+    res.status(204).end();
   } catch (error) {
     res.status(500).json({ message: 'Failed to delete application', error: error.message });
   }

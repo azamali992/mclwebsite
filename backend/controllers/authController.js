@@ -38,6 +38,14 @@ export const login = async (req, res) => {
   }
 };
 
+// TODO(security, Medium, deferred Phase 6): this route only requires
+// authMiddleware (any valid admin JWT) — there's no check that req.admin.role
+// is 'super_admin', so any logged-in admin can mint additional admin accounts.
+// Fix: add `if (req.admin.role !== 'super_admin') return res.status(403)...`
+// before proceeding. Deferred rather than fixed here because doing it safely
+// means confirming at least one real super_admin account already exists in
+// the live database first — flipping this on blind could lock out the only
+// admin able to create others.
 export const register = async (req, res) => {
   try {
     const { email, password, name } = req.body;

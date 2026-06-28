@@ -12,6 +12,50 @@ import Admin from '../models/Admin.js';
 import Content from '../models/Content.js';
 import Product from '../models/Product.js';
 import Career from '../models/Career.js';
+import gasesRaw from '../../src/assets/mcl_gases_data.json' with { type: 'json' };
+
+// Maps the real gas dataset's scraped category labels to the same category
+// IDs used by the frontend's category taxonomy (src/data/products.js
+// categoryGroups -> 'gases' group: industrial/medical/specialty/lpg) and by
+// src/data/gasesData.js's sectionId() helper, so seeded Product.category
+// values line up with how the live site already groups gas products.
+function gasCategoryId(name, category) {
+  if (category === 'Medical Gases') return 'medical';
+  if (category === 'Speciality Gases') return 'specialty';
+  if (name === 'LPG') return 'lpg';
+  return 'industrial';
+}
+
+// The real gas dataset (src/assets/mcl_gases_data.json, via gasesData.js's
+// parsing conventions) carries much richer structured fields than the
+// Product Mongoose model supports (formula, purity_grades, cylinders,
+// bulk_supply, stat_* counters, multi-paragraph use_cases). The Product
+// schema only has {name, description, image, category, price, features[],
+// isActive, order} — there is no clean 1:1 mapping for the nested arrays
+// without either lossy flattening or a schema migration (out of scope here:
+// "do not change any data/content" / no model field additions requested).
+// So this seed maps only the fields that translate cleanly:
+//   name        <- g.name (+ formula in parentheses, matching gasesData.js's
+//                  cardTitle convention, so seeded names match what the
+//                  live /gases pages already display)
+//   description <- g.description (already real marketing copy, unmodified)
+//   category    <- derived via gasCategoryId(), matching the live taxonomy
+//   features    <- g.use_cases[].title (short, list-shaped, fits the
+//                  schema's [String] field without truncating content)
+// This intentionally leaves purity_grades/cylinders/bulk_supply/stat_* out
+// of the seed rather than forcing them into fields that don't fit — if the
+// admin Product CRUD is ever meant to fully replace the static gas JSON,
+// that requires a Product schema migration first, which is out of scope
+// for this pass.
+const gasProductSeed = gasesRaw.map((g, i) => ({
+  name: g.formula && g.formula !== g.name ? `${g.name} (${g.formula})` : g.name,
+  description: g.description || '',
+  category: gasCategoryId(g.name, g.category),
+  features: (g.use_cases || [])
+    .map((u) => u.title)
+    .filter((title) => title && title !== 'PRODUCT DATA' && !title.startsWith('—') && title !== 'LOCATIONS'),
+  order: i + 1,
+}));
 
 async function seed() {
   try {
@@ -217,15 +261,32 @@ async function seed() {
       { name: 'Medical UV Phototherapy Cabin', description: 'Dermatological UV treatment system', category: 'therapeutic', features: ['High-intensity UV treatment booth', 'UVA and Narrowband UVB support', 'Vitiligo, psoriasis, eczema treatment', 'Uniform radiation distribution', 'Safety-controlled exposure system'], order: 35 },
     ];
 
-    let productCount = 0;
-    for (const item of productSeed) {
-      const existing = await Product.findOne({ name: item.name, category: item.category });
-      if (!existing) {
-        await Product.create(item);
-        productCount++;
-      }
+    // Gas line (gasProductSeed, imported from src/assets/mcl_gases_data.json
+    // at the top of this file) is listed before the healthcare-equipment
+    // seed, matching src/data/products.js's categoryGroups order ('Gases'
+    // group before 'Healthcare Engineering & Equipment'). Renumber order
+    // so the combined list sorts gases first, then equipment, exactly like
+    // the live category navigation.
+    const allProductSeed = [
+      ...gasProductSeed,
+      ...productSeed.map((item, i) => ({ ...item, order: gasProductSeed.length + i + 1 })),
+    ];
+
+    // Pre-fetch all existing (name, category) pairs in one query instead of
+    // one findOne per seed item (the per-item loop pattern flagged as N+1-
+    // by-shape in the Phase 1 audit, finding #7/#9) — fine either way at
+    // seed-time data volumes, but batching is just as easy to write.
+    const existingProducts = await Product.find(
+      { name: { $in: allProductSeed.map((p) => p.name) } },
+      'name category'
+    ).lean();
+    const existingKeys = new Set(existingProducts.map((p) => `${p.name}::${p.category}`));
+
+    const newProducts = allProductSeed.filter((item) => !existingKeys.has(`${item.name}::${item.category}`));
+    if (newProducts.length > 0) {
+      await Product.insertMany(newProducts);
     }
-    console.log(`Products: ${productCount} new items seeded`);
+    console.log(`Products: ${newProducts.length} new items seeded (${gasProductSeed.length} gas products from mcl_gases_data.json, ${productSeed.length} healthcare-equipment products)`);
 
     // 4. Seed Careers
     const careerSeed = [

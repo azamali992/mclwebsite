@@ -5,6 +5,7 @@ import {
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import useInView from '../hooks/useInView';
+import SectionWrap from '../components/SectionWrap';
 import { slugify } from '../data/products';
 import otHero from '../assets/products/modular-ot-hero.jpeg';
 import wallCeiling from '../assets/products/wall-ceiling-system.png';
@@ -16,15 +17,8 @@ import laminarAirFlow from '../assets/products/laminar-air-flow.jpeg';
 import medicalCabinets from '../assets/products/medical-cabinets.png';
 import xrayViewer from '../assets/products/xray-viewer.png';
 import subStructure from '../assets/products/sub-structure.png';
+import Seo from '../components/Seo';
 
-function SectionWrap({ children, className = '' }) {
-  const [ref, inView] = useInView();
-  return (
-    <section ref={ref} className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}>
-      {children}
-    </section>
-  );
-}
 
 const heroHighlights = [
   { icon: FaRocket, label: 'Rapid Installation' },
@@ -85,7 +79,7 @@ function ComponentCard({ image, icon: Icon, title, features, index }) {
           <img src={image} alt={title} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
         </div>
       ) : (
-        <div className="aspect-[4/3] bg-gradient-to-br from-slate-800 to-mclRed flex items-center justify-center">
+        <div className="aspect-[4/3] bg-gradient-to-br from-slate-800 to-accent flex items-center justify-center">
           <Icon className="text-white" size={40} />
         </div>
       )}
@@ -96,14 +90,14 @@ function ComponentCard({ image, icon: Icon, title, features, index }) {
             <ul className="space-y-1.5 pt-1 pb-2">
               {features.map((f, i) => (
                 <li key={i} className="flex items-start gap-2 text-xs text-gray-600">
-                  <FaCheck className="text-mclRed mt-0.5 flex-shrink-0" size={10} />
+                  <FaCheck className="text-accent mt-0.5 flex-shrink-0" size={10} />
                   <span>{f}</span>
                 </li>
               ))}
             </ul>
           </div>
         </div>
-        <span className="text-xs font-semibold text-mclRed uppercase tracking-wide">{expanded ? 'Show less' : 'Key features'}</span>
+        <span className="text-xs font-semibold text-accent uppercase tracking-wide">{expanded ? 'Show less' : 'Key features'}</span>
       </div>
     </div>
   );
@@ -112,11 +106,16 @@ function ComponentCard({ image, icon: Icon, title, features, index }) {
 export default function ModularOT() {
   return (
     <div className="pt-24">
+      <Seo
+        title="Modular Operation Theatre Solutions"
+        description="Turnkey modular operation theatres from Multan Chemicals Limited: wall and ceiling systems, surgical lighting, medical pendants, laminar air flow, IT power supply and more, designed for infection control and rapid installation."
+        path="/modular-ot"
+      />
       <section className="w-full relative bg-slate-900 py-24 px-4 sm:px-8 lg:px-12 overflow-hidden">
         <img src={otHero} alt="Modular Operation Theatre" className="absolute inset-0 w-full h-full object-cover opacity-25" />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/95 via-slate-900/90 to-slate-900" />
         <div className="relative max-w-[1400px] mx-auto text-center">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-3">Modular Operation Theatre</p>
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-3">Modular Operation Theatre</p>
           <h1 className="text-white font-extrabold text-4xl lg:text-5xl leading-tight mb-4">
             Pre-Fabricated. Sterile By Design.
           </h1>
@@ -126,7 +125,7 @@ export default function ModularOT() {
           <div className="flex flex-wrap justify-center gap-6">
             {heroHighlights.map((h, i) => (
               <div key={i} className="flex items-center gap-2 text-white">
-                <h.icon className="text-mclRed" size={18} />
+                <h.icon className="text-accent" size={18} />
                 <span className="text-sm font-semibold">{h.label}</span>
               </div>
             ))}
@@ -137,20 +136,20 @@ export default function ModularOT() {
       <SectionWrap className="py-20 bg-white px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-14">
-            <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">Why Modular OT?</p>
+            <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">Why Modular OT?</p>
             <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight">Built For The Surgical Environment</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {whyModular.map((w, i) => (
               <div key={i} className="bg-gray-50 border border-gray-100 rounded-2xl p-7 hover:shadow-lg transition-all">
-                <div className="w-14 h-14 rounded-xl bg-mclRed/10 text-mclRed flex items-center justify-center mb-5">
+                <div className="w-14 h-14 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-5">
                   <w.icon size={24} />
                 </div>
                 <h3 className="text-gray-900 font-bold text-lg mb-3">{w.title}</h3>
                 <ul className="space-y-2">
                   {w.bullets.map((b, j) => (
                     <li key={j} className="flex items-start gap-2 text-sm text-gray-600">
-                      <FaCheck className="text-mclRed mt-1 flex-shrink-0" size={11} />
+                      <FaCheck className="text-accent mt-1 flex-shrink-0" size={11} />
                       <span>{b}</span>
                     </li>
                   ))}
@@ -164,7 +163,7 @@ export default function ModularOT() {
       <SectionWrap className="py-20 bg-gray-50 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-14">
-            <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">Components</p>
+            <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">Components</p>
             <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight">Everything Inside The Modular OT</h2>
             <p className="text-gray-500 text-sm mt-3 max-w-2xl mx-auto">Click a card to see its key features.</p>
           </div>
@@ -176,17 +175,17 @@ export default function ModularOT() {
         </div>
       </SectionWrap>
 
-      <SectionWrap className="py-16 bg-gradient-to-r from-mclRed to-red-700 px-4 sm:px-8 lg:px-12">
+      <SectionWrap className="py-16 bg-gradient-to-r from-accent to-red-700 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
           <div>
             <p className="text-white/80 font-bold uppercase tracking-widest text-xs mb-2">Explore More</p>
             <h2 className="text-white font-extrabold text-2xl lg:text-3xl">Looking for MGPS or clinical equipment too?</h2>
           </div>
           <div className="flex flex-wrap gap-4 justify-center flex-shrink-0">
-            <Link to="/mgps-solutions" className="bg-white text-mclRed font-bold text-sm uppercase px-6 py-3 inline-flex items-center gap-2 rounded transition-all hover:shadow-lg active:scale-95">
+            <Link to="/mgps-solutions" className="bg-white text-accent font-bold text-sm uppercase px-6 py-3 inline-flex items-center gap-2 rounded transition-all hover:shadow-lg active:scale-95">
               MGPS Solutions <FaArrowRight size={12} />
             </Link>
-            <Link to="/clinical-systems" className="border-2 border-white text-white font-bold text-sm uppercase px-6 py-3 inline-flex items-center gap-2 rounded transition-all hover:bg-white hover:text-mclRed active:scale-95">
+            <Link to="/clinical-systems" className="border-2 border-white text-white font-bold text-sm uppercase px-6 py-3 inline-flex items-center gap-2 rounded transition-all hover:bg-white hover:text-accent active:scale-95">
               Clinical Systems <FaArrowRight size={12} />
             </Link>
           </div>

@@ -1,31 +1,41 @@
 import { useEffect } from 'react';
 import { FaCheck, FaArrowRight, FaAward, FaLock, FaUsers, FaFileAlt, FaPhone } from 'react-icons/fa';
-import useInView from '../hooks/useInView';
+import SectionWrap from '../components/SectionWrap';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import useContent from '../hooks/useContent';
+import useTilt from '../hooks/useTilt';
 import GasCard from '../components/GasCard';
 import heroBg from '../assets/infra01.JPG';
 import { categoryGroups } from '../data/products';
 import { gasesBySection } from '../data/gasesData';
+import Seo, { SITE_URL } from '../components/Seo';
 
 const gasesGroup = categoryGroups.find((g) => g.id === 'gases');
 
-function SectionWrap({ children, className = '', id }) {
-  const [ref, inView] = useInView();
-  return (
-    <section id={id} ref={ref} className={`transition-[opacity,transform] duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}>
-      {children}
-    </section>
-  );
-}
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL + '/' },
+    { '@type': 'ListItem', position: 2, name: 'Gases', item: SITE_URL + '/gases' },
+  ],
+};
 
 function CategoryCard({ cat, count }) {
   const Icon = cat.icon;
+  const { ref: tiltRef, onMouseMove, onMouseLeave } = useTilt();
   return (
     <button
+      ref={tiltRef}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
       onClick={() => document.getElementById(cat.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-      className="group relative flex h-64 flex-col overflow-hidden rounded-lg border border-line bg-canvas p-6 text-left transition-[transform,background-color,border-color,box-shadow] duration-300 ease-out hover:-translate-y-1.5 hover:border-accent hover:bg-accent hover:shadow-[var(--shadow-accent)] lg:h-80 lg:p-7"
+      className="group relative flex h-64 flex-col overflow-hidden rounded-lg border border-line bg-canvas p-6 text-left transition-[background-color,border-color,box-shadow] duration-300 ease-out hover:border-accent hover:bg-accent hover:shadow-[var(--shadow-accent)] lg:h-80 lg:p-7"
     >
+      <span
+        className="pointer-events-none absolute inset-0 opacity-[var(--tilt-glow-opacity,0)] transition-opacity duration-300"
+        style={{ background: 'radial-gradient(circle at var(--tilt-glow-x,50%) var(--tilt-glow-y,50%), rgba(255,255,255,0.18), transparent 60%)' }}
+      />
       <Icon className="pointer-events-none absolute -right-4 -top-4 select-none text-ink/[0.04] transition-colors duration-300 group-hover:text-white/[0.14]" size={140} />
 
       <div className="relative flex h-12 w-12 items-center justify-center rounded-md bg-accent-soft text-accent transition-colors duration-300 group-hover:bg-white/15 group-hover:text-white">
@@ -75,6 +85,12 @@ export default function Gases() {
 
   return (
     <div className="pt-24">
+      <Seo
+        title="Industrial, Medical & Specialty Gases"
+        description="Multan Chemicals Limited supplies high-purity industrial gases, medical-grade gases, specialty gas mixtures and LPG across Pakistan: explore oxygen, nitrogen, argon, acetylene, hydrogen, helium and more by category."
+        path="/gases"
+        jsonLd={breadcrumbJsonLd}
+      />
       <section className="relative w-full overflow-hidden bg-ink-deep px-6 py-24 sm:px-8 lg:px-12">
         <img src={heroBg} alt="" className="absolute inset-0 h-full w-full object-cover opacity-[0.18]" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#06101b]/95 via-[#06101b]/90 to-[#06101b]" />

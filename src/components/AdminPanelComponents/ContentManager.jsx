@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { FiEdit2, FiTrash2, FiPlus, FiSave, FiX, FiSearch } from 'react-icons/fi';
-import adminApi from '../../services/adminApi';
+import useAdminResource from '../../hooks/useAdminResource';
 import ImagePicker from './ImagePicker';
 
 const emptyForm = {
@@ -14,39 +14,28 @@ const emptyForm = {
 };
 
 const ContentManager = ({ token }) => {
-  const [content, setContent] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const {
+    items: content,
+    loading,
+    error,
+    setError,
+    createItem,
+    updateItem,
+    removeItem,
+  } = useAdminResource('/api/content', token);
   const [editingId, setEditingId] = useState(null);
   const [formData, setFormData] = useState(emptyForm);
   const [showForm, setShowForm] = useState(false);
   const [search, setSearch] = useState('');
 
-  useEffect(() => {
-    fetchContent();
-  }, []);
-
-  const fetchContent = async () => {
-    try {
-      setLoading(true);
-      const data = await adminApi.get('/api/content', token);
-      setContent(Array.isArray(data) ? data : []);
-    } catch (err) {
-      setError(err.message || 'Failed to fetch content');
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const handleSave = async () => {
     try {
       setError('');
       if (editingId) {
-        await adminApi.put(`/api/content/${editingId}`, token, formData);
+        await updateItem(editingId, formData);
       } else {
-        await adminApi.post('/api/content', token, formData);
+        await createItem(formData);
       }
-      await fetchContent();
       setShowForm(false);
       setEditingId(null);
       setFormData(emptyForm);
@@ -58,8 +47,7 @@ const ContentManager = ({ token }) => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this content?')) return;
     try {
-      await adminApi.delete(`/api/content/${id}`, token);
-      await fetchContent();
+      await removeItem(id, { refetch: true });
     } catch (err) {
       setError(err.message || 'Failed to delete content');
     }

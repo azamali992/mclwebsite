@@ -41,7 +41,7 @@ export default function AboutSection2() {
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div
           ref={leftRef}
-          className={`transition-[opacity,transform] duration-500 ease-out ${leftInView ? 'translate-x-0 opacity-100' : '-translate-x-6 opacity-0'}`}
+          className={`transition-[opacity,transform] duration-500 ease-[var(--ease-out)] ${leftInView ? 'translate-x-0 opacity-100' : '-translate-x-6 opacity-0'}`}
         >
           <p className="eyebrow mb-4" style={{ color: 'var(--on-ink-accent)' }}>{heading}</p>
           <h2 className="mb-10 text-3xl font-semibold tracking-tight text-white md:text-[2.5rem]">{sectionTitle}</h2>
@@ -51,7 +51,7 @@ export default function AboutSection2() {
               return (
                 <div
                   key={i}
-                  className={`group flex items-center gap-4 transition-[opacity,transform] duration-500 ease-out ${leftInView ? 'translate-x-0 opacity-100' : '-translate-x-3 opacity-0'}`}
+                  className={`group flex items-center gap-4 transition-[opacity,transform] duration-500 ease-[var(--ease-out)] ${leftInView ? 'translate-x-0 opacity-100' : '-translate-x-3 opacity-0'}`}
                   style={{ transitionDelay: leftInView ? `${120 + i * 80}ms` : '0ms' }}
                 >
                   <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-md border border-white/15 bg-white/[0.04] text-white transition-colors duration-200 group-hover:border-white/40">
@@ -68,7 +68,7 @@ export default function AboutSection2() {
 
           {locations.length > 0 && (
             <div
-              className={`mt-8 transition-[opacity,transform] duration-700 ease-out ${leftInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
+              className={`mt-8 transition-[opacity,transform] duration-700 ease-[var(--ease-out)] ${leftInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
               style={{ transitionDelay: leftInView ? '550ms' : '0ms' }}
             >
               <p className="mb-3 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-on-dark-soft">
@@ -102,7 +102,7 @@ export default function AboutSection2() {
         </div>
         <div
           ref={mapRef}
-          className={`transition-[opacity,transform] duration-500 ease-out ${mapInView ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'}`}
+          className={`transition-[opacity,transform] duration-500 ease-[var(--ease-out)] ${mapInView ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'}`}
         >
           <WarehouseMap
             className="h-[500px]"

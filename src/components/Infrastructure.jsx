@@ -1,9 +1,11 @@
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import useInView from '../hooks/useInView';
+import SectionWrap from './SectionWrap';
+import StatValue from './StatValue';
 import { FaIndustry, FaUsers, FaShieldAlt, FaClock, FaCog, FaMapMarkerAlt, FaCheck, FaCheckCircle } from 'react-icons/fa';
 import useContent from '../hooks/useContent';
 import useStats from '../hooks/useStats';
+import useInView from '../hooks/useInView';
 import { resolveStat } from '../data/stats';
 import heroBg from '../assets/infra01.JPG';
 import stationImg from '../assets/stationimg.JPG';
@@ -71,20 +73,13 @@ const qualityCerts = [
   { color: 'yellow', title: 'GMP', desc: 'Good Manufacturing Practice' },
 ];
 
-const SectionWrap = ({ children, className = '' }) => {
-  const [ref, inView] = useInView();
-  return (
-    <section ref={ref} className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}>
-      {children}
-    </section>
-  );
-};
-
 export default function Infrastructure() {
   const { contentMap } = useContent('infrastructure');
   const { statsMap } = useStats();
   const [highlightKey, setHighlightKey] = useState(null);
   const cardRefs = useRef({});
+  const [statsRef, statsInView] = useInView();
+  const [logisticsStatsRef, logisticsStatsInView] = useInView();
 
   const handleMapLocationClick = (loc) => {
     setHighlightKey(loc.key);
@@ -162,19 +157,19 @@ export default function Infrastructure() {
         <img src={heroBg} alt="Filling station canopy" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-center px-4 sm:px-8 lg:px-12 max-w-[1400px] mx-auto z-10 w-full lg:w-1/2">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-4">{heroHeading}</p>
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-4">{heroHeading}</p>
           <h1 className="text-white font-extrabold text-4xl lg:text-5xl leading-tight mb-6">{heroTitle}</h1>
           <p className="text-gray-200 text-base leading-relaxed">{heroDesc}</p>
         </div>
       </section>
 
-      <div className="relative z-20 -mt-16 max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div ref={statsRef} className="relative z-20 -mt-16 max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
         <div className="bg-white rounded-xl shadow-xl flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-gray-100 p-2">
           {stats.map((stat, i) => (
             <div key={i} className="flex-1 flex items-center justify-center p-4 gap-4">
               <div className="bg-red-50 text-red-600 p-3 rounded-full"><stat.icon size={20} /></div>
               <div className="flex flex-col">
-                <span className="text-gray-900 font-bold text-lg">{stat.value}</span>
+                <StatValue value={stat.value} active={statsInView} className="text-gray-900 font-bold text-lg" />
                 <span className="text-gray-800 text-sm font-semibold">{stat.label}</span>
                 <span className="text-gray-500 text-xs">{stat.sublabel}</span>
               </div>
@@ -195,12 +190,12 @@ export default function Infrastructure() {
               key={i}
               ref={(el) => { cardRefs.current[station.key] = el; }}
               className={`flex flex-col group cursor-pointer rounded-lg transition-all ${
-                highlightKey === station.key ? 'ring-2 ring-mclRed ring-offset-2' : ''
+                highlightKey === station.key ? 'ring-2 ring-accent ring-offset-2' : ''
               }`}
               onClick={() => setHighlightKey(station.key)}
             >
               <div className="aspect-video w-full overflow-hidden rounded-lg mb-3">
-                <img src={station.img} alt={station.name} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
+                <img src={station.img} alt={station.name} loading="lazy" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
               </div>
               <p className="text-gray-900 font-bold text-base">{station.name}</p>
               <div className="flex items-center gap-1 text-gray-500 text-xs mt-1"><FaMapMarkerAlt size={10} /><span>{station.province}</span></div>
@@ -220,7 +215,7 @@ export default function Infrastructure() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {plants.map((plant, i) => (
                 <div key={i} className="relative h-[300px] lg:h-[350px] w-full rounded-xl overflow-hidden group">
-                  <img src={plant.imagePlaceholder} alt={plant.location} className="object-cover w-full h-full" />
+                  <img src={plant.imagePlaceholder} alt={plant.location} loading="lazy" className="object-cover w-full h-full" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B1A28]/90 via-[#0B1A28]/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 p-6 flex flex-col">
                     <span className="text-white font-bold text-xl mb-1">{plant.capacityKey ? resolveStat(statsMap, plant.capacityKey).value : plant.capacity}</span>
@@ -252,14 +247,14 @@ export default function Infrastructure() {
           </div>
           <div className="lg:col-span-3">
             <div className="w-full aspect-[4/3] lg:aspect-video rounded-xl overflow-hidden shadow-md">
-              <img src={hero01} alt="Oxygen filling station" className="object-cover w-full h-full hover:scale-105 transition-transform duration-700" />
+              <img src={hero01} alt="Oxygen filling station" loading="lazy" className="object-cover w-full h-full hover:scale-105 transition-transform duration-700" />
             </div>
           </div>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
           {galleryImages.map((img, i) => (
             <div key={i} className="aspect-video rounded-lg overflow-hidden bg-gray-100 group">
-              <img src={img} alt={`Oxygen station gallery ${i + 1}`} className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500" />
+              <img src={img} alt={`Oxygen station gallery ${i + 1}`} loading="lazy" className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500" />
             </div>
           ))}
         </div>
@@ -273,10 +268,10 @@ export default function Infrastructure() {
             <p className="text-red-600 font-bold uppercase tracking-widest text-xs mb-3">{logisticsHeading}</p>
             <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight mb-4">{logisticsTitle}</h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-8">{logisticsDesc}</p>
-            <div className="grid grid-cols-2 gap-4">
+            <div ref={logisticsStatsRef} className="grid grid-cols-2 gap-4">
               {logisticsStats.map((stat, i) => (
                 <div key={i} className="border border-gray-100 rounded-lg p-4 bg-white shadow-sm flex flex-col justify-center hover:shadow-md hover:border-red-100 transition-all group">
-                  <span className="text-2xl font-bold text-gray-900 group-hover:text-red-600 transition-colors">{stat.value}</span>
+                  <StatValue value={stat.value} active={logisticsStatsInView} className="text-2xl font-bold text-gray-900 group-hover:text-red-600 transition-colors" />
                   <span className="text-xs text-gray-500 font-medium">{stat.label}</span>
                 </div>
               ))}
@@ -284,14 +279,14 @@ export default function Infrastructure() {
           </div>
           <div className="lg:col-span-3">
             <div className="w-full aspect-[4/3] lg:aspect-video rounded-xl overflow-hidden shadow-md">
-              <img src={trucks1} alt="Logistics fleet" className="object-cover w-full h-full hover:scale-105 transition-transform duration-700" />
+              <img src={trucks1} alt="Logistics fleet" loading="lazy" className="object-cover w-full h-full hover:scale-105 transition-transform duration-700" />
             </div>
           </div>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
           {logisticsGalleryImages.map((img, i) => (
             <div key={i} className="aspect-video rounded-lg overflow-hidden bg-gray-100 group">
-              <img src={img} alt={`Logistics gallery ${i + 1}`} className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500" />
+              <img src={img} alt={`Logistics gallery ${i + 1}`} loading="lazy" className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500" />
             </div>
           ))}
         </div>

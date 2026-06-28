@@ -1,19 +1,10 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import {
   FaUserTie, FaUsers, FaIndustry, FaCalculator, FaChartLine,
   FaClipboardList, FaPlusCircle, FaUserShield, FaGlobe, FaCog,
 } from 'react-icons/fa';
-import useInView from '../hooks/useInView';
+import SectionWrap from '../components/SectionWrap';
 import { leadership } from '../data/team';
-
-function SectionWrap({ children, className = '' }) {
-  const [ref, inView] = useInView();
-  return (
-    <section ref={ref} className={`transition-[opacity,transform] duration-500 ease-out ${inView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${className}`}>
-      {children}
-    </section>
-  );
-}
 
 // Real names stay in sync with the data; everyone below the named executives
 // is shown by post title only.
@@ -66,20 +57,26 @@ const stats = [
   { icon: FaUsers, value: '+1', label: 'One Team, United Goal' },
 ];
 
-const VLine = ({ delay }) => (
-  <span className="hidden h-8 w-px bg-accent/40 xl:block animate-line-y" style={{ animationDelay: `${delay}ms` }} />
+const VLine = ({ delay, animate }) => (
+  <span
+    className={`hidden h-8 w-px bg-accent/40 xl:block ${animate ? 'animate-line-y' : ''}`}
+    style={animate ? { animationDelay: `${delay}ms` } : undefined}
+  />
 );
 
-function NodeBox({ children, className = '', style }) {
+function NodeBox({ children, className = '', style, animate }) {
   return (
-    <div style={style} className={`rounded-xl bg-accent px-6 py-4 text-center text-white shadow-[var(--shadow-accent)] ${className}`}>
+    <div
+      style={animate ? style : undefined}
+      className={`rounded-xl bg-accent px-6 py-4 text-center text-white shadow-[var(--shadow-accent)] ${className} ${animate ? 'animate-node' : ''}`}
+    >
       {children}
     </div>
   );
 }
 
 /* ---------- View 1: Leadership profile cards ---------- */
-function LeadershipCards() {
+function LeadershipCards({ animate }) {
   return (
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {leadership.map((person, i) => {
@@ -87,8 +84,8 @@ function LeadershipCards() {
         return (
           <div
             key={person.name}
-            style={{ animationDelay: `${i * 70}ms` }}
-            className={`animate-fade-in-up group relative overflow-hidden rounded-2xl border border-line bg-ink-deep shadow-[var(--shadow-md)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[var(--shadow-lg)] ${
+            style={animate ? { animationDelay: `${i * 70}ms` } : undefined}
+            className={`${animate ? 'animate-fade-in-up' : ''} group relative overflow-hidden rounded-2xl border border-line bg-ink-deep shadow-[var(--shadow-md)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[var(--shadow-lg)] ${
               featured ? 'sm:col-span-2 lg:col-span-1' : ''
             }`}
           >
@@ -118,11 +115,11 @@ function LeadershipCards() {
 }
 
 /* ---------- View 2: Org chart hierarchy ---------- */
-function OrgChart() {
+function OrgChart({ animate }) {
   return (
     <div className="flex flex-col items-center">
       {/* Chairman */}
-      <NodeBox className="w-full max-w-xs animate-node">
+      <NodeBox className="w-full max-w-xs" animate={animate}>
         <span className="mb-1 flex items-center justify-center gap-2">
           <FaUserTie size={16} />
           <span className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white/80">Chairman</span>
@@ -130,10 +127,10 @@ function OrgChart() {
         <p className="text-lg font-semibold leading-tight">{chairman?.name || 'Chairman'}</p>
       </NodeBox>
 
-      <VLine delay={140} />
+      <VLine delay={140} animate={animate} />
 
       {/* Directors */}
-      <NodeBox className="w-full max-w-sm animate-node" style={{ animationDelay: '220ms' }}>
+      <NodeBox className="w-full max-w-sm" style={{ animationDelay: '220ms' }} animate={animate}>
         <span className="mb-2 flex items-center justify-center gap-2">
           <FaUsers size={16} />
           <span className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-white/80">Directors</span>
@@ -145,18 +142,27 @@ function OrgChart() {
         </div>
       </NodeBox>
 
-      <VLine delay={330} />
+      <VLine delay={330} animate={animate} />
 
       {/* Branch bus + columns */}
       <div className="relative w-full">
-        <div className="absolute left-[8.333%] right-[8.333%] top-0 hidden h-px bg-accent/40 xl:block animate-line-x" style={{ animationDelay: '410ms' }} />
+        <div
+          className={`absolute left-[8.333%] right-[8.333%] top-0 hidden h-px bg-accent/40 xl:block ${animate ? 'animate-line-x' : ''}`}
+          style={animate ? { animationDelay: '410ms' } : undefined}
+        />
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {columns.map((col, i) => {
             const Icon = col.icon;
             return (
               <div key={col.title} className="flex flex-col">
-                <span className="mx-auto hidden h-6 w-px bg-accent/40 xl:block animate-line-y" style={{ animationDelay: `${470 + i * 60}ms` }} />
-                <div className="flex flex-1 flex-col animate-node" style={{ animationDelay: `${510 + i * 60}ms` }}>
+                <span
+                  className={`mx-auto hidden h-6 w-px bg-accent/40 xl:block ${animate ? 'animate-line-y' : ''}`}
+                  style={animate ? { animationDelay: `${470 + i * 60}ms` } : undefined}
+                />
+                <div
+                  className={`flex flex-1 flex-col ${animate ? 'animate-node' : ''}`}
+                  style={animate ? { animationDelay: `${510 + i * 60}ms` } : undefined}
+                >
                   <div className="flex min-h-[84px] flex-col items-center justify-center gap-1.5 rounded-t-xl bg-accent px-4 py-4 text-center text-white">
                     <Icon size={18} />
                     <p className="text-sm font-semibold leading-tight">{col.title}</p>
@@ -187,6 +193,21 @@ const VIEWS = [
 
 export default function Team() {
   const [view, setView] = useState('cards');
+  // Tracks which views have already played their entrance animation once.
+  // A plain ref (not state) so marking a view "seen" after it mounts never
+  // triggers a re-render that could yank the animation class away mid-flight
+  // — it only affects the *next* time this view's key remounts.
+  const seenViewsRef = useRef(new Set());
+  // Reading .current here is intentional and safe: this ref is only ever
+  // *written* from the effect below (after commit), never during a render,
+  // so re-render attempts can't observe a value that changed mid-render —
+  // the general hazard react-hooks/refs guards against doesn't apply here.
+  // eslint-disable-next-line react-hooks/refs
+  const animate = !seenViewsRef.current.has(view);
+
+  useEffect(() => {
+    seenViewsRef.current.add(view);
+  }, [view]);
 
   return (
     <div className="pt-24">
@@ -229,12 +250,12 @@ export default function Team() {
       {/* Toggled content */}
       <section className="bg-surface px-6 pb-20 pt-10 sm:px-8 lg:px-12">
         <div key={view} className="mx-auto max-w-[1400px]">
-          {view === 'cards' ? <LeadershipCards /> : <OrgChart />}
+          {view === 'cards' ? <LeadershipCards animate={animate} /> : <OrgChart animate={animate} />}
         </div>
       </section>
 
       {/* Stats strip (shared) */}
-      <SectionWrap className="bg-canvas px-6 pb-24 sm:px-8 lg:px-12">
+      <SectionWrap duration={500} translateClass="translate-y-4" className="bg-canvas px-6 pb-24 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3 lg:grid-cols-6">
           {stats.map((s) => {
             const Icon = s.icon;

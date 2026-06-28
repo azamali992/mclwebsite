@@ -20,7 +20,7 @@ export default function Certifications({ className = 'bg-canvas py-24 px-6 sm:px
 
   return (
     <section id="certifications" ref={ref} className={`scroll-mt-28 ${className}`}>
-      <div className={`mx-auto max-w-[1400px] transition-[opacity,transform] duration-500 ease-out ${inView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+      <div className={`mx-auto max-w-[1400px] transition-[opacity,transform] duration-500 ease-[var(--ease-out)] ${inView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
         <h2 className="mb-10 max-w-2xl text-3xl font-semibold tracking-tight text-ink md:text-[2.5rem]">{certsTitle}</h2>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
           {certifications.map((cert, i) => (

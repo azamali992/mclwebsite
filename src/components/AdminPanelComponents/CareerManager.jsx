@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { FiEdit2, FiTrash2, FiPlus, FiSave, FiX, FiSearch } from 'react-icons/fi';
-import adminApi from '../../services/adminApi';
+import useAdminResource from '../../hooks/useAdminResource';
 
 const emptyForm = {
   position: '',
@@ -15,29 +15,19 @@ const emptyForm = {
 };
 
 const CareerManager = ({ token }) => {
-  const [careers, setCareers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const {
+    items: careers,
+    loading,
+    error,
+    setError,
+    createItem,
+    updateItem,
+    removeItem,
+  } = useAdminResource('/api/careers', token);
   const [editingId, setEditingId] = useState(null);
   const [formData, setFormData] = useState(emptyForm);
   const [showForm, setShowForm] = useState(false);
   const [search, setSearch] = useState('');
-
-  useEffect(() => {
-    fetchCareers();
-  }, []);
-
-  const fetchCareers = async () => {
-    try {
-      setLoading(true);
-      const data = await adminApi.get('/api/careers', token);
-      setCareers(Array.isArray(data) ? data : []);
-    } catch (err) {
-      setError(err.message || 'Failed to fetch careers');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleSave = async () => {
     try {
@@ -49,12 +39,11 @@ const CareerManager = ({ token }) => {
       };
 
       if (editingId) {
-        await adminApi.put(`/api/careers/${editingId}`, token, dataToSend);
+        await updateItem(editingId, dataToSend);
       } else {
-        await adminApi.post('/api/careers', token, dataToSend);
+        await createItem(dataToSend);
       }
 
-      await fetchCareers();
       setShowForm(false);
       setEditingId(null);
       setFormData(emptyForm);
@@ -66,8 +55,7 @@ const CareerManager = ({ token }) => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this career posting?')) return;
     try {
-      await adminApi.delete(`/api/careers/${id}`, token);
-      await fetchCareers();
+      await removeItem(id, { refetch: true });
     } catch (err) {
       setError(err.message || 'Failed to delete career');
     }

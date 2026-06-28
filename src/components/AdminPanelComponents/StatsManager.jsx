@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { FiEdit2, FiSave, FiX } from 'react-icons/fi';
-import adminApi from '../../services/adminApi';
+import useAdminResource from '../../hooks/useAdminResource';
 
 const GROUP_LABELS = {
   company: 'Homepage Stats Bar',
@@ -10,27 +10,9 @@ const GROUP_LABELS = {
 };
 
 const StatsManager = ({ token }) => {
-  const [stats, setStats] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const { items: stats, loading, error, setError, updateItem } = useAdminResource('/api/stats', token);
   const [editingId, setEditingId] = useState(null);
   const [formData, setFormData] = useState({ value: '', label: '', subtitle: '' });
-
-  useEffect(() => {
-    fetchStats();
-  }, []);
-
-  const fetchStats = async () => {
-    try {
-      setLoading(true);
-      const data = await adminApi.get('/api/stats', token);
-      setStats(Array.isArray(data) ? data : []);
-    } catch (err) {
-      setError(err.message || 'Failed to fetch stats');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleEdit = (stat) => {
     setEditingId(stat._id);
@@ -45,8 +27,7 @@ const StatsManager = ({ token }) => {
   const handleSave = async (id) => {
     try {
       setError('');
-      await adminApi.put(`/api/stats/${id}`, token, formData);
-      await fetchStats();
+      await updateItem(id, formData);
       handleCancel();
     } catch (err) {
       setError(err.message || 'Failed to update stat');

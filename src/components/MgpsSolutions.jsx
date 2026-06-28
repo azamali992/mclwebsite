@@ -62,7 +62,7 @@ export default function MgpsSolutions() {
           {/* Left */}
           <div
             ref={leftRef}
-            className={`w-full transition-[opacity,transform] duration-500 ease-out lg:w-5/12 ${leftInView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+            className={`w-full transition-[opacity,transform] duration-500 ease-[var(--ease-out)] lg:w-5/12 ${leftInView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
           >
             <h2 className="text-3xl font-semibold leading-[1.1] tracking-tight text-ink md:text-[2.5rem]">{sectionTitle}</h2>
             <p className="mt-5 max-w-md text-base leading-relaxed text-muted">{description}</p>
@@ -80,7 +80,7 @@ export default function MgpsSolutions() {
           {/* Right */}
           <div
             ref={rightRef}
-            className={`flex w-full flex-col items-center transition-[opacity,transform] duration-500 ease-out lg:w-7/12 ${rightInView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+            className={`flex w-full flex-col items-center transition-[opacity,transform] duration-500 ease-[var(--ease-out)] lg:w-7/12 ${rightInView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
           >
             <div className="relative flex h-[360px] w-full items-center justify-center sm:h-[460px] lg:h-[560px]">
               <img src={renderImg} alt="3D medical gas pipeline layout" className="pointer-events-none h-full w-full scale-110 object-contain mix-blend-darken xl:scale-125 dark:mix-blend-normal" />

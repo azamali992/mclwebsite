@@ -4,16 +4,8 @@ import {
   FaIndustry, FaClipboardCheck, FaBalanceScale, FaBan, FaRecycle,
   FaArrowRight, FaBuilding, FaTruck, FaHardHat, FaAward
 } from 'react-icons/fa';
-import useInView from '../hooks/useInView';
-
-function SectionWrap({ children, className = '' }) {
-  const [ref, inView] = useInView();
-  return (
-    <section ref={ref} className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}>
-      {children}
-    </section>
-  );
-}
+import SectionWrap from '../components/SectionWrap';
+import Seo from '../components/Seo';
 
 const testingSteps = [
   {
@@ -66,11 +58,30 @@ export default function QualitySafety() {
     },
   ];
 
+  // Re-describes the page's own real FAQ accordion above as FAQPage JSON-LD —
+  // no question/answer here was invented, every pair is taken verbatim from
+  // the `faqs` array already rendered in the visible accordion below.
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+
   return (
     <div className="pt-24">
+      <Seo
+        title="Quality & Safety"
+        description="Every cylinder MCL fills passes hydrostatic pressure testing, leak detection and gas chromatography purity analysis, certified by SGS UK and Pakistan's Explosives Department."
+        path="/quality-safety"
+        jsonLd={faqJsonLd}
+      />
       <section className="bg-slate-900 py-20 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto text-center">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-3">Quality & Safety</p>
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-3">Quality & Safety</p>
           <h1 className="text-white font-extrabold text-4xl lg:text-5xl leading-tight mb-4">
             Uncompromising Quality.<br />Absolute Safety.
           </h1>
@@ -83,7 +94,7 @@ export default function QualitySafety() {
       <SectionWrap className="py-20 bg-white px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-14">
-            <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">Cylinder Testing Procedure</p>
+            <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">Cylinder Testing Procedure</p>
             <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight">Every Cylinder, Every Time</h2>
             <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-sm">
               Before any cylinder is filled, it passes through a rigorous multi-stage testing process to ensure safety and compliance with all applicable standards.
@@ -93,9 +104,9 @@ export default function QualitySafety() {
             {testingSteps.map((step, i) => {
               const Icon = step.icon;
               return (
-                <div key={i} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg hover:border-mclRed/30 transition-all group">
-                  <div className="w-14 h-14 rounded-xl bg-mclRed/10 flex items-center justify-center mb-4 group-hover:bg-mclRed group-hover:text-white transition-all">
-                    <Icon className="text-mclRed group-hover:text-white transition-all" size={24} />
+                <div key={i} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg hover:border-accent/30 transition-all group">
+                  <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-white transition-all">
+                    <Icon className="text-accent group-hover:text-white transition-all" size={24} />
                   </div>
                   <h3 className="text-gray-900 font-bold text-lg mb-2">{step.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
@@ -109,7 +120,7 @@ export default function QualitySafety() {
       <SectionWrap className="py-20 bg-gray-50 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-14">
-            <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">Cylinder Ownership Policy</p>
+            <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">Cylinder Ownership Policy</p>
             <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight">Customer Property vs. Company Cylinders</h2>
             <p className="text-gray-500 mt-4 max-w-3xl mx-auto text-sm">
               Understanding the distinction between Customer Property (CP) cylinders and MCL-owned cylinders is essential for safe and compliant operations.
@@ -136,9 +147,9 @@ export default function QualitySafety() {
                 ))}
               </ul>
             </div>
-            <div className="bg-white border border-mclRed/20 rounded-xl p-8 shadow-md">
-              <div className="w-14 h-14 rounded-xl bg-mclRed/10 flex items-center justify-center mb-4">
-                <FaTruck className="text-mclRed" size={24} />
+            <div className="bg-white border border-accent/20 rounded-xl p-8 shadow-md">
+              <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                <FaTruck className="text-accent" size={24} />
               </div>
               <h3 className="text-gray-900 font-bold text-xl mb-3">MCL Company-Owned Cylinders</h3>
               <ul className="space-y-3">
@@ -150,7 +161,7 @@ export default function QualitySafety() {
                   'Customers use MCL cylinders on an exchange basis: empty for full, with no ownership transfer.',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm text-gray-700">
-                    <FaCheckCircle className="text-mclRed mt-0.5 flex-shrink-0" size={14} />
+                    <FaCheckCircle className="text-accent mt-0.5 flex-shrink-0" size={14} />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -219,7 +230,7 @@ export default function QualitySafety() {
       <SectionWrap className="py-20 bg-gray-50 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-14">
-            <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">Frequently Asked Questions</p>
+            <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">Frequently Asked Questions</p>
             <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight">Safety & Testing FAQs</h2>
           </div>
           <div className="max-w-3xl mx-auto space-y-3">
@@ -227,10 +238,10 @@ export default function QualitySafety() {
               <div key={i} className="bg-white border border-gray-200 rounded-lg overflow-hidden">
                 <button
                   onClick={() => setExpandedFaq(expandedFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between p-5 text-left focus:outline-none focus:ring-2 focus:ring-mclRed"
+                  className="w-full flex items-center justify-between p-5 text-left focus:outline-none focus:ring-2 focus:ring-accent"
                 >
                   <span className="font-bold text-gray-900 text-sm">{faq.q}</span>
-                  <FaArrowRight className={`text-mclRed transition-transform flex-shrink-0 ml-4 ${expandedFaq === i ? 'rotate-90' : ''}`} size={12} />
+                  <FaArrowRight className={`text-accent transition-transform flex-shrink-0 ml-4 ${expandedFaq === i ? 'rotate-90' : ''}`} size={12} />
                 </button>
                 {expandedFaq === i && (
                   <div className="px-5 pb-5">
@@ -243,7 +254,7 @@ export default function QualitySafety() {
         </div>
       </SectionWrap>
 
-      <SectionWrap className="py-16 bg-gradient-to-r from-mclRed to-red-700 px-4 sm:px-8 lg:px-12">
+      <SectionWrap className="py-16 bg-gradient-to-r from-accent to-red-700 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto text-center">
           <h2 className="text-white font-extrabold text-3xl lg:text-4xl mb-4">Committed to Safety Excellence</h2>
           <p className="text-white/80 max-w-2xl mx-auto mb-8 text-sm">

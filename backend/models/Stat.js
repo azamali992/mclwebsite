@@ -30,4 +30,8 @@ const statSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// getAllStats (statController.js) filters/sorts by {group, order} on every
+// public, unauthenticated request — index the leading filter field.
+statSchema.index({ group: 1, order: 1 });
+
 export default mongoose.model('Stat', statSchema);

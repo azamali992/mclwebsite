@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AdminDashboard from '../components/AdminDashboard';
 import AdminLogin from '../components/AdminLogin';
 import adminApi from '../services/adminApi';
+import Seo from '../components/Seo';
 
 const Admin = () => {
   const [token, setToken] = useState(localStorage.getItem('adminToken'));
@@ -10,6 +11,7 @@ const Admin = () => {
     return stored ? JSON.parse(stored) : null;
   });
   const [loading, setLoading] = useState(true);
+  const seo = <Seo title="Admin" path="/admin" noindex noSuffix />;
 
   useEffect(() => {
     const verifyToken = async () => {
@@ -52,6 +54,7 @@ const Admin = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        {seo}
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
           <p className="text-gray-700">Loading...</p>
@@ -61,10 +64,20 @@ const Admin = () => {
   }
 
   if (!token) {
-    return <AdminLogin onLoginSuccess={handleLoginSuccess} />;
+    return (
+      <>
+        {seo}
+        <AdminLogin onLoginSuccess={handleLoginSuccess} />
+      </>
+    );
   }
 
-  return <AdminDashboard token={token} admin={admin} onLogout={handleLogout} />;
+  return (
+    <>
+      {seo}
+      <AdminDashboard token={token} admin={admin} onLogout={handleLogout} />
+    </>
+  );
 };
 
 export default Admin;

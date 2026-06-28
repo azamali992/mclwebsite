@@ -1,13 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaHome } from 'react-icons/fa';
+import Seo from '../components/Seo';
 
 export default function NotFound() {
   const navigate = useNavigate();
 
   return (
     <div className="pt-24 min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 to-slate-800">
+      <Seo title="Page Not Found" description="The page you're looking for doesn't exist or has been moved." noindex />
       <div className="text-center px-4">
-        <h1 className="text-9xl font-extrabold text-mclRed mb-4">404</h1>
+        <h1 className="text-9xl font-extrabold text-accent mb-4">404</h1>
         <h2 className="text-4xl font-bold text-white mb-2">Page Not Found</h2>
         <p className="text-gray-300 text-lg mb-8 max-w-md mx-auto">
           The page you're looking for doesn't exist or has been moved. Let us help you get back on track.
@@ -22,7 +24,7 @@ export default function NotFound() {
           </button>
           <button
             onClick={() => navigate('/')}
-            className="bg-mclRed text-white px-8 py-3.5 text-sm font-bold uppercase tracking-wider hover:bg-red-800 transition-all inline-flex items-center gap-2 focus:ring-2 focus:ring-red-500 focus:outline-none rounded"
+            className="bg-accent text-white px-8 py-3.5 text-sm font-bold uppercase tracking-wider hover:bg-red-800 transition-all inline-flex items-center gap-2 focus:ring-2 focus:ring-red-500 focus:outline-none rounded"
           >
             <FaHome /> Go Home
           </button>

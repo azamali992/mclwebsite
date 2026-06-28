@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FaCheck, FaArrowRight, FaXRay, FaHeartbeat, FaSun } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import useInView from '../hooks/useInView';
+import SectionWrap from '../components/SectionWrap';
 import { slugify } from '../data/products';
 import clinicalHero from '../assets/products/anesthesia-workstation.png';
 import ultrasoundTrolley from '../assets/products/ultrasound-trolley.png';
@@ -12,15 +13,8 @@ import patientMonitor from '../assets/products/patient-monitor.png';
 import icuVentilator from '../assets/products/icu-ventilator.png';
 import ecgSystem from '../assets/products/ecg-system.png';
 import uvPhototherapy from '../assets/products/uv-phototherapy-cabin.png';
+import Seo from '../components/Seo';
 
-function SectionWrap({ children, className = '' }) {
-  const [ref, inView] = useInView();
-  return (
-    <section ref={ref} className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}>
-      {children}
-    </section>
-  );
-}
 
 const groups = [
   {
@@ -75,14 +69,14 @@ function EquipmentCard({ image, title, features, index }) {
             <ul className="space-y-1.5 pt-1 pb-2">
               {features.map((f, i) => (
                 <li key={i} className="flex items-start gap-2 text-xs text-gray-600">
-                  <FaCheck className="text-mclRed mt-0.5 flex-shrink-0" size={10} />
+                  <FaCheck className="text-accent mt-0.5 flex-shrink-0" size={10} />
                   <span>{f}</span>
                 </li>
               ))}
             </ul>
           </div>
         </div>
-        <span className="text-xs font-semibold text-mclRed uppercase tracking-wide">{expanded ? 'Show less' : 'Key features'}</span>
+        <span className="text-xs font-semibold text-accent uppercase tracking-wide">{expanded ? 'Show less' : 'Key features'}</span>
       </div>
     </div>
   );
@@ -91,11 +85,16 @@ function EquipmentCard({ image, title, features, index }) {
 export default function ClinicalSystems() {
   return (
     <div className="pt-24">
+      <Seo
+        title="Clinical & Diagnostic Systems"
+        description="MCL supplies, installs and supports diagnostic imaging (ultrasound, X-ray, C-Arm), critical care equipment (anesthesia workstations, ICU ventilators, patient monitors, ECG systems) and UV phototherapy cabins for healthcare facilities in Pakistan."
+        path="/clinical-systems"
+      />
       <section className="w-full relative bg-slate-900 py-24 px-4 sm:px-8 lg:px-12 overflow-hidden">
         <img src={clinicalHero} alt="" className="absolute inset-0 w-full h-full object-cover opacity-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/95 via-slate-900/90 to-slate-900" />
         <div className="relative max-w-[1400px] mx-auto text-center">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-3">Clinical & Diagnostic Systems</p>
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-3">Clinical & Diagnostic Systems</p>
           <h1 className="text-white font-extrabold text-4xl lg:text-5xl leading-tight mb-4">
             Integrated Clinical & Diagnostic Equipment
           </h1>
@@ -109,7 +108,7 @@ export default function ClinicalSystems() {
         <SectionWrap key={group.label} className={`py-20 px-4 sm:px-8 lg:px-12 ${gi % 2 === 1 ? 'bg-gray-50' : 'bg-white'}`}>
           <div className="max-w-[1400px] mx-auto">
             <div className="flex items-center gap-3 mb-10">
-              <div className="w-12 h-12 rounded-xl bg-red-50 text-mclRed flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-red-50 text-accent flex items-center justify-center flex-shrink-0">
                 <group.icon size={20} />
               </div>
               <h2 className="text-gray-900 font-extrabold text-2xl lg:text-3xl">{group.label}</h2>
@@ -123,17 +122,17 @@ export default function ClinicalSystems() {
         </SectionWrap>
       ))}
 
-      <SectionWrap className="py-16 bg-gradient-to-r from-mclRed to-red-700 px-4 sm:px-8 lg:px-12">
+      <SectionWrap className="py-16 bg-gradient-to-r from-accent to-red-700 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
           <div>
             <p className="text-white/80 font-bold uppercase tracking-widest text-xs mb-2">Explore More</p>
             <h2 className="text-white font-extrabold text-2xl lg:text-3xl">Looking for MGPS or Modular OT solutions too?</h2>
           </div>
           <div className="flex flex-wrap gap-4 justify-center flex-shrink-0">
-            <Link to="/mgps-solutions" className="bg-white text-mclRed font-bold text-sm uppercase px-6 py-3 inline-flex items-center gap-2 rounded transition-all hover:shadow-lg active:scale-95">
+            <Link to="/mgps-solutions" className="bg-white text-accent font-bold text-sm uppercase px-6 py-3 inline-flex items-center gap-2 rounded transition-all hover:shadow-lg active:scale-95">
               MGPS Solutions <FaArrowRight size={12} />
             </Link>
-            <Link to="/modular-ot" className="border-2 border-white text-white font-bold text-sm uppercase px-6 py-3 inline-flex items-center gap-2 rounded transition-all hover:bg-white hover:text-mclRed active:scale-95">
+            <Link to="/modular-ot" className="border-2 border-white text-white font-bold text-sm uppercase px-6 py-3 inline-flex items-center gap-2 rounded transition-all hover:bg-white hover:text-accent active:scale-95">
               Modular OT <FaArrowRight size={12} />
             </Link>
           </div>

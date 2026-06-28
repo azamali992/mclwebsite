@@ -1,26 +1,19 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { FiUpload, FiTrash2, FiCopy } from 'react-icons/fi';
-import adminApi from '../../services/adminApi';
+import useAdminResource from '../../hooks/useAdminResource';
 
 const ImageManager = ({ token }) => {
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const {
+    items: images,
+    setItems: setImages,
+    fetchItems: fetchImages,
+    error,
+    setError,
+    removeItem,
+  } = useAdminResource('/api/upload', token, { idField: 'filename' });
+  const [uploading, setUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
   const fileInputRef = useRef(null);
-
-  useEffect(() => {
-    fetchImages();
-  }, []);
-
-  const fetchImages = async () => {
-    try {
-      const data = await adminApi.get('/api/upload', token);
-      setImages(Array.isArray(data) ? data : []);
-    } catch (err) {
-      console.error('Failed to fetch images:', err);
-    }
-  };
 
   const handleFileChange = async (e) => {
     const files = e.target.files;
@@ -34,7 +27,7 @@ const ImageManager = ({ token }) => {
 
   const uploadImage = async (file) => {
     try {
-      setLoading(true);
+      setUploading(true);
       setError('');
       setUploadProgress(0);
 
@@ -59,12 +52,12 @@ const ImageManager = ({ token }) => {
           const response = JSON.parse(xhr.responseText);
           setError(response.message || 'Upload failed');
         }
-        setLoading(false);
+        setUploading(false);
       });
 
       xhr.addEventListener('error', () => {
         setError('Upload failed');
-        setLoading(false);
+        setUploading(false);
       });
 
       xhr.open('POST', `${import.meta.env.VITE_API_URL}/api/upload/upload`);
@@ -73,7 +66,7 @@ const ImageManager = ({ token }) => {
     } catch (err) {
       setError('Failed to upload image');
       console.error(err);
-      setLoading(false);
+      setUploading(false);
     }
   };
 
@@ -81,8 +74,7 @@ const ImageManager = ({ token }) => {
     if (!window.confirm('Are you sure you want to delete this image?')) return;
 
     try {
-      await adminApi.delete(`/api/upload/${filename}`, token);
-      setImages((prev) => prev.filter((img) => img.filename !== filename));
+      await removeItem(filename);
     } catch (err) {
       setError(err.message || 'Failed to delete image');
     }
@@ -170,7 +162,7 @@ const ImageManager = ({ token }) => {
         </div>
       )}
 
-      {!loading && images.length === 0 && (
+      {!uploading && images.length === 0 && (
         <div className="text-center py-12 text-gray-500">
           <p>No images uploaded yet. Start by uploading some images!</p>
         </div>

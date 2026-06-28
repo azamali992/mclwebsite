@@ -25,4 +25,9 @@ const careerSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// getAllCareers (careerController.js) and the chatbot's getLiveCareersContext
+// (chatController.js) both filter by {isActive: true} on every request to
+// two different public-facing surfaces.
+careerSchema.index({ isActive: 1, createdAt: -1 });
+
 export default mongoose.model('Career', careerSchema);

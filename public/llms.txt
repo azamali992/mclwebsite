@@ -1,0 +1,35 @@
+# Multan Chemicals Limited (MCL)
+
+> Multan Chemicals Limited is an industrial and medical gas manufacturer and supplier based in Multan, Pakistan, established in 1985. MCL produces and supplies Industrial Gases, Medical Gases, and Speciality Gases, and provides healthcare engineering services including Medical Gas Pipeline Systems (MGPS), modular operating theatres, and clinical/diagnostic gas delivery systems, serving hospitals, factories, laboratories, and industrial facilities across Pakistan.
+
+Key facts:
+- Founded: 1985 (40+ years of operation)
+- Oxygen plant capacity: 125 TPD (tonnes per day)
+- Cylinder capacity: 87,000+
+- Fleet: 65+ trucks, 20+ tanker trucks
+- Filling stations: 35+ nationwide
+- Authorized distributors: 30+
+- Clients served: 1000+
+- MGPS projects completed: 100+ (25+ years of MGPS experience), connected to 50,000+ hospital beds
+- Certifications: Halal Certification (ACTS Halal Certification & Training Services), ISO 45001:2018, FSSC 22000, ISO 14001:2015 (Bureau Veritas); medical oxygen purity exceeds European Pharmacopeia 1999 standards
+
+## Products
+
+- [Gas Catalog](https://mcl-gases.com/gases): Industrial Gases, Medical Gases, Speciality Gases, and LPG
+- [Infrastructure](https://mcl-gases.com/infrastructure): production and logistics network
+- [MGPS Solutions](https://mcl-gases.com/mgps-solutions): Medical Gas Pipeline Systems
+- [Modular OT](https://mcl-gases.com/modular-ot): modular operating theatres
+- [Clinical Systems](https://mcl-gases.com/clinical-systems): clinical gas delivery and diagnostic systems
+- [Health Engineering](https://mcl-gases.com/health-engineering): healthcare engineering & equipment overview
+
+## Company
+
+- [About](https://mcl-gases.com/about)
+- [Team](https://mcl-gases.com/team)
+- [Quality & Safety](https://mcl-gases.com/quality-safety)
+- [Certifications](https://mcl-gases.com/certifications)
+- [Production](https://mcl-gases.com/production)
+- [Careers](https://mcl-gases.com/careers)
+- [Contact](https://mcl-gases.com/contact)
+
+See [llms-full.txt](https://mcl-gases.com/llms-full.txt) for the full product list and detail.

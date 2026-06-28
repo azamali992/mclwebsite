@@ -35,7 +35,7 @@ export default function AboutSection3() {
       <div className="mx-auto flex max-w-[1400px] flex-col gap-24">
         <div
           ref={industriesRef}
-          className={`transition-[opacity,transform] duration-500 ease-out ${industriesInView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+          className={`transition-[opacity,transform] duration-500 ease-[var(--ease-out)] ${industriesInView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
         >
           <p className="eyebrow mb-4">{industriesHeading}</p>
           <h2 className="mb-10 max-w-2xl text-3xl font-semibold tracking-tight text-ink md:text-[2.5rem]">{industriesTitle}</h2>
@@ -60,7 +60,7 @@ export default function AboutSection3() {
 
         <div
           ref={clientsRef}
-          className={`transition-[opacity,transform] duration-500 ease-out ${clientsInView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+          className={`transition-[opacity,transform] duration-500 ease-[var(--ease-out)] ${clientsInView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
         >
           <h3 className="mb-8 text-center text-sm font-medium text-muted">{clientsHeading}</h3>
           <ClientsMarquee />

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaPaperPlane, FaCheckCircle } from 'react-icons/fa';
 import { submitContact } from '../services/api';
 import useContent from '../hooks/useContent';
+import Seo from '../components/Seo';
 
 const offices = [
   {
@@ -110,9 +111,14 @@ export default function Contact() {
 
   return (
     <div className="pt-24">
+      <Seo
+        title="Contact Us"
+        description="Get in touch with Multan Chemicals Limited, head office in Multan, with production and regional offices in Faisalabad, Islamabad, Lahore, Peshawar and Karachi. Request a quote or technical support."
+        path="/contact"
+      />
       <section className="bg-slate-900 py-16">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">GET IN TOUCH</p>
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">GET IN TOUCH</p>
           <h1 className="text-white font-extrabold text-4xl lg:text-5xl leading-tight">Contact Us</h1>
           <p className="text-gray-300 mt-4 max-w-xl">Have a question, need a quote, or want to discuss a project? Our team is ready to help.</p>
         </div>
@@ -132,7 +138,7 @@ export default function Contact() {
                   <p className="text-green-600 text-sm">Thank you for reaching out. We'll contact you shortly.</p>
                   <button
                     onClick={() => { setSubmitted(false); setForm({ name: '', email: '', phone: '', subject: 'General Inquiry', message: '' }); }}
-                    className="mt-6 text-sm text-mclRed font-semibold underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-mclRed rounded px-2 py-1"
+                    className="mt-6 text-sm text-accent font-semibold underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-accent rounded px-2 py-1"
                   >
                     Send another message
                   </button>
@@ -146,22 +152,22 @@ export default function Contact() {
                   )}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="name" className="block text-xs font-semibold text-gray-700 mb-1.5"><span className="text-mclRed">*</span> Full Name</label>
-                      <input id="name" type="text" name="name" value={form.name} onChange={handleChange} required placeholder="Your name" className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white" />
+                      <label htmlFor="name" className="block text-xs font-semibold text-gray-700 mb-1.5"><span className="text-accent">*</span> Full Name</label>
+                      <input id="name" type="text" name="name" value={form.name} onChange={handleChange} required placeholder="Your name" className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors bg-white" />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-xs font-semibold text-gray-700 mb-1.5"><span className="text-mclRed">*</span> Email Address</label>
-                      <input id="email" type="email" name="email" value={form.email} onChange={handleChange} required placeholder="your@email.com" className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white" />
+                      <label htmlFor="email" className="block text-xs font-semibold text-gray-700 mb-1.5"><span className="text-accent">*</span> Email Address</label>
+                      <input id="email" type="email" name="email" value={form.email} onChange={handleChange} required placeholder="your@email.com" className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors bg-white" />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label htmlFor="phone" className="block text-xs font-semibold text-gray-700 mb-1.5">Phone Number</label>
-                      <input id="phone" type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="+92 300 1234567" className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white" />
+                      <input id="phone" type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="+92 300 1234567" className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors bg-white" />
                     </div>
                     <div>
                       <label htmlFor="subject" className="block text-xs font-semibold text-gray-700 mb-1.5">Subject</label>
-                      <select id="subject" name="subject" value={form.subject} onChange={handleChange} className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white text-gray-700">
+                      <select id="subject" name="subject" value={form.subject} onChange={handleChange} className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors bg-white text-gray-700">
                         <option value="General Inquiry">General Inquiry</option>
                         <option value="Product Quote">Product Quote</option>
                         <option value="Technical Support">Technical Support</option>
@@ -171,10 +177,10 @@ export default function Contact() {
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-xs font-semibold text-gray-700 mb-1.5"><span className="text-mclRed">*</span> Message</label>
-                    <textarea id="message" name="message" value={form.message} onChange={handleChange} required rows={5} placeholder="Tell us about your requirement..." className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-mclRed focus:ring-1 focus:ring-mclRed transition-colors bg-white resize-none" />
+                    <label htmlFor="message" className="block text-xs font-semibold text-gray-700 mb-1.5"><span className="text-accent">*</span> Message</label>
+                    <textarea id="message" name="message" value={form.message} onChange={handleChange} required rows={5} placeholder="Tell us about your requirement..." className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors bg-white resize-none" />
                   </div>
-                  <button type="submit" disabled={loading} className="bg-mclRed hover:bg-red-800 disabled:bg-gray-400 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all hover:shadow-lg active:scale-95 inline-flex items-center gap-2 shadow-md focus:ring-2 focus:ring-red-500 focus:outline-none rounded">
+                  <button type="submit" disabled={loading} className="bg-accent hover:bg-red-800 disabled:bg-gray-400 text-white px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all hover:shadow-lg active:scale-95 inline-flex items-center gap-2 shadow-md focus:ring-2 focus:ring-red-500 focus:outline-none rounded">
                     <FaPaperPlane /> {loading ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
@@ -189,8 +195,8 @@ export default function Contact() {
                   const Icon = item.icon;
                   return (
                     <div key={i} className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-full bg-mclRed/10 flex items-center justify-center flex-shrink-0">
-                        <Icon className="text-mclRed" size={16} />
+                      <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+                        <Icon className="text-accent" size={16} />
                       </div>
                       <div>
                         <h4 className="font-bold text-gray-900 text-sm">{item.title}</h4>
@@ -209,8 +215,8 @@ export default function Contact() {
         <div className="max-w-[1400px] mx-auto">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-3">
-              <span className="w-8 h-px bg-mclRed" />
-              <p className="text-mclRed font-semibold uppercase tracking-[0.25em] text-xs">Offices</p>
+              <span className="w-8 h-px bg-accent" />
+              <p className="text-accent font-semibold uppercase tracking-[0.25em] text-xs">Offices</p>
             </div>
             <h2 className="text-gray-900 font-serif text-4xl lg:text-5xl">Six cities. One team.</h2>
           </div>
@@ -218,13 +224,13 @@ export default function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-2 border-t border-l border-gray-200">
             {offices.map((office) => (
               <div key={office.city} className="border-b border-r border-gray-200 p-7 lg:p-9">
-                <p className="text-mclRed font-semibold uppercase tracking-[0.2em] text-[11px] mb-3">{office.type}</p>
+                <p className="text-accent font-semibold uppercase tracking-[0.2em] text-[11px] mb-3">{office.type}</p>
                 <h3 className="text-gray-900 font-serif text-2xl lg:text-3xl mb-4">{office.city}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-6">{office.address}</p>
                 <div className="space-y-2">
                   {office.contacts.map((c, i) => (
                     <div key={i} className="flex items-baseline gap-3 text-sm">
-                      <span className="text-gray-400 uppercase tracking-wider text-[10px] font-semibold w-12 flex-shrink-0">{c.label}</span>
+                      <span className="text-muted uppercase tracking-wider text-[10px] font-semibold w-12 flex-shrink-0">{c.label}</span>
                       <span className="text-gray-800">{c.value}</span>
                     </div>
                   ))}

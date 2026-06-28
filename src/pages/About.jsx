@@ -8,6 +8,7 @@ import heroBg from '../assets/hero02.JPG';
 import { leadership } from '../data/team';
 import useStats from '../hooks/useStats';
 import { resolveStat } from '../data/stats';
+import Seo from '../components/Seo';
 
 function AboutHero() {
   return (
@@ -15,7 +16,7 @@ function AboutHero() {
       <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-30" />
       <div className="absolute inset-0 bg-gradient-to-b from-slate-900/95 via-slate-900/85 to-slate-900" />
       <div className="relative max-w-[1400px] mx-auto text-center">
-        <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-3">Who We Are</p>
+        <p className="text-accent font-bold uppercase tracking-widest text-sm mb-3">Who We Are</p>
         <h1 className="text-white font-extrabold text-4xl lg:text-5xl leading-tight mb-4">Four Decades of Trust in Industrial & Medical Gases</h1>
         <p className="text-gray-300 text-lg max-w-3xl mx-auto">From a regional supplier in Multan to one of Pakistan's leading names in gas manufacturing and healthcare engineering.</p>
       </div>
@@ -151,7 +152,7 @@ function MissionVisionSection() {
     <section id="mission" className="bg-white py-20 px-4 sm:px-8 lg:px-12 scroll-mt-28">
       <div className="max-w-[1400px] mx-auto">
         <div className="text-center mb-12">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">
             ABOUT MULTAN CHEMICALS LTD
           </p>
           <h2 className="text-slate-900 font-extrabold text-4xl lg:text-5xl leading-tight">
@@ -160,8 +161,8 @@ function MissionVisionSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          <div className="border-t-4 border-mclRed p-8 bg-white shadow-xl rounded-xl">
-            <FaShieldAlt className="text-mclRed mb-4" size={32} />
+          <div className="border-t-4 border-accent p-8 bg-white shadow-xl rounded-xl">
+            <FaShieldAlt className="text-accent mb-4" size={32} />
             <h3 className="text-2xl font-bold text-slate-900">{pageContent.mission.title}</h3>
             <p className="text-slate-600 leading-relaxed mt-4">
               {pageContent.mission.body}
@@ -169,7 +170,7 @@ function MissionVisionSection() {
           </div>
 
           <div className="p-8 bg-slate-900 shadow-xl rounded-xl">
-            <FaChartBar className="text-mclRed mb-4" size={32} />
+            <FaChartBar className="text-accent mb-4" size={32} />
             <h3 className="text-2xl font-bold text-white">{pageContent.vision.title}</h3>
             <p className="text-slate-300 leading-relaxed mt-4">
               {pageContent.vision.body}
@@ -183,7 +184,7 @@ function MissionVisionSection() {
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
             {pageContent.values.map((value, i) => (
-              <div key={i} className="rounded-xl p-6 border-2 border-slate-200 bg-white hover:border-mclRed hover:shadow-md transition-all">
+              <div key={i} className="rounded-xl p-6 border-2 border-slate-200 bg-white hover:border-accent hover:shadow-md transition-all">
                 <h4 className="font-bold text-slate-900 text-lg mb-2">{value.title}</h4>
                 <p className="text-slate-600 text-sm leading-relaxed">{value.desc}</p>
               </div>
@@ -201,7 +202,7 @@ function TeamPreviewSection() {
     <section id="team" ref={ref} className={`bg-white py-20 px-4 sm:px-8 lg:px-12 scroll-mt-28 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
       <div className="max-w-[1400px] mx-auto">
         <div className="text-center mb-12">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-2">Our Team</p>
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-2">Our Team</p>
           <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight">Meet Our Leadership</h2>
         </div>
         <div className="flex flex-wrap justify-center gap-6 sm:gap-8 mb-10">
@@ -215,12 +216,12 @@ function TeamPreviewSection() {
                 <img src={person.image} alt={person.name} className="object-cover w-full h-full" />
               </div>
               <p className="text-gray-900 font-bold text-base text-center mt-3 leading-tight">{person.name}</p>
-              <p className="text-mclRed text-sm font-semibold text-center mt-0.5">{person.title}</p>
+              <p className="text-accent text-sm font-semibold text-center mt-0.5">{person.title}</p>
             </div>
           ))}
         </div>
         <div className="text-center">
-          <Link to="/team" className="bg-mclRed hover:bg-red-800 text-white font-bold text-xs uppercase tracking-wider px-8 py-3.5 inline-flex items-center gap-2 transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95 rounded">
+          <Link to="/team" className="bg-accent hover:bg-red-800 text-white font-bold text-xs uppercase tracking-wider px-8 py-3.5 inline-flex items-center gap-2 transition-all hover:shadow-lg hover:shadow-red-900/30 active:scale-95 rounded">
             View All Team <FaArrowRight size={12} />
           </Link>
         </div>
@@ -232,6 +233,11 @@ function TeamPreviewSection() {
 export default function About() {
   return (
     <div className="pt-24">
+      <Seo
+        title="About Us"
+        description="Four decades of trust in industrial and medical gases, grown from a regional supplier in Multan to one of Pakistan's leading gas manufacturers and healthcare engineering companies, with a 125 TPD oxygen plant and nationwide distribution."
+        path="/about"
+      />
       <AboutHero />
       <AboutSection1 />
       <MissionVisionSection />

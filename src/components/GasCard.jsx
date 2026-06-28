@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import useStats from '../hooks/useStats';
+import useTilt from '../hooks/useTilt';
 import { resolveStat } from '../data/stats';
 
 // Pick the single most meaningful headline metric for the footer, gracefully
@@ -19,12 +20,23 @@ export default function GasCard({ gas, to }) {
   const { statsMap } = useStats();
   const stat = headlineStat(gas, resolveStat(statsMap, 'oxygen_plant_capacity').value);
   const categoryLabel = gas.category.replace(/Gases$/i, 'Gas').trim();
+  const { ref: tiltRef, onMouseMove, onMouseLeave } = useTilt();
 
   return (
     <Link
       to={to}
-      className="group relative flex h-full min-h-[330px] flex-col overflow-hidden rounded-lg border border-line bg-canvas p-7 transition-[transform,background-color,border-color,box-shadow] duration-300 ease-out hover:-translate-y-1.5 hover:border-accent hover:bg-accent hover:shadow-[var(--shadow-accent)] lg:p-8"
+      ref={tiltRef}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      className="group relative flex h-full min-h-[330px] flex-col overflow-hidden rounded-lg border border-line bg-canvas p-7 transition-[background-color,border-color,box-shadow] duration-300 ease-out hover:border-accent hover:bg-accent hover:shadow-[var(--shadow-accent)] lg:p-8"
     >
+      {/* cursor-tracking specular highlight — opacity driven by useTilt, color is
+          --bg (white) at low opacity, the lightest token already in the project */}
+      <span
+        className="pointer-events-none absolute inset-0 opacity-[var(--tilt-glow-opacity,0)] transition-opacity duration-300"
+        style={{ background: 'radial-gradient(circle at var(--tilt-glow-x,50%) var(--tilt-glow-y,50%), rgba(255,255,255,0.18), transparent 60%)' }}
+      />
+
       {/* faint oversized formula for depth — a whisper in both states */}
       <span className="pointer-events-none absolute -right-3 -top-6 select-none font-mono text-[7.5rem] font-light leading-none text-ink/[0.04] transition-colors duration-300 group-hover:text-white/[0.12]">
         {gas.formula}

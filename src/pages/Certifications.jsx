@@ -1,19 +1,11 @@
 import { FaCheckCircle, FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import useInView from '../hooks/useInView';
+import SectionWrap from '../components/SectionWrap';
 import certificate1 from '../assets/certificate1.png';
 import certificate2 from '../assets/certificate2.png';
 import certificate3 from '../assets/certificate3.png';
 import certificate4 from '../assets/certificate4.png';
-
-function SectionWrap({ children, className = '' }) {
-  const [ref, inView] = useInView();
-  return (
-    <section ref={ref} className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}>
-      {children}
-    </section>
-  );
-}
+import Seo from '../components/Seo';
 
 const certificates = [
   {
@@ -76,9 +68,14 @@ const puritySpec = [
 export default function Certifications() {
   return (
     <div className="pt-24">
+      <Seo
+        title="Certifications & Compliance"
+        description="Multan Chemicals Limited is Halal certified and holds ISO 45001:2018, FSSC 22000 and ISO 14001:2015 certifications from Bureau Veritas, with medical oxygen purity exceeding European Pharmacopeia 1999 standards."
+        path="/certifications"
+      />
       <section className="bg-slate-900 py-20 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto text-center">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-3">Certifications & Compliance</p>
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-3">Certifications & Compliance</p>
           <h1 className="text-white font-extrabold text-4xl lg:text-5xl leading-tight mb-4">
             Quality. Safety. Responsibility.
           </h1>
@@ -105,10 +102,10 @@ export default function Certifications() {
               </div>
               <div className="flex-1 text-center md:text-left">
                 <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
-                  <FaCheckCircle className="text-mclRed" size={18} />
+                  <FaCheckCircle className="text-accent" size={18} />
                   <h2 className="text-gray-900 font-extrabold text-2xl">{cert.standard}</h2>
                 </div>
-                <p className="text-mclRed font-semibold text-sm uppercase tracking-wide mb-3">{cert.issuer}</p>
+                <p className="text-accent font-semibold text-sm uppercase tracking-wide mb-3">{cert.issuer}</p>
                 <p className="text-gray-600 leading-relaxed">{cert.desc}</p>
               </div>
             </div>
@@ -119,7 +116,7 @@ export default function Certifications() {
       <SectionWrap className="py-20 bg-gray-50 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           <div>
-            <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-3">Quality Policy</p>
+            <p className="text-accent font-bold uppercase tracking-widest text-sm mb-3">Quality Policy</p>
             <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight">
               Three commitments — written, signed, audited.
             </h2>
@@ -127,7 +124,7 @@ export default function Certifications() {
           <div className="bg-white border border-gray-200 rounded-xl divide-y divide-gray-100 overflow-hidden">
             {commitments.map((c) => (
               <div key={c.num} className="flex items-start gap-5 p-6">
-                <span className="text-mclRed font-extrabold text-3xl leading-none flex-shrink-0">{c.num}</span>
+                <span className="text-accent font-extrabold text-3xl leading-none flex-shrink-0">{c.num}</span>
                 <p className="text-gray-700 text-sm leading-relaxed pt-1">{c.text}</p>
               </div>
             ))}
@@ -137,7 +134,7 @@ export default function Certifications() {
 
       <SectionWrap className="py-20 bg-slate-900 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-3">Standards We Follow</p>
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-3">Standards We Follow</p>
           <h2 className="text-white font-extrabold text-3xl lg:text-4xl leading-tight mb-10">
             From cylinder fill to hospital ceiling — globally benchmarked.
           </h2>
@@ -154,7 +151,7 @@ export default function Certifications() {
 
       <SectionWrap className="py-20 bg-white px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto">
-          <p className="text-mclRed font-bold uppercase tracking-widest text-sm mb-3">Medical Oxygen — Purity Specification</p>
+          <p className="text-accent font-bold uppercase tracking-widest text-sm mb-3">Medical Oxygen — Purity Specification</p>
           <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight mb-10">
             MCL standard versus European Pharmacopeia 1999.
           </h2>
@@ -162,7 +159,7 @@ export default function Certifications() {
             <div className="grid grid-cols-3 bg-gray-50 px-6 py-3 text-xs font-bold uppercase tracking-wide text-gray-500">
               <span>Specification</span>
               <span>European Pharmacopeia 1999</span>
-              <span className="text-mclRed">MCL Standard</span>
+              <span className="text-accent">MCL Standard</span>
             </div>
             {puritySpec.map((row, i) => (
               <div
@@ -178,7 +175,7 @@ export default function Certifications() {
         </div>
       </SectionWrap>
 
-      <SectionWrap className="py-16 bg-gradient-to-r from-mclRed to-red-700 px-4 sm:px-8 lg:px-12">
+      <SectionWrap className="py-16 bg-gradient-to-r from-accent to-red-700 px-4 sm:px-8 lg:px-12">
         <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
           <div>
             <p className="text-white/80 font-bold uppercase tracking-widest text-xs mb-2">Documentation</p>
@@ -188,7 +185,7 @@ export default function Certifications() {
           </div>
           <Link
             to="/contact"
-            className="bg-white text-mclRed font-bold text-sm uppercase px-6 py-3 inline-flex items-center gap-2 rounded transition-all hover:shadow-lg active:scale-95 flex-shrink-0"
+            className="bg-white text-accent font-bold text-sm uppercase px-6 py-3 inline-flex items-center gap-2 rounded transition-all hover:shadow-lg active:scale-95 flex-shrink-0"
           >
             Request Documentation <FaArrowRight size={12} />
           </Link>
