@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FaCheck, FaAward, FaTools, FaHeadset, FaUserTie } from 'react-icons/fa';
-import renderImg from '../assets/3drender.png';
+import HospitalPipeline3D from './HospitalPipeline3D';
 import useContent from '../hooks/useContent';
 import useInView from '../hooks/useInView';
 
@@ -35,13 +35,6 @@ export default function MgpsSolutions() {
     'Installation, Testing & Maintenance',
   ];
   const checkItems = defaultCheckItems.map((_, i) => contentMap[`mgps-check-${i + 1}`]?.title || defaultCheckItems[i]);
-
-  const legendItems = [
-    { color: '#16a34a', label: 'Oxygen' },
-    { color: '#2563eb', label: 'Nitrous oxide' },
-    { color: '#eab308', label: 'Medical air' },
-    { color: '#1f2937', label: 'Medical vacuum' },
-  ];
 
   const featureIcons = [<FaAward key="a" size={15} />, <FaTools key="b" size={15} />, <FaHeadset key="c" size={15} />, <FaUserTie key="d" size={15} />];
   const defaultFeatures = [
@@ -82,16 +75,8 @@ export default function MgpsSolutions() {
             ref={rightRef}
             className={`flex w-full flex-col items-center transition-[opacity,transform] duration-500 ease-[var(--ease-out)] lg:w-7/12 ${rightInView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
           >
-            <div className="relative flex h-[360px] w-full items-center justify-center sm:h-[460px] lg:h-[560px]">
-              <img src={renderImg} alt="3D medical gas pipeline layout" className="pointer-events-none h-full w-full scale-110 object-contain mix-blend-darken xl:scale-125 dark:mix-blend-normal" />
-              <div className="absolute right-0 top-1/2 hidden -translate-y-1/2 flex-col gap-3 rounded-lg border border-line bg-canvas/90 p-4 shadow-[var(--shadow-md)] backdrop-blur-sm md:flex">
-                {legendItems.map((item, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <span className="h-1.5 w-6 rounded-full" style={{ backgroundColor: item.color }} />
-                    <span className="text-xs font-medium text-ink-soft">{item.label}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="relative h-[360px] w-full sm:h-[460px] lg:h-[560px]">
+              <HospitalPipeline3D height="100%" />
             </div>
             <div className="mt-2 grid w-full grid-cols-1 gap-6 rounded-lg border border-line bg-surface p-6 sm:grid-cols-2 xl:grid-cols-4">
               {bottomFeatures.map((feature, index) => (
