@@ -136,12 +136,8 @@ export default function HospitalPipeline3D({ height = 580 }) {
     box(6,  0.02, 6,  m.padNurse,  0, -0.06,  0);
     box(28, 0.02, 3,  m.padCorr,   0, -0.06, -8.5);
 
-    // Outer walls
+    // Outer walls — removed
     const WH = 2.8, WT = 0.16;
-    box(28, WH, WT, m.wall,  0, WH/2, -11);
-    box(28, WH, WT, m.wall,  0, WH/2,  11);
-    box(WT, WH, 22, m.wall, -14, WH/2,  0);
-    box(WT, WH, 22, m.wall,  14, WH/2,  0);
 
     // Internal walls
     box(WT, WH, 10, m.wall, -3, WH/2, -5);
