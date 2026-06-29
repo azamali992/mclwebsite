@@ -22,7 +22,7 @@ function DivisionCard({ div, index }) {
         inView ? 'animate-fade-in-up' : 'opacity-0'
       }`}
     >
-      <div className="relative aspect-[16/10] w-full overflow-hidden">
+      <div className="relative aspect-[4/3] w-full overflow-hidden">
         <img
           src={div.img}
           alt={div.title}
@@ -30,20 +30,20 @@ function DivisionCard({ div, index }) {
           className="h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#06101b]/55 to-transparent" />
-        <span className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-md bg-white/15 text-white backdrop-blur-sm">
-          <Icon size={16} />
+        <span className="absolute left-3 top-3 flex h-8 w-8 items-center justify-center rounded-md bg-white/15 text-white backdrop-blur-sm">
+          <Icon size={14} />
         </span>
       </div>
-      <div className="flex flex-1 flex-col p-6">
-        <h3 className="text-lg font-semibold text-ink transition-colors duration-200 group-hover:text-accent">
+      <div className="flex flex-1 flex-col p-4">
+        <h3 className="text-sm font-semibold text-ink transition-colors duration-200 group-hover:text-accent">
           {div.title}
         </h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+        <p className="mt-1.5 flex-1 text-xs leading-relaxed text-muted line-clamp-3">
           {div.desc}
         </p>
-        <span aria-hidden="true" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+        <span aria-hidden="true" className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-accent">
           Explore
-          <FaArrowRight size={12} className="transition-transform duration-200 ease-out group-hover:translate-x-1" />
+          <FaArrowRight size={10} className="transition-transform duration-200 ease-out group-hover:translate-x-1" />
         </span>
       </div>
     </Link>
@@ -80,7 +80,7 @@ export default function BusinessDivisions() {
             Six divisions. One standard of reliability.
           </h2>
         </div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {divisions.map((div, index) => (
             <DivisionCard key={div.id} div={div} index={index} />
           ))}

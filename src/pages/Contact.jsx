@@ -15,7 +15,7 @@ const offices = [
     ],
   },
   {
-    type: 'Production Office',
+    type: 'Corporate Office',
     city: 'Faisalabad',
     address: 'Plot A-6, 7, 8, FIEDMC Industrial Estate, Sahianwala, Faisalabad',
     contacts: [
