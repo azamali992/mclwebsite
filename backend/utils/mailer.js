@@ -13,7 +13,7 @@ let transporter = null;
 // like a legitimate MCL notice. Escaping the five HTML-significant
 // characters before interpolation closes this off entirely; nothing here
 // needs to render as HTML, it's all plain user-submitted text.
-function escapeHtml(value) {
+export function escapeHtml(value) {
   if (value == null) return value;
   return String(value)
     .replace(/&/g, '&amp;')

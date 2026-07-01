@@ -10,7 +10,7 @@
 // applicationController.getAllApplications) explicitly checks
 // `typeof x === 'string'` at the point of use instead of relying on this
 // middleware to have already handled it.
-function clean(value) {
+export function clean(value) {
   if (Array.isArray(value)) {
     return value.map(clean);
   }

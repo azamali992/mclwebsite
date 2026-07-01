@@ -1393,11 +1393,32 @@ _Paused partway through per explicit user request ("skip security testing overal
 - **Better approach — why no database**: `mongodb-memory-server` (the usual zero-network choice for isolated Mongoose testing) needs to download a ~780MB MongoDB binary on first run; in this environment that download was tracking toward 10+ minutes. The alternative — pointing tests at the real Atlas cluster the dev server already uses, even under a distinct database name — was flagged by the harness's own safety classifier as a real infrastructure decision on shared state that needed explicit user sign-off, and the user chose to skip database-dependent testing for now rather than authorize either approach. This is fully compatible with what this specific test suite needs: every route tested here returns 401 from inside `authMiddleware`, before `next()` is ever called — the route handler (and its database query) never executes, so these 41 tests are 100% accurate and 100% database-independent by construction, not by accident.
 - **Impact**: `npm test` (from `backend/`) now runs in ~3 seconds with no network/database dependency and catches the exact regression class (auth middleware silently missing from a route) that the original audit flagged as highest-risk.
 
-**[PHASE 7] — Deferred (not started, per user request)**
-- File-upload validation tests (`verifyFileSignature` against real magic-byte fixtures for each accepted type, plus rejection of a mismatched/spoofed file).
-- Unit tests for `mailer.js`'s `escapeHtml` and `sanitize.js`'s `clean` (both currently un-exported internal functions — exporting them for testability is itself a small pending change).
-- Any test requiring a live database (public-route response-shape tests, write-endpoint validation tests, admin CRUD round-trip tests) — blocked on the same database-strategy decision above, not yet resolved.
-- E2E browser tests (Playwright or similar) for the critical user flows identified in Phase 1 (gas catalog browsing, contact form submission, job application with resume upload, admin login + CRUD) — not started at all.
+**[PHASE 7] — `backend/utils/mailer.js`, `backend/middleware/sanitize.js`** (export change)
+- **What changed**: Changed `function escapeHtml` → `export function escapeHtml` in `mailer.js`, and `function clean` → `export function clean` in `sanitize.js`. Both were already in use internally within their files; adding `export` doesn't change their runtime behaviour — it only makes them importable in tests without duplicating the implementation.
+- **Why**: Unit-testing a private function requires exporting it. The alternative — testing only through the module's public surface (the async email-send functions / the `sanitizeBody` middleware) — would require an SMTP connection or a live HTTP request to exercise a one-line string-escaping function, which is unreasonably heavyweight.
+- **Impact**: Zero change to production behaviour. The named exports are usable by any future test or helper without pulling in the full transporter/middleware stack.
+
+**[PHASE 7] — `backend/__tests__/escapeHtml.test.js`** (new file)
+- **What changed**: 14-test unit suite covering `escapeHtml` from `mailer.js`.
+- **Why**: Phase 6 added `escapeHtml` as the Critical-severity HTML-injection fix for staff notification emails. The logic is small but security-critical; a regression (e.g. accidentally removing one of the five replacement lines) would silently re-open the injection vector with no indication in any log. Tests make that regression impossible to miss.
+- **Coverage**: `null`/`undefined` null-safety; clean strings pass through; each of the five HTML-significant characters (`&`, `<`, `>`, `"`, `'`) escaped individually and in combination; realistic XSS payload and phishing anchor tag both rendered inert; numeric/boolean coercion; one-way encoding semantics (double-encoding documented as correct behaviour for plain-text input).
+- **Impact**: Any future edit to `escapeHtml` that breaks any of the five escaping rules will fail at least one test before the change is committed.
+
+**[PHASE 7] — `backend/__tests__/sanitize.test.js`** (new file)
+- **What changed**: 15-test unit suite covering `clean` from `sanitize.js`.
+- **Why**: `sanitizeBody` is the first line of defence against NoSQL injection on every mutating request body in the API. Testing `clean` in isolation is cheaper and more precise than testing it through HTTP — it exercises the exact recursive key-stripping logic without needing a running server or real routes.
+- **Coverage**: Primitive pass-through (string, number, boolean, null, undefined); safe flat object passes unchanged; `$`-prefixed operator keys stripped; dot-notation keys stripped; nested object recursion; array element-by-element cleaning; nested arrays; a `$` character in a *value* (not a key) is correctly left alone.
+- **Impact**: Any future refactor of `clean` that accidentally stops stripping `$`-keys or breaks recursion is caught immediately.
+
+**[PHASE 7] — `backend/__tests__/fileSignature.test.js`** (new file)
+- **What changed**: 24-test suite covering `verifyFileSignature` from `backend/utils/fileSignature.js` using real on-disk temporary files with actual magic-byte content.
+- **Why**: Phase 6 added magic-byte verification as the High-severity upload-spoofing fix. The function reads real binary data from disk; mocking `fs` would test the mock, not the function. Writing 12-byte temp files in `os.tmpdir()` and cleaning them up in `afterEach` is the right tradeoff — each test runs in under 1ms and leaves no persistent state.
+- **Coverage**: Every accepted MIME type verified with its real magic bytes (JPEG, PNG, GIF, WEBP, PDF, DOC, DOCX with all three ZIP PK variants); MIME-spoofing rejections (PNG bytes claimed as JPEG, JPEG as PNG, PDF as JPEG, HTML file claimed as PNG); WEBP edge cases (correct RIFF header with wrong FourCC at offset 8; correct FourCC with wrong RIFF header); unknown MIME types always rejected (SVG, HTML, octet-stream, empty string); all-zero file rejected for every accepted image/document type.
+- **Impact**: `npm test` now catches both directions of failure: if the function incorrectly rejects a valid file (breaking uploads), or if it incorrectly accepts a spoofed file (re-opening the stored-XSS vector).
+
+**[PHASE 7] — Still deferred (unchanged)**
+- Any test requiring a live database (public-route response-shape tests, write-endpoint validation tests, admin CRUD round-trip tests) — blocked on the same database-strategy decision as before.
+- E2E browser tests (Playwright or similar) for the critical user flows identified in Phase 1 (gas catalog browsing, contact form submission, job application with resume upload, admin login + CRUD) — not started.
 
 ---
 
