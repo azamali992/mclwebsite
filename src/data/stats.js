@@ -5,7 +5,7 @@
 // to match against the database record of the same name.
 const STATS = {
   years_of_excellence: { value: '40+', label: 'Years Of', subtitle: 'Excellence', group: 'company', order: 1 },
-  oxygen_plant_capacity: { value: '160 TPD', label: 'Oxygen Plant', subtitle: 'Capacity • 240 TPD expansion planned (400 TPD total)', group: 'company', order: 2 },
+  oxygen_plant_capacity: { value: '160 TPD', label: 'Oxygen Plant', subtitle: 'Capacity', group: 'company', order: 2 },
   cylinder_capacity: { value: '185000+', label: 'Cylinders', subtitle: 'Capacity', group: 'company', order: 3 },
   fleet_trucks: { value: '100+', label: 'Trucks In', subtitle: 'Our Fleet', group: 'company', order: 4 },
   filling_stations: { value: '55+', label: 'Filling Stations', subtitle: '& Distributors', group: 'company', order: 5 },
