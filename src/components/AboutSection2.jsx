@@ -105,7 +105,7 @@ export default function AboutSection2() {
           className={`transition-[opacity,transform] duration-500 ease-[var(--ease-out)] ${mapInView ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'}`}
         >
           <WarehouseMap
-            className="h-[500px]"
+            className="h-[50vh] max-h-[500px] min-h-[300px]"
             highlightKey={highlightKey}
             onLocationClick={(loc) => setHighlightKey(loc.key)}
             onLocationsLoaded={setLocations}

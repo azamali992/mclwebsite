@@ -55,15 +55,15 @@ const comingSoonMilestones = [
   {
     year: 'Late 2026',
     icon: FaBurn,
-    title: '900-Ton LPG Plant',
-    desc: 'A new 900-ton LPG plant is coming online, expanding our fuel gas production capacity.',
+    title: '1,800 MT LPG Plant',
+    desc: 'A new 1,800 MT LPG plant — 840 MT under construction plus 840 MT further expansion planned.',
     comingSoon: true,
   },
   {
     year: 'Dec 2027',
     icon: FaRocket,
-    title: 'Capacity Expansion',
-    desc: 'Production capacity set to grow by approximately 230 TPD, further strengthening nationwide supply.',
+    title: '240 TPD ASU Plant',
+    desc: 'A new 240 TPD Air Separation Unit, further strengthening nationwide supply capacity.',
     comingSoon: true,
   },
 ];

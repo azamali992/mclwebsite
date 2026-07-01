@@ -1,20 +1,22 @@
 import { FaIndustry, FaTruck, FaWarehouse, FaShieldAlt, FaClock, FaCertificate, FaFlask, FaBoxes, FaImage } from 'react-icons/fa';
 import SectionWrap from '../components/SectionWrap';
-import mainPlant from '../assets/main125tdplant.png';
+import mainPlant from '../assets/heromcl.png';
 import plant20tpd from '../assets/20tpdplant.jpeg';
 import multanPlant from '../assets/multanoxplant.jpeg';
+import daPlant from '../assets/daplant.png';
 import Seo from '../components/Seo';
 
 const plants = [
   { image: mainPlant, title: '125 TPD Liquid Generation Plant', location: 'Sahianwala, Faisalabad' },
   { image: plant20tpd, title: '20 TPD Compressed Gas', location: 'Sahianwala, Faisalabad' },
   { image: multanPlant, title: '15 TPD Compressed Gas', location: 'Multan' },
-  { title: '900-Ton LPG Plant', location: 'Under Construction', comingSoon: true },
-  { title: '~230 TPD Oxygen Plant Expansion', location: 'Under Construction', comingSoon: true },
+  { image: daPlant, title: 'Dissolved Acetylene Plant', location: 'Multan, Faisalabad, Tharparkar' },
+  { title: 'LPG Plant — 1,800 MT Capacity', location: 'Under Construction: 840 MT + 840 MT Expansion Planned', comingSoon: true },
+  { title: '240 TPD ASU Plant', location: 'Under Construction', comingSoon: true },
 ];
 
 const features = [
-  { icon: FaIndustry, text: 'Largest plant — 125 tons per day (single largest plant in Pakistan to date)' },
+  { icon: FaIndustry, text: 'Largest plant — 125 tons per day' },
   { icon: FaWarehouse, text: 'Two backup plants of 40 tons per day' },
   { icon: FaBoxes, text: 'Largest cylinder inventory: 185,000' },
   { icon: FaTruck, text: 'Largest cylinder transportation fleet: 65 trucks' },
@@ -71,7 +73,7 @@ export default function Production() {
                 </div>
                 <div className="p-6 bg-white">
                   <h3 className="text-gray-900 font-bold text-lg mb-1">{plant.title}</h3>
-                  <p className="text-gray-500 text-sm">Location: {plant.location}</p>
+                  <p className="text-gray-500 text-sm">{plant.comingSoon ? plant.location : `Location: ${plant.location}`}</p>
                 </div>
               </div>
             ))}

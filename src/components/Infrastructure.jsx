@@ -1,8 +1,8 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SectionWrap from './SectionWrap';
 import StatValue from './StatValue';
-import { FaIndustry, FaUsers, FaShieldAlt, FaClock, FaCog, FaMapMarkerAlt, FaCheck, FaCheckCircle } from 'react-icons/fa';
+import { FaIndustry, FaUsers, FaShieldAlt, FaClock, FaCog, FaMapMarkerAlt, FaCheck, FaCheckCircle, FaExternalLinkAlt, FaSearch, FaWarehouse, FaTruck } from 'react-icons/fa';
 import useContent from '../hooks/useContent';
 import useStats from '../hooks/useStats';
 import useInView from '../hooks/useInView';
@@ -20,7 +20,8 @@ import trucks1 from '../assets/trucks1.JPG';
 import trucks2 from '../assets/trucks2.JPG';
 import trucks3 from '../assets/trucks3.JPG';
 import trucks4 from '../assets/trucks4.JPG';
-import WarehouseMap, { normalizeWarehouseName } from './WarehouseMap';
+import WarehouseMap, { loadWarehouseLocations, loadDistributorLocations } from './WarehouseMap';
+import MiniMap from './MiniMap';
 import whFaisalabad from '../assets/Warehouses Pics/Faisalabad Warehouse/WhatsApp Image 2026-06-03 at 10.20.18 PM.jpeg';
 import whGojra from '../assets/Warehouses Pics/Gojra Warehouse/WhatsApp Image 2026-06-03 at 5.55.29 PM.jpeg';
 import whGujranwala from '../assets/Warehouses Pics/Gujranwala Warehouse/WhatsApp Image 2026-06-03 at 7.57.44 PM.jpeg';
@@ -34,20 +35,27 @@ import whSahiwal from '../assets/Warehouses Pics/Sahiwal warehouse/WhatsApp Imag
 import whSargodha from '../assets/Warehouses Pics/Sargodha Warehouse/WhatsApp Image 2026-06-04 at 1.59.36 PM.jpeg';
 import whSundar from '../assets/Warehouses Pics/Sundar Warehouse/WhatsApp Image 2026-06-04 at 10.30.42 AM.jpeg';
 
-const stations = [
-  { name: 'Faisalabad Warehouse', province: 'Punjab', img: whFaisalabad },
-  { name: 'Gojra Warehouse', province: 'Punjab', img: whGojra },
-  { name: 'Gujranwala Warehouse', province: 'Punjab', img: whGujranwala },
-  { name: 'Jhelum Warehouse', province: 'Punjab', img: whJhelum },
-  { name: 'Manshara Warehouse', province: 'KPK', img: whManshara },
-  { name: 'Mehmood Boti Warehouse', province: 'Punjab', img: whMehmoodBoti },
-  { name: 'Mianwali Warehouse', province: 'Punjab', img: whMianwali },
-  { name: 'Peshawar Warehouse', province: 'KPK', img: whPeshawar },
-  { name: 'Pindi Warehouse', province: 'Punjab', img: whPindi },
-  { name: 'Sahiwal Warehouse', province: 'Punjab', img: whSahiwal },
-  { name: 'Sargodha Warehouse', province: 'Punjab', img: whSargodha },
-  { name: 'Sundar Warehouse', province: 'Punjab', img: whSundar },
-].map(s => ({ ...s, key: normalizeWarehouseName(s.name) }));
+const imageMap = {
+  faisalabad: whFaisalabad,
+  gojra: whGojra,
+  gujranwala: whGujranwala,
+  jhelum: whJhelum,
+  manshara: whManshara,
+  'mehmood boti': whMehmoodBoti,
+  mianwali: whMianwali,
+  peshawar: whPeshawar,
+  pindi: whPindi,
+  sahiwal: whSahiwal,
+  sargodha: whSargodha,
+  sundar: whSundar,
+};
+
+function getProvince(name) {
+  const lower = name.toLowerCase();
+  if (lower.includes('peshawar') || lower.includes('manshara')) return 'KPK';
+  if (lower.includes('karachi') || lower.includes('therparker')) return 'Sindh';
+  return 'Punjab';
+}
 
 const plants = [
   { capacityKey: 'oxygen_plant_capacity', type: 'Oxygen Plant', location: 'Faisalabad', imagePlaceholder: plantImg1 },
@@ -77,13 +85,50 @@ export default function Infrastructure() {
   const { contentMap } = useContent('infrastructure');
   const { statsMap } = useStats();
   const [highlightKey, setHighlightKey] = useState(null);
+  const [warehouses, setWarehouses] = useState([]);
+  const [warehousesLoading, setWarehousesLoading] = useState(true);
+  const [distributors, setDistributors] = useState([]);
+  const [distributorsLoading, setDistributorsLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState('warehouses');
+  const [searchQuery, setSearchQuery] = useState('');
   const cardRefs = useRef({});
   const [statsRef, statsInView] = useInView();
   const [logisticsStatsRef, logisticsStatsInView] = useInView();
 
+  useEffect(() => {
+    loadWarehouseLocations()
+      .then(setWarehouses)
+      .catch(() => {})
+      .finally(() => setWarehousesLoading(false));
+    loadDistributorLocations()
+      .then(setDistributors)
+      .catch(() => {})
+      .finally(() => setDistributorsLoading(false));
+  }, []);
+
+  const currentLocations = activeTab === 'warehouses' ? warehouses : distributors;
+  const currentLoading = activeTab === 'warehouses' ? warehousesLoading : distributorsLoading;
+
+  const filteredDistributors = activeTab === 'distributors' && searchQuery
+    ? distributors.filter(d =>
+        d.city?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        d.name.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : distributors;
+
   const handleMapLocationClick = (loc) => {
     setHighlightKey(loc.key);
     cardRefs.current[loc.key]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
+  const handleCardClick = (loc) => {
+    setHighlightKey(loc.key);
+    cardRefs.current[loc.key]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
+  const handleGetLocation = (e, loc) => {
+    e.stopPropagation();
+    if (loc.mapsUrl) window.open(loc.mapsUrl, '_blank', 'noopener,noreferrer');
   };
 
   const heroHeading = contentMap['hero-heading']?.title || 'OUR INFRASTRUCTURE';
@@ -153,7 +198,7 @@ export default function Infrastructure() {
 
   return (
     <>
-      <section className="w-full relative bg-gray-900 h-[500px] lg:h-[600px]">
+      <section className="w-full relative bg-gray-900 min-h-[calc(100dvh-6rem)]">
         <img src={heroBg} alt="Filling station canopy" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-center px-4 sm:px-8 lg:px-12 max-w-[1400px] mx-auto z-10 w-full lg:w-1/2">
@@ -163,7 +208,7 @@ export default function Infrastructure() {
         </div>
       </section>
 
-      <div ref={statsRef} className="relative z-20 -mt-16 max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div ref={statsRef} className="relative z-20 -mt-4 max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
         <div className="bg-white rounded-xl shadow-xl flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-gray-100 p-2">
           {stats.map((stat, i) => (
             <div key={i} className="flex-1 flex items-center justify-center p-4 gap-4">
@@ -179,29 +224,140 @@ export default function Infrastructure() {
       </div>
 
       <section className="py-20 bg-white max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
-        <h2 className="text-center text-red-600 font-bold uppercase tracking-widest text-sm mb-3">{stationsHeading}</h2>
-        <p className="text-center text-gray-500 text-sm mb-12 max-w-2xl mx-auto">Click a marker on the map to jump to that location below.</p>
-        <div className="mb-12">
-          <WarehouseMap className="h-[420px]" tileTheme="light" highlightKey={highlightKey} onLocationClick={handleMapLocationClick} />
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {stations.map((station, i) => (
-            <div
-              key={i}
-              ref={(el) => { cardRefs.current[station.key] = el; }}
-              className={`flex flex-col group cursor-pointer rounded-lg transition-all ${
-                highlightKey === station.key ? 'ring-2 ring-accent ring-offset-2' : ''
+        <div className="text-center mb-8">
+          <h2 className="text-red-600 font-bold uppercase tracking-widest text-sm mb-3">
+            {activeTab === 'warehouses'
+              ? (contentMap['stations-heading']?.title || 'OUR FILLING STATIONS ACROSS PAKISTAN')
+              : (contentMap['distributors-heading']?.title || 'OUR AUTHORIZED DISTRIBUTORS')}
+          </h2>
+
+          <div className="inline-flex bg-gray-100 rounded-lg p-1 mt-2">
+            <button
+              onClick={() => { setActiveTab('warehouses'); setSearchQuery(''); setHighlightKey(null); }}
+              className={`flex items-center gap-2 px-5 py-2 rounded-md text-sm font-semibold transition-all ${
+                activeTab === 'warehouses'
+                  ? 'bg-white text-red-600 shadow-sm'
+                  : 'text-gray-500 hover:text-gray-700'
               }`}
-              onClick={() => setHighlightKey(station.key)}
             >
-              <div className="aspect-video w-full overflow-hidden rounded-lg mb-3">
-                <img src={station.img} alt={station.name} loading="lazy" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
-              </div>
-              <p className="text-gray-900 font-bold text-base">{station.name}</p>
-              <div className="flex items-center gap-1 text-gray-500 text-xs mt-1"><FaMapMarkerAlt size={10} /><span>{station.province}</span></div>
-            </div>
-          ))}
+              <FaWarehouse size={14} />
+              Warehouses
+            </button>
+            <button
+              onClick={() => { setActiveTab('distributors'); setSearchQuery(''); setHighlightKey(null); }}
+              className={`flex items-center gap-2 px-5 py-2 rounded-md text-sm font-semibold transition-all ${
+                activeTab === 'distributors'
+                  ? 'bg-white text-red-600 shadow-sm'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              <FaTruck size={14} />
+              Distributors
+            </button>
+          </div>
         </div>
+
+        {activeTab === 'distributors' && (
+          <div className="relative max-w-md mx-auto mb-8">
+            <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={14} />
+            <input
+              type="text"
+              placeholder="Search by city or name..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-200 focus:border-red-400"
+            />
+          </div>
+        )}
+
+        <p className="text-center text-gray-500 text-sm mb-8 max-w-2xl mx-auto">
+          {activeTab === 'warehouses'
+            ? 'Click a marker on the map to jump to that location below.'
+            : 'Click a marker on the map or search by city to find a distributor.'}
+        </p>
+
+        <div className="mb-12">
+          <WarehouseMap
+            className="h-[45vh] max-h-[420px] min-h-[280px]"
+            tileTheme="light"
+            highlightKey={highlightKey}
+            onLocationClick={handleMapLocationClick}
+            locations={currentLocations}
+            loading={currentLoading}
+          />
+        </div>
+
+        {currentLoading ? (
+          <div className="flex justify-center py-12">
+            <div className="w-8 h-8 border-2 border-gray-300 border-t-red-600 rounded-full animate-spin" />
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {(activeTab === 'warehouses' ? warehouses : filteredDistributors).map((loc) => {
+              const img = activeTab === 'warehouses' ? imageMap[loc.key] : null;
+              return (
+                <div
+                  key={loc.id}
+                  ref={(el) => { cardRefs.current[loc.key] = el; }}
+                  className={`flex flex-col rounded-lg transition-all ${
+                    highlightKey === loc.key ? 'ring-2 ring-accent ring-offset-2' : ''
+                  }`}
+                >
+                  <div onClick={() => handleCardClick(loc)} className="cursor-pointer">
+                    {activeTab === 'warehouses' ? (
+                      img ? (
+                        <div className="aspect-video w-full overflow-hidden rounded-lg mb-3">
+                          <img src={img} alt={loc.name} loading="lazy" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                      ) : (
+                        <div className="aspect-video w-full rounded-lg mb-3 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                          <FaMapMarkerAlt size={28} className="text-gray-300" />
+                        </div>
+                      )
+                    ) : loc.lat != null && loc.lng != null ? (
+                      <div className="aspect-video w-full overflow-hidden rounded-lg mb-3 bg-gray-100">
+                        <MiniMap lat={loc.lat} lng={loc.lng} />
+                      </div>
+                    ) : (
+                      <div className="aspect-video w-full rounded-lg mb-3 flex items-center justify-center bg-gradient-to-br from-emerald-50 to-emerald-100">
+                        <FaTruck size={28} className="text-emerald-300" />
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex items-start justify-between gap-2">
+                    <div onClick={() => handleCardClick(loc)} className="cursor-pointer min-w-0 flex-1">
+                      <p className="text-gray-900 font-bold text-sm truncate">{loc.name}</p>
+                      {activeTab === 'distributors' && loc.city ? (
+                        <div className="flex items-center gap-1 text-gray-500 text-xs mt-1">
+                          <FaMapMarkerAlt size={10} />
+                          <span>{loc.city}</span>
+                        </div>
+                      ) : activeTab === 'warehouses' ? (
+                        <div className="flex items-center gap-1 text-gray-500 text-xs mt-1">
+                          <FaMapMarkerAlt size={10} />
+                          <span>{getProvince(loc.name)}</span>
+                        </div>
+                      ) : null}
+                    </div>
+                    {loc.mapsUrl && (
+                      <button
+                        onClick={(e) => handleGetLocation(e, loc)}
+                        className="mt-1 flex-shrink-0 bg-red-600 hover:bg-red-700 text-white text-[10px] font-semibold uppercase px-2.5 py-1.5 rounded flex items-center gap-1 transition-all hover:shadow-md active:scale-95"
+                        title="Open in Google Maps"
+                      >
+                        <FaExternalLinkAlt size={8} />
+                        Get Location
+                      </button>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+            {activeTab === 'distributors' && filteredDistributors.length === 0 && (
+              <p className="col-span-full text-center text-gray-400 text-sm py-8">No distributors found matching your search.</p>
+            )}
+          </div>
+        )}
       </section>
 
       <section className="bg-[#0B1A28] py-20 px-4 sm:px-8 lg:px-12">
@@ -214,7 +370,7 @@ export default function Infrastructure() {
           <div className="lg:col-span-8">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {plants.map((plant, i) => (
-                <div key={i} className="relative h-[300px] lg:h-[350px] w-full rounded-xl overflow-hidden group">
+                <div key={i} className="relative aspect-[4/3] w-full rounded-xl overflow-hidden group">
                   <img src={plant.imagePlaceholder} alt={plant.location} loading="lazy" className="object-cover w-full h-full" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B1A28]/90 via-[#0B1A28]/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 p-6 flex flex-col">

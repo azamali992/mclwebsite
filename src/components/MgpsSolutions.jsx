@@ -75,7 +75,7 @@ export default function MgpsSolutions() {
             ref={rightRef}
             className={`flex w-full flex-col items-center transition-[opacity,transform] duration-500 ease-[var(--ease-out)] lg:w-7/12 ${rightInView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
           >
-            <div className="relative h-[360px] w-full sm:h-[460px] lg:h-[560px]">
+            <div className="relative aspect-[4/3] sm:aspect-[16/9] w-full">
               <HospitalPipeline3D height="100%" />
             </div>
             <div className="mt-2 grid w-full grid-cols-1 gap-6 rounded-lg border border-line bg-surface p-6 sm:grid-cols-2 xl:grid-cols-4">

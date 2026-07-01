@@ -5,10 +5,10 @@
 // to match against the database record of the same name.
 const STATS = {
   years_of_excellence: { value: '40+', label: 'Years Of', subtitle: 'Excellence', group: 'company', order: 1 },
-  oxygen_plant_capacity: { value: '125 TPD', label: 'Oxygen Plant', subtitle: 'Capacity', group: 'company', order: 2 },
-  cylinder_capacity: { value: '87000+', label: 'Cylinders', subtitle: 'Capacity', group: 'company', order: 3 },
-  fleet_trucks: { value: '65+', label: 'Trucks In', subtitle: 'Our Fleet', group: 'company', order: 4 },
-  filling_stations: { value: '35+', label: 'Filling Stations', subtitle: 'Nationwide', group: 'company', order: 5 },
+  oxygen_plant_capacity: { value: '160 TPD', label: 'Oxygen Plant', subtitle: 'Capacity • 240 TPD expansion planned (400 TPD total)', group: 'company', order: 2 },
+  cylinder_capacity: { value: '185000+', label: 'Cylinders', subtitle: 'Capacity', group: 'company', order: 3 },
+  fleet_trucks: { value: '100+', label: 'Trucks In', subtitle: 'Our Fleet', group: 'company', order: 4 },
+  filling_stations: { value: '20+', label: 'Filling Stations', subtitle: 'Nationwide', group: 'company', order: 5 },
   satisfied_clients: { value: '1000+', label: 'Satisfied', subtitle: 'Clients', group: 'company', order: 6 },
 
   authorized_distributors: { value: '30+', label: 'Authorized', subtitle: 'Distributors', group: 'infrastructure', order: 1 },

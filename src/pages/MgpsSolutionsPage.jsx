@@ -86,12 +86,12 @@ const overviewChecklist = [
 
 function HeroSection({ c }) {
   return (
-    <section className="w-full relative bg-slate-900 min-h-[600px] lg:min-h-[700px] overflow-hidden">
+    <section className="w-full relative bg-slate-900 min-h-[calc(100dvh-6rem)] overflow-hidden">
       <div className="absolute inset-0 w-full h-full">
         <img src={renderImg} alt="3D medical gas pipeline layout" className="absolute right-0 top-0 w-full lg:w-[60%] h-full object-contain p-6" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-transparent" />
       </div>
-      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 h-full min-h-[600px] lg:min-h-[700px] flex flex-col justify-center">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 h-full min-h-[calc(100dvh-6rem)] flex flex-col justify-center">
         <div className="max-w-2xl">
           <p className="text-accent font-bold uppercase tracking-widest text-sm mb-4">
             {c['mgps-hero-heading']?.title || 'MGPS SOLUTIONS'}
@@ -112,7 +112,7 @@ function HeroSection({ c }) {
           </div>
         </div>
       </div>
-      <div className="relative z-20 -mt-12 max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div className="relative z-20 -mt-4 max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
         <div className="bg-white rounded-lg shadow-xl flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-gray-100">
           {heroStats.map((stat, i) => (
             <div key={i} className="flex-1 flex items-center justify-center gap-3 p-5">
