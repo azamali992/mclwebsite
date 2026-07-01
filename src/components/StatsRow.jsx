@@ -1,4 +1,4 @@
-import { FaRegCalendarAlt, FaIndustry, FaTruck, FaUsers, FaGasPump } from 'react-icons/fa';
+import { FaRegCalendarAlt, FaIndustry, FaTruck, FaUsers, FaGasPump, FaUserTie } from 'react-icons/fa';
 import { TbCylinder } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
 import useStats from '../hooks/useStats';
@@ -35,6 +35,7 @@ const statCards = [
   { key: 'cylinder_capacity', icon: TbCylinder, path: '/production' },
   { key: 'fleet_trucks', icon: FaTruck, path: '/infrastructure' },
   { key: 'filling_stations', icon: FaGasPump, path: '/infrastructure' },
+  { key: 'employees', icon: FaUserTie, path: '/careers' },
   { key: 'satisfied_clients', icon: FaUsers, path: '/about#clients' },
 ];
 
@@ -65,7 +66,7 @@ export default function StatsRow() {
           ref={ref}
           className="overflow-hidden rounded-[2.5rem] border border-line bg-canvas shadow-[var(--shadow-lg)] lg:rounded-full lg:px-6"
         >
-          <div className="grid grid-cols-2 divide-line sm:grid-cols-3 sm:divide-x lg:grid-cols-6 lg:divide-x [&>*]:border-t [&>*]:border-line sm:[&>*]:border-t-0">
+          <div className="grid grid-cols-2 divide-line sm:grid-cols-4 sm:divide-x lg:grid-cols-7 lg:divide-x [&>*]:border-t [&>*]:border-line sm:[&>*]:border-t-0">
             {stats.map((s) => (
               <Stat key={s.key} {...s} active={inView} onClick={() => handleStatClick(s.path)} />
             ))}
