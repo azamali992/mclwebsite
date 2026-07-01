@@ -60,7 +60,7 @@ export default function StatsRow() {
   });
 
   return (
-    <section className="relative z-30 -mt-16 pb-4 sm:-mt-16 lg:-mt-16">
+    <section className="relative z-30 -mt-24 pb-4 sm:-mt-24 lg:-mt-24">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
         <div
           ref={ref}

@@ -33,7 +33,7 @@ export default function Hero() {
         <span className="absolute left-[42%] top-[80%] h-12 w-12 rounded-full animate-float-ambient" style={{ background: 'var(--on-ink-accent)', opacity: 0.05, animationDelay: '4.3s' }} />
       </div>
 
-      <div className="relative z-10 flex min-h-[calc(100dvh-6rem)] items-center">
+      <div className="relative z-10 flex min-h-[calc(100dvh-6rem)] items-start pt-16 sm:pt-20">
         <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-8 lg:px-12">
           <div className="max-w-2xl reveal is-in">
             <p className="eyebrow mb-5" style={{ color: 'var(--on-ink-accent)' }}>
