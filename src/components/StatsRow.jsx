@@ -12,19 +12,19 @@ function Stat({ icon: Icon, number, title, subtitle, active, onClick }) {
   const display = useCountUp(numeric, active);
 
   return (
-    <div onClick={onClick} className="group px-6 py-7 text-center transition-colors duration-200 ease-out hover:bg-accent-soft cursor-pointer">
+    <div onClick={onClick} className="group px-4 py-5 text-center transition-colors duration-200 ease-out hover:bg-accent-soft cursor-pointer">
       <Icon
-        size={20}
-        className="mx-auto mb-2.5 text-muted transition-colors duration-200 ease-out group-hover:text-accent"
+        size={16}
+        className="mx-auto mb-2 text-muted transition-colors duration-200 ease-out group-hover:text-accent"
       />
       {/* mono = fixed advance width, so going bold on hover doesn't reflow */}
-      <p className="font-mono text-3xl font-medium tracking-tight text-ink transition-colors duration-200 ease-out group-hover:font-bold group-hover:text-accent sm:text-[2.4rem]">
+      <p className="font-mono text-2xl font-medium tracking-tight text-ink transition-colors duration-200 ease-out group-hover:font-bold group-hover:text-accent sm:text-[1.8rem]">
         {numeric ? display.toLocaleString() : ''}{suffix}
       </p>
-      <p className="mt-2 text-sm font-medium text-ink transition-colors duration-200 ease-out group-hover:font-semibold group-hover:text-accent">
+      <p className="mt-1.5 text-xs font-medium text-ink transition-colors duration-200 ease-out group-hover:font-semibold group-hover:text-accent">
         {title}
       </p>
-      <p className="text-[13px] text-muted">{subtitle}</p>
+      <p className="text-[11px] text-muted">{subtitle}</p>
     </div>
   );
 }
