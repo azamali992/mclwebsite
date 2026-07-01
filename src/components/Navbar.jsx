@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import {
-  FaBars, FaTimes, FaChevronDown, FaArrowRight,
-  FaBuilding, FaBullseye, FaHistory, FaUsers, FaMapMarkedAlt, FaIndustry, FaAward,
-} from 'react-icons/fa';
+import { FaBars, FaTimes, FaChevronDown, FaArrowRight } from 'react-icons/fa';
 import logo from '../assets/MCL_Logo.jpeg';
 import { gasesBySection } from '../data/gasesData';
 import useStats from '../hooks/useStats';
@@ -31,13 +28,10 @@ export default function Navbar() {
   const isActive = (path) => location.pathname === path;
 
   const aboutLinks = [
-    { label: 'Company Overview', to: '/about#overview', icon: FaBuilding },
-    { label: 'Mission, Vision & Values', to: '/about#mission', icon: FaBullseye },
-    { label: 'History & Milestones', to: '/about#history', icon: FaHistory },
-    { label: 'Leadership Team', to: '/about#team', icon: FaUsers },
-    { label: 'Nationwide Network', to: '/about#network', icon: FaMapMarkedAlt },
-    { label: 'Industries We Serve', to: '/about#clients', icon: FaIndustry },
-    { label: 'Certifications', to: '/about#certifications', icon: FaAward },
+    { label: 'Overview', desc: 'Who we are and what we stand for', to: '/about#overview' },
+    { label: 'History', desc: 'Four decades of industry leadership', to: '/about#history' },
+    { label: 'Mission & Vision', desc: 'Our purpose, values and direction', to: '/about#mission' },
+    { label: 'Our Team', desc: 'Leadership, management and technical staff', to: '/about#team' },
   ];
 
   const navLinks = [
@@ -47,7 +41,7 @@ export default function Navbar() {
     { name: 'Health Engineering', path: '/health-engineering' },
     { name: 'Infrastructure', path: '/infrastructure' },
     { name: 'Production', path: '/production' },
-    { name: 'Quality & Safety', path: '/quality-safety' },
+    { name: 'Certifications', path: '/certifications' },
     { name: 'Careers', path: '/careers' },
     { name: 'Contact Us', path: '/contact' },
   ];
@@ -94,20 +88,31 @@ export default function Navbar() {
                         <FaChevronDown size={9} className={`transition-transform duration-200 ${aboutOpen ? 'rotate-180' : ''}`} />
                       </Link>
                       {aboutOpen && (
-                        <div className="absolute left-0 top-full w-[300px] pt-3">
-                          <ul className={panelClass}>
-                            {aboutLinks.map((item) => {
-                              const ItemIcon = item.icon;
-                              return (
-                                <li key={item.to}>
-                                  <Link to={item.to} onClick={() => setAboutOpen(false)} className={`${panelLink} flex items-center gap-3`}>
-                                    <ItemIcon className="flex-shrink-0 text-accent" size={14} />
-                                    {item.label}
-                                  </Link>
-                                </li>
-                              );
-                            })}
-                          </ul>
+                        <div className="absolute left-0 top-full w-[95vw] max-w-[680px] pt-3">
+                          <div className={`${panelClass} grid grid-cols-1 gap-6 p-6 lg:grid-cols-3`}>
+                            <div className="lg:col-span-2">
+                              <p className="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-accent">Company</p>
+                              <ul className="grid grid-cols-1 gap-1 sm:grid-cols-2">
+                                {aboutLinks.map((item) => (
+                                  <li key={item.to}>
+                                    <Link to={item.to} onClick={() => setAboutOpen(false)} className="group block rounded-md px-3 py-2.5 transition-colors duration-150 hover:bg-surface">
+                                      <span className="block text-sm font-semibold text-ink transition-colors group-hover:text-accent">{item.label}</span>
+                                      <span className="mt-0.5 block text-xs leading-snug text-muted">{item.desc}</span>
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                            <div className="flex flex-col justify-between rounded-md bg-ink-deep p-5">
+                              <div>
+                                <p className="font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-on-dark-soft">Since 1985</p>
+                                <p className="mt-2 text-lg font-semibold leading-snug text-white">Pakistan&apos;s most trusted industrial &amp; medical gas producer.</p>
+                              </div>
+                              <Link to="/about" onClick={() => setAboutOpen(false)} className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-white">
+                                Company overview <FaArrowRight size={10} />
+                              </Link>
+                            </div>
+                          </div>
                         </div>
                       )}
                     </div>

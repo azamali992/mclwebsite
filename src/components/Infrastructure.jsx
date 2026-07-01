@@ -155,7 +155,6 @@ export default function Infrastructure() {
     return api ? { ...s, value: api.value, label: api.label, sublabel: api.sublabel } : s;
   });
 
-  const stationsHeading = contentMap['stations-heading']?.title || 'OUR FILLING STATIONS ACROSS PAKISTAN';
   const plantsHeading = contentMap['plants-heading']?.title || 'OUR PRODUCTION PLANTS';
   const plantsTitle = contentMap['plants-title']?.title || 'Built for Capacity. Engineered for Excellence.';
   const plantsDesc = contentMap['plants-description']?.title || 'State-of-the-art production facilities with advanced technology ensure consistent quality, high purity and uninterrupted supply.';
@@ -272,7 +271,7 @@ export default function Infrastructure() {
 
         <p className="text-center text-gray-500 text-sm mb-8 max-w-2xl mx-auto">
           {activeTab === 'warehouses'
-            ? 'Click a marker on the map to jump to that location below.'
+            ? 'Click a marker on the map, or a card below, to reveal its exact location on Google Maps.'
             : 'Click a marker on the map or search by city to find a distributor.'}
         </p>
 
@@ -339,10 +338,10 @@ export default function Infrastructure() {
                         </div>
                       ) : null}
                     </div>
-                    {loc.mapsUrl && (
+                    {loc.mapsUrl && highlightKey === loc.key && (
                       <button
                         onClick={(e) => handleGetLocation(e, loc)}
-                        className="mt-1 flex-shrink-0 bg-red-600 hover:bg-red-700 text-white text-[10px] font-semibold uppercase px-2.5 py-1.5 rounded flex items-center gap-1 transition-all hover:shadow-md active:scale-95"
+                        className="mt-1 flex-shrink-0 bg-red-600 hover:bg-red-700 text-white text-[10px] font-semibold uppercase px-2.5 py-1.5 rounded flex items-center gap-1 transition-all hover:shadow-md active:scale-95 animate-fade-in-up"
                         title="Open in Google Maps"
                       >
                         <FaExternalLinkAlt size={8} />
@@ -456,7 +455,7 @@ export default function Infrastructure() {
             <p className="text-red-600 font-bold uppercase tracking-widest text-xs mb-3">{qualityHeading}</p>
             <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight mb-4">{qualityTitle}</h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-6">{qualityDesc}</p>
-            <Link to="/about#certifications" className="bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase px-6 py-3 inline-flex items-center gap-2 transition-all hover:shadow-lg active:scale-95 rounded">OUR CERTIFICATIONS &rarr;</Link>
+            <Link to="/certifications" className="bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase px-6 py-3 inline-flex items-center gap-2 transition-all hover:shadow-lg active:scale-95 rounded">OUR CERTIFICATIONS &rarr;</Link>
           </div>
           <div className="lg:col-span-3">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">

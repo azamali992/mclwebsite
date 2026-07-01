@@ -64,7 +64,7 @@ export default function Footer() {
         <div>
           <h4 className="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-white/50">Quick links</h4>
           <div className="grid grid-cols-2 gap-x-4 gap-y-2.5">
-            {['Home', 'About Us', 'Gases', 'Health Engineering', 'Infrastructure', 'Quality & Safety', 'Careers', 'Contact Us'].map((link) => (
+            {['Home', 'About Us', 'Gases', 'Health Engineering', 'Infrastructure', 'Certifications', 'Careers', 'Contact Us'].map((link) => (
               <button key={link} onClick={() => handleQuickLinkClick(link)} className={colLink}>{link}</button>
             ))}
           </div>

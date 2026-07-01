@@ -66,7 +66,6 @@ const HealthEngineering = lazy(() => import('./pages/HealthEngineering'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Careers = lazy(() => import('./pages/Careers'));
 const Admin = lazy(() => import('./pages/Admin'));
-const QualitySafety = lazy(() => import('./pages/QualitySafety'));
 const Certifications = lazy(() => import('./pages/Certifications'));
 const Production = lazy(() => import('./pages/Production'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
@@ -115,7 +114,7 @@ export default function App() {
             <Route path="/products" element={<Navigate to="/gases" replace />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/quality-safety" element={<QualitySafety />} />
+            <Route path="/quality-safety" element={<Navigate to="/certifications" replace />} />
             <Route path="/certifications" element={<Certifications />} />
             <Route path="/production" element={<Production />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
